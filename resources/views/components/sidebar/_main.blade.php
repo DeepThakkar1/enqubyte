@@ -9,24 +9,44 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3 class="text-center">Enqubyte</h3>
+                <img src="{{ url('img/logo.png') }}">
             </div>
 
             <ul class="list-unstyled components">
-                <li>
-                    <a href="#"><img src="{{ url('img/sidebar/dashboard.png') }}"> {{ __('Dashboard') }}</a>
+                <li class="active">
+                    <a href="#">
+                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <span>{{ __('Dashboard') }}</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><img src="{{ url('img/sidebar/stores.png') }}"> {{ __('Stores') }}</a>
+                    <a href="#">
+                        <img src="{{ url('img/sidebar/stores.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/stores-clr.png') }}" class="active-icon">
+                        <span>{{ __('Stores') }}</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><img src="{{ url('img/sidebar/products.png') }}"> {{ __('Products') }}</a>
+                    <a href="#">
+                        <img src="{{ url('img/sidebar/products.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/products-clr.png') }}" class="active-icon">
+                        <span>{{ __('Products') }}</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><img src="{{ url('img/sidebar/reports.png') }}"> {{ __('Reports') }}</a>
+                    <a href="#">
+                        <img src="{{ url('img/sidebar/reports.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/reports-clr.png') }}" class="active-icon">
+                        <span>{{ __('Reports') }}</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#"><img src="{{ url('img/sidebar/settings.png') }}"> {{ __('Settings') }}</a>
+                    <a href="#">
+                        <img src="{{ url('img/sidebar/settings.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/settings-clr.png') }}" class="active-icon">
+                        <span>{{ __('Settings') }}</span>
+                    </a>
                 </li>
 
                 <!-- <li class="active">
@@ -48,12 +68,40 @@
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                        <img src="{{ url('img/sidebar/logout.png') }}"> {{ __('Logout') }}
+                        <img src="{{ url('img/sidebar/logout.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/logout-clr.png') }}" class="active-icon">
+                        <span>{{ __('Logout') }}</span>
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
+                </li>
+            </ul>
+            <ul class="social-links">
+                <li class="border-right">
+                    <a href="javascript:;">
+                        <img src="{{ url('img/sidebar/facebook.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/facebook-clr.png') }}" class="active-icon">
+                    </a>
+                </li>
+                <li class="border-right">
+                    <a href="javascript:;">
+                        <img src="{{ url('img/sidebar/instagram.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/instagram-clr.png') }}" class="active-icon">
+                    </a>
+                </li>
+                <li class="border-right">
+                    <a href="javascript:;">
+                        <img src="{{ url('img/sidebar/twitter.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/twitter-clr.png') }}" class="active-icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="{{ url('img/sidebar/linkedin.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/linkedin-clr.png') }}" class="active-icon">
+                    </a>
                 </li>
             </ul>
         </nav>

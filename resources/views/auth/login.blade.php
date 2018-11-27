@@ -10,10 +10,10 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center  mt-4">
+    <div class="row justify-content-center text-center mt-3">
         <div class="col-md-5">
             <div class="auth-container">
-                <h3 class="mb-3 text-center font-weight-bold">{{ __('Enqubyte') }}</h3>
+                <img src="{{ url('img/logo.png') }}" height="70px">
                 <h1 class="mb-5 mt-4 font-weight-bold text-center">{{ __('Sign in') }}</h1>
                 <div class="">
                     <form method="POST" action="{{ route('login') }}">
