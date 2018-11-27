@@ -10,10 +10,12 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center text-center mt-3">
+    <div class="row justify-content-center mt-3">
         <div class="col-md-6">
             <div class="auth-container">
-                <img src="{{ url('img/logo.png') }}" height="70px" class="mb-3">
+                <div class="text-center">
+                    <img src="{{ url('img/logo.png') }}" height="70px" class="mb-3">
+                </div>
                 <div class="">
                     <form id="wizard" method="POST" class="frmRegistration" action="{{ route('register') }}">
                         @csrf
