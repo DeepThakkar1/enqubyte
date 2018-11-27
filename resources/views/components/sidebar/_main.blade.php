@@ -79,19 +79,19 @@
                 </li>
             </ul>
             <ul class="social-links">
-                <li class="border-right">
+                <li>
                     <a href="javascript:;">
                         <img src="{{ url('img/sidebar/facebook.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/facebook-clr.png') }}" class="active-icon">
                     </a>
                 </li>
-                <li class="border-right">
+                <li>
                     <a href="javascript:;">
                         <img src="{{ url('img/sidebar/instagram.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/instagram-clr.png') }}" class="active-icon">
                     </a>
                 </li>
-                <li class="border-right">
+                <li>
                     <a href="javascript:;">
                         <img src="{{ url('img/sidebar/twitter.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/twitter-clr.png') }}" class="active-icon">
