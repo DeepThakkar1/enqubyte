@@ -14,12 +14,16 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="wrapper">
+        @auth
+            @include('components.sidebar._main')
+        @else
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -70,19 +74,21 @@
                 </div>
             </div>
         </nav>
+        @endauth
 
-        <main class="py-4">
+        <main class="py-4" id="content">
             @yield('content')
         </main>
     </div>
+    @stack('css')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/parsley.js') }}"></script>
-    <script src="{{ asset('js/jquery.steps.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
     <script>
         $('form').parsley();
     </script>
     @stack('js')
+    @stack('bottom')
+
 </body>
 </html>

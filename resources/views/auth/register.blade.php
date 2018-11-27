@@ -1,12 +1,20 @@
 @extends('layouts.app')
 
+@push('css')
+<style type="text/css">
+    .navbar-laravel{
+        display: none;
+    }
+</style>
+@endpush
+
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card">
-                <!-- <div class="card-header">{{ __('Register') }}</div> -->
-                <div class="card-body">
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <div class="auth-container">
+                <h3 class="mb-3 text-center font-weight-bold">Enqubyte</h3>
+                <div class="">
                     <form id="wizard" method="POST" class="frmRegistration" action="{{ route('register') }}">
                         @csrf
                         @include('auth.registration.step1')
@@ -21,5 +29,7 @@
 @endsection
 
 @push('js')
+<script src="{{ asset('js/jquery.steps.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/wizard.js') }}"></script>
 @endpush

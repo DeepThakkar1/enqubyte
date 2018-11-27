@@ -10503,6 +10503,7 @@ input.parsley-error {
 .wizard > .steps {
   margin-bottom: 25px;
   margin-top: 10px;
+  display: none;
 }
 
 .wizard > .steps li.checked a {

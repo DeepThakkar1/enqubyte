@@ -1,26 +1,33 @@
 @extends('layouts.app')
 
+@push('css')
+<style type="text/css">
+    .navbar-laravel{
+        display: none;
+    }
+</style>
+@endpush
+
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center  mt-4">
         <div class="col-md-5">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-                <div class="card-body">
+            <div class="auth-container">
+                <h3 class="mb-3 text-center font-weight-bold">{{ __('Enqubyte') }}</h3>
+                <h1 class="mb-5 mt-4 font-weight-bold text-center">{{ __('Sign in') }}</h1>
+                <div class="">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="email" class="col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-                            @if ($errors->has('email'))
+                            @include('components.inputs.username', ['inputName' => 'company_username', 'inputPlaceholder' => 'Username'])
+                            @if ($errors->has('company_username'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('email') }}</strong>
+                                    <strong>{{ $errors->first('company_username') }}</strong>
                                 </span>
                             @endif
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="col-form-label text-md-right">{{ __('Password') }}</label>
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                             @if ($errors->has('password'))
@@ -31,23 +38,33 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="form-check">
+                            <div class="form-check d-inline float-left">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">
                                     {{ __('Remember Me') }}
                                 </label>
                             </div>
+                            <div class="float-right">
+                                @if (Route::has('password.request'))
+                                    <a class="btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
                         </div>
 
-                        <div class="form-group mb-0 text-center">
-                            <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        <div class="clearfix"></div>
+                        <div class="form-group mt-3 mb-0 text-center">
+                            <button type="submit" class="btn btn-primary mb-4 btn-block btn-lg">
                                 {{ __('Login') }}
                             </button>
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link mt-2" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                            <div class="loginSignUpSeparator"><span class="textInSeparator">or</span></div>
+                            <p class="text-center">
+                                Don't have a Enqubyte account yet?
+                                <a class="btn-link" href="{{ route('register') }}">
+                                    {{ __('Sign Up') }}
                                 </a>
-                            @endif
+                            </p>
                         </div>
                     </form>
                 </div>
