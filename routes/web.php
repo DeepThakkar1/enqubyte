@@ -33,3 +33,9 @@ Route::post('/stores/{store}/update', 'StoresController@update');
 Route::post('/stores/{store}/manager', 'ManagersController@store');
 Route::post('/stores/{store}/manager/{manager}/update', 'ManagersController@update');
 Route::post('/stores/{store}/manager/{manager}/delete', 'ManagersController@destroy');
+
+Route::get('/products', 'ProductsController@index');
+Route::post('/products', 'ProductsController@store');
+Route::get('/products/{product}', 'ProductsController@show');
+Route::post('/products/{product}/delete', 'ProductsController@destroy');
+Route::post('/products/{product}/update', 'ProductsController@update');

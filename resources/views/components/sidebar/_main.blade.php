@@ -29,8 +29,8 @@
                         <span>{{ __('Stores') }}</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li class="{{ request()->is('products') ? 'active' : ''}}">
+                    <a href="/products">
                         <img src="{{ url('img/sidebar/products.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/products-clr.png') }}" class="active-icon">
                         <span>{{ __('Products') }}</span>

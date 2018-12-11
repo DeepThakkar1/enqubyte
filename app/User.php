@@ -3,6 +3,7 @@
 namespace App;
 use App\Models\Store;
 use App\Models\Manager;
+use App\Models\Product;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -38,6 +39,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function managers()
     {
         return $this->hasMany(Manager::class, 'company_id')->latest();
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'company_id')->latest();
     }
 
     public function getFullnameAttribute()
