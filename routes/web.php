@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'LandingCotroller@index');
+Route::get('/features', 'LandingCotroller@feature');
+Route::get('/privacy-policy', 'LandingCotroller@privacy_policy');
+Route::get('/terms-and-services', 'LandingCotroller@terms_services');
+Route::get('/demo', 'LandingCotroller@demo');
 
 Auth::routes(['verify' => true]);
 
