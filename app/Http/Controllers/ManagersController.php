@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Store;
+use App\Models\Manager;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class StoresController extends Controller
+class ManagersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,7 @@ class StoresController extends Controller
      */
     public function index()
     {
-        $stores = auth()->user()->stores;
-        return view('stores.index', compact('stores'));
+        //
     }
 
     /**
@@ -34,32 +35,34 @@ class StoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Store $store)
     {
-        auth()->user()->stores()->create($request->all());
-        flash('Store added successfully!');
+        $newData = $request->all();
+        $newData['company_id'] = auth()->id();
+        $newData['password'] = Hash::make($newData['password']);
+        $store->managers()->create($newData);
+        flash('Manager added successfully!');
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Manager  $manager
      * @return \Illuminate\Http\Response
      */
-    public function show(Store $store)
+    public function show(Manager $manager)
     {
-        $managers = $store->managers;
-        return view('stores.show', compact('store', 'managers'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Manager  $manager
      * @return \Illuminate\Http\Response
      */
-    public function edit(Store $store)
+    public function edit(Manager $manager)
     {
         //
     }
@@ -68,26 +71,26 @@ class StoresController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Manager  $manager
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, Store $store, Manager $manager)
     {
-        $store->update($request->all());
-        flash('Store updated successfully!');
-        return back();
+        $manager->update($request->all());
+        flash('Manager updated successfully!');
+        return redirect('/stores/'.$store->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Manager  $manager
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy(Store $store, Manager $manager)
     {
-        $store->delete();
-        flash('Store deleted successfully!');
-        return redirect('/stores');
+        $manager->delete();
+        flash('Manager deleted successfully!');
+        return redirect('/stores/'.$store->id);
     }
 }
