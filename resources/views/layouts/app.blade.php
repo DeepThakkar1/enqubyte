@@ -75,6 +75,7 @@
         @endauth
 
         <main class="py-4" id="content">
+            @include('flash::message')
             @yield('content')
         </main>
     </div>
@@ -86,6 +87,9 @@
         $('form').parsley();
     </script>
     @stack('js')
+    <script>
+        $('div.alert-dismissable').not('.alert-important').delay(3000).fadeOut(350);
+        </script>
     @stack('bottom')
 
 </body>

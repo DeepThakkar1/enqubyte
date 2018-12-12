@@ -13,7 +13,9 @@
     <div class="row justify-content-center text-center mt-3">
         <div class="col-md-5">
             <div class="auth-container">
-                <img src="{{ url('img/logo.png') }}" height="70px">
+                <a href="/">
+                    <img src="{{ url('img/logo.png') }}" height="70px">
+                </a>
                 <h1 class="mb-5 mt-4 font-weight-bold text-center">{{ __('Sign in') }}</h1>
                 <div class="">
                     <form method="POST" action="{{ route('login') }}">

@@ -14,7 +14,9 @@
         <div class="col-md-6">
             <div class="auth-container">
                 <div class="text-center">
-                    <img src="{{ url('img/logo.png') }}" height="70px" class="mb-3">
+                    <a href="/">
+                        <img src="{{ url('img/logo.png') }}" height="70px" class="mb-3">
+                    </a>
                 </div>
                 <div class="">
                     <form id="wizard" method="POST" class="frmRegistration" action="{{ route('register') }}">

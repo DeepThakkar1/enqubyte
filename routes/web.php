@@ -24,3 +24,18 @@ Route::get('/demo', 'LandingCotroller@demo');
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/stores', 'StoresController@index');
+Route::post('/stores', 'StoresController@store');
+Route::get('/stores/{store}', 'StoresController@show');
+Route::post('/stores/{store}/delete', 'StoresController@destroy');
+Route::post('/stores/{store}/update', 'StoresController@update');
+
+Route::post('/stores/{store}/manager', 'ManagersController@store');
+Route::post('/stores/{store}/manager/{manager}/update', 'ManagersController@update');
+Route::post('/stores/{store}/manager/{manager}/delete', 'ManagersController@destroy');
+
+Route::get('/products', 'ProductsController@index');
+Route::post('/products', 'ProductsController@store');
+Route::get('/products/{product}', 'ProductsController@show');
+Route::post('/products/{product}/delete', 'ProductsController@destroy');
+Route::post('/products/{product}/update', 'ProductsController@update');
