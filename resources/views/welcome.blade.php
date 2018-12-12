@@ -139,7 +139,7 @@
 <!-- agency banner section -->
 <section class="xs-banner agency-banner6" id="homes" data-scrollax-parent="true">
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: -150px;">
             <div class="col-lg-7 align-self-center">
                 <div class="agency-banner-content banner-style6">
                     <h2 class="banner-title"><span class="title-underline">Business</span> is the <span class="title-underline">salt of</span> life</h2>
@@ -165,7 +165,7 @@
 </section><!-- end agency banner section -->
 
 <!-- growth grid section -->
-<section class="growth-card-section xs-section-padding">
+<section class="growth-card-section xs-section-padding" style="padding: 60px 0;">
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
