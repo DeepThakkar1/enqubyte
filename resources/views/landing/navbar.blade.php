@@ -1,7 +1,7 @@
 <header class="xs-header header-transparent header-style3">
     <div class="container">
         <nav class="xs-menus clearfix">
-            <div class="nav-header" style="margin-left: -42px;">
+            <div class="nav-header header-logo">
                 <a class="nav-brand" href="/">
                     <img src="/img/enque bite colour white.png" alt="">
                 </a>

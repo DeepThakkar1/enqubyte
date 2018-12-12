@@ -97,7 +97,7 @@
                     <li><a href="#" class="vimeo"><i class="fa fa-vimeo"></i></a></li>
                 </ul><!-- .social-list -->
                 <div class="text-center">
-                    <a href="https://themeforest.net/user/xpeedstudio/portfolio" class="btn btn-primary">Purchase Now</a>
+                    <!-- <a href="https://themeforest.net/user/xpeedstudio/portfolio" class="btn btn-primary">Purchase Now</a> -->
                 </div>
             </div>
         </div>

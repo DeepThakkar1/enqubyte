@@ -10,14 +10,14 @@
 <div class="xs-inner-banner inner-banner2" style="background-image:url('assets/images/banner/2.jpg')">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 align-self-center" style="margin-top: 80px;">
+                <div class="col-md-6 col-sm-12 col-xs-12 align-self-center features-section">
                     <div class="agency-banner-content banner-style3">
                         <h1 class="banner-title">Our Features</h1>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which </p>
                         <a href="#" class="btn btn-primary btn-gradient4">Get Started Now</a>
                     </div><!-- .agency-banner-content END -->
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="agency-banner-img">
                         <img src="assets/images/welcome/agency_welcome_2.png" data-scrollax="properties: { translateY: '25%' }" alt="agency banner image" draggable="false" style="transform: translateZ(0px) translateY(0%);">
                     </div><!-- .agency-banner-img END -->
@@ -32,7 +32,7 @@
 
 
 <!-- business care area section -->
-<section class="section-padding-medium">
+<section class="section-padding-medium section-padding-medium0">
     <div class="container">
         <div id="sales">
         <div class="row">
@@ -86,7 +86,7 @@
 </section><!-- business care area section end -->
 
 <!-- business care area section -->
-<section class="section-padding-medium">
+<section class="section-padding-medium section-padding-medium1">
     <div class="container">
         <div id="enquiries">
         <div class="row">
@@ -131,7 +131,7 @@
             </div>
             <div class="col-md-6">
                 <div class="business-care-img">
-                    <img src="/img/PNG/Enquiry 2-01.png" alt="" style="margin-top: -50px;">
+                    <img src="/img/PNG/Enquiry 2-01.png" alt="">
                 </div>
             </div>
         </div><!-- .row END -->
@@ -140,7 +140,7 @@
 </section><!-- business care area section end -->
 
 <!-- business care area section -->
-<section class="section-padding-medium">
+<section class="section-padding-medium section-padding-medium2">
     <div class="container">
         <div id="reports & Graphs">
         <div class="row">
@@ -154,7 +154,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="business-care-img">
-                    <img src="/img/PNG/Reports And Graphs 2-01.png" alt="" style="margin-top: -45px;">
+                    <img src="/img/PNG/Reports And Graphs 2-01.png" alt="">
                 </div>
             </div>
             <div class="col-md-6">
@@ -194,7 +194,7 @@
 </section><!-- business care area section end -->
 
 <!-- business care area section -->
-<section class="section-padding-medium">
+<section class="section-padding-medium section-padding-medium3">
     <div class="container">
         <div id="campaigns">
         <div class="row">
@@ -239,7 +239,7 @@
             </div>
             <div class="col-md-6">
                 <div class="business-care-img">
-                    <img src="/img/PNG/Campaign-2.png" alt="" style="margin-top: -30px;">
+                    <img src="/img/PNG/Campaign-2.png" alt="">
                 </div>
             </div>
         </div><!-- .row END -->
@@ -248,7 +248,7 @@
 </section><!-- business care area section end -->
 
 <!-- business care area section -->
-<section class="section-padding-medium">
+<section class="section-padding-medium section-padding-medium4">
     <div class="container">
         <div id="payouts & Incentives">
         <div class="row">
@@ -262,7 +262,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="business-care-img">
-                    <img src="/img/PNG/Payouts-&-Incentives-2.png" alt="" style="margin-top: -70px;">
+                    <img src="/img/PNG/Payouts-&-Incentives-2.png" alt="">
                 </div>
             </div>
             <div class="col-md-6">
@@ -302,7 +302,7 @@
 </section><!-- business care area section end -->
 
 <!-- business care area section -->
-<section class="section-padding-medium">
+<section class="section-padding-medium section-padding-medium5">
     <div class="container">
         <div id="products">
         <div class="row">
@@ -347,7 +347,7 @@
             </div>
             <div class="col-md-6">
                 <div class="business-care-img">
-                    <img src="/img/Products n Stocks 2-01.png" alt="" style="margin-top: -9px;">
+                    <img src="/img/Products n Stocks 2-01.png" alt="">
                 </div>
             </div>
         </div><!-- .row END -->
@@ -356,7 +356,7 @@
 </section><!-- business care area section end -->
 
 <!-- business care area section -->
-<section class="section-padding-medium">
+<section class="section-padding-medium section-padding-medium6">
     <div class="container">
         <div id="customers">
         <div class="row">
