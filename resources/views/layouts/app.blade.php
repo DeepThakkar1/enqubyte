@@ -10,6 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
     <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CRoboto:400,500,700,900%7CPlayfair+Display:400,700,700i,900,900i%7CWork+Sans:400,500,600,700" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -25,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ url('img/logo.png') }}" height="30px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -42,11 +44,17 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="/" style="font-size: 14px;">{{ __('HOME') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/features" style="font-size: 14px;">{{ __('FEATURES') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-primary px-4 ml-4" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link btn btn-primary text-white px-4 ml-2" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
                                 @endif
                             </li>
                         @else

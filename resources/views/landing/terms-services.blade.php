@@ -4,13 +4,13 @@
 
 @include('landing.navbar')
 
-@include('landing.sidebar')
+
 
 <!--breadcumb start here-->
-<div class="xs-inner-banner inner-banner2" style="background-image:url('assets/images/banner/2.jpg')">
+<div class="xs-inner-banner inner-banner2" style="margin-top: 63px;padding-left: 55px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 align-self-center" style="margin-top: 80px;">
+                <div class="col-md-6 align-self-center" style="margin-top: 0px;">
                     <div class="agency-banner-content banner-style3">
                         <h1 class="banner-title">Terms of Service</h1>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which </p>
