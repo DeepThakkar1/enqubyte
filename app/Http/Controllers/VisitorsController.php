@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Store;
+use App\Models\Visitor;
 use Illuminate\Http\Request;
 
-class StoresController extends Controller
+class VisitorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,10 @@ class StoresController extends Controller
      */
     public function index()
     {
-        $stores = auth()->user()->stores()->paginate(10);
-        return view('stores.index', compact('stores'));
+        $stores = auth()->user()->stores;
+        $visitors = auth()->user()->visitors()->paginate(10);
+
+        return view('visitors.index', compact('stores', 'visitors'));
     }
 
     /**
@@ -36,32 +38,31 @@ class StoresController extends Controller
      */
     public function store(Request $request)
     {
-        auth()->user()->stores()->create($request->all());
-        flash('Store added successfully!');
+        $newData = $request->all();
+        $newData['company_id'] = auth()->id();
+        auth()->user()->visitors()->create($newData);
+        flash('Visitor added successfully!');
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Visitor  $visitor
      * @return \Illuminate\Http\Response
      */
-    public function show(Store $store)
+    public function show(Visitor $visitor)
     {
-        $managers = $store->managers()->paginate(10);
-        $employees = $store->employees()->paginate(10);
-        $products = $store->products()->paginate(10);
-        return view('stores.show', compact('store', 'managers','employees', 'products'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Visitor  $visitor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Store $store)
+    public function edit(Visitor $visitor)
     {
         //
     }
@@ -70,26 +71,26 @@ class StoresController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Visitor  $visitor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, Visitor $visitor)
     {
-        $store->update($request->all());
-        flash('Store updated successfully!');
+        $visitor->update($request->all());
+        flash('Visitor updated successfully!');
         return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Visitor  $visitor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy(Visitor $visitor)
     {
-        $store->delete();
-        flash('Store deleted successfully!');
-        return redirect('/stores');
+        $visitor->delete();
+        flash('Visitor deleted successfully!');
+        return back();
     }
 }

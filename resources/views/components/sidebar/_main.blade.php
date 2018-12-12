@@ -22,18 +22,32 @@
                         <span>{{ __('Dashboard') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('stores') ? 'active' : ''}}">
+                <li class="{{ request()->is('stores*') ? 'active' : ''}}">
                     <a href="/stores">
                         <img src="{{ url('img/sidebar/stores.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/stores-clr.png') }}" class="active-icon">
                         <span>{{ __('Stores') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('products') ? 'active' : ''}}">
+                <li class="{{ request()->is('products*') ? 'active' : ''}}">
                     <a href="/products">
                         <img src="{{ url('img/sidebar/products.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/products-clr.png') }}" class="active-icon">
                         <span>{{ __('Products') }}</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('employees*') ? 'active' : ''}}">
+                    <a href="/employees">
+                        <img src="{{ url('img/sidebar/employee.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/employee-clr.png') }}" class="active-icon">
+                        <span>{{ __('Employees') }}</span>
+                    </a>
+                </li>
+                <li class="{{ request()->is('visitors*') ? 'active' : ''}}">
+                    <a href="/visitors">
+                        <img src="{{ url('img/sidebar/employee.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/employee-clr.png') }}" class="active-icon">
+                        <span>{{ __('Visitors') }}</span>
                     </a>
                 </li>
                 <li>

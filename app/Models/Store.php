@@ -4,6 +4,8 @@ namespace App\Models;
 use App\User;
 use App\Models\Manager;
 use App\Models\Product;
+use App\Models\Visitor;
+use App\Models\Employee;
 use Illuminate\Database\Eloquent\Model;
 
 class Store extends Model
@@ -20,6 +22,16 @@ class Store extends Model
     public function managers()
     {
         return $this->hasMany(Manager::class)->latest();
+    }
+
+    public function employees()
+    {
+        return $this->hasMany(Employee::class)->latest();
+    }
+
+    public function visitors()
+    {
+        return $this->hasMany(Visitor::class)->latest();
     }
 
     public function products()

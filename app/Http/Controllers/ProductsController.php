@@ -16,7 +16,7 @@ class ProductsController extends Controller
     public function index()
     {
         $stores = Store::all();
-        $products = auth()->user()->products;
+        $products = auth()->user()->products()->paginate(10);
         return view('products.index', compact('stores', 'products'));
     }
 

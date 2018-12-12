@@ -39,3 +39,15 @@ Route::post('/products', 'ProductsController@store');
 Route::get('/products/{product}', 'ProductsController@show');
 Route::post('/products/{product}/delete', 'ProductsController@destroy');
 Route::post('/products/{product}/update', 'ProductsController@update');
+
+Route::get('/employees', 'EmployeesController@index');
+Route::post('/employees', 'EmployeesController@store');
+Route::get('/employees/{employee}', 'EmployeesController@show');
+Route::post('/employees/{employee}/delete', 'EmployeesController@destroy');
+Route::post('/employees/{employee}/update', 'EmployeesController@update');
+
+Route::get('/visitors', 'VisitorsController@index');
+Route::post('/visitors', 'VisitorsController@store');
+Route::get('/visitors/{visitor}', 'VisitorsController@show');
+Route::post('/visitors/{visitor}/delete', 'VisitorsController@destroy');
+Route::post('/visitors/{visitor}/update', 'VisitorsController@update');
