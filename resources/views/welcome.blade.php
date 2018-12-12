@@ -99,7 +99,7 @@
 @section('content')
     <!-- END prelaoder -->
 <!-- header section -->
-<header class="xs-header header-transparent header-style2">
+{{-- <header class="xs-header header-transparent header-style2">
     <div class="container">
         <nav class="xs-menus clearfix">
             <div class="nav-header">
@@ -130,9 +130,11 @@
             </div>
         </nav>
     </div><!-- .container END -->
-</header><!-- End header section -->
+</header><!-- End header section --> --}}
 
-@include('landing.sidebar')
+
+@include('landing.navbar')
+
 
 <!-- agency banner section -->
 <section class="xs-banner agency-banner6" id="homes" data-scrollax-parent="true">
@@ -407,7 +409,7 @@
                 <div class="col-lg-6 mx-auto">
                     <div class="call-to-action text-center action-style2">
                         <h2 class="content-title">Wanna Get New Test of Modern Web Design Trend?</h2>
-                        <a href="#" class="btn btn-primary style5 icon-right">GET A QUOTE <i class="icon icon-arrow-right"></i></a>
+                        <a href="{{ route('register') }}" class="btn btn-primary style5 icon-right">Get Started Now<i class="icon icon-arrow-right"></i></a>
                     </div>
                 </div>
             </div><!-- .row END -->

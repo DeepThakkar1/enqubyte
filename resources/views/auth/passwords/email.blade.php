@@ -1,20 +1,18 @@
 @extends('layouts.app')
 
-@push('css')
-<style type="text/css">
-    .navbar-laravel{
-        display: none;
-    }
-</style>
-@endpush
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center text-center mt-3">
         <div class="col-md-5">
             <div class="auth-container">
-                <a href="/"><img src="{{ url('img/logo.png') }}" height="70px"></a>
-                <h1 class="mb-5 mt-4 font-weight-bold text-center">Forget Password?</h1>
+                <h1 class="mb-5 mt-4 font-weight-bold text-center">Forget your password?</h1>
+                <p style="
+                    font-size: 21px;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                ">Enter your account email address, we will send you a password reset link.
+                    </p>
                  <div class="">
                 <!-- <div class="card-header">{{ __('Reset Password') }}</div> -->
 
@@ -29,10 +27,9 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                                <div class="col-md-8">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                               
+                                <div class="col-md-12">
+                                    <input id="email" style="height: 45px;" placeholder="E-mail Address" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
@@ -43,8 +40,8 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="col-md-12">
+                                    <button style="height: 45px;" type="submit" class="btn btn-primary d-block w-100">
                                         {{ __('Send Password Reset Link') }}
                                     </button>
                                 </div>

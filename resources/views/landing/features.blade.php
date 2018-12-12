@@ -4,10 +4,8 @@
 
 @include('landing.navbar')
 
-@include('landing.sidebar')
-
 <!--breadcumb start here-->
-<div class="xs-inner-banner inner-banner2" style="background-image:url('assets/images/banner/2.jpg')">
+<div class="xs-inner-banner inner-banner2" style=" margin-top: 63px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 align-self-center features-section">
