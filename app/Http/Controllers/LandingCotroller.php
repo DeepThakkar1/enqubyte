@@ -16,7 +16,7 @@ class LandingCotroller extends Controller
     	return view('landing.privacy-policy');
     }
     public function terms_services(){
-    	return view('landing.privacy-policy');
+    	return view('landing.terms-services');
     }
 
     public function demo(){

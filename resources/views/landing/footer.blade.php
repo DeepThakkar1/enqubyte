@@ -7,7 +7,8 @@
                 <div class="col-lg-6 mx-auto">
                     <div class="call-to-action text-center action-style2">
                         <h2 class="content-title">Wanna Get New Test of Modern Web Design Trend?</h2>
-                        <a href="#" class="btn btn-primary style5 icon-right">GET A QUOTE <i class="icon icon-arrow-right"></i></a>
+                        <!-- <a href="#" class="btn btn-primary style5 icon-right">GET A QUOTE <i class="icon icon-arrow-right"></i></a> -->
+                        <a href="{{ route('register') }}" class="btn btn-primary btn-gradient4 icon-right">Get Started Now </a>
                     </div>
                 </div>
             </div><!-- .row END -->

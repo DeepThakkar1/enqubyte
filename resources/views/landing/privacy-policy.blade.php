@@ -11,18 +11,18 @@
 <div class="xs-inner-banner inner-banner2" style="margin-top: 63px;padding-left: 55px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 align-self-center" style="margin-top: 0px;">
+                <div class="col-md-12 align-self-center text-center" style="margin-top: 0px;">
                     <div class="agency-banner-content banner-style3">
                         <h1 class="banner-title">Privacy Policy</h1>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which </p>
-                        <a href="#" class="btn btn-primary btn-gradient4">Get Started Now</a>
-                    </div><!-- .agency-banner-content END -->
+                        <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which </p> -->
+                        <a href="/register" class="btn btn-primary btn-gradient4">Get Started Now</a>
+                    </div>
                 </div>
-                <div class="col-md-6">
+               <!--  <div class="col-md-6">
                     <div class="agency-banner-img">
                         <img src="assets/images/welcome/agency_welcome_2.png" data-scrollax="properties: { translateY: '25%' }" alt="agency banner image" draggable="false" style="transform: translateZ(0px) translateY(0%);">
-                    </div><!-- .agency-banner-img END -->
-                </div>
+                    </div>
+                </div> -->
             </div><!-- .row END -->
         </div><!-- .container END -->
         <div class="scrollto-button-wraper">
@@ -34,7 +34,7 @@
     <div id="solution" class="business-area policy pos-rel gray-bg pt-135" style="font-size: 20px;padding-top: 60px;padding-bottom: 60px;">
     <div class="container">
         <div class="row">
-            <div class="col-xl-12 mb-30 business-box">
+            <div class="col-xl-12 mb-30 business-box custom-terms-services-content">
                 <!-- <div class="business-section">
                     <h1>Terms of Service</h1>
                 </div> -->

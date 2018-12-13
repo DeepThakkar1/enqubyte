@@ -139,7 +139,7 @@
 <!-- agency banner section -->
 <section class="xs-banner agency-banner6" id="homes" data-scrollax-parent="true">
     <div class="container">
-        <div class="row" style="margin-top: -150px;">
+        <div class="row" style="margin-top: -40px;">
             <div class="col-lg-7 align-self-center">
                 <div class="agency-banner-content banner-style6">
                     <h2 class="banner-title"><span class="title-underline">Business</span> is the <span class="title-underline">salt of</span> life</h2>
@@ -345,7 +345,7 @@
                     <div class="more-feature-header">
                         <img src="assets/images/more-features-icon/more-feautures-icon-1.png" alt="">
                     </div>
-                    <h3 class="feature-title">Perfect Timing</h3>
+                    <h3 class="feature-title">Enquiries</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
                 </div><!-- .single-more-feauture END -->
             </div>
@@ -354,7 +354,7 @@
                     <div class="more-feature-header">
                         <img src="assets/images/more-features-icon/more-feautures-icon-2.png" alt="">
                     </div>
-                    <h3 class="feature-title">Online Connection</h3>
+                    <h3 class="feature-title">Products & Stock</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
                 </div><!-- .single-more-feauture END -->
             </div>
@@ -363,7 +363,7 @@
                     <div class="more-feature-header">
                         <img src="assets/images/more-features-icon/more-feautures-icon-3.png" alt="">
                     </div>
-                    <h3 class="feature-title">Notification Update</h3>
+                    <h3 class="feature-title">Customers</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
                 </div><!-- .single-more-feauture END -->
             </div>
@@ -372,7 +372,7 @@
                     <div class="more-feature-header">
                         <img src="assets/images/more-features-icon/more-feautures-icon-4.png" alt="">
                     </div>
-                    <h3 class="feature-title">Photo & Video</h3>
+                    <h3 class="feature-title">Sales</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
                 </div><!-- .single-more-feauture END -->
             </div>
@@ -381,7 +381,7 @@
                     <div class="more-feature-header">
                         <img src="assets/images/more-features-icon/more-feautures-icon-5.png" alt="">
                     </div>
-                    <h3 class="feature-title">Awesome Support</h3>
+                    <h3 class="feature-title">Payouts & Incentives</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
                 </div><!-- .single-more-feauture END -->
             </div>
@@ -390,7 +390,7 @@
                     <div class="more-feature-header">
                         <img src="assets/images/more-features-icon/more-feautures-icon-6.png" alt="">
                     </div>
-                    <h3 class="feature-title">Expert Team</h3>
+                    <h3 class="feature-title">Campaigns</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
                 </div><!-- .single-more-feauture END -->
             </div>
@@ -409,7 +409,8 @@
                 <div class="col-lg-6 mx-auto">
                     <div class="call-to-action text-center action-style2">
                         <h2 class="content-title">Wanna Get New Test of Modern Web Design Trend?</h2>
-                        <a href="{{ route('register') }}" class="btn btn-primary style5 icon-right">Get Started Now<i class="icon icon-arrow-right"></i></a>
+                        <a href="/register" class="btn btn-primary btn-gradient4 icon-right">Get Started Now</a>
+                        <!-- <a href="{{ route('register') }}" class="btn btn-primary style5 icon-right">Get Started Now<i class="icon icon-arrow-right"></i></a> -->
                     </div>
                 </div>
             </div><!-- .row END -->
