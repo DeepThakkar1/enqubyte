@@ -4,3 +4,6 @@ body{
 .form-control {
   	height: 47px !important;
 }
+textarea.form-control {
+    height: auto !important;
+}

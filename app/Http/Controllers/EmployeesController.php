@@ -91,7 +91,20 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        $employee->update($request->all());
+        $newData = $request->all();
+        if(request()->has('photo'))
+        {
+            $newData['photo'] = request()->file('photo')->store(
+                '/uploads/employees/'. auth()->id(). '/avatar', 'public'
+            );
+        }
+        if(request()->has('verification_doc'))
+        {
+            $newData['verification_doc'] = request()->file('verification_doc')->store(
+                '/uploads/employees/'. auth()->id(). '/document', 'public'
+            );
+        }
+        $employee->update($newData);
         flash('Employee updated successfully!');
         return back();
     }
