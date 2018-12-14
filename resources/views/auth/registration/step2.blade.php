@@ -47,7 +47,6 @@
                 <option value="2">2 lacs to 5 lacs</option>
                 <option value="3">more than 5 lacs</option>
             </select>
-            <p class="m-0 text-muted"><small>{{ __('This will be the sub-domain to your dashboard.') }}</small></p>
             @if ($errors->has('estimated_monthly_sales'))
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('estimated_monthly_sales') }}</strong>

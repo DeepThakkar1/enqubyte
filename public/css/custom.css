@@ -4,6 +4,7 @@ body{
 .form-control {
   	height: 47px !important;
 }
+
 .custom-caurosal .carousel-indicators .active {
     /*background-color: #166ead !important;*/
      background-color:#000 !important;
@@ -53,5 +54,10 @@ body{
 }
 .modal-footer .carousel-control-prev, .carousel-control-next {
      opacity: unset !important; 
+}
+
+
+textarea.form-control {
+    height: auto !important;
 }
 
