@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\User;
+use App\Models\Stock;
 use App\Models\Manager;
 use App\Models\Product;
 use App\Models\Visitor;
@@ -37,5 +38,10 @@ class Store extends Model
     public function products()
     {
         return $this->hasMany(Product::class)->latest();
+    }
+
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class)->latest();
     }
 }

@@ -2,14 +2,14 @@
 
 namespace App\Models;
 use App\User;
-use App\Models\Stock;
 use App\Models\Store;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Stock extends Model
 {
     protected $fillable = [
-        'company_id', 'store_id', 'name', 'description', 'selling_price', 'stock', 'cost_price', 'tax', 'hsn_code', 'product_code',
+        'company_id', 'store_id', 'product_id', 'qty'
     ];
 
     public function users()
@@ -22,8 +22,8 @@ class Product extends Model
         return $this->belongsTo(Store::class);
     }
 
-    public function stock()
+    public function product()
     {
-        return $this->hasOne(Stock::class);
+        return $this->belongsTo(Product::class);
     }
 }

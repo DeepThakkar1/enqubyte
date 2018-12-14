@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Store;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class StoresController extends Controller
@@ -51,8 +52,9 @@ class StoresController extends Controller
     {
         $managers = $store->managers()->paginate(10);
         $employees = $store->employees()->paginate(10);
-        $products = $store->products()->paginate(10);
-        return view('stores.show', compact('store', 'managers','employees', 'products'));
+        $stocks = $store->stocks;
+        $allProducts = Product::where('company_id', $store->user_id)->get();
+        return view('stores.show', compact('allProducts', 'store', 'managers','employees', 'stocks'));
     }
 
     /**

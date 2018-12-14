@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Models\Stock;
 use App\Models\Store;
 use App\Models\Manager;
 use App\Models\Product;
@@ -56,6 +57,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function products()
     {
         return $this->hasMany(Product::class, 'company_id')->latest();
+    }
+
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class, 'company_id')->latest();
     }
 
     public function getFullnameAttribute()

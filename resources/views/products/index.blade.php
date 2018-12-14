@@ -43,7 +43,7 @@
                                 <form method="post" action="/products/{{$product->id}}/update">
                                     @csrf
                                     <div class="modal-body">
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>Store<sup class="error">*</sup></label>
                                             <select name="store_id" class="form-control" required>
                                                 <option disabled value="">-- Select Store --</option>
@@ -51,7 +51,7 @@
                                                 <option value="{{$store->id}}" {{$product->id == $store->id ? 'selected' : ''}}>{{$store->name}}</option>
                                                 @endforeach
                                             </select>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label>Product Name<sup class="error">*</sup></label>
                                             <input type="text" name="name" value="{{$product->name}}" class="form-control" placeholder="Product name" required>
@@ -119,7 +119,7 @@
             <form method="post" action="/products">
                 @csrf
                 <div class="modal-body">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
                         <select name="store_id" class="form-control" required>
                             <option disabled selected>-- Select Store --</option>
@@ -127,7 +127,7 @@
                             <option value="{{$store->id}}">{{$store->name}}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label>Product Name<sup class="error">*</sup></label>
                         <input type="text" name="name" class="form-control" placeholder="Product name" required>

@@ -40,6 +40,8 @@ Route::get('/products/{product}', 'ProductsController@show');
 Route::post('/products/{product}/delete', 'ProductsController@destroy');
 Route::post('/products/{product}/update', 'ProductsController@update');
 
+Route::post('/stores/{store}/products/{product}/assign', 'StocksController@store');
+
 Route::get('/employees', 'EmployeesController@index');
 Route::post('/employees', 'EmployeesController@store');
 Route::get('/employees/{employee}', 'EmployeesController@show');
