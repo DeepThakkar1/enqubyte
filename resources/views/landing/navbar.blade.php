@@ -27,8 +27,8 @@
             </nav>
         </div><!-- .container END -->
     </header><!-- End header section --> --}}
-
-    <div class="header-transparent nav-sticky nav-light" data-scroll-to="top">
+<header class="xs-header header-transparent header-style3">
+    <div class="header-transparent nav-sticky nav-lights" data-scroll-to="top">
     <div class="off-canvas-menu-area munu-style-border">
         <div class="container">
             <div class="offset-menu-wraper clearfix">
@@ -66,3 +66,4 @@
         </div>
     </div>    <!-- End header section -->
 </div>
+</header>
