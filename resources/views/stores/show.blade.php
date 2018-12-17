@@ -71,10 +71,3 @@
     </div>
 
 @endsection
-
-@push('js')
-<script type="text/javascript">
-
-
-</script>
-@endpush

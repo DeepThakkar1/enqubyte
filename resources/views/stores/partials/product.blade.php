@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             @foreach($stocks as $key => $stock)
-            <tr class="product-row{{$stock->id}}">
+            <tr class="product-row{{$stock->product->id}}">
                 <td>{{$key + 1}}</td>
                 <td>{{$stock->product->name}}</td>
                 <td>&#8377; {{$stock->product->cost_price}}</td>
@@ -189,12 +189,13 @@
                                     <p class="text-muted mb-1">Stock : <span class="productStock">{{$product->stock}}</span></p>
                                 </div>
                                 <div class="ml-3">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group">
                                         <input type="number" name="qty" class="form-control" aria-describedby="basic-addon2" required>
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary btn-assign-qty" company-id="{{auth()->id()}}" product-id="{{$product->id}}" store-id="{{$store->id}}" type="button">Assign</button>
                                         </div>
                                     </div>
+                                    <p class="m-0 error" style="display: none;">This field is required.</p>
                                 </div>
                             </div>
                         </li>
@@ -213,6 +214,7 @@
 
     <script type="text/javascript">
         $('.btn-assign-qty').on('click', function(){
+
             var companyId = $(this).attr('company-id');
             var storeId = $(this).attr('store-id');
             var productId = $(this).attr('product-id');
@@ -221,6 +223,7 @@
             var productRowID = $('.table-products tbody').find('.product-row'+ productId);
 
             if(qty){
+                $('p.error').hide();
                 axios.post('/stores/'+ storeId +'/products/'+ productId +'/assign', {
                     qty:qty,
                 })
@@ -248,6 +251,8 @@
                 });
             }else{
                 console.log('else');
+                console.log($(this).parents('.input-group'));
+                $(this).parents('.input-group').parent('.ml-3').find('p.error').show();
             }
         });
     </script>
