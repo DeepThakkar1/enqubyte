@@ -343,7 +343,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn">
                     <div class="more-feature-header">
-                        <img src="/img/enquiry-icon.png" alt="">
+                        <img src="/img/icon/enquiry-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Enquiries</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -352,7 +352,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".2s">
                     <div class="more-feature-header">
-                        <img src="/img/products-and-stocks-icon.png" alt="">
+                        <img src="/img/icon/products-and-stocks-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Products & Stock</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -361,7 +361,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".4s">
                     <div class="more-feature-header">
-                        <img src="/img/customers-icon.png" alt="">
+                        <img src="/img/icon/customers-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Customers</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -370,7 +370,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".6s">
                     <div class="more-feature-header">
-                        <img src="/img/sales-icon.png" alt="">
+                        <img src="/img/icon/sales-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Sales</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -379,7 +379,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".8s">
                     <div class="more-feature-header">
-                        <img src="/img/payout-and-incentives-icon.png" alt="">
+                        <img src="/img/icon/payout-and-incentives-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Payouts & Incentives</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -388,7 +388,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay="1s">
                     <div class="more-feature-header">
-                        <img src="/img/campign-icon.png" alt="">
+                        <img src="/img/icon/campign-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Campaigns</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
