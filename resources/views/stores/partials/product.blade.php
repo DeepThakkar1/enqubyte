@@ -17,12 +17,12 @@
         </thead>
         <tbody>
             @foreach($stocks as $key => $stock)
-            <tr row-id="{{$stock->id}}">
+            <tr class="product-row{{$stock->id}}">
                 <td>{{$key + 1}}</td>
                 <td>{{$stock->product->name}}</td>
                 <td>&#8377; {{$stock->product->cost_price}}</td>
                 <td>&#8377; {{$stock->product->selling_price}}</td>
-                <td>{{ $stock->qty }}</td>
+                <td><span class="stock-qty">{{ $stock->qty }}</span></td>
                 <!-- <td>
                     <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Edit </a>
                     <form method="post" action="/products/{{$stock->id}}/delete" class="d-inline">
@@ -213,25 +213,33 @@
 
     <script type="text/javascript">
         $('.btn-assign-qty').on('click', function(){
-            companyId = $(this).attr('company-id');
-            storeId = $(this).attr('store-id');
-            productId = $(this).attr('product-id');
-            qty = $(this).parents('li').find('[name="qty"]').val();
-            productStock = $(this).parents('li').find('.productStock');
+            var companyId = $(this).attr('company-id');
+            var storeId = $(this).attr('store-id');
+            var productId = $(this).attr('product-id');
+            var qty = $(this).parents('li').find('[name="qty"]').val();
+            var productStock = $(this).parents('li').find('.productStock');
+            var productRowID = $('.table-products tbody').find('.product-row'+ productId);
 
             if(qty){
                 axios.post('/stores/'+ storeId +'/products/'+ productId +'/assign', {
                     qty:qty,
                 })
                 .then(function (response) {
-                    console.log(response.data);
                     productStock.html(response.data.product.stock);
-                    var row = $('.table-products').attr('data-id =' + response.data.product.id);
-                    console.log(row);
-                    if(row){
-
+                    $('.table-products tbody').find('tr').find('row-id',1);
+                    if(productRowID.length ==1){
+                        productRowID.find('.stock-qty').html(response.data.stock.qty);
                     }else{
+                        tableRows = $('.table-products tbody tr');
 
+                        var newProduct = '<tr class="product-row'+ response.data.product.id +'">\
+                        <td>'+ (tableRows.length + 1) +'</td>\
+                        <td>'+ response.data.product.name +'</td>\
+                        <td>&#8377; ' + response.data.product.cost_price + ' </td>\
+                        <td>&#8377; ' + response.data.product.selling_price + '</td>\
+                        <td><span class="stock-qty">' + response.data.stock.qty + '</span></td></tr>';
+
+                        $('.table-products tbody').append(newProduct);
                     }
                     //location.reload(true);
                 })

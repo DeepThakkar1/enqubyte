@@ -83,9 +83,14 @@
         </nav>
         @endauth
 
-        <main class="py-4" id="content">
-            @include('flash::message')
-            @yield('content')
+        <main id="content">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+            </button>
+            <div class="py-4">
+                @include('flash::message')
+                @yield('content')
+            </div>
         </main>
     </div>
     @stack('css')
@@ -98,7 +103,14 @@
     @stack('js')
     <script>
         $('div.alert-dismissable').not('.alert-important').delay(3000).fadeOut(350);
-        </script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
     @stack('bottom')
 
     @yield('scripts')
