@@ -137,13 +137,13 @@
 
 
 <!-- agency banner section -->
-<section class="xs-banner agency-banner6" id="homes" data-scrollax-parent="true">
+<section class="xs-banner agency-banner6 mt-4" id="homes" data-scrollax-parent="true">
     <div class="container">
         <div class="row" style="margin-top: -40px;">
             <div class="col-lg-7 align-self-center">
                 <div class="agency-banner-content banner-style6">
                     <h2 class="banner-title"><span class="title-underline">Business</span> is the <span class="title-underline">salt of</span> life</h2>
-                    <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.</p>
+                    <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli.</p>
                     <div class="banner-video-popups">
                         <a href="https://www.youtube.com/watch?v=BJq4d1-lHq8" class="xs-video-popup">
                             <i class="icon icon-play"></i>
@@ -154,7 +154,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="agency-banner-img">
-                    <img src="/assets/images/welcome/agency_welcome_3.png" data-scrollax="properties: { translateY: '50%' }" alt="">
+                    <img src="/img/homepage-01.svg" style="width: 100%;" data-scrollax="properties: { translateY: '50%' }" alt="">
                 </div><!-- .agency-banner-img END -->
             </div>
         </div>
@@ -343,7 +343,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn">
                     <div class="more-feature-header">
-                        <img src="assets/images/more-features-icon/more-feautures-icon-1.png" alt="">
+                        <img src="/img/enquiry-Icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Enquiries</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -352,7 +352,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".2s">
                     <div class="more-feature-header">
-                        <img src="assets/images/more-features-icon/more-feautures-icon-2.png" alt="">
+                        <img src="/img/products-and-Stocks-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Products & Stock</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -361,7 +361,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".4s">
                     <div class="more-feature-header">
-                        <img src="assets/images/more-features-icon/more-feautures-icon-3.png" alt="">
+                        <img src="/img/customers-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Customers</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -370,7 +370,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".6s">
                     <div class="more-feature-header">
-                        <img src="assets/images/more-features-icon/more-feautures-icon-4.png" alt="">
+                        <img src="/img/sales-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Sales</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -379,7 +379,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".8s">
                     <div class="more-feature-header">
-                        <img src="assets/images/more-features-icon/more-feautures-icon-5.png" alt="">
+                        <img src="/img/payout-and-Incentives-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Payouts & Incentives</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>
@@ -388,7 +388,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="single-more-feauture text-center wow fadeIn" data-wow-delay="1s">
                     <div class="more-feature-header">
-                        <img src="assets/images/more-features-icon/more-feautures-icon-6.png" alt="">
+                        <img src="/img/campign-icon.png" alt="">
                     </div>
                     <h3 class="feature-title">Campaigns</h3>
                     <p>We work systematically to integrate corporate responsibility in our core business</p>

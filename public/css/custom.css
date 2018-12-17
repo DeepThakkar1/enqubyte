@@ -61,3 +61,12 @@ textarea.form-control {
     height: auto !important;
 }
 
+.custom-btn-info{
+    background-color: #166ead !important;
+    border-color: #166ead !important;
+}
+
+.custom-dropdown-toggle::after {
+    right: -5px !important;
+}
+

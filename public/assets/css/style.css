@@ -101,7 +101,7 @@ button:focus {
     -webkit-transform: translateY(-150%);
     -ms-transform: translateY(-150%);
     transform: translateY(-150%);
-    background-color: #f1f1f1;
+    background-color: #fff;
     width: 100%;
     z-index: 100;
     -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -1724,7 +1724,8 @@ button:focus {
 
 .agency-banner-content p {
     color: #878787;
-    font-size: 0.9375rem;
+    /*font-size: 0.9375rem;*/
+    font-size: 1.2rem;
     margin-bottom: 45px
 }
 
@@ -2044,7 +2045,8 @@ button:focus {
 }
 
 .agency-banner6 {
-    min-height: 850px
+    /*min-height: 850px*/
+    min-height: 700px;
 }
 
 .agency-banner6 .banner-icon-bg {
@@ -2057,8 +2059,13 @@ button:focus {
 }
 
 .agency-banner6 .agency-banner-img {
-    margin-right: -175px;
-    margin-left: -130px
+    /*margin-right: -175px;
+    margin-left: -130px*/
+    /*margin-right: -145px;
+    margin-left: -30px;*/
+    margin-right: -106px;
+    margin-left: -86px;
+    margin-top: -10px;
 }
 
 .agency-banner-content .banner-video-popups .xs-video-popup {
@@ -2085,7 +2092,7 @@ button:focus {
 }
 
 .agency-banner-content.banner-style6 .banner-title {
-    font-size: 5.625rem;
+    font-size: 4.625rem;
     font-family: "Roboto", sans-serif;
     color: #1B6DAB;
     font-weight: 900;
@@ -2105,6 +2112,10 @@ button:focus {
 .agency-banner-content.banner-style6 p {
     color: #1a0b46;
     padding-right: 100px
+    line-height: 27px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 25px !important;
+    width: 85%;
 }
 
 .agency-banner7 {
