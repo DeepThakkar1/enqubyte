@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="">
+
     <h2 class="d-inline-block ">{{$store->name}}</h2>
     <hr>
     <div class="card mb-4">
@@ -70,3 +71,10 @@
     </div>
 
 @endsection
+
+@push('js')
+<script type="text/javascript">
+
+
+</script>
+@endpush
