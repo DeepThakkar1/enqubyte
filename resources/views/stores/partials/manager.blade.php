@@ -10,7 +10,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Action</th>
+                    <th width="160px">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +33,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title">Edit Manager</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="close btn-close-modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
@@ -53,7 +53,7 @@
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
                                                     <label>Email ID</label>
-                                                    <input type="email" name="email" value="{{isset($manager->email) ? $manager->email : ''}}" class="form-control" placeholder="Store email" required>
+                                                    <input type="email" name="email" value="{{isset($manager->email) ? $manager->email : ''}}" class="form-control" placeholder="Manager email" required>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
@@ -62,7 +62,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                                             <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                     </form>
@@ -84,7 +84,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Manager</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -104,7 +104,7 @@
                     <div class="row form-group">
                         <div class="col-sm-6">
                             <label>Email ID<sup class="error">*</sup></label>
-                            <input type="email" name="email" class="form-control" placeholder="Store email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Manager email" required>
                         </div>
                         <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
                 </div>
             </form>

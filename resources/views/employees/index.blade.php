@@ -14,7 +14,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Action</th>
+                <th width="160px">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -44,11 +44,11 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Edit Employee</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close btn-close-modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form method="post" action="/employees" enctype="multipart/form-data">
+                                <form method="post" action="/employees/{{$employee->id}}/update" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
                                         <div class="form-group">
@@ -83,15 +83,15 @@
 
                                         <div class="row form-group">
                                             <div class="col-sm-6">
-                                                <label>Photo<sup class="error">*</sup></label>
-                                                <input type="file" name="photo" value="{{$employee->photo}}" class="form-control" required>
+                                                <label>Photo</label>
+                                                <input type="file" name="photo" class="form-control">
                                                 @if($employee->photo)
                                                 <img src="{{Storage::url($employee->photo)}}" width="100px" class="mt-2">
                                                 @endif
                                             </div>
                                             <div class="col-sm-6">
-                                                <label>ID Proof<sup class="error">*</sup></label>
-                                                <input type="file" name="verification_doc" value="{{$employee->verification_doc}}" class="form-control" required>
+                                                <label>ID Proof</label>
+                                                <input type="file" name="verification_doc" class="form-control">
                                                 @if($employee->verification_doc)
                                                 <img src="{{Storage::url($employee->verification_doc)}}" width="100px" class="mt-2">
                                                 @endif
@@ -105,7 +105,7 @@
                                                 </div> -->
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                                                 <button type="submit" class="btn btn-primary">Update</button>
                                             </div>
                                         </form>
@@ -126,7 +126,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Add Employee</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close btn-close-modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -181,7 +181,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
                         </div>
                     </form>

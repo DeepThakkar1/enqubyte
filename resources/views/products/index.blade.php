@@ -13,7 +13,7 @@
                 <th>Cost Price</th>
                 <th>Selling Price</th>
                 <th>Stock</th>
-                <th>Action</th>
+                <th width="160px">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +36,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Edit Product</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close btn-close-modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -66,8 +66,8 @@
                                                 <input type="text" name="selling_price" value="{{$product->selling_price}}" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                                             </div>
                                             <div class="col-sm-6">
-                                                <label>Stock</label>
-                                                <input type="text" pattern="\d*" name="stock" value="{{$product->stock}}" class="form-control" placeholder="Stock">
+                                                <label>Available Stock</label>
+                                                <input type="text" pattern="\d*" name="stock" value="{{$product->stock}}" class="form-control" placeholder="Available Stock">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                                         <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </form>
@@ -112,7 +112,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -142,8 +142,8 @@
                             <input type="text" name="selling_price" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                         </div>
                         <div class="col-sm-6">
-                            <label>Stock</label>
-                            <input type="text" pattern="\d*" name="stock" class="form-control" placeholder="Stock">
+                            <label>Available Stock</label>
+                            <input type="text" pattern="\d*" name="stock" class="form-control" placeholder="Available Stock">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
                 </div>
             </form>

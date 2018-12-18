@@ -30,7 +30,6 @@ $(function () {
         $('.frmRegistration').parsley().whenValidate({
             group: 'block-' + curIndex()
         }).done(function() {
-            console.log('clicked')
             $("#wizard").steps('next');
             //navigateTo(curIndex() + 1);
         });
