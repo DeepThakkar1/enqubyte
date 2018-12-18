@@ -136,7 +136,7 @@
                                     <div class="col-md-6 text-center">
                                         <div class="text-center">
                                             <label for="chk-singleStore">
-                                                <input type="radio" class="radio" name="store" value="0" checked id="chk-singleStore">
+                                                <input type="radio" class="radio" name="mode" value="0" checked id="chk-singleStore">
                                                 <h4>Single Store</h4>
                                             </label>
                                         </div>
@@ -144,7 +144,7 @@
                                     <div class="col-md-6 text-center">
                                         <div class="text-center">
                                             <label for="chk-multiStore">
-                                                <input type="radio" class="radio" name="store" value="1" id="chk-multiStore">
+                                                <input type="radio" class="radio" name="mode" value="1" id="chk-multiStore">
                                                 <h4>Multi Store</h4>
                                             </label>
                                         </div>
@@ -180,10 +180,12 @@
 @push('js')
 <script type="text/javascript">
     $(document).ready(function(){
+        @if(!auth()->user()->demo)
         $('#demoModal').modal({
             backdrop: false,
             show:true
         });
+        @endif
         $('#carouselExampleIndicators').carousel({
             interval:false,
         });
@@ -214,9 +216,20 @@
         $("#carouselExampleIndicators").on('click', '.carousel-btn-skip', function() {
             $('#carouselExampleIndicators').carousel(3);
         });
+        var mode = 0;
+        $("#carouselExampleIndicators").on('click', '[type="radio"]', function() {
+            mode = $(this).val();
+        });
         $("#carouselExampleIndicators").on('click', '.carousel-btn-finish', function() {
-            var store = $('#carouselExampleIndicators [name="store"]').val();
-            console.log(store);
+            axios.post('/users/mode', {
+                mode:mode,
+            })
+            .then(function (response) {
+                $('#demoModal').modal('hide');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         });
     });
 </script>

@@ -25,4 +25,10 @@ class UsersController extends Controller
             return response(['status'=>false], 404);
         }
     }
+
+    public function mode(Request $request)
+    {
+        auth()->user()->update(['mode' => request('mode'), 'demo'=> 1]);
+        return response(['status' => 'success'], 200);
+    }
 }
