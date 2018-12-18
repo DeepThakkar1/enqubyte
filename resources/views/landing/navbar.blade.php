@@ -27,7 +27,7 @@
             </nav>
         </div><!-- .container END -->
     </header><!-- End header section --> --}}
-<header class="xs-header header-transparent header-style3">
+<header class="xs-header header-transparent header-style3 desktop-navbar">
     <div class="header-transparent nav-sticky nav-lights" data-scroll-to="top">
     <div class="off-canvas-menu-area munu-style-border">
         <div class="container">
@@ -67,3 +67,33 @@
     </div>    <!-- End header section -->
 </div>
 </header>
+
+<header class="xs-header header-transparent nav-lights responsive-navbar">
+    <div class="container" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);">
+        <nav class="xs-menus clearfix">
+            <div class="nav-header">
+                <a class="nav-brand" href="index-2.html">
+                    <img src="/img/logo.png" alt="" style="width: 133px;margin-left: -14px;">
+                </a>
+                <div class="nav-toggle"></div>
+            </div>
+            <div class="nav-menus-wrapper align-to-right">
+                <!-- menu list -->
+                <ul class="nav-menu">
+                    <li>
+                        <a href="/">HOME</a>
+                    </li>
+                    <li>
+                        <a href="/features">Features</a>
+                    </li>
+                    <li style="padding: 10px;">
+                        <a href="/login" class="btn btn-outline-primary custom-login-button" style="padding: 10px;">Login</a>
+                    </li>
+                    <li style="padding: 10px;">
+                        <a href="/features" class="btn-primary custom-register-btn text-white" style="padding: 10px;">Sign Up</a>
+                    </li>
+                </ul>                
+            </div>
+        </nav>
+    </div><!-- .container END -->
+</header><!-- End header section -->

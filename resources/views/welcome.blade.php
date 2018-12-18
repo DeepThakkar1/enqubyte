@@ -139,7 +139,7 @@
 <!-- agency banner section -->
 <section class="xs-banner agency-banner6 mt-4" id="homes" data-scrollax-parent="true">
     <div class="container">
-        <div class="row" style="margin-top: -40px;">
+        <div class="row home-banner-section">
             <div class="col-lg-7 align-self-center">
                 <div class="agency-banner-content banner-style6">
                     <h2 class="banner-title"><span class="title-underline">Business</span> is the <span class="title-underline">salt of</span> life</h2>
@@ -153,7 +153,7 @@
                 </div><!-- .agency-banner-content END -->
             </div>
             <div class="col-lg-5">
-                <div class="agency-banner-img">
+                <div class="agency-banner-img responsive-agency-banner-img">
                     <img src="/img/homepage-01.svg" style="width: 100%;" data-scrollax="properties: { translateY: '50%' }" alt="">
                 </div><!-- .agency-banner-img END -->
             </div>
@@ -241,7 +241,7 @@
                         <h3 class="content-title">A Satisfied Customer is best for business</h3>
                         <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                     </div>
-                    <div class="piechats-wraper clearfix">
+                    <div class="piechats-wraper clearfix responsive-piechats-wraper">
                         <div class="single-piechart">
                             <div class="chart" data-percent="75">
                                 <div class="chart-content"></div>

@@ -31,7 +31,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ url('img/logo.png') }}" height="30px">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" style="border:none !important;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -52,11 +52,11 @@
                                 <a class="nav-link" href="/features" style="font-size: 14px;">{{ __('FEATURES') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-primary px-4 ml-4" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link btn btn-outline-primary login-btn-section px-4 ml-md-4" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link btn btn-primary text-white px-4 ml-2" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
+                                    <a class="nav-link btn btn-primary text-white px-4 ml-md-2" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
                                 @endif
                             </li>
                         @else

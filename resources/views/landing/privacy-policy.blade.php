@@ -8,7 +8,7 @@
 
 
 <!--breadcumb start here-->
-<div class="xs-inner-banner inner-banner2" style="margin-top: 63px;padding-left: 55px;">
+<div class="xs-inner-banner inner-banner2 inner-banner-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 align-self-center text-center" style="margin-top: 0px;">

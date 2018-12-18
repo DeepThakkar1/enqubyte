@@ -3879,7 +3879,14 @@ button:focus {
     background-position: center center
 }
 
-.xs-inner-banner:after,
+/*.xs-inner-banner:after,
+.xs-inner-banner:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    height: 100%;
+    width: 100%
+}*/
 .xs-inner-banner:before {
     position: absolute;
     content: "";
@@ -13474,9 +13481,69 @@ input[type=number] {
 .custom-terms-services-content .business-wrapper p{
     font-size: 17px !important;
 }
+.desktop-navbar{
+    display: block !important;
+}
+.responsive-navbar{
+    display: none !important;
+}
+.home-banner-section{
+    margin-top: -40px;
+}
+.terms-services-section{
+    margin-top: 63px;
+    padding-left: 55px;
+}
+.inner-banner-section{
+    padding-left: 55px;
+    margin-top: 63px;
+}
 @media(max-width: 768px){
+    .desktop-navbar{
+        display: none !important;
+    }
+    .responsive-navbar{
+        display: block !important;
+    }
     .header-logo{
         margin-left: 0px;
+    }
+    .home-banner-section {
+        margin-top: 70px;
+    }
+    .agency-banner-content.banner-style6 p {
+        width: 100%; 
+        font-size: 15px !important;
+    }
+    .agency-banner6 {
+        min-height: 600px !important;
+    }
+    .responsive-agency-banner-img{
+        margin-top: 25px !important;
+    }
+    .home-banner-section .agency-banner-content h2{
+        font-size: 45px !important;
+    }
+    .agency-section-title.section-title-style2 p {
+        width: 100%;
+    }
+    .single-piechart:not(:last-child) {
+        margin-right: 55px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+    .responsive-piechats-wraper{
+        margin-left: 95px;
+    }
+    .xs-inner-banner.inner-banner2 {
+        min-height: 265px;
+    }
+    .inner-banner-section{
+        padding-left: 0px;
+        margin-top: 63px;
+    }
+    .features-section {
+     padding-left: 14px; 
     }
     .features-section {
         margin-top: 170px;
