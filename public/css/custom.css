@@ -36,14 +36,15 @@ body{
     padding: 10px;
 }
 .custom-carousel-control-prev .carousel-control-prev-icon, .carousel-control-next-icon {
-     width: unset !important; 
-     height: unset !important; 
+     width: unset !important;
+     height: unset !important;
 }
 
 .custom-carousel-control-next .carousel-control-next-icon, .carousel-control-next-icon {
     position: absolute;
     bottom: 12px;
 }
+.custom-carousel-control-prev .carousel-control-prev-icon,
 .custom-carousel-control-next .carousel-control-next-icon {
     background-image: none !important;
     /*background-color: #000 !important;*/
@@ -51,9 +52,10 @@ body{
     color: #fff !important;
     border-radius: 5px;
     padding: 10px 26px;
+    width: 110px !important;
 }
 .modal-footer .carousel-control-prev, .carousel-control-next {
-     opacity: unset !important; 
+     opacity: unset !important;
 }
 
 
