@@ -200,3 +200,10 @@ input.parsley-error {
 .error{
     color: red;
 }
+.input-group .parsley-errors-list {
+    position: absolute;
+    bottom: -33px;
+    display: block;
+    width: 100%;
+    background: #fff;
+}

@@ -23,6 +23,9 @@ Route::get('/demo', 'LandingCotroller@demo');
 
 Auth::routes(['verify' => true]);
 
+Route::get('/users/email/{email}/available', 'UsersController@emailIsAvailable');
+Route::get('/users/username/{username}/available', 'UsersController@usernameIsAvailable');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/stores', 'StoresController@index');
 Route::post('/stores', 'StoresController@store');
