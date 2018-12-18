@@ -89,7 +89,7 @@
                @include('components.navbar')
             @endauth
 
-            
+
             <div class="py-4">
                 @include('flash::message')
                 @yield('content')
@@ -101,7 +101,11 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/parsley.js') }}"></script>
     <script>
-        $('form').parsley();
+        $('form').parsley({
+            classHandler: function(el) {
+                return el.$element.closest(".form-group");
+            }
+        });
     </script>
     @stack('js')
     <script>
@@ -111,6 +115,13 @@
                 $('#sidebar, #content').toggleClass('active');
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+
+            $('.btn-close-modal').on('click', function(){
+                var modal = $(this).parents('.modal');
+                var form = $(this).parents('.modal').find('form');
+                form.trigger('reset');
+                modal.modal('hide');
             });
         });
     </script>

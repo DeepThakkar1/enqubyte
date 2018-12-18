@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h2 class="d-inline-block ">Products</h2>
     <a href="#addProductModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Product</a>
     <hr>
@@ -13,7 +13,7 @@
                 <th>Cost Price</th>
                 <th>Selling Price</th>
                 <th>Stock</th>
-                <th>Action</th>
+                <th width="160px">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
                 <td>&#8377; {{$product->selling_price}}</td>
                 <td>{{$product->stock}}</td>
                 <td>
-                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Edit </a>
+                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit </a>
                     <form method="post" action="/products/{{$product->id}}/delete" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i> Delete</button>
@@ -36,7 +36,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Edit Product</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close btn-close-modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -66,8 +66,8 @@
                                                 <input type="text" name="selling_price" value="{{$product->selling_price}}" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                                             </div>
                                             <div class="col-sm-6">
-                                                <label>Stock</label>
-                                                <input type="text" pattern="\d*" name="stock" value="{{$product->stock}}" class="form-control" placeholder="Stock">
+                                                <label>Available Stock</label>
+                                                <input type="text" pattern="\d*" name="stock" value="{{$product->stock}}" class="form-control" placeholder="Available Stock">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                                         <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </form>
@@ -112,7 +112,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -142,8 +142,8 @@
                             <input type="text" name="selling_price" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                         </div>
                         <div class="col-sm-6">
-                            <label>Stock</label>
-                            <input type="text" pattern="\d*" name="stock" class="form-control" placeholder="Stock">
+                            <label>Available Stock</label>
+                            <input type="text" pattern="\d*" name="stock" class="form-control" placeholder="Available Stock">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
                 </div>
             </form>

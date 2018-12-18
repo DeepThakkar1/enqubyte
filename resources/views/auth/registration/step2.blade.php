@@ -7,7 +7,7 @@
             tempor incididunt ut labore et dolore magna aliqua.
         </div>
         <div class="form-group">
-             @include('components.inputs.username', ['inputName' => 'company_username', 'inputPlaceholder' => 'Username'])
+             @include('components.inputs.username', ['inputName' => 'company_username', 'inputPlaceholder' => 'Username', 'isRegister' => true])
             <p class="m-0 text-muted"><small>{{ __('This will be the sub-domain to your dashboard.') }}</small></p>
             @if ($errors->has('company_username'))
             <span class="invalid-feedback" role="alert">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h2 class="d-inline-block ">Visitors</h2>
     <a href="#addVisitorModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Visitor</a>
     <hr>
@@ -12,7 +12,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Action</th>
+                <th width="160px">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
                 <td>{{$visitor->email}}</td>
                 <td>{{$visitor->phone}}</td>
                 <td>
-                    <a href="#editVisitorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Edit </a>
+                    <a href="#editVisitorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit </a>
                     <form method="post" action="/visitors/{{$visitor->id}}/delete" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> Delete</button>
@@ -34,7 +34,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Edit Visitor</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close btn-close-modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                                         <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </form>
@@ -98,7 +98,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Visitor</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
                 </div>
             </form>

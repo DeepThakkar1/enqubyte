@@ -21,7 +21,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group">
-                            @include('components.inputs.username', ['inputName' => 'company_username', 'inputPlaceholder' => 'Username'])
+                            @include('components.inputs.username', ['inputName' => 'company_username', 'inputPlaceholder' => 'Username', 'isRegister' => false])
                             @if ($errors->has('company_username'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('company_username') }}</strong>

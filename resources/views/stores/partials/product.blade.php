@@ -24,7 +24,7 @@
                 <td>&#8377; {{$stock->product->selling_price}}</td>
                 <td><span class="stock-qty">{{ $stock->qty }}</span></td>
                 <!-- <td>
-                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Edit </a>
+                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit </a>
                     <form method="post" action="/products/{{$stock->id}}/delete" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i> Delete</button>
@@ -103,7 +103,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -151,7 +151,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
                 </div>
             </form>
@@ -164,7 +164,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Assign Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -203,7 +203,7 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                 </div>
             </form>
         </div>

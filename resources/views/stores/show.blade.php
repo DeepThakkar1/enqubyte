@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+<div class="container-fluid">
 
     <h2 class="d-inline-block ">{{$store->name}}</h2>
     <hr>
     <div class="card mb-4">
         <div class="card-body">
-            <p class="mb-1"><i class="fa fa-map-marker-alt mr-1"></i> {{$store->address}}</p>
-            <p class="mb-1"><i class="fa fa-map-marked-alt"></i> {{$store->location}}, {{$store->pincode}}</p>
+            <p class="mb-1"><i class="fas fa-map-marker-alt mr-1"></i> {{$store->address}}</p>
+            <p class="mb-1"><i class="fas fa-map-marked-alt"></i> {{$store->location}}, {{$store->pincode}}</p>
             <p class="mb-1"><i class="fa fa-phone mr-1"></i> {{$store->phone}}</p>
             <p class="mb-3"><i class="fa fa-envelope mr-1"></i> {{$store->email}}</p>
-            <a href="#editStoreModal{{$store->id}}" data-toggle="modal" class="btn btn-sm btn-primary"><i class="fa fa-pencil-alt"></i> Edit</a>
+            <a href="#editStoreModal{{$store->id}}" data-toggle="modal" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>
             <form method="post" action="/stores/{{$store->id}}/delete" class="d-inline">
                 @csrf
                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this store?');"><i class="fa fa-trash"></i> Delete</button>
@@ -27,7 +27,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Store</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close btn-close-modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
