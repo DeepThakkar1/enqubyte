@@ -1,5 +1,5 @@
 <div class="input-group">
-    <input id="{{ $inputName }}" autocomplete="off" type="text" class="form-control{{ $errors->has('$inputName') ? ' is-invalid' : '' }} username-input" name="{{$inputName}}" value="{{ old('$inputName') }}" placeholder="{{ $inputPlaceholder }}" required>
+    <input id="{{ $inputName }}" autocomplete="off" maxlength="22" type="text" class="form-control{{ $errors->has('$inputName') ? ' is-invalid' : '' }} username-input" name="{{$inputName}}" value="{{ old('$inputName') }}" placeholder="{{ $inputPlaceholder }}" required>
     <div class="input-group-append">
         <span class="input-group-text">.enqubyte.com</span>
     </div>

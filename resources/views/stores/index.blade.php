@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h2 class="d-inline-block ">Stores</h2>
     <a href="#addStoreModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Store</a>
     <hr>
@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4>{{str_limit($store->name, 22)}}</h4>
-                    <p class="mb-3"><i class="fa fa-map-marker"></i> {{$store->location}}, {{$store->pincode}}</p>
+                    <p class="mb-3"><i class="fas fa-map-marker"></i> {{$store->location}}, {{$store->pincode}}</p>
                     <a href="/stores/{{$store->id}}" class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Manage</a>
                     <form method="post" action="/stores/{{$store->id}}/delete" class="d-inline">
                         @csrf

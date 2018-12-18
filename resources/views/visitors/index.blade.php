@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h2 class="d-inline-block ">Visitors</h2>
     <a href="#addVisitorModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Visitor</a>
     <hr>
@@ -23,7 +23,7 @@
                 <td>{{$visitor->email}}</td>
                 <td>{{$visitor->phone}}</td>
                 <td>
-                    <a href="#editVisitorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Edit </a>
+                    <a href="#editVisitorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit </a>
                     <form method="post" action="/visitors/{{$visitor->id}}/delete" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> Delete</button>

@@ -24,7 +24,7 @@
                 <td>&#8377; {{$stock->product->selling_price}}</td>
                 <td><span class="stock-qty">{{ $stock->qty }}</span></td>
                 <!-- <td>
-                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Edit </a>
+                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit </a>
                     <form method="post" action="/products/{{$stock->id}}/delete" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i> Delete</button>

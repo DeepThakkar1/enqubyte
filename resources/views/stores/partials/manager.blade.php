@@ -22,7 +22,7 @@
                     <td>{{$manager->email}}</td>
                     <td>{{$manager->phone}}</td>
                     <td>
-                        <a href="#editManagerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i> Edit </a>
+                        <a href="#editManagerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit </a>
                         <form method="post" action="/stores/{{$store->id}}/manager/{{$manager->id}}/delete" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this manager?');"><i class="fa fa-trash"></i> Delete</button>
