@@ -1,6 +1,6 @@
 <div id="demoModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content" style="width: 850px;">
+        <div class="modal-content custom-modal-content">
             <div class="modal-body p-0">
                 <div id="carouselExampleIndicators" class="carousel slide custom-caurosal" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -9,7 +9,7 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                     </ol>
-                    <div class="carousel-inner demo-carousel" style="height: 480px;background-color: #fff;">
+                    <div class="carousel-inner demo-carousel dashboard-carousel-section">
                         <div class="carousel-item active">
                             <div class="container">
                                 <div class="row p-3">
@@ -117,7 +117,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-center">
-                                            <img src="/img/screenshot1.png" class="pt-2 pb-0" alt="" style="width: 640px;">
+                                            <img src="/img/screenshot1.png" class="pt-2 pb-0 dashboard-home-image" alt="">
                                         </div>
                                     </div>
                                 </div>

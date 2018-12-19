@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="container-fluid">
-    <h2 class="d-inline-block ">Products</h2>
+    <h2 class="d-inline-block headline-content">Products</h2>
     <a href="#addProductModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Product</a>
     <hr>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-responsive">
         <thead>
             <tr>
                 <th>Sr.No</th>
@@ -25,7 +25,7 @@
                 <td>&#8377; {{$product->selling_price}}</td>
                 <td>{{$product->stock}}</td>
                 <td>
-                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit </a>
+                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i> Edit </a>
                     <form method="post" action="/products/{{$product->id}}/delete" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i> Delete</button>

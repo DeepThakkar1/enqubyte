@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <h2 class="d-inline-block ">Stores</h2>
+    <h2 class="d-inline-block headline-content">Stores</h2>
     <a href="#addStoreModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Store</a>
     <hr>
     <div class="row">
