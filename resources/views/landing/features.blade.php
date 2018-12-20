@@ -182,7 +182,7 @@
             </div>
             <div class="col-md-6">
                 <div class="business-care-img">
-                    <img src="/img/new/Customers 2-01.png" alt="" style="margin-top: -5px;">
+                    <img src="/img/new/Customers 2-01.png" alt="">
                 </div>
             </div>
         </div><!-- .row END -->

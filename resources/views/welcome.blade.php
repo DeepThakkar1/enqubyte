@@ -165,12 +165,12 @@
 </section><!-- end agency banner section -->
 
 <!-- growth grid section -->
-<section class="growth-card-section xs-section-padding" style="padding: 60px 0;">
+<section class="growth-card-section xs-section-padding custom-xs-section-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <div class="agency-section-title text-center style5">
-                    <h2 class="main-title medium">Forward into Growth</h2>
+                    <h2 class="main-title medium custom-main-title-heading">Forward into Growth</h2>
                     <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarks grove the headline of Alphabet Village</p>
                 </div><!-- .agency-section-title .style3 END -->
             </div>
