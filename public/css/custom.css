@@ -262,5 +262,8 @@ textarea.form-control {
   .product-edit-btn{
     margin-bottom: 10px;
   }
+  .dashboard-nav-list{
+    display: none !important;
+  }
 }
 

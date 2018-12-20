@@ -5,7 +5,8 @@
     <h2 class="d-inline-block headline-content">Employees</h2>
     <a href="#addEmployeeModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Employee</a>
     <hr>
-    <table class="table table-bordered table-responsive">
+    <div class="table-responsive">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Sr.No</th>
@@ -117,6 +118,7 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
             {{ $employees->links() }}
         </div>
 
