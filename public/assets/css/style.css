@@ -2087,7 +2087,8 @@ button:focus {
 
 .agency-banner-content .banner-video-popups>span {
     color: #1a0b46;
-    font-size: 1.25rem;
+    /*font-size: 1.25rem;*/
+    font-size: 15px;
     padding-left: 20px
 }
 

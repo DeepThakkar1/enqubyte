@@ -125,6 +125,27 @@
             });
         });
     </script>
+
+     <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebars").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebars #dismiss, .overlay').on('click', function () {
+                console.log('jshjkhk');
+                $('#sidebars').removeClass('active');
+                $('#sidebars .overlay').removeClass('active');
+            });
+
+            $('#sidebarsCollapse').on('click', function () {
+                $('#sidebars').addClass('active');
+                $('#sidebars .overlay').addClass('active');
+                $('#sidebars .collapse.in').toggleClass('in');
+                $('#sidebars a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
     @stack('bottom')
 
     @yield('scripts')

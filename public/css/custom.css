@@ -65,9 +65,10 @@ textarea.form-control {
     height: auto !important;
 }
 
-.custom-btn-info{
-    background-color: #166ead !important;
-    border-color: #166ead !important;
+.custom-btn-info-res{
+    background-color: transparent;
+    border-color: transparent;
+    color: #000;
 }
 
 .custom-dropdown-toggle::after {
@@ -217,8 +218,15 @@ textarea.form-control {
   width: 640px;
 }
 @media(max-width: 768px){
+  .register-headline{
+    font-size: 21px;
+  }
+  .register-headline-content{
+    font-size: 16px;
+  }
   .custom-dashboard-navbar{
-    padding: 10px 30px !important;
+    /*padding: 10px 30px !important;*/
+    padding: 10px 15px !important;
   }
   .custom-modal-content {
     width: 100%;
@@ -265,5 +273,30 @@ textarea.form-control {
   .dashboard-nav-list{
     display: none !important;
   }
+  .custom-btn-info-res:not(:disabled):not(.disabled):active, .custom-btn-info-res:not(:disabled):not(.disabled).active, .show > .custom-btn-info-res.dropdown-toggle {
+    color: #000 !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
+  .custom-btn-info-res:hover {
+    color: #000 !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    outline: none;
+  }
+  .custom-btn-info{
+    display: none;
+  }
+  #sidebar{
+    display: none;
+  }
+
+
+
+  
+
 }
+
+
+
 

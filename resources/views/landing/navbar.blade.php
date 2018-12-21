@@ -90,7 +90,7 @@
                         <a href="/login" class="btn btn-outline-primary custom-login-button" style="padding: 10px;">Login</a>
                     </li>
                     <li style="padding: 10px;">
-                        <a href="/features" class="btn-primary custom-register-btn text-white" style="padding: 10px;">Sign Up</a>
+                        <a href="/register" class="btn-primary custom-register-btn text-white" style="padding: 10px;">Sign Up</a>
                     </li>
                 </ul>                
             </div>

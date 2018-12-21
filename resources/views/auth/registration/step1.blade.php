@@ -1,8 +1,8 @@
 <h2></h2>
 <section class="form-section">
-    <h1 class="mb-3 font-weight-bold text-center">{{ __('Get your sales assistant -- now!') }}</h1>
+    <h1 class="mb-3 font-weight-bold text-center register-headline">{{ __('Get your sales assistant -- now!') }}</h1>
 
-    <h3 class="mb-3 text-center text-muted">{{ __('Enqubyte helps over 3.5 million freelancers, consultants, and small businesses simplify their finances.')}}</h3>
+    <h3 class="mb-3 text-center text-muted register-headline-content">{{ __('Enqubyte helps over 3.5 million freelancers, consultants, and small businesses simplify their finances.')}}</h3>
     <div class="form-group">
         <input id="fname" type="text" class="form-control{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" placeholder="First name" required autofocus>
         @if ($errors->has('fname'))
