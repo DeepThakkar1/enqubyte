@@ -148,6 +148,7 @@
                         <span>{{ __('Dashboard') }}</span>
                     </a>
                 </li>
+                @if(auth()->user()->mode)
                 <li class="{{ request()->is('stores*') ? 'active' : ''}}">
                     <a href="/stores">
                         <img src="{{ url('img/sidebar/stores.png') }}" class="inactive-icon">
@@ -155,6 +156,7 @@
                         <span>{{ __('Stores') }}</span>
                     </a>
                 </li>
+                @endif
                 <li class="{{ request()->is('products*') ? 'active' : ''}}">
                     <a href="/products">
                         <img src="{{ url('img/sidebar/products.png') }}" class="inactive-icon">
@@ -176,6 +178,13 @@
                         <span>{{ __('Visitors') }}</span>
                     </a>
                 </li>
+                <li class="{{ request()->is('customers*') ? 'active' : ''}}">
+                    <a href="/customers">
+                        <img src="{{ url('img/sidebar/employee.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/employee-clr.png') }}" class="active-icon">
+                        <span>{{ __('Customers') }}</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         <img src="{{ url('img/sidebar/reports.png') }}" class="inactive-icon">
@@ -183,8 +192,8 @@
                         <span>{{ __('Reports') }}</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li class="{{ request()->is('settings*') ? 'active' : ''}}">
+                    <a href="/settings">
                         <img src="{{ url('img/sidebar/settings.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/settings-clr.png') }}" class="active-icon">
                         <span>{{ __('Settings') }}</span>
