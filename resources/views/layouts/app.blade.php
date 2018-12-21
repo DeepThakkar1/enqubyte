@@ -90,7 +90,7 @@
             @endauth
 
 
-            <div class="py-4">
+            <div class="pt-0 pb-4">
                 @include('flash::message')
                 @yield('content')
             </div>

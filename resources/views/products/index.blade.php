@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
-    <h2 class="d-inline-block headline-content">Products</h2>
-    <a href="#addProductModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Product</a>
-    <hr>
-    <div class="table-responsive">
-        <table class="table table-bordered">
+<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
+    <div class="headline-contents">
+        <h2 class="d-inline-block headline-content">Products</h2>
+        <a href="#addProductModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Product</a>
+    </div>
+    <!-- <hr> -->
+    <div class="table-responsive product-add-list">
+        <table class="table">
             <thead>
-                <tr>
+                <tr class="product-list-menu">
                     <th>Sr.No</th>
                     <th>Name</th>
                     <th>Cost Price</th>

@@ -202,7 +202,15 @@ textarea.form-control {
 }
 .custom-dashboard-navbar{
   padding: 4px 30px !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 0px !important;
+}
+.headline-contents{
+    border-top: 1px solid #ccc;
+    padding: 11px;
+    background-color: #fafafa;
+}
+.headline-contents h2{
+  margin-bottom: 0px !important;
 }
 .navbar-nav .custom-dashboard-nav-link i{
   color: rgb(0, 0, 0);
