@@ -26,9 +26,9 @@
                 <td>{{$key + 1}}</td>
                 <td>
                     @if($employee->photo)
-                    <img src="{{Storage::url($employee->photo)}}" width="100px">
+                    <img src="{{Storage::url($employee->photo)}}" height="70px">
                     @else
-                    <img src="{{asset('img/user.png')}}" width="100px">
+                    <img src="{{asset('img/user.png')}}" height="70px">
                     @endif
                 </td>
                 @if(auth()->user()->mode)
