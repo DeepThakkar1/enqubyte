@@ -13,7 +13,9 @@
             <tr>
                 <th>Sr.No</th>
                 <th>Photo</th>
+                @if(auth()->user()->mode)
                 <th>Store</th>
+                @endif
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
@@ -31,7 +33,9 @@
                     <img src="{{asset('img/user.png')}}" width="100px">
                     @endif
                 </td>
+                @if(auth()->user()->mode)
                 <td>{{$employee->store->name}}</td>
+                @endif
                 <td>{{$employee->fullname}}</td>
                 <td>{{$employee->email}}</td>
                 <td>{{$employee->phone}}</td>
@@ -54,6 +58,7 @@
                                 <form method="post" action="/employees/{{$employee->id}}/update" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
+                                        @if(auth()->user()->mode)
                                         <div class="form-group">
                                             <label>Store<sup class="error">*</sup></label>
                                             <select name="store_id" class="form-control" required>
@@ -63,6 +68,9 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        @else
+                                        <input type="hidden" name="store_id" value="0">
+                                        @endif
                                         <div class="row form-group">
                                             <div class="col-sm-6">
                                                 <label>First Name<sup class="error">*</sup></label>
@@ -137,6 +145,7 @@
                     <form method="post" action="/employees" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
+                            @if(auth()->user()->mode)
                             <div class="form-group">
                                 <label>Store<sup class="error">*</sup></label>
                                 <select name="store_id" class="form-control" required>
@@ -146,6 +155,9 @@
                                     @endforeach
                                 </select>
                             </div>
+                            @else
+                            <input type="hidden" name="store_id" value="0">
+                            @endif
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <label>First Name<sup class="error">*</sup></label>

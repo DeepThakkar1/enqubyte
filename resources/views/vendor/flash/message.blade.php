@@ -6,7 +6,7 @@
             'body'       => $message['message']
         ])
     @else
-        <div class="alert alert-dismissable
+        <div class="alert alert-flash alert-dismissable
                     alert-{{ $message['level'] }}
                     {{ $message['important'] ? 'alert-important' : '' }}"
                     role="alert"
@@ -19,7 +19,7 @@
                 >&times;</button>
             @endif
 
-            {!! $message['message'] !!}
+            <i class="fas fa-info-circle"></i> {!! $message['message'] !!}
         </div>
     @endif
 @endforeach

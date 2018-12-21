@@ -38,6 +38,10 @@ Route::post('/stores/{store}/manager', 'ManagersController@store');
 Route::post('/stores/{store}/manager/{manager}/update', 'ManagersController@update');
 Route::post('/stores/{store}/manager/{manager}/delete', 'ManagersController@destroy');
 
+
+/*Route::get('/managers', 'ManagersController@index');
+Route::post('/managers', 'ManagersController@store');
+*/
 Route::get('/products', 'ProductsController@index');
 Route::post('/products', 'ProductsController@store');
 Route::get('/products/{product}', 'ProductsController@show');
@@ -57,3 +61,16 @@ Route::post('/visitors', 'VisitorsController@store');
 Route::get('/visitors/{visitor}', 'VisitorsController@show');
 Route::post('/visitors/{visitor}/delete', 'VisitorsController@destroy');
 Route::post('/visitors/{visitor}/update', 'VisitorsController@update');
+
+
+Route::get('/customers', 'CustomersController@index');
+Route::post('/customers', 'CustomersController@store');
+Route::get('/customers/{customer}', 'CustomersController@show');
+Route::post('/customers/{customer}/delete', 'CustomersController@destroy');
+Route::post('/customers/{customer}/update', 'CustomersController@update');
+
+
+Route::get('/settings', 'SettingsController@index');
+Route::post('/settings/general/mode', 'SettingsController@changeMode');
+Route::post('/settings/profile/update', 'SettingsController@updateProfile');
+Route::post('/settings/security/changepassword', 'SettingsController@updatePassword');

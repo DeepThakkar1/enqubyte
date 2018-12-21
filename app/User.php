@@ -6,6 +6,7 @@ use App\Models\Store;
 use App\Models\Manager;
 use App\Models\Product;
 use App\Models\Visitor;
+use App\Models\Customer;
 use App\Models\Employee;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -21,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'email', 'company_name', 'company_username', 'company_type', 'estimated_monthly_sales', 'number_of_employees', 'password', 'mode', 'demo'
+        'fname', 'lname', 'email', 'company_name', 'company_username', 'company_type', 'estimated_monthly_sales', 'number_of_employees', 'password', 'mode', 'demo', 'email_verified_at'
     ];
 
     /**
@@ -52,6 +53,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function visitors()
     {
         return $this->hasMany(Visitor::class, 'company_id')->latest();
+    }
+
+    public function customers()
+    {
+        return $this->hasMany(Customer::class, 'company_id')->latest();
     }
 
     public function products()

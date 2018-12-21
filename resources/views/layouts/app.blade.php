@@ -109,7 +109,7 @@
     </script>
     @stack('js')
     <script>
-        $('div.alert-dismissable').not('.alert-important').delay(3000).fadeOut(350);
+        $('div.alert-flash.alert-dismissable').not('.alert-important').delay(3000).fadeOut(350);
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar, #content').toggleClass('active');
