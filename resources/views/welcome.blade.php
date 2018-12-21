@@ -237,7 +237,7 @@
             <div class="col-lg-6 align-self-center">
                 <div class="success-summary">
                     <div class="success-summary-content">
-                        <i class="icon icon-coins-2 gradient-icon"></i>
+                        <!-- <i class="icon icon-coins-2 gradient-icon"></i> -->
                         <h3 class="content-title">A Satisfied Customer is best for business</h3>
                         <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                     </div>
@@ -250,7 +250,7 @@
                         </div><!-- .single-piechart END -->
                         <div class="single-piechart">
                             <div class="chart" data-percent="85">
-                                <div class="chart-content"></div>
+                                <div class="chart-content "></div>
                             </div>
                             <p>iOS Apps</p>
                         </div><!-- .single-piechart END -->

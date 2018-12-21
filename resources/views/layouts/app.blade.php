@@ -90,7 +90,7 @@
             @endauth
 
 
-            <div class="py-4">
+            <div class="pt-0 pb-4">
                 @include('flash::message')
                 @yield('content')
             </div>
@@ -122,6 +122,27 @@
                 var form = $(this).parents('.modal').find('form');
                 form.trigger('reset');
                 modal.modal('hide');
+            });
+        });
+    </script>
+
+     <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebars").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebars #dismiss, .overlay').on('click', function () {
+                console.log('jshjkhk');
+                $('#sidebars').removeClass('active');
+                $('#sidebars .overlay').removeClass('active');
+            });
+
+            $('#sidebarsCollapse').on('click', function () {
+                $('#sidebars').addClass('active');
+                $('#sidebars .overlay').addClass('active');
+                $('#sidebars .collapse.in').toggleClass('in');
+                $('#sidebars a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
         });
     </script>

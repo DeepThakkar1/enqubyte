@@ -4,6 +4,7 @@
         <!-- <a href="#addProductModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Product</a> -->
         <a href="#assignProductModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Assign Product</a>
         <hr>
+        <div class="table-responsive">
         <table class="table table-bordered table-products">
         <thead>
             <tr>
@@ -95,6 +96,7 @@
             @endforeach
         </tbody>
     </table>
+</div>
     </div>
 </div>
 

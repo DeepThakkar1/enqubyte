@@ -1,9 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light custom-dashboard-navbar">
-                 <button type="button" id="sidebarCollapse" class="btn btn-info custom-btn-info">
+                 <button type="button" id="sidebarCollapse" class="btn btn-info custom-btn-info" style="outline:transparent;">
                     <i class="fas fa-align-left"></i>
                 </button>
-                <button class="navbar-toggler" type="button"  style="border:none;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button type="button" id="sidebarsCollapse" class="btn btn-info custom-btn-info-res" style="outline:transparent;">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <button class="navbar-toggler" type="button"  style="border:none;outline: transparent;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- <span class="navbar-toggler-icon"></span> -->
+                    <i class="fa fa-search" aria-hidden="true" style="outline: transparent;"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="form-inline my-2 my-lg-0 ml-3">

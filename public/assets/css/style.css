@@ -2087,7 +2087,8 @@ button:focus {
 
 .agency-banner-content .banner-video-popups>span {
     color: #1a0b46;
-    font-size: 1.25rem;
+    /*font-size: 1.25rem;*/
+    font-size: 15px;
     padding-left: 20px
 }
 
@@ -13504,7 +13505,58 @@ input[type=number] {
 .section-padding-medium6 img{
     margin-top: -5px;
 }
+.desktop-enquiries{
+    display: block;
+}
+.responsive-enquiries{
+    display: none;
+}
+.desktop-customer{
+    display: block;
+}
+.responsive-customer{
+    display: none;
+}
+.desktop-campaigns{
+    display: block;
+}
+.responsive-campaigns{
+    display: none;
+}
+.desktop-Reports{
+    display: block;
+}
+.responsive-Reports{
+    display: none;
+}
+/*tr.product-list-menu th{
+    border-bottom: 1px solid #dee2e6 !important;
+}*/
 @media(max-width: 768px){
+    .desktop-enquiries{
+        display: none;
+    }
+    .responsive-enquiries{
+        display: block;
+    }
+    .desktop-customer{
+        display:none;
+    }
+    .desktop-campaigns{
+        display: none;
+    }
+    .responsive-customer{
+        display: block;
+    }
+    .responsive-campaigns{
+        display: block;
+    }
+    .desktop-Reports{
+        display: none;
+    }
+    .responsive-Reports{
+        display: block;
+    }
     .custom-xs-section-padding{
         padding: 0px 0 !important;
     }
@@ -13540,15 +13592,31 @@ input[type=number] {
         width: 100%;
     }
     .single-piechart:not(:last-child) {
-        margin-right: 55px;
-        margin-top: 10px;
+        /*margin-right: 55px;*/
+        /*margin-top: 10px;*/
         display: inline-block;
+    }
+    .piechats-wraper>.single-piechart {
+        display: inline-block;
+        float: left;
+        width: 33% !important;
+    }
+    .single-piechart:not(:last-child) {
+        margin-right: 0;
+        width: 33% !important;
+    }
+    .single-piechart .chart canvas{
+        height: auto !important;
+        width: 100% !important;
+    }
+    .deserve-summary-content .section-title {
+        font-size: 30px !important;
     }
     .custom-main-title-heading{
         margin-top: 40px;
     }
     .responsive-piechats-wraper{
-        margin-left: 95px;
+        /*margin-left: 95px;*/
     }
     .xs-inner-banner.inner-banner2 {
         min-height: 265px;
@@ -13568,7 +13636,7 @@ input[type=number] {
         padding-bottom: 10px !important;
     }
     .section-padding-medium1 .business-care-img img{
-        margin-top: 0px;
+        margin-top: -35px;
     }
     .section-padding-medium0{
         /*padding-bottom: 10px !important;*/
@@ -13588,7 +13656,7 @@ input[type=number] {
         margin-bottom: 25px !important;
     }
     .section-padding-medium3 .business-care-img img{
-        margin-top: 0px;
+        margin-top: -30px;
     }
     .section-padding-medium4{
         padding: 60px 0;
@@ -13602,15 +13670,15 @@ input[type=number] {
     }
     .section-padding-medium5 .business-care-img img{
         /*margin-top: 15px;*/
-        margin-top: -25px;
-        margin-bottom: 11px;
+        margin-top: -15px;
+        margin-bottom: 25px;
     }
     .section-padding-medium6 {
         padding: 50px 0;
         padding-bottom: 25px;
     }
     .section-padding-medium6 img{
-        margin-top: 25px;
+        margin-top: 0px;
     }
     .section-padding-medium6 .business-care-img{
         margin-bottom: 30px !important;
@@ -13633,5 +13701,9 @@ input[type=number] {
     }
     .xs-sidebar-group {
         display: block;
+    }
+    .custom-chart-content canvas{
+        height: 90px !important;
+        width: 90px !important;
     }
 }
