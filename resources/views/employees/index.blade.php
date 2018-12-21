@@ -2,9 +2,11 @@
 
 @section('content')
 <div class="container-fluid">
-    <h2 class="d-inline-block headline-content">Employees</h2>
-    <a href="#addEmployeeModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Employee</a>
-    <hr>
+    <div class="headline-contents">
+        <h2 class="d-inline-block headline-content">Employees</h2>
+        <a href="#addEmployeeModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Employee</a>
+    </div>
+    <!-- <hr> -->
     <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
