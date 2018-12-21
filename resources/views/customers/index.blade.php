@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container-fluid">
-    <h2 class="d-inline-block headline-content">Visitors</h2>
-    <a href="#addVisitorModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Visitor</a>
+    <h2 class="d-inline-block headline-content">Customers</h2>
+    <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Customer</a>
     <hr>
     <div class="table-responsive">
         <table class="table table-bordered">
@@ -17,29 +17,29 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($visitors as $key => $visitor)
+                @foreach($customers as $key => $customer)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td>{{$visitor->fullname}}</td>
-                    <td>{{$visitor->email}}</td>
-                    <td>{{$visitor->phone}}</td>
+                    <td>{{$customer->fullname}}</td>
+                    <td>{{$customer->email}}</td>
+                    <td>{{$customer->phone}}</td>
                     <td>
-                        <a href="#editVisitorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i> Edit </a>
-                        <form method="post" action="/visitors/{{$visitor->id}}/delete" class="d-inline">
+                        <a href="#editCustomerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i> Edit </a>
+                        <form method="post" action="/customers/{{$customer->id}}/delete" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> Delete</button>
                         </form>
 
-                        <div class="modal fade in editVisitorModal{{$key}}" id="editVisitorModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade in editCustomerModal{{$key}}" id="editCustomerModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Edit Visitor</h5>
+                                        <h5 class="modal-title">Edit Customer</h5>
                                         <button type="button" class="close btn-close-modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form method="post" action="/visitors/{{$visitor->id}}/update">
+                                    <form method="post" action="/customers/{{$customer->id}}/update">
                                         @csrf
                                         <div class="modal-body">
                                             @if(auth()->user()->mode)
@@ -48,7 +48,7 @@
                                                 <select name="store_id" class="form-control" required>
                                                     <option disabled>-- Select Store --</option>
                                                     @foreach($stores as $store)
-                                                    <option value="{{$store->id}}" {{$visitor->store_id == $store->id ? 'selected' : ''}}>{{$store->name}}</option>
+                                                    <option value="{{$store->id}}" {{$customer->store_id == $store->id ? 'selected' : ''}}>{{$store->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -58,26 +58,26 @@
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
                                                     <label>First Name<sup class="error">*</sup></label>
-                                                    <input type="text" name="fname" value="{{$visitor->fname}}" class="form-control" placeholder="First name" required>
+                                                    <input type="text" name="fname" value="{{$customer->fname}}" class="form-control" placeholder="First name" required>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Last Name<sup class="error">*</sup></label>
-                                                    <input type="text" name="lname" value="{{$visitor->lname}}" class="form-control" placeholder="Last name" required>
+                                                    <input type="text" name="lname" value="{{$customer->lname}}" class="form-control" placeholder="Last name" required>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
                                                     <label>Email ID<sup class="error">*</sup></label>
-                                                    <input type="email" name="email" value="{{$visitor->email}}" class="form-control" placeholder="Store email" required>
+                                                    <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Store email" required>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
-                                                    <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$visitor->phone}}" class="form-control" placeholder="Phone" required>
+                                                    <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$customer->phone}}" class="form-control" placeholder="Phone" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <textarea name="address" class="form-control" placeholder="Address">{{$visitor->address}}</textarea>
+                                                <textarea name="address" class="form-control" placeholder="Address">{{$customer->address}}</textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -94,21 +94,21 @@
             </tbody>
         </table>
     </div>
-    {{ $visitors->links() }}
+    {{ $customers->links() }}
 </div>
 
 
 
-<div class="modal fade in addVisitorModal" id="addVisitorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in addCustomerModal" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Visitor</h5>
+                <h5 class="modal-title">Add Customer</h5>
                 <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="/visitors">
+            <form method="post" action="/customers">
                 @csrf
                 <div class="modal-body">
                     @if(auth()->user()->mode)

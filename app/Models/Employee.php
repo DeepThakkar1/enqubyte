@@ -14,7 +14,7 @@ class Employee extends Model
         'password', 'remember_token',
     ];
 
-    public function users()
+    public function company()
     {
         return $this->belongsTo(User::class, 'company_id');
     }

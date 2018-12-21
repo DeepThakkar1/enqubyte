@@ -10,12 +10,12 @@ class Visitor extends Model
         'company_id', 'store_id', 'fname', 'lname', 'phone', 'email', 'address',
     ];
 
-    public function users()
+    public function company()
     {
         return $this->belongsTo(User::class, 'company_id');
     }
 
-    public function stores()
+    public function store()
     {
         return $this->belongsTo(Store::class);
     }
