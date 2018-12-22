@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Enquiry;
 use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
@@ -27,5 +28,10 @@ class Employee extends Model
     public function getFullnameAttribute()
     {
         return $this->fname . ' ' . $this->lname;
+    }
+
+    public function enquiries()
+    {
+        return $this->hasMany(Enquiry::class)->latest();
     }
 }

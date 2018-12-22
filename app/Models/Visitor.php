@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Enquiry;
 use Illuminate\Database\Eloquent\Model;
 
 class Visitor extends Model
@@ -18,6 +19,11 @@ class Visitor extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
+    }
+
+    public function enquiries()
+    {
+        return $this->hasMany(Enquiry::class)->latest();
     }
 
     public function getFullnameAttribute()

@@ -10737,3 +10737,8 @@ input.parsley-error {
   color: #222629;
 }
 
+a.btn-addMoreItems {
+  position: absolute;
+  bottom: 195px;
+}
+

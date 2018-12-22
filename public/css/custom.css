@@ -4,6 +4,9 @@ body{
 .form-control {
   	height: 47px !important;
 }
+.form-control.form-control-sm {
+    height: 30px !important;
+}
 .login-btn-section{
   margin-bottom: 10px;
 }
@@ -301,7 +304,7 @@ textarea.form-control {
 
 
 
-  
+
 
 }
 
