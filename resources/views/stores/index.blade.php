@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
-    <h2 class="d-inline-block headline-content">Stores</h2>
-    <a href="#addStoreModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Store</a>
-    <hr>
+<div class="container-fluid pl-md-0 pr-md-0">
+    <div class="headline-contents">
+         <h2 class="d-inline-block headline-content">Stores</h2>
+         <a href="#addStoreModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Store</a>
+    </div>
+    <!-- <hr> -->
     <div class="row">
         @foreach($stores as $store)
         <div class="col-md-4 mb-4">
@@ -15,7 +17,7 @@
                     <a href="/stores/{{$store->id}}" class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Manage</a>
                     <form method="post" action="/stores/{{$store->id}}/delete" class="d-inline">
                         @csrf
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this store?');"><i class="fa fa-trash"></i> Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this store?');"><i class="fa fa-trash"></i> </button>
                     </form>
                 </div>
             </div>

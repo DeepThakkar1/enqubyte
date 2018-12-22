@@ -210,8 +210,10 @@ textarea.form-control {
     background-color: #fafafa;
 }
 .headline-contents h2{
-  margin-bottom: 0px !important;
+  font-size: 17px;
+  margin-top: 6px;
 }
+
 .navbar-nav .custom-dashboard-nav-link i{
   color: rgb(0, 0, 0);
   font-size: 25px;
@@ -224,6 +226,29 @@ textarea.form-control {
 }
 .dashboard-home-image{
   width: 640px;
+}
+.product-edit-btn{
+  background-color: #fff !important;
+  border-color: #fff !important;
+  color: #000 !important;
+}
+.custom-dropdwon-toogle-filter::after {
+  right: 5px !important;
+}
+.custom-primary:not(:disabled):not(.disabled):active, .custom-primary:not(:disabled):not(.disabled).active, .show > .custom-primary.dropdown-toggle {
+    color: #3490dc !important;
+    background-color: #fff !important;
+    border-color: #3490dc !important;
+}
+.custom-primary:hover {
+    color: #3490dc !important;
+    background-color: #fff !important;
+    border-color: #3490dc !important;
+}
+.product-delete-btn{
+  background-color: #fff !important;
+  border-color: #fff !important;
+  color: #000 !important;
 }
 @media(max-width: 768px){
   .register-headline{

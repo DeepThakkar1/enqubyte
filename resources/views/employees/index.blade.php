@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid pl-md-0 pr-md-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content">Employees</h2>
-        <a href="#addEmployeeModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Employee</a>
+        <a href="#addEmployeeModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Employee</a>
     </div>
     <!-- <hr> -->
     <div class="table-responsive">
-    <table class="table table-bordered">
+    <table class="table">
         <thead>
             <tr>
                 <th>Sr.No</th>
@@ -40,10 +40,10 @@
                 <td>{{$employee->email}}</td>
                 <td>{{$employee->phone}}</td>
                 <td>
-                    <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i> Edit </a>
+                    <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
                     <form method="post" action="/employees/{{$employee->id}}/delete" class="d-inline">
                         @csrf
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
                     </form>
 
                     <div class="modal fade in editEmployeeModal{{$key}}" id="editEmployeeModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
