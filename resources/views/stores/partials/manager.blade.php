@@ -1,5 +1,6 @@
 <div class="card mb-4">
     <div class="card-body">
+        
         <h3 class="d-inline-block ">Managers</h3>
         <a href="#addManagerModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Manager</a>
         <hr>

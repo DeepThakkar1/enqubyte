@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
-    <h3 class="d-inline-block ">Managers</h3>
-    <a href="#addManagerModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Manager</a>
-    <hr>
-    <table class="table table-bordered">
+<div class="container-fluid pl-0 pr-0">
+    <div class="headline-contents">
+        <h3 class="d-inline-block ">Managers</h3>
+        <a href="#addManagerModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Manager</a>
+    </div>
+    <!-- <hr> -->
+    <table class="table">
         <thead>
             <tr>
                 <th>Sr.No</th>
@@ -24,10 +26,10 @@
                 <td>{{$manager->email}}</td>
                 <td>{{$manager->phone}}</td>
                 <td>
-                    <a href="#editManagerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i> Edit </a>
+                    <a href="#editManagerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i>  </a>
                     <form method="post" action="/managers/{{$manager->id}}/delete" class="d-inline">
                         @csrf
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this manager?');"><i class="fa fa-trash"></i> Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this manager?');"><i class="fa fa-trash"></i> </button>
                     </form>
 
                     <div class="modal fade in editManagerModal{{$key}}" id="editManagerModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

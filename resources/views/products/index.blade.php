@@ -1,51 +1,64 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
-    <div class="headline-contents">
-        <h2 class="d-inline-block headline-content">Products</h2>
-        <a href="#addProductModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Product</a>
+<div class="container-fluid pl-0 pr-0 ml-0 mr-0">
+    <div class="headline-contents responsive-headline-contents">
+        <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Products</h2>
+        <div class="float-md-right">
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-primary custom-primary">Product</button>
+              <button type="button" class="btn btn-outline-primary custom-primary custom-dropdwon-toogle-filter dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Product One</a>
+                <a class="dropdown-item" href="#">Product Two</a>
+            </div>
+        </div>
+        <a href="#addProductModal" data-toggle="modal" style="font-size: 14px;" class="btn btn-primary ml-2"><!-- <i class="fa fa-plus-circle"></i> --> Add Product</a>
+        <!-- <a href="#addMaterialModal" data-toggle="modal" style="font-size: 14px;" class="btn btn-primary ml-2"><i class="fa fa-plus-circle"></i></a> -->
     </div>
-    <!-- <hr> -->
-    <div class="table-responsive product-add-list">
-        <table class="table">
-            <thead>
-                <tr class="product-list-menu">
-                    <th>Sr.No</th>
-                    <th>Name</th>
-                    <th>Cost Price</th>
-                    <th>Selling Price</th>
-                    <th>Stock</th>
-                    <th width="160px">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($products as $key => $product)
-                <tr>
-                    <td>{{$key + 1}}</td>
-                    <td>{{$product->name}}</td>
-                    <td>&#8377; {{$product->cost_price}}</td>
-                    <td>&#8377; {{$product->selling_price}}</td>
-                    <td>{{$product->stock}}</td>
-                    <td>
-                        <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i> Edit </a>
-                        <form method="post" action="/products/{{$product->id}}/delete" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i> Delete</button>
-                        </form>
+</div>
+<!-- <hr> -->
+<div class="table-responsive product-add-list">
+    <table class="table">
+        <thead>
+            <tr class="product-list-menu">
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>Cost Price</th>
+                <th>Selling Price</th>
+                <th>Stock</th>
+                <th width="160px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($products as $key => $product)
+            <tr>
+                <td>{{$key + 1}}</td>
+                <td>{{$product->name}}</td>
+                <td>&#8377; {{$product->cost_price}}</td>
+                <td>&#8377; {{$product->selling_price}}</td>
+                <td>{{$product->stock}}</td>
+                <td>
+                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                    <form method="post" action="/products/{{$product->id}}/delete" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i></button>
+                    </form>
 
-                        <div class="modal fade in editProductModal{{$key}}" id="editProductModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Edit Product</h5>
-                                        <button type="button" class="close btn-close-modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form method="post" action="/products/{{$product->id}}/update">
-                                        @csrf
-                                        <div class="modal-body">
+                    <div class="modal fade in editProductModal{{$key}}" id="editProductModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Edit Product</h5>
+                                    <button type="button" class="close btn-close-modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form method="post" action="/products/{{$product->id}}/update">
+                                    @csrf
+                                    <div class="modal-body">
                                             <!-- <div class="form-group">
                                                 <label>Store<sup class="error">*</sup></label>
                                                 <select name="store_id" class="form-control" required>
@@ -179,6 +192,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

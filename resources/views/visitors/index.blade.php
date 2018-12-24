@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
-    <h2 class="d-inline-block headline-content">Visitors</h2>
-    <a href="#addVisitorModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Visitor</a>
-    <hr>
+<div class="container-fluid pl-0 pr-0">
+    <div class="headline-contents">
+        <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Visitors</h2>
+        <a href="#addVisitorModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Visitor</a>
+    </div>
+    <!-- <hr> -->
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table">
             <thead>
                 <tr>
                     <th>Sr.No</th>
@@ -24,10 +26,10 @@
                     <td>{{$visitor->email}}</td>
                     <td>{{$visitor->phone}}</td>
                     <td>
-                        <a href="#editVisitorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i> Edit </a>
+                        <a href="#editVisitorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
                         <form method="post" action="/visitors/{{$visitor->id}}/delete" class="d-inline">
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> Delete</button>
+                            <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
                         </form>
 
                         <div class="modal fade in editVisitorModal{{$key}}" id="editVisitorModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,6 +1,26 @@
 body{
 	background-color: #fff !important;
 }
+.btn-primary {
+    color: #fff !important;
+    background-color: #166ead !important;
+    border-color: #166ead !important;
+}
+.btn-outline-primary {
+    color: #166ead !important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #166ead !important;
+}
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+     -webkit-box-shadow: none !important; 
+     box-shadow:none !important; 
+}
+.btn-info {
+    color: #fff !important;
+    background-color: #166ead !important;
+    border-color: #166ead !important;
+}
 .form-control {
   	height: 47px !important;
 }
@@ -8,7 +28,7 @@ body{
     height: 30px !important;
 }
 .login-btn-section{
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 .custom-caurosal .carousel-indicators .active {
     /*background-color: #166ead !important;*/
@@ -213,8 +233,10 @@ textarea.form-control {
     background-color: #fafafa;
 }
 .headline-contents h2{
-  margin-bottom: 0px !important;
+  font-size: 17px;
+  margin-top: 6px;
 }
+
 .navbar-nav .custom-dashboard-nav-link i{
   color: rgb(0, 0, 0);
   font-size: 25px;
@@ -228,7 +250,36 @@ textarea.form-control {
 .dashboard-home-image{
   width: 640px;
 }
+.product-edit-btn{
+  background-color: #fff !important;
+  border-color: #fff !important;
+  color: #000 !important;
+}
+.custom-dropdwon-toogle-filter::after {
+  right: 5px !important;
+}
+.custom-primary:not(:disabled):not(.disabled):active, .custom-primary:not(:disabled):not(.disabled).active, .show > .custom-primary.dropdown-toggle {
+    color: #3490dc !important;
+    background-color: #fff !important;
+    border-color: #3490dc !important;
+}
+.custom-primary:hover {
+    color: #3490dc !important;
+    background-color: #fff !important;
+    border-color: #3490dc !important;
+}
+.product-delete-btn{
+  background-color: #fff !important;
+  border-color: #fff !important;
+  color: #000 !important;
+}
 @media(max-width: 768px){
+  .login-btn-section{
+    margin-bottom: 10px;
+  }
+  .responsive-headline-contents h2 {
+    margin-bottom: 20px;
+  }
   .register-headline{
     font-size: 21px;
   }
@@ -279,7 +330,7 @@ textarea.form-control {
     font-size: 17px;
   }
   .product-edit-btn{
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
   }
   .dashboard-nav-list{
     display: none !important;
