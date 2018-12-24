@@ -45,6 +45,7 @@ Route::post('/managers', 'ManagersController@store');
 Route::get('/products', 'ProductsController@index');
 Route::post('/products', 'ProductsController@store');
 Route::get('/products/{product}', 'ProductsController@show');
+Route::get('/products/{product}/get', 'ProductsController@get');
 Route::post('/products/{product}/delete', 'ProductsController@destroy');
 Route::post('/products/{product}/update', 'ProductsController@update');
 
@@ -68,6 +69,13 @@ Route::post('/customers', 'CustomersController@store');
 Route::get('/customers/{customer}', 'CustomersController@show');
 Route::post('/customers/{customer}/delete', 'CustomersController@destroy');
 Route::post('/customers/{customer}/update', 'CustomersController@update');
+
+Route::get('/enquiries', 'EnquiriesController@index');
+Route::get('/enquiries/add', 'EnquiriesController@create');
+Route::post('/enquiries', 'EnquiriesController@store');
+Route::get('/enquiries/{enquiry}', 'EnquiriesController@show');
+Route::post('/enquiries/{enquiry}/delete', 'EnquiriesController@destroy');
+Route::post('/enquiries/{enquiry}/update', 'EnquiriesController@update');
 
 
 Route::get('/settings', 'SettingsController@index');

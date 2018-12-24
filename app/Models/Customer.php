@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\User;
 use App\Models\Store;
+use App\Models\Enquiry;
 use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
@@ -25,5 +26,10 @@ class Customer extends Model
     public function getFullnameAttribute()
     {
         return $this->fname . ' ' . $this->lname;
+    }
+
+    public function enquiries()
+    {
+        return $this->hasMany(Enquiry::class)->latest();
     }
 }

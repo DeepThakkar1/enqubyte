@@ -22,6 +22,13 @@
                         <span>{{ __('Dashboard') }}</span>
                     </a>
                 </li>
+                <li class="{{ request()->is('enquiries') ? 'active' : ''}}">
+                    <a href="/enquiries">
+                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <span>{{ __('Enquiries') }}</span>
+                    </a>
+                </li>
                 @if(auth()->user()->mode)
                 <li class="{{ request()->is('stores*') ? 'active' : ''}}">
                     <a href="/stores">
@@ -148,6 +155,14 @@
                         <span>{{ __('Dashboard') }}</span>
                     </a>
                 </li>
+                <li class="{{ request()->is('enquiries') ? 'active' : ''}}">
+                    <a href="/enquiries">
+                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <span>{{ __('Enquiries') }}</span>
+                    </a>
+                </li>
+
                 @if(auth()->user()->mode)
                 <li class="{{ request()->is('stores*') ? 'active' : ''}}">
                     <a href="/stores">
