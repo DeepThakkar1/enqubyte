@@ -226,6 +226,7 @@
             })
             .then(function (response) {
                 $('#demoModal').modal('hide');
+                window.location.reload();
             })
             .catch(function (error) {
                 console.log(error);

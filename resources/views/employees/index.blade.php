@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0">
+<div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content">Employees</h2>
+        <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span>Employees</h2>
         <a href="#addEmployeeModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Employee</a>
     </div>
     <!-- <hr> -->
@@ -28,9 +28,9 @@
                 <td>{{$key + 1}}</td>
                 <td>
                     @if($employee->photo)
-                    <img src="{{Storage::url($employee->photo)}}" width="100px">
+                    <img src="{{Storage::url($employee->photo)}}" height="70px" style="border-radius: 50%;width: 70px;">
                     @else
-                    <img src="{{asset('img/user.png')}}" width="100px">
+                    <img src="{{asset('img/user.png')}}" height="70px" style="border-radius: 50%;width: 70px;">
                     @endif
                 </td>
                 @if(auth()->user()->mode)

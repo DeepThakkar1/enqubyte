@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0">
+<div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content">Customers</h2>
+        <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Customers</h2>
         <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Customer</a>
         </div>
     <!-- <hr> -->
@@ -70,7 +70,7 @@
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
                                                     <label>Email ID<sup class="error">*</sup></label>
-                                                    <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Store email" required>
+                                                    <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Customer email" required>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
@@ -139,7 +139,7 @@
                     <div class="row form-group">
                         <div class="col-sm-6">
                             <label>Email ID<sup class="error">*</sup></label>
-                            <input type="email" name="email" class="form-control" placeholder="Store email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Customer email" required>
                         </div>
                         <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>

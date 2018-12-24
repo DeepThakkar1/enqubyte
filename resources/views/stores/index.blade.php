@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0">
+<div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
          <h2 class="d-inline-block headline-content">Stores</h2>
          <a href="#addStoreModal" data-toggle="modal" class="btn btn-primary float-right"><i class="fa fa-plus-circle"></i> Add Store</a>

@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
-    <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"><span>lead  <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Products</h2>
-        <div class="float-right">
+<div class="container-fluid pl-0 pr-0 ml-0 mr-0">
+    <div class="headline-contents responsive-headline-contents">
+        <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Products</h2>
+        <div class="float-md-right">
             <div class="btn-group">
-              <button type="button" class="btn btn-outline-primary custom-primary">Sony</button>
+              <button type="button" class="btn btn-outline-primary custom-primary">Product</button>
               <button type="button" class="btn btn-outline-primary custom-primary custom-dropdwon-toogle-filter dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                 <span class="caret"></span>
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Tablet</a>
-                <a class="dropdown-item" href="#">Smartphone</a>
+                <a class="dropdown-item" href="#">Product One</a>
+                <a class="dropdown-item" href="#">Product Two</a>
             </div>
         </div>
         <a href="#addProductModal" data-toggle="modal" style="font-size: 14px;" class="btn btn-primary ml-2"><!-- <i class="fa fa-plus-circle"></i> --> Add Product</a>
-        <a href="#addMaterialModal" data-toggle="modal" style="font-size: 14px;" class="btn btn-primary ml-2"><i class="fa fa-plus-circle"></i></a>
+        <!-- <a href="#addMaterialModal" data-toggle="modal" style="font-size: 14px;" class="btn btn-primary ml-2"><i class="fa fa-plus-circle"></i></a> -->
     </div>
 </div>
 <!-- <hr> -->
@@ -195,18 +195,7 @@
 
 
 
-<div class="modal fade in addProductModal" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Add Product</h5>
-                <button type="button" class="close btn-close-modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 @endsection

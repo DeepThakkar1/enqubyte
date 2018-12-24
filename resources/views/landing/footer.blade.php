@@ -29,7 +29,7 @@
                         <div class="col-md-6 col-lg-3">
                             <div class="footer-widget">
                                 <div class="footer-logo-wraper">
-                                    <a href="index-2.html" class="footer-logo responsive-footer-logo">
+                                    <a href="/" class="footer-logo responsive-footer-logo">
                                         <img src="/img/logo.png" alt="">
                                     </a>
                                 </div>

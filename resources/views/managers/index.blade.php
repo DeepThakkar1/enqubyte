@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0">
+<div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
         <h3 class="d-inline-block ">Managers</h3>
         <a href="#addManagerModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Manager</a>

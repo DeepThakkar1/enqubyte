@@ -1,11 +1,31 @@
 body{
 	background-color: #fff !important;
 }
+.btn-primary {
+    color: #fff !important;
+    background-color: #166ead !important;
+    border-color: #166ead !important;
+}
+.btn-outline-primary {
+    color: #166ead !important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #166ead !important;
+}
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+     -webkit-box-shadow: none !important; 
+     box-shadow:none !important; 
+}
+.btn-info {
+    color: #fff !important;
+    background-color: #166ead !important;
+    border-color: #166ead !important;
+}
 .form-control {
   	height: 47px !important;
 }
 .login-btn-section{
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 .custom-caurosal .carousel-indicators .active {
     /*background-color: #166ead !important;*/
@@ -251,6 +271,12 @@ textarea.form-control {
   color: #000 !important;
 }
 @media(max-width: 768px){
+  .login-btn-section{
+    margin-bottom: 10px;
+  }
+  .responsive-headline-contents h2 {
+    margin-bottom: 20px;
+  }
   .register-headline{
     font-size: 21px;
   }
@@ -301,7 +327,7 @@ textarea.form-control {
     font-size: 17px;
   }
   .product-edit-btn{
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
   }
   .dashboard-nav-list{
     display: none !important;
