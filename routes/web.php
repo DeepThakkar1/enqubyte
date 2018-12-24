@@ -72,6 +72,7 @@ Route::post('/customers/{customer}/update', 'CustomersController@update');
 
 Route::get('/enquiries', 'EnquiriesController@index');
 Route::get('/enquiries/add', 'EnquiriesController@create');
+Route::get('/enquiries/{enquiry}/edit', 'EnquiriesController@edit');
 Route::post('/enquiries', 'EnquiriesController@store');
 Route::get('/enquiries/{enquiry}', 'EnquiriesController@show');
 Route::post('/enquiries/{enquiry}/delete', 'EnquiriesController@destroy');

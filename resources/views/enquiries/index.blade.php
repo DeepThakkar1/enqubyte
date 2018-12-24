@@ -30,8 +30,11 @@
                     <td>{{$enquiry->grand_total}}</td>
                     <td><span class="badge badge-warning">Pending</span> </td>
                     <td>
-                        <a href="javascript:;" class="btn btn-sm"><i class="fa fa-pencil"></i></a>
-                        <a href="javascript:;" class="btn btn-sm"><i class="fa fa-trash"></i></a>
+                        <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>
+                        <form method="post" action="/enquiries/{{$enquiry->id}}/delete" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-sm" onclick="return confirm('Are you sure, You want to delete this enquiry?');"><i class="fa fa-trash"></i></button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

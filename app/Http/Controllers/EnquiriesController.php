@@ -91,7 +91,10 @@ class EnquiriesController extends Controller
      */
     public function edit(Enquiry $enquiry)
     {
-        //
+        $customers = Customer::all();
+        $products = Product::all();
+        $enquiryitems = $enquiry->enquiryitems;
+        return view('enquiries.edit', compact('enquiry', 'customers', 'products', 'enquiryitems'));
     }
 
     /**
@@ -103,7 +106,29 @@ class EnquiriesController extends Controller
      */
     public function update(Request $request, Enquiry $enquiry)
     {
-        //
+        $enquiry->update([
+            'company_id' => auth()->id(),
+            /*'employee_id' => 0,
+            'store_id' => 0,*/
+            'customer_id' => request('customer_id'),
+            'followup_date' => request('followup_date'),
+            'enquiry_date' => request('enquiry_date'),
+            'sub_tot_amt' => request('sub_tot_amt'),
+            'grand_total' => request('grand_total')
+        ]);
+        for ($i=0; $i < count(request('product_id')); $i++) {
+            $enquiry->enquiryitems()->update([
+                'product_id' => request('product_id')[$i],
+                'description' => request('description')[$i],
+                'qty' => request('qty')[$i],
+                'price' => request('price')[$i],
+                'tax' => request('tax')[$i],
+                'product_tot_amt' => request('product_tot_amt')[$i]
+            ]);
+        }
+
+        flash('Enquiry updated successfully!');
+        return redirect('/enquiries');
     }
 
     /**
@@ -114,6 +139,9 @@ class EnquiriesController extends Controller
      */
     public function destroy(Enquiry $enquiry)
     {
-        //
+        $enquiry->enquiryitems()->delete();
+        $enquiry->delete();
+        flash('Enquiry deleted successfully!');
+        return redirect('/enquiries');
     }
 }
