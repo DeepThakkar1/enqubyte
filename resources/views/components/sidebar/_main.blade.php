@@ -22,7 +22,7 @@
                         <span>{{ __('Dashboard') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('enquiries') ? 'active' : ''}}">
+                <li class="{{ request()->is('enquiries*') ? 'active' : ''}}">
                     <a href="/enquiries">
                         <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">

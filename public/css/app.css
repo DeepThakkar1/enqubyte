@@ -10742,3 +10742,15 @@ a.btn-addMoreItems {
   bottom: 195px;
 }
 
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 45px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 45px !important;
+}
+
+.select2-container .select2-selection--single {
+  height: 47px !important;
+}
+

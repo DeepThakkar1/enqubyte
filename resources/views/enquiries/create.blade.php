@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>
-                        <select class="form-control" name="customer_id">
+                        <select class="form-control selectWithSearch" name="customer_id">
                             <option selected disabled>-- Choose Customer --</option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}">{{$customer->fullname}} ({{$customer->phone}})</option>
@@ -51,7 +51,7 @@
                         <tbody class="tableBodyItems">
                             <tr>
                                 <td>
-                                    <select class="form-control form-control-sm select-product" name="product_id[]" style="width: 180px">
+                                    <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">
                                         <option selected disabled>-- Choose Product --</option>
                                         @foreach($products as $product)
                                         <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>
@@ -180,41 +180,41 @@
 
     $('.btn-addMoreItems').on('click', function(){
         var html = '<tr><td>\
-<select class="form-control form-control-sm select-product" name="product_id[]" style="width: 180px">\
-<option selected disabled>-- Choose Product --</option>\
-@foreach($products as $product)\
-<option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>\
-@endforeach\
-</select></td>\
-<td>\
-<textarea class="form-control" name="description[]" style="width: 150px"></textarea>\
-</td>\
-<td>\
-<input type="text" name="qty[]" style="width: 80px" value="1" class="form-control form-control-sm input-qty">\
-</td>\
-<td>\
-<input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">\
-</td>\
-<td>\
-<select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">\
-<option selected disabled>-- Choose Tax --</option>\
-<option value="0">None</option>\
-<option value="2">2%</option>\
-<option value="3">3%</option>\
-<option value="5">5%</option>\
-<option value="12">12%</option>\
-</select>\
-</td>\
-<td class="text-right">\
-&#8377; <span class="totAmount"> 0.00</span>\
-<input type="hidden" name="product_tot_amt[]" value="0">\
-</td>\
-<td>\
-<a href="javascript:;" class="btn-removeItem"><i class="fa fa-trash"></i></a>\
-</td></tr>';
+            <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">\
+            <option selected disabled>-- Choose Product --</option>\
+            @foreach($products as $product)\
+            <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>\
+            @endforeach\
+            </select></td>\
+            <td>\
+            <textarea class="form-control" name="description[]" style="width: 150px"></textarea>\
+            </td>\
+            <td>\
+            <input type="text" name="qty[]" style="width: 80px" value="1" class="form-control form-control-sm input-qty">\
+            </td>\
+            <td>\
+            <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">\
+            </td>\
+            <td>\
+            <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">\
+            <option selected disabled>-- Choose Tax --</option>\
+            <option value="0">None</option>\
+            <option value="2">2%</option>\
+            <option value="3">3%</option>\
+            <option value="5">5%</option>\
+            <option value="12">12%</option>\
+            </select>\
+            </td>\
+            <td class="text-right">\
+            &#8377; <span class="totAmount"> 0.00</span>\
+            <input type="hidden" name="product_tot_amt[]" value="0">\
+            </td>\
+            <td>\
+            <a href="javascript:;" class="btn-removeItem"><i class="fa fa-trash"></i></a>\
+            </td></tr>';
 
-    $('.table-enquiryItems .tableBodyItems').append(html);
-
+        $('.table-enquiryItems .tableBodyItems').append(html);
+        $('.table-enquiryItems .selectWithSearch').select2();
     });
 
 function total(){
@@ -230,5 +230,5 @@ function total(){
     }
 }
 
-</script>
+    </script>
 @endpush
