@@ -12,7 +12,7 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form class="form-inline my-2 my-lg-0 ml-3">
         <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="height: 46px;">Search</button>
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" style="height: 46px;">Search</button>
     </form>
     <ul class="navbar-nav ml-auto dashboard-nav-list">
         <li class="nav-item dropdown">

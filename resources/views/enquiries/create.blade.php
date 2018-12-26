@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
+<div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content">Add Enquiry</h2>
         <a href="/enquiries" class="btn btn-secondary float-right">Back</a>

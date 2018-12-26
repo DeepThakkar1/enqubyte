@@ -16,6 +16,11 @@ body{
      -webkit-box-shadow: none !important; 
      box-shadow:none !important; 
 }
+.btn-outline-primary:hover {
+    color: #fff !important;
+    background-color: #166ead !important;
+    border-color: #166ead !important;
+}
 .btn-info {
     color: #fff !important;
     background-color: #166ead !important;
