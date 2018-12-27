@@ -27,11 +27,11 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Date</label>
-                        <input type="date" class="form-control" name="enquiry_date" value="{{$enquiry->enquiry_date}}" placeholder="Enquiry date">
+                        <input type="text" class="form-control datepicker" autocomplete="off" name="enquiry_date" value="{{$enquiry->enquiry_date}}" placeholder="Enquiry date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Follow Up Date</label>
-                        <input type="date" class="form-control" name="followup_date" value="{{$enquiry->followup_date}}" placeholder="Enquiry followup date">
+                        <input type="text" class="form-control datepicker" autocomplete="off" name="followup_date" value="{{$enquiry->followup_date}}" placeholder="Enquiry followup date">
                     </div>
                 </div>
                 <hr>

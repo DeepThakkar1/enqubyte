@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Enquiry;
 use App\Models\Product;
+use App\Models\Visitor;
 use App\Models\Customer;
 use App\Models\EnquiryItem;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class EnquiriesController extends Controller
      */
     public function create()
     {
-        $customers = Customer::all();
+        $customers = Visitor::all();
         $products = Product::all();
         $enquiry =Enquiry::orderBy('created_at', 'desc')->first();
         return view('enquiries.create', compact('customers', 'products', 'enquiry'));
@@ -63,7 +64,7 @@ class EnquiriesController extends Controller
                 'description' => request('description')[$i],
                 'qty' => request('qty')[$i],
                 'price' => request('price')[$i],
-                'tax' => request('tax')[$i],
+                'tax' => isset(request('tax')[$i]) ? request('tax')[$i] : 0,
                 'product_tot_amt' => request('product_tot_amt')[$i]
             ]);
         }
@@ -116,13 +117,15 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => request('sub_tot_amt'),
             'grand_total' => request('grand_total')
         ]);
+        $enquiry->enquiryitems()->delete();
+
         for ($i=0; $i < count(request('product_id')); $i++) {
-            $enquiry->enquiryitems()->update([
+            $enquiry->enquiryitems()->create([
                 'product_id' => request('product_id')[$i],
                 'description' => request('description')[$i],
                 'qty' => request('qty')[$i],
                 'price' => request('price')[$i],
-                'tax' => request('tax')[$i],
+                'tax' => isset(request('tax')[$i]) ? request('tax')[$i] : 0,
                 'product_tot_amt' => request('product_tot_amt')[$i]
             ]);
         }

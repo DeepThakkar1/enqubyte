@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datetimepicker.min.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
 </head>
@@ -102,6 +103,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/parsley.js') }}"></script>
+    <script src="{{ asset('js/datetimepicker.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         $('form').parsley({
@@ -126,6 +128,12 @@
                 form.trigger('reset');
                 modal.modal('hide');
             });
+
+            jQuery.datetimepicker.setLocale('en');
+            jQuery('.datetimepicker').datetimepicker();
+            jQuery('.datepicker').datetimepicker({timepicker:false, format:'d-m-Y'});
+            jQuery('.birthdatepicker').datetimepicker({timepicker:false, format:'d-m-Y', maxDate:moment('DD/MM/YYYY')});
+
         });
     </script>
 

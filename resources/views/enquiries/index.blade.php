@@ -15,7 +15,7 @@
                     <th>Customer Name</th>
                     <th>Date</th>
                     <th>Followup Date</th>
-                    <th>Amount</th>
+                    <th class="text-right">Amount</th>
                     <th>Status</th>
                     <th width="160px">Action</th>
                 </tr>
@@ -23,11 +23,11 @@
             <tbody>
                 @foreach($enquiries as $key => $enquiry)
                 <tr>
-                    <td>{{$key+1}}</td>
+                    <td>{{$enquiry->id}}</td>
                     <td>{{$enquiry->customer->fullname}}</td>
                     <td>{{$enquiry->enquiry_date}}</td>
                     <td>{{$enquiry->followup_date}}</td>
-                    <td>{{$enquiry->grand_total}}</td>
+                    <td class="text-right">{{$enquiry->grand_total}}</td>
                     <td><span class="badge badge-warning">Pending</span> </td>
                     <td>
                         <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>
