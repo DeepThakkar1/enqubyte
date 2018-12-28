@@ -138,6 +138,10 @@
     </script>
 
      <script type="text/javascript">
+         function closeSelect2(selectName){
+                $('.' + selectName).select2('close');
+            };
+
         $(document).ready(function () {
             $("#sidebars").mCustomScrollbar({
                 theme: "minimal"

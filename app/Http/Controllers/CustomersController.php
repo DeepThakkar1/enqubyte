@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Visitor;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -50,9 +50,10 @@ class CustomersController extends Controller
     {
         $newData = $request->all();
         $newData['company_id'] = auth()->id();
-        auth()->user()->customers()->create($newData);
+        $newData['is_customer'] = 1;
+        $customer = auth()->user()->visitors()->create($newData);
         flash('Customer added successfully!');
-        return back();
+        return response([$customer], 200);
     }
 
     /**

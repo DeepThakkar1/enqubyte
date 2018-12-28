@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>
-                        <select class="form-control selectWithSearch" name="customer_id">
+                        <select class="form-control selectWithSearch selectCustomer" name="customer_id">
                             <option selected disabled>-- Choose Customer --</option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}">{{$customer->fullname}} ({{$customer->phone}})</option>
@@ -116,6 +116,9 @@
         </form>
     </div>
 </div>
+
+@include('enquiries.partials.modals')
+
 @endsection
 
 @push('js')
@@ -229,6 +232,17 @@ function total(){
         $(".grandTotAmount").html(totamt);
     }
 }
+
+$('.selectCustomer').select2()
+.on('select2:open', () => {
+    $(".select2-results:not(:has(a))").append('<a href="#addCustomerModal" data-toggle="modal" onclick="closeSelect2(\'selectCustomer\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new customer</a>');
+});
+
+$('.select-product').select2()
+.on('select2:open', () => {
+    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(\'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+});
+
 
     </script>
 @endpush

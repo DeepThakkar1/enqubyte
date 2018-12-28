@@ -10754,3 +10754,15 @@ a.btn-addMoreItems {
   height: 47px !important;
 }
 
+a.select2-additem {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 5px;
+  padding: 5px;
+  display: block;
+  color: #166ead;
+  border-top: 1px solid #ccc;
+  width: 97%;
+}
+

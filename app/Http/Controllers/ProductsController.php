@@ -52,7 +52,11 @@ class ProductsController extends Controller
     {
         $newData = $request->all();
         $newData['company_id'] = auth()->id();
-        auth()->user()->products()->create($newData);
+        $product = auth()->user()->products()->create($newData);
+        if($request->wantsJson())
+        {
+            return response($product, 200);
+        }
         flash('Product added successfully!');
         return back();
     }

@@ -50,7 +50,12 @@ class VisitorsController extends Controller
     {
         $newData = $request->all();
         $newData['company_id'] = auth()->id();
-        auth()->user()->visitors()->create($newData);
+        $visitor = auth()->user()->visitors()->create($newData);
+
+        if($request->wantsJson())
+        {
+            return response($visitor, 200);
+        }
         flash('Visitor added successfully!');
         return back();
     }
