@@ -6,7 +6,6 @@
         <h2 class="d-inline-block headline-content">Add Enquiry</h2>
         <a href="/enquiries" class="btn btn-secondary float-right">Back</a>
     </div>
-    <!-- <hr> -->
     <div class="card">
         <form method="post" action="/enquiries">
             @csrf
