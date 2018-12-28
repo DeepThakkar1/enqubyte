@@ -142,6 +142,12 @@
                 $('.' + selectName).select2('close');
             };
 
+             function closeMultipleSelect2(element, selectName){
+
+                $('.' + selectName).select2('close');
+            };
+
+
         $(document).ready(function () {
             $("#sidebars").mCustomScrollbar({
                 theme: "minimal"

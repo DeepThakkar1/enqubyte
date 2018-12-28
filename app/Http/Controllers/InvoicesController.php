@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Enquiry;
+use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\Visitor;
-use App\Models\Customer;
-use App\Models\EnquiryItem;
 use Illuminate\Http\Request;
 
-class EnquiriesController extends Controller
+class InvoicesController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware(['auth', 'verified']);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,8 +22,8 @@ class EnquiriesController extends Controller
      */
     public function index()
     {
-        $enquiries = auth()->user()->enquiries;
-        return view('enquiries.index', compact('enquiries'));
+        $invoices = auth()->user()->invoices;
+        return view('sales.invoices.index', compact('invoices'));
     }
 
     /**
@@ -36,8 +35,8 @@ class EnquiriesController extends Controller
     {
         $customers = Visitor::all();
         $products = Product::all();
-        $enquiry =Enquiry::orderBy('created_at', 'desc')->first();
-        return view('enquiries.create', compact('customers', 'products', 'enquiry'));
+        $invoive =Invoice::orderBy('created_at', 'desc')->first();
+        return view('sales.invoices.create', compact('customers', 'products', 'invoive'));
     }
 
     /**
@@ -48,18 +47,18 @@ class EnquiriesController extends Controller
      */
     public function store(Request $request)
     {
-        $enquiry = Enquiry::create([
+        $invoice = Invoice::create([
             'company_id' => auth()->id(),
             /*'employee_id' => 0,
             'store_id' => 0,*/
             'customer_id' => request('customer_id'),
-            'followup_date' => request('followup_date'),
-            'enquiry_date' => request('enquiry_date'),
+            'due_date' => request('due_date'),
+            'invoice_date' => request('invoice_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
             'grand_total' => request('grand_total')
         ]);
         for ($i=0; $i < count(request('product_id')); $i++) {
-            $enquiry->enquiryitems()->create([
+            $invoice->invoiceitems()->create([
                 'product_id' => request('product_id')[$i],
                 'description' => request('description')[$i],
                 'qty' => request('qty')[$i],
@@ -69,17 +68,17 @@ class EnquiriesController extends Controller
             ]);
         }
 
-        flash('Enquiry added successfully!');
-        return redirect('/enquiries');
+        flash('Invoice added successfully!');
+        return redirect('/sales/invoices');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Enquiry  $enquiry
+     * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show(Enquiry $enquiry)
+    public function show(Invoice $invoice)
     {
         //
     }
@@ -87,40 +86,40 @@ class EnquiriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Enquiry  $enquiry
+     * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function edit(Enquiry $enquiry)
+    public function edit(Invoice $invoice)
     {
         $customers = Visitor::all();
         $products = Product::all();
-        $enquiryitems = $enquiry->enquiryitems;
-        return view('enquiries.edit', compact('enquiry', 'customers', 'products', 'enquiryitems'));
+        $invoiceitems = $invoice->invoiceitems;
+        return view('sales.invoices.edit', compact('invoice', 'customers', 'products', 'invoiceitems'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Enquiry  $enquiry
+     * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Enquiry $enquiry)
+    public function update(Request $request, Invoice $invoice)
     {
-        $enquiry->update([
+        $invoice->update([
             'company_id' => auth()->id(),
             /*'employee_id' => 0,
             'store_id' => 0,*/
             'customer_id' => request('customer_id'),
-            'followup_date' => request('followup_date'),
-            'enquiry_date' => request('enquiry_date'),
+            'due_date' => request('due_date'),
+            'invoice_date' => request('invoice_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
             'grand_total' => request('grand_total')
         ]);
-        $enquiry->enquiryitems()->delete();
+        $invoice->invoiceitems()->delete();
 
         for ($i=0; $i < count(request('product_id')); $i++) {
-            $enquiry->enquiryitems()->create([
+            $invoice->invoiceitems()->create([
                 'product_id' => request('product_id')[$i],
                 'description' => request('description')[$i],
                 'qty' => request('qty')[$i],
@@ -130,21 +129,21 @@ class EnquiriesController extends Controller
             ]);
         }
 
-        flash('Enquiry updated successfully!');
-        return redirect('/enquiries');
+        flash('Invoice updated successfully!');
+        return redirect('/sales/invoices');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Enquiry  $enquiry
+     * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Enquiry $enquiry)
+    public function destroy(Invoice $invoice)
     {
-        $enquiry->enquiryitems()->delete();
-        $enquiry->delete();
-        flash('Enquiry deleted successfully!');
-        return redirect('/enquiries');
+        $invoice->invoiceitems()->delete();
+        $invoice->delete();
+        flash('Invoice deleted successfully!');
+        return redirect('/sales/invoices');
     }
 }

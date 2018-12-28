@@ -133,8 +133,6 @@
 @push('js')
     <script>
         $('#addCustomer').on('click', function(){
-
-            var selectBox = $(this).data('select');
             var data = $('.frmCustomer').serialize();
             axios.post('/visitors', data)
             .then(function(response){
@@ -163,14 +161,13 @@
                 var newProdVal = response.data.id;
                 var newProdName = response.data.name + ' (' + response.data.product_code + ') ';
                 // Set the value, creating a new option if necessary
-                if (window.selectedBox.find("option[value='" + newProdVal + "']").length) {
-                    window.selectedBox.val(newProdVal).trigger("change");
+                if ($(".select-product").find("option[value='" + newProdVal + "']").length) {
+                    $(".select-product").val(newProdVal).trigger("change");
                 } else {
                     // Create the DOM option that is pre-selected by default
                     var newProd = new Option(newProdName, newProdVal, true, true);
                     // Append it to the select
-                    //$(".select-product").append(newProd);
-                    window.selectedBox.append(newProd).trigger("change");
+                    $(".select-product").append(newProd).trigger('change');
                 }
                 $('.frmProduct').trigger('reset');
                 $('.addProductModal').modal('hide');

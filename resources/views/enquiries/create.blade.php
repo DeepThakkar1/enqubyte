@@ -26,11 +26,11 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Date</label>
-                        <input type="text" class="form-control datepicker" name="enquiry_date" placeholder="Enquiry date">
+                        <input type="text" class="form-control datepicker" name="enquiry_date" autocomplete="off" placeholder="Enquiry date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Follow Up Date</label>
-                        <input type="text" class="form-control datepicker" name="followup_date" placeholder="Enquiry followup date">
+                        <input type="text" class="form-control datepicker" name="followup_date" autocomplete="off" placeholder="Enquiry followup date">
                     </div>
                 </div>
                 <hr>
@@ -216,7 +216,11 @@
             </td></tr>';
 
         $('.table-enquiryItems .tableBodyItems').append(html);
-        $('.table-enquiryItems .selectWithSearch').select2();
+        $('.table-enquiryItems .select-product').select2()
+        .on('select2:open', (e) => {
+            window.selectedBox = $(e.currentTarget);
+            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal"  onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+        });
     });
 
 function total(){
@@ -234,12 +238,14 @@ function total(){
 
 $('.selectCustomer').select2()
 .on('select2:open', () => {
+
     $(".select2-results:not(:has(a))").append('<a href="#addCustomerModal" data-toggle="modal" onclick="closeSelect2(\'selectCustomer\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new customer</a>');
 });
 
 $('.select-product').select2()
-.on('select2:open', () => {
-    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(\'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+.on('select2:open', (e) => {
+    window.selectedBox = $(e.currentTarget);
+    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal"  onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
 });
 
 

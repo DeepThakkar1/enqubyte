@@ -22,12 +22,30 @@
                         <span>{{ __('Dashboard') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('enquiries*') ? 'active' : ''}}">
+               <!--  <li class="{{ request()->is('enquiries*') ? 'active' : ''}}">
                     <a href="/enquiries">
                         <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
                         <span>{{ __('Enquiries') }}</span>
                     </a>
+                </li> -->
+                <li>
+                    <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <span>{{ __('Sales') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="salesSubmenu">
+                        <li>
+                            <a href="/enquiries">{{ __('Enquiries') }}</a>
+                        </li>
+                        <li>
+                            <a href="/sales/invoices">{{ __('Invoices') }}</a>
+                        </li>
+                         <li>
+                            <a href="/customers">{{ __('Customers') }}</a>
+                        </li>
+                    </ul>
                 </li>
                 @if(auth()->user()->mode)
                 <li class="{{ request()->is('stores*') ? 'active' : ''}}">
@@ -38,7 +56,22 @@
                     </a>
                 </li>
                 @endif
-                <li class="{{ request()->is('products*') ? 'active' : ''}}">
+                <li >
+                    <a href="#entitiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <span>{{ __('Entities') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="entitiesSubmenu">
+                        <li>
+                            <a href="/products">{{ __('Products') }}</a>
+                        </li>
+                        <li>
+                            <a href="/employees">{{ __('Employees') }}</a>
+                        </li>
+                    </ul>
+                </li>
+              <!--   <li class="{{ request()->is('products*') ? 'active' : ''}}">
                     <a href="/products">
                         <img src="{{ url('img/sidebar/products.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/products-clr.png') }}" class="active-icon">
@@ -51,7 +84,7 @@
                         <img src="{{ url('img/sidebar/employee-clr.png') }}" class="active-icon">
                         <span>{{ __('Employees') }}</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="{{ request()->is('visitors*') ? 'active' : ''}}">
                     <a href="/visitors">
                         <img src="{{ url('img/sidebar/employee.png') }}" class="inactive-icon">
@@ -59,13 +92,13 @@
                         <span>{{ __('Visitors') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('customers*') ? 'active' : ''}}">
+               <!--  <li class="{{ request()->is('customers*') ? 'active' : ''}}">
                     <a href="/customers">
                         <img src="{{ url('img/sidebar/employee.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/employee-clr.png') }}" class="active-icon">
                         <span>{{ __('Customers') }}</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#">
                         <img src="{{ url('img/sidebar/reports.png') }}" class="inactive-icon">
@@ -81,20 +114,7 @@
                     </a>
                 </li>
 
-                <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li> -->
+
 
                 <li>
                     <a href="{{ route('logout') }}"

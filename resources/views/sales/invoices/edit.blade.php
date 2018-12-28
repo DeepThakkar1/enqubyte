@@ -3,40 +3,40 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content">Edit Enquiry</h2>
-        <a href="/enquiries" class="btn btn-secondary float-right">Back</a>
+        <h2 class="d-inline-block headline-content">Edit Invoice</h2>
+        <a href="/sales/invoices" class="btn btn-secondary float-right">Back</a>
     </div>
     <!-- <hr> -->
     <div class="card">
-        <form method="post" action="/enquiries/{{$enquiry->id}}/update">
+        <form method="post" action="/sales/invoices/{{$invoice->id}}/update">
             @csrf
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-4 form-group">
-                        <label>Enquiry Number</label>
-                        <input type="text" name="" class="form-control" value="{{$enquiry->id}}" readonly>
+                        <label>Invoice Number</label>
+                        <input type="text" name="" class="form-control" value="{{$invoice->id}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>
                         <select class="form-control selectCustomer" name="customer_id">
                             <option selected disabled>-- Choose Customer --</option>
                             @foreach($customers as $customer)
-                            <option value="{{$customer->id}}" {{$enquiry->customer_id == $customer->id ? 'selected' : ''}}>{{$customer->fullname}} ({{$customer->phone}})</option>
+                            <option value="{{$customer->id}}" {{$invoice->customer_id == $customer->id ? 'selected' : ''}}>{{$customer->fullname}} ({{$customer->phone}})</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="enquiry_date" value="{{$enquiry->enquiry_date}}" placeholder="Enquiry date">
+                        <input type="text" class="form-control datepicker" autocomplete="off" name="invoice_date" value="{{$invoice->invoice_date}}" placeholder="Invoice date">
                     </div>
                     <div class="col-sm-4 form-group">
-                        <label>Follow Up Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="followup_date" value="{{$enquiry->followup_date}}" placeholder="Enquiry followup date">
+                        <label>Due Date</label>
+                        <input type="text" class="form-control datepicker" autocomplete="off" name="due_date" value="{{$invoice->due_date}}" placeholder="Due date">
                     </div>
                 </div>
                 <hr>
                 <div class="table-responsive">
-                    <table class="table table-enquiryItems">
+                    <table class="table table-invoiceItems">
                         <thead>
                             <tr class="product-list-menu">
                                 <th>Items</th>
@@ -49,7 +49,7 @@
                             </tr>
                         </thead>
                         <tbody class="tableBodyItems">
-                            @foreach($enquiryitems as $item)
+                            @foreach($invoiceitems as $item)
                             <tr>
                                 <td>
                                     <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">
@@ -93,8 +93,8 @@
                                 <td colspan="4"></td>
                                 <td class="text-right font-weight-bold">Subtotal : </td>
                                 <td class="text-right font-weight-bold">
-                                    &#8377; <span class="subTotAmount"> {{$enquiry->sub_tot_amt}}</span>
-                                    <input type="hidden" name="sub_tot_amt" value="{{$enquiry->sub_tot_amt}}">
+                                    &#8377; <span class="subTotAmount"> {{$invoice->sub_tot_amt}}</span>
+                                    <input type="hidden" name="sub_tot_amt" value="{{$invoice->sub_tot_amt}}">
                                 </td>
                                 <td></td>
                             </tr>
@@ -102,8 +102,8 @@
                                 <td colspan="4"></td>
                                 <td class="text-right font-weight-bold">Total (INR): </td>
                                 <td class="text-right font-weight-bold">
-                                    &#8377; <span class="grandTotAmount"> {{$enquiry->grand_total}}</span>
-                                    <input type="hidden" name="grand_total" value="{{$enquiry->grand_total}}">
+                                    &#8377; <span class="grandTotAmount"> {{$invoice->grand_total}}</span>
+                                    <input type="hidden" name="grand_total" value="{{$invoice->grand_total}}">
                                 </td>
                                 <td></td>
                             </tr>
@@ -119,13 +119,13 @@
     </div>
 </div>
 
-@include('enquiries.partials.modals')
+@include('sales.invoices.partials.modals')
 
 @endsection
 
 @push('js')
 <script type="text/javascript">
-    $('.table-enquiryItems').on('change', '.select-product', function(){
+    $('.table-invoiceItems').on('change', '.select-product', function(){
         var productId = $(this).val();
         var row = $(this).parents('tr');
         axios.get('/products/'+ productId + '/get')
@@ -141,7 +141,7 @@
         });
     });
 
-    $('.table-enquiryItems').on('keyup', '.input-qty', function(){
+    $('.table-invoiceItems').on('keyup', '.input-qty', function(){
         var row = $(this).parents('tr');
         var qty = $(this).val();
         var price = row.find('.input-price').val();
@@ -153,7 +153,7 @@
         total();
     });
 
-    $('.table-enquiryItems').on('keyup', '.input-price', function(){
+    $('.table-invoiceItems').on('keyup', '.input-price', function(){
         var row = $(this).parents('tr');
         var price = $(this).val();
         var qty = row.find('.input-qty').val();
@@ -165,7 +165,7 @@
         total();
     });
 
-    $('.table-enquiryItems').on('change', '.select-tax', function(){
+    $('.table-invoiceItems').on('change', '.select-tax', function(){
         var row = $(this).parents('tr');
         var tax = $(this).val();
         var qty = row.find('.input-qty').val();
@@ -177,7 +177,7 @@
         total();
     });
 
-    $('.table-enquiryItems').on('click', '.btn-removeItem', function(){
+    $('.table-invoiceItems').on('click', '.btn-removeItem', function(){
         var row = $(this).parents('tr');
         row.remove();
         total();
@@ -185,7 +185,7 @@
 
     $('.btn-addMoreItems').on('click', function(){
         var html = '<tr><td>\
-            <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">\
+            <select class="form-control form-control-sm select-product selectCustomer" name="product_id[]" style="width: 180px">\
             <option selected disabled>-- Choose Product --</option>\
             @foreach($products as $product)\
             <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>\
@@ -218,16 +218,16 @@
             <a href="javascript:;" class="btn-removeItem"><i class="fa fa-trash"></i></a>\
             </td></tr>';
 
-        $('.table-enquiryItems .tableBodyItems').append(html);
-        $('.table-enquiryItems .select-product').select2()
+        $('.table-invoiceItems .tableBodyItems').append(html);
+        $('.table-invoiceItems .select-product').select2()
         .on('select2:open', () => {
-            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(\'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
         });
     });
 
 function total(){
     var totamt = 0 ;
-    var theTbl = $('.table-enquiryItems');
+    var theTbl = $('.table-invoiceItems');
     var trs = theTbl.find("input[name='product_tot_amt[]']");
     for(var i=0;i<trs.length;i++)
     {
@@ -240,12 +240,12 @@ function total(){
 
 $('.selectCustomer').select2()
 .on('select2:open', () => {
-    $(".select2-results:not(:has(a))").append('<a href="#addCustomerModal" data-toggle="modal" onclick="closeSelect2(\'selectCustomer\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new customer</a>');
+    $(".select2-results:not(:has(a))").append('<a href="#addCustomerModal" data-toggle="modal" onclick="closeSelect2(this, \'selectCustomer\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new customer</a>');
 });
 
 $('.select-product').select2()
 .on('select2:open', () => {
-    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(\'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
 });
 
 </script>

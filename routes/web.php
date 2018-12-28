@@ -78,6 +78,13 @@ Route::get('/enquiries/{enquiry}', 'EnquiriesController@show');
 Route::post('/enquiries/{enquiry}/delete', 'EnquiriesController@destroy');
 Route::post('/enquiries/{enquiry}/update', 'EnquiriesController@update');
 
+Route::get('/sales/invoices', 'InvoicesController@index');
+Route::get('/sales/invoices/add', 'InvoicesController@create');
+Route::get('/sales/invoices/{invoice}/edit', 'InvoicesController@edit');
+Route::post('/sales/invoices', 'InvoicesController@store');
+Route::get('/sales/invoices/{invoice}', 'InvoicesController@show');
+Route::post('/sales/invoices/{invoice}/delete', 'InvoicesController@destroy');
+Route::post('/sales/invoices/{invoice}/update', 'InvoicesController@update');
 
 Route::get('/settings', 'SettingsController@index');
 Route::post('/settings/general/mode', 'SettingsController@changeMode');

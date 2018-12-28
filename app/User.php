@@ -4,6 +4,7 @@ namespace App;
 use App\Models\Stock;
 use App\Models\Store;
 use App\Models\Enquiry;
+use App\Models\Invoice;
 use App\Models\Manager;
 use App\Models\Product;
 use App\Models\Visitor;
@@ -74,6 +75,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function enquiries()
     {
         return $this->hasMany(Enquiry::class, 'company_id')->latest();
+    }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'company_id')->latest();
     }
 
     public function getFullnameAttribute()
