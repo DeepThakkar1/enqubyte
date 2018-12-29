@@ -8,6 +8,7 @@ use App\Models\Manager;
 use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Employee;
+use App\Models\PurchaseOrder;
 use Illuminate\Database\Eloquent\Model;
 
 class Store extends Model
@@ -49,5 +50,10 @@ class Store extends Model
     public function enquiries()
     {
         return $this->hasMany(Enquiry::class)->latest();
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(PurchaseOrder::class)->latest();
     }
 }

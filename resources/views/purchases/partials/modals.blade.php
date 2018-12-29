@@ -1,13 +1,13 @@
-<div class="modal fade in addCustomerModal" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in addVendorModal" id="addVendorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Customer</h5>
+                <h5 class="modal-title">Add Vendor</h5>
                 <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="frmCustomer">
+            <form class="frmVendor">
                 @csrf
                 <div class="modal-body">
                     @if(auth()->user()->mode)
@@ -25,18 +25,18 @@
                     @endif
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>First Name<sup class="error">*</sup></label>
-                            <input type="text" name="fname" class="form-control" placeholder="First name" required>
+                            <label>Name<sup class="error">*</sup></label>
+                            <input type="text" name="name" class="form-control" placeholder="Name" required>
                         </div>
                         <div class="col-sm-6">
-                            <label>Last Name<sup class="error">*</sup></label>
-                            <input type="text" name="lname" class="form-control" placeholder="Last name" required>
+                            <label>Contact Person</label>
+                            <input type="text" name="contact_person" class="form-control" placeholder="Contact Person">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
                             <label>Email Address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Customer email">
+                            <input type="email" name="email" class="form-control" placeholder="Vendor email" >
                         </div>
                         <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="button" id="addCustomer" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="button" id="addVendor" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
                 </div>
             </form>
         </div>
@@ -132,25 +132,23 @@
 
 @push('js')
     <script>
-        $('#addCustomer').on('click', function(){
-
-            var selectBox = $(this).data('select');
-            var data = $('.frmCustomer').serialize();
-            axios.post('/visitors', data)
+        $('#addVendor').on('click', function(){
+            var data = $('.frmVendor').serialize();
+            axios.post('/vendors', data)
             .then(function(response){
-                var newCustVal = response.data.id;
-                var newCustName = response.data.fname + ' '+ response.data.lname + ' ( ' + response.data.phone + ' ) ';
+                var newVendorVal = response.data.id;
+                var newVendorName = response.data.name + ' ( ' + response.data.phone + ' ) ';
                 // Set the value, creating a new option if necessary
-                if ($(".selectCustomer").find("option[value='" + newCustVal + "']").length) {
-                    $(".selectCustomer").val(newCustVal).trigger("change");
+                if ($(".selectVendor").find("option[value='" + newVendorVal + "']").length) {
+                    $(".selectVendor").val(newVendorVal).trigger("change");
                 } else {
                     // Create the DOM option that is pre-selected by default
-                    var newCust = new Option(newCustName, newCustVal, true, true);
+                    var newVendor = new Option(newVendorName, newVendorVal, true, true);
                     // Append it to the select
-                    $(".selectCustomer").append(newCust).trigger('change');
+                    $(".selectVendor").append(newVendor).trigger('change');
                 }
-                $('.frmCustomer').trigger('reset');
-                $('.addCustomerModal').modal('hide');
+                $('.frmVendor').trigger('reset');
+                $('.addVendorModal').modal('hide');
             })
         });
 

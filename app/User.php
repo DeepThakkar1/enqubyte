@@ -3,6 +3,7 @@
 namespace App;
 use App\Models\Stock;
 use App\Models\Store;
+use App\Models\Vendor;
 use App\Models\Enquiry;
 use App\Models\Invoice;
 use App\Models\Manager;
@@ -10,6 +11,7 @@ use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Customer;
 use App\Models\Employee;
+use App\Models\PurchaseOrder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -62,6 +64,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Customer::class, 'company_id')->latest();
     }
 
+    public function vendors()
+    {
+        return $this->hasMany(Vendor::class, 'company_id')->latest();
+    }
+
     public function products()
     {
         return $this->hasMany(Product::class, 'company_id')->latest();
@@ -80,6 +87,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function invoices()
     {
         return $this->hasMany(Invoice::class, 'company_id')->latest();
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(PurchaseOrder::class, 'company_id')->latest();
     }
 
     public function getFullnameAttribute()

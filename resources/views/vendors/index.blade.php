@@ -3,8 +3,8 @@
 @section('content')
 <div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Customers</h2>
-        <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Customer</a>
+        <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Vendors</h2>
+        <a href="#addVendorModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Vendor</a>
         </div>
     <!-- <hr> -->
     <div class="table-responsive">
@@ -19,29 +19,29 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($customers as $key => $customer)
+                @foreach($vendors as $key => $vendor)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td>{{$customer->fullname}}</td>
-                    <td>{{$customer->email}}</td>
-                    <td>{{$customer->phone}}</td>
+                    <td>{{$vendor->name}}</td>
+                    <td>{{$vendor->email}}</td>
+                    <td>{{$vendor->phone}}</td>
                     <td>
-                        <a href="#editCustomerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
-                        <form method="post" action="/customers/{{$customer->id}}/delete" class="d-inline">
+                        <a href="#editVendorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                        <form method="post" action="/vendors/{{$vendor->id}}/delete" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
                         </form>
 
-                        <div class="modal fade in editCustomerModal{{$key}}" id="editCustomerModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade in editVendorModal{{$key}}" id="editVendorModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Edit Customer</h5>
+                                        <h5 class="modal-title">Edit Vendor</h5>
                                         <button type="button" class="close btn-close-modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form method="post" action="/customers/{{$customer->id}}/update">
+                                    <form method="post" action="/vendors/{{$vendor->id}}/update">
                                         @csrf
                                         <div class="modal-body">
                                             @if(auth()->user()->mode)
@@ -50,7 +50,7 @@
                                                 <select name="store_id" class="form-control" required>
                                                     <option disabled>-- Select Store --</option>
                                                     @foreach($stores as $store)
-                                                    <option value="{{$store->id}}" {{$customer->store_id == $store->id ? 'selected' : ''}}>{{$store->name}}</option>
+                                                    <option value="{{$store->id}}" {{$vendor->store_id == $store->id ? 'selected' : ''}}>{{$store->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -59,27 +59,27 @@
                                             @endif
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
-                                                    <label>First Name<sup class="error">*</sup></label>
-                                                    <input type="text" name="fname" value="{{$customer->fname}}" class="form-control" placeholder="First name" required>
+                                                    <label>Name<sup class="error">*</sup></label>
+                                                    <input type="text" name="name" value="{{$vendor->name}}" class="form-control" placeholder="Name" required>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <label>Last Name<sup class="error">*</sup></label>
-                                                    <input type="text" name="lname" value="{{$customer->lname}}" class="form-control" placeholder="Last name" required>
+                                                    <label>Contact Person<sup class="error">*</sup></label>
+                                                    <input type="text" name="contact_person" value="{{$vendor->contact_person}}" class="form-control" placeholder="Contact Person">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
-                                                    <label>Email Address<sup class="error">*</sup></label>
-                                                    <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Customer email" required>
+                                                    <label>Email Address</label>
+                                                    <input type="email" name="email" value="{{$vendor->email}}" class="form-control" placeholder="Vendor email">
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
-                                                    <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$customer->phone}}" class="form-control" placeholder="Phone" required>
+                                                    <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$vendor->phone}}" class="form-control" placeholder="Phone" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <textarea name="address" class="form-control" placeholder="Address">{{$customer->address}}</textarea>
+                                                <textarea name="address" class="form-control" placeholder="Address">{{$vendor->address}}</textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -96,21 +96,21 @@
             </tbody>
         </table>
     </div>
-    {{ $customers->links() }}
+    {{ $vendors->links() }}
 </div>
 
 
 
-<div class="modal fade in addCustomerModal" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in addVendorModal" id="addVendorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Customer</h5>
+                <h5 class="modal-title">Add Vendor</h5>
                 <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="/customers">
+            <form method="post" action="/vendors">
                 @csrf
                 <div class="modal-body">
                     @if(auth()->user()->mode)
@@ -128,18 +128,18 @@
                     @endif
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>First Name<sup class="error">*</sup></label>
-                            <input type="text" name="fname" class="form-control" placeholder="First name" required>
+                            <label>Name<sup class="error">*</sup></label>
+                            <input type="text" name="name" class="form-control" placeholder="Name" required>
                         </div>
                         <div class="col-sm-6">
-                            <label>Last Name<sup class="error">*</sup></label>
-                            <input type="text" name="lname" class="form-control" placeholder="Last name" required>
+                            <label>Contact Person</label>
+                            <input type="text" name="contact_person" class="form-control" placeholder="Contact Person">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email Address<sup class="error">*</sup></label>
-                            <input type="email" name="email" class="form-control" placeholder="Customer email" required>
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Vendor email" >
                         </div>
                         <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>

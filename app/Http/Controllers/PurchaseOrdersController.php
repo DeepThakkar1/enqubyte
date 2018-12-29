@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Enquiry;
-use App\Models\Invoice;
+use App\Models\Vendor;
 use App\Models\Product;
-use App\Models\Visitor;
 use Illuminate\Http\Request;
+use App\Models\PurchaseOrder;
 
-class InvoicesController extends Controller
+class PurchaseOrdersController extends Controller
 {
     public function __construct()
     {
@@ -22,8 +21,8 @@ class InvoicesController extends Controller
      */
     public function index()
     {
-        $invoices = auth()->user()->invoices;
-        return view('sales.invoices.index', compact('invoices'));
+        $purchases = auth()->user()->purchases;
+        return view('purchases.index', compact('purchases'));
     }
 
     /**
@@ -33,10 +32,10 @@ class InvoicesController extends Controller
      */
     public function create()
     {
-        $customers = Visitor::all();
+        $vendors = Vendor::all();
         $products = Product::all();
-        $invoice =Invoice::orderBy('created_at', 'desc')->first();
-        return view('sales.invoices.create', compact('customers', 'products', 'invoice'));
+        $purchase =PurchaseOrder::orderBy('created_at', 'desc')->first();
+        return view('purchases.create', compact('vendors', 'products', 'purchase'));
     }
 
     /**
@@ -47,18 +46,19 @@ class InvoicesController extends Controller
      */
     public function store(Request $request)
     {
-        $invoice = Invoice::create([
+        $purchaseOrder = PurchaseOrder::create([
             'company_id' => auth()->id(),
             /*'employee_id' => 0,
             'store_id' => 0,*/
-            'customer_id' => request('customer_id'),
+            'vendor_id' => request('vendor_id'),
+            'order_id' => request('order_id'),
+            'purchase_date' => request('purchase_date'),
             'due_date' => request('due_date'),
-            'invoice_date' => request('invoice_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
             'grand_total' => request('grand_total')
         ]);
         for ($i=0; $i < count(request('product_id')); $i++) {
-            $invoice->invoiceitems()->create([
+            $purchaseOrder->purchaseitems()->create([
                 'product_id' => request('product_id')[$i],
                 'description' => request('description')[$i],
                 'qty' => request('qty')[$i],
@@ -68,21 +68,21 @@ class InvoicesController extends Controller
             ]);
 
             $product = Product::where('id', request('product_id')[$i])->first();
-            $product->stock -= request('qty')[$i];
+            $product->stock += request('qty')[$i];
             $product->save();
         }
 
-        flash('Invoice added successfully!');
-        return redirect('/sales/invoices');
+        flash('Purchase order added successfully!');
+        return redirect('/purchases');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show(PurchaseOrder $purchaseOrder)
     {
         //
     }
@@ -90,47 +90,47 @@ class InvoicesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function edit(Invoice $invoice)
+    public function edit(PurchaseOrder $purchaseOrder)
     {
-        $customers = Visitor::all();
+        $vendors = Vendor::all();
         $products = Product::all();
-        $invoiceitems = $invoice->invoiceitems;
-        return view('sales.invoices.edit', compact('invoice', 'customers', 'products', 'invoiceitems'));
+        $purchaseitems = $purchaseOrder->purchaseitems;
+        return view('purchases.edit', compact('purchaseOrder', 'vendors', 'products', 'purchaseitems'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Invoice $invoice)
+    public function update(Request $request, PurchaseOrder $purchaseOrder)
     {
-        $invoice->update([
+        $purchaseOrder->update([
             'company_id' => auth()->id(),
             /*'employee_id' => 0,
             'store_id' => 0,*/
-            'customer_id' => request('customer_id'),
+            'vendor_id' => request('vendor_id'),
+            'purchase_date' => request('purchase_date'),
             'due_date' => request('due_date'),
-            'invoice_date' => request('invoice_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
             'grand_total' => request('grand_total')
         ]);
 
-        foreach ($invoice->invoiceitems as $key => $item) {
+        foreach ($purchaseOrder->purchaseitems as $key => $item) {
             $product = Product::where('id', $item->product_id)->first();
-            $product->stock += $item->qty;
+            $product->stock -= $item->qty;
             $product->save();
         }
 
-        $invoice->invoiceitems()->delete();
+        $purchaseOrder->purchaseitems()->delete();
 
         for ($i=0; $i < count(request('product_id')); $i++) {
-            $invoice->invoiceitems()->create([
+            $purchaseOrder->purchaseitems()->create([
                 'product_id' => request('product_id')[$i],
                 'description' => request('description')[$i],
                 'qty' => request('qty')[$i],
@@ -140,25 +140,26 @@ class InvoicesController extends Controller
             ]);
 
             $product = Product::where('id', request('product_id')[$i])->first();
-            $product->stock -= request('qty')[$i];
+
+            $product->stock += request('qty')[$i];
             $product->save();
         }
 
-        flash('Invoice updated successfully!');
-        return redirect('/sales/invoices');
+        flash('Purchase order updated successfully!');
+        return redirect('/purchases');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Invoice $invoice)
+    public function destroy(PurchaseOrder $purchaseOrder)
     {
-        $invoice->invoiceitems()->delete();
-        $invoice->delete();
-        flash('Invoice deleted successfully!');
-        return redirect('/sales/invoices');
+        $purchaseOrder->purchaseitems()->delete();
+        $purchaseOrder->delete();
+        flash('Purchase order deleted successfully!');
+        return redirect('/purchases');
     }
 }

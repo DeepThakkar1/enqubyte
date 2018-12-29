@@ -143,7 +143,6 @@
             };
 
              function closeMultipleSelect2(element, selectName){
-
                 $('.' + selectName).select2('close');
             };
 

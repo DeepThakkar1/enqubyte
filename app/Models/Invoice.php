@@ -33,7 +33,7 @@ class Invoice extends Model
 
     public function enquiry()
     {
-        return $this->hasOne(Enquiry::class);
+        return $this->belongsTo(Enquiry::class);
     }
 
     public function visitor()

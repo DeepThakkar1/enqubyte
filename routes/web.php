@@ -77,6 +77,7 @@ Route::post('/enquiries', 'EnquiriesController@store');
 Route::get('/enquiries/{enquiry}', 'EnquiriesController@show');
 Route::post('/enquiries/{enquiry}/delete', 'EnquiriesController@destroy');
 Route::post('/enquiries/{enquiry}/update', 'EnquiriesController@update');
+Route::get('/enquiries/{enquiry}/invoice', 'EnquiriesController@createInvoice');
 
 Route::get('/sales/invoices', 'InvoicesController@index');
 Route::get('/sales/invoices/add', 'InvoicesController@create');
@@ -85,6 +86,20 @@ Route::post('/sales/invoices', 'InvoicesController@store');
 Route::get('/sales/invoices/{invoice}', 'InvoicesController@show');
 Route::post('/sales/invoices/{invoice}/delete', 'InvoicesController@destroy');
 Route::post('/sales/invoices/{invoice}/update', 'InvoicesController@update');
+
+Route::get('/vendors', 'VendorsController@index');
+Route::post('/vendors', 'VendorsController@store');
+Route::get('/vendors/{vendor}', 'VendorsController@show');
+Route::post('/vendors/{vendor}/delete', 'VendorsController@destroy');
+Route::post('/vendors/{vendor}/update', 'VendorsController@update');
+
+Route::get('/purchases', 'PurchaseOrdersController@index');
+Route::get('/purchases/add', 'PurchaseOrdersController@create');
+Route::get('/purchases/{purchaseOrder}/edit', 'PurchaseOrdersController@edit');
+Route::post('/purchases', 'PurchaseOrdersController@store');
+Route::get('/purchases/{purchaseOrder}', 'PurchaseOrdersController@show');
+Route::post('/purchases/{purchaseOrder}/delete', 'PurchaseOrdersController@destroy');
+Route::post('/purchases/{purchaseOrder}/update', 'PurchaseOrdersController@update');
 
 Route::get('/settings', 'SettingsController@index');
 Route::post('/settings/general/mode', 'SettingsController@changeMode');

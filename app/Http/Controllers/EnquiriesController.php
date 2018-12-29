@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Enquiry;
+use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Customer;
@@ -132,6 +133,42 @@ class EnquiriesController extends Controller
 
         flash('Enquiry updated successfully!');
         return redirect('/enquiries');
+    }
+
+
+
+    public function createInvoice(Enquiry $enquiry)
+    {
+        $enquiry->update(['status' => 1]);
+        $invoice = Invoice::create([
+            'company_id' => auth()->id(),
+            /*'employee_id' => 0,
+            'store_id' => 0,*/
+            'customer_id' => $enquiry->customer_id,
+            'enquiry_id' => $enquiry->id,
+            'invoice_date' => date('d-m-Y'),
+            'due_date' => date('d-m-Y'),
+            'sub_tot_amt' => $enquiry->sub_tot_amt,
+            'grand_total' => $enquiry->grand_total
+        ]);
+
+        foreach ($enquiry->enquiryitems as $key => $item) {
+            $invoice->invoiceitems()->create([
+                'product_id' => $item->product_id,
+                'description' => $item->description,
+                'qty' => $item->qty,
+                'price' => $item->price,
+                'tax' => isset($item->tax) ? $item->tax : 0,
+                'product_tot_amt' => $item->product_tot_amt
+            ]);
+
+            $product = Product::where('id', $item->product_id)->first();
+            $product->stock -= $item->qty;
+            $product->save();
+        }
+
+        flash('Invoice created successfully!');
+        return redirect('/sales/invoices/' . $invoice->id . '/edit');
     }
 
     /**

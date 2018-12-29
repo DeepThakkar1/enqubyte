@@ -29,10 +29,10 @@
                         <span>{{ __('Enquiries') }}</span>
                     </a>
                 </li> -->
-                <li>
+                <li class="{{ request()->is('sales*') ? 'active' : ''}}">
                     <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/sale.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/sale-clr.png') }}" class="active-icon">
                         <span>{{ __('Sales') }}</span>
                     </a>
                     <ul class="collapse list-unstyled" id="salesSubmenu">
@@ -47,6 +47,21 @@
                         </li>
                     </ul>
                 </li>
+                <li class="{{ request()->is('purchases*') ? 'active' : ''}}">
+                    <a href="#purchasesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/purchase.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/purchase-clr.png') }}" class="active-icon">
+                        <span>{{ __('Purchases') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="purchasesSubmenu">
+                        <li>
+                            <a href="/purchases">{{ __('Purchase Orders') }}</a>
+                        </li>
+                        <li>
+                            <a href="/vendors">{{ __('Vendors') }}</a>
+                        </li>
+                    </ul>
+                </li>
                 @if(auth()->user()->mode)
                 <li class="{{ request()->is('stores*') ? 'active' : ''}}">
                     <a href="/stores">
@@ -56,7 +71,7 @@
                     </a>
                 </li>
                 @endif
-                <li >
+                <li class="{{ request()->is('products*') ? 'active' : ''}}">
                     <a href="#entitiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">

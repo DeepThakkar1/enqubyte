@@ -26,6 +26,7 @@
             <tr class="product-list-menu">
                 <th>Sr.No</th>
                 <th>Name</th>
+                <th>Product Code</th>
                 <th>Cost Price</th>
                 <th>Selling Price</th>
                 <th>Stock</th>
@@ -37,6 +38,7 @@
             <tr>
                 <td>{{$key + 1}}</td>
                 <td>{{$product->name}}</td>
+                <td>{{$product->product_code}}</td>
                 <td>&#8377; {{$product->cost_price}}</td>
                 <td>&#8377; {{$product->selling_price}}</td>
                 <td>{{$product->stock}}</td>
@@ -81,26 +83,33 @@
                                                     <label>Selling Price<sup class="error">*</sup></label>
                                                     <input type="text" name="selling_price" value="{{$product->selling_price}}" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <!-- <div class="col-sm-6">
                                                     <label>Available Stock</label>
                                                     <input type="text" pattern="\d*" name="stock" value="{{$product->stock}}" class="form-control" placeholder="Available Stock">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
+                                                </div> -->
                                                 <div class="col-sm-6">
                                                     <label>Cost Price</label>
                                                     <input type="text" name="cost_price" value="{{$product->cost_price}}" pattern="\d*" class="form-control" placeholder="Cost Price">
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <label>Tax<sup class="error">*</sup></label>
-                                                    <input type="text" pattern="\d*" name="tax" value="{{$product->tax}}" class="form-control" placeholder="Tax" required>
-                                                </div>
                                             </div>
                                             <div class="row form-group">
+                                                <div class="col-sm-6">
+                                                    <label>Tax<sup class="error">*</sup></label>
+                                                    <select class="form-control" name="tax" required>
+                                                        <option selected disabled>-- Choose Tax --</option>
+                                                        <option value="0" {{isset($product->tax) && $product->tax == 0 ? 'selected' : ''}}>None</option>
+                                                        <option value="2" {{isset($product->tax) && $product->tax == 2 ? 'selected' : ''}}>2%</option>
+                                                        <option value="3" {{isset($product->tax) && $product->tax == 3 ? 'selected' : ''}}>3%</option>
+                                                        <option value="5" {{isset($product->tax) && $product->tax == 5 ? 'selected' : ''}}>5%</option>
+                                                        <option value="12" {{isset($product->tax) && $product->tax == 12 ? 'selected' : ''}}>12%</option>
+                                                    </select>
+                                                </div>
                                                 <div class="col-sm-6">
                                                     <label>HSN Code</label>
                                                     <input type="text" name="hsn_code" value="{{$product->hsn_code}}" class="form-control" placeholder="HSN Code">
                                                 </div>
+                                            </div>
+                                            <div class="row form-group">
                                                 <div class="col-sm-6">
                                                     <label>Product Code</label>
                                                     <input type="text" name="product_code" value="{{$product->product_code}}" class="form-control" placeholder="Product Code">
@@ -158,26 +167,33 @@
                             <label>Selling Price<sup class="error">*</sup></label>
                             <input type="text" name="selling_price" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <label>Available Stock</label>
                             <input type="text" pattern="\d*" name="stock" class="form-control" placeholder="Available Stock">
-                        </div>
-                    </div>
-                    <div class="row form-group">
+                        </div> -->
                         <div class="col-sm-6">
                             <label>Cost Price</label>
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>
-                        <div class="col-sm-6">
-                            <label>Tax<sup class="error">*</sup></label>
-                            <input type="text" pattern="\d*" name="tax" class="form-control" placeholder="Tax" required>
-                        </div>
                     </div>
                     <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label>Tax<sup class="error">*</sup></label>
+                            <select class="form-control" name="tax" required>
+                                <option selected disabled>-- Choose Tax --</option>
+                                <option value="0">None</option>
+                                <option value="2">2%</option>
+                                <option value="3">3%</option>
+                                <option value="5">5%</option>
+                                <option value="12">12%</option>
+                            </select>
+                        </div>
                         <div class="col-sm-6">
                             <label>HSN Code</label>
                             <input type="text" name="hsn_code" class="form-control" placeholder="HSN Code">
                         </div>
+                    </div>
+                    <div class="row form-group">
                         <div class="col-sm-6">
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">

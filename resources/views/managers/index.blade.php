@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-sm-6">
-                                                <label>Email ID</label>
+                                                <label>Email Address</label>
                                                 <input type="email" name="email" value="{{isset($manager->email) ? $manager->email : ''}}" class="form-control" placeholder="Manager email" required>
                                             </div>
                                             <div class="col-sm-6">
@@ -108,7 +108,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email ID<sup class="error">*</sup></label>
+                            <label>Email Address<sup class="error">*</sup></label>
                             <input type="email" name="email" class="form-control" placeholder="Manager email" required>
                         </div>
                         <div class="col-sm-6">
