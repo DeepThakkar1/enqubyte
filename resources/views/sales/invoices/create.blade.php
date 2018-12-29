@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-sm-4 form-group">
                         <label>Invoice Number</label>
-                        <input type="text" class="form-control" value="{{isset($invoice->id) ? $invoice->id + 1 : 1}}" readonly>
+                        <input type="text" class="form-control" value="{{$invoice->id ? $invoice->id + 1 : 1}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>
@@ -127,7 +127,7 @@
         var row = $(this).parents('tr');
         axios.get('/products/'+ productId + '/get')
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             row.find('.input-price').val(response.data.selling_price);
             row.find('.totAmount').html(response.data.selling_price);
             row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
@@ -216,7 +216,11 @@
             </td></tr>';
 
         $('.table-invoiceItems .tableBodyItems').append(html);
-        $('.table-invoiceItems .selectWithSearch').select2();
+        $('.table-invoiceItems .select-product').select2()
+        .on('select2:open', (e) => {
+            window.selectedBox = $(e.currentTarget);
+            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+        });
     });
 
 function total(){
@@ -237,9 +241,10 @@ $('.selectCustomer').select2()
     $(".select2-results:not(:has(a))").append('<a href="#addCustomerModal" data-toggle="modal" onclick="closeSelect2(\'selectCustomer\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new customer</a>');
 });
 
-$('.select-product').select2()
-.on('select2:open', () => {
-    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(\'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+$('.table-invoiceItems .select-product').select2()
+    .on('select2:open', (e) => {
+        window.selectedBox = $(e.currentTarget);
+        $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
 });
 
 

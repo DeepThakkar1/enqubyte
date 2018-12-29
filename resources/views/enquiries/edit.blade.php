@@ -130,7 +130,7 @@
         var row = $(this).parents('tr');
         axios.get('/products/'+ productId + '/get')
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             row.find('.input-price').val(response.data.selling_price);
             row.find('.totAmount').html(response.data.selling_price);
             row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
@@ -220,8 +220,9 @@
 
         $('.table-enquiryItems .tableBodyItems').append(html);
         $('.table-enquiryItems .select-product').select2()
-        .on('select2:open', () => {
-            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(\'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+        .on('select2:open', (e) => {
+            window.selectedBox = $(e.currentTarget);
+            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
         });
     });
 
@@ -244,8 +245,9 @@ $('.selectCustomer').select2()
 });
 
 $('.select-product').select2()
-.on('select2:open', () => {
-    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(\'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+.on('select2:open', (e) => {
+    window.selectedBox = $(e.currentTarget);
+    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
 });
 
 </script>

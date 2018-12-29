@@ -130,7 +130,7 @@
         var row = $(this).parents('tr');
         axios.get('/products/'+ productId + '/get')
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             row.find('.input-price').val(response.data.selling_price);
             row.find('.totAmount').html(response.data.selling_price);
             row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
@@ -220,8 +220,9 @@
 
         $('.table-invoiceItems .tableBodyItems').append(html);
         $('.table-invoiceItems .select-product').select2()
-        .on('select2:open', () => {
-            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+        .on('select2:open', (e) => {
+            window.selectedBox = $(e.currentTarget);
+            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
         });
     });
 
@@ -243,10 +244,11 @@ $('.selectCustomer').select2()
     $(".select2-results:not(:has(a))").append('<a href="#addCustomerModal" data-toggle="modal" onclick="closeSelect2(this, \'selectCustomer\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new customer</a>');
 });
 
-$('.select-product').select2()
-.on('select2:open', () => {
-    $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
-});
+$('.table-invoiceItems .select-product').select2()
+    .on('select2:open', (e) => {
+        window.selectedBox = $(e.currentTarget);
+        $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+    });
 
 </script>
 @endpush

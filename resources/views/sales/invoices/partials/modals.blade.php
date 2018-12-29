@@ -161,13 +161,27 @@
                 var newProdVal = response.data.id;
                 var newProdName = response.data.name + ' (' + response.data.product_code + ') ';
                 // Set the value, creating a new option if necessary
-                if ($(".select-product").find("option[value='" + newProdVal + "']").length) {
-                    $(".select-product").val(newProdVal).trigger("change");
+                if (window.selectedBox.find("option[value='" + newProdVal + "']").length) {
+                    window.selectedBox.val(newProdVal).trigger("change");
                 } else {
                     // Create the DOM option that is pre-selected by default
                     var newProd = new Option(newProdName, newProdVal, true, true);
                     // Append it to the select
-                    $(".select-product").append(newProd).trigger('change');
+                    var $selectProduct;
+                    $(".select-product").each( function() {
+                        $selectProduct = $(this).val();
+                    });
+
+                    $(".select-product").append(newProd);
+                    window.selectedBox.append(newProd).trigger("change");
+                    var set = $(".select-product");
+                    var length = set.length;
+                    set.each( function(index, element) {
+                        if (index != (length - 1)) {
+                            $(this).val($selectProduct);
+                        }
+                    });
+
                 }
                 $('.frmProduct').trigger('reset');
                 $('.addProductModal').modal('hide');

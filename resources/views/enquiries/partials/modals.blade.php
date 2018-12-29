@@ -169,8 +169,21 @@
                     // Create the DOM option that is pre-selected by default
                     var newProd = new Option(newProdName, newProdVal, true, true);
                     // Append it to the select
-                    //$(".select-product").append(newProd);
+                    var $selectProduct;
+                    $(".select-product").each( function() {
+                        $selectProduct = $(this).val();
+                    });
+
+                    $(".select-product").append(newProd);
                     window.selectedBox.append(newProd).trigger("change");
+                    var set = $(".select-product");
+                    var length = set.length;
+                    set.each( function(index, element) {
+                        if (index != (length - 1)) {
+                            $(this).val($selectProduct);
+                        }
+                    });
+
                 }
                 $('.frmProduct').trigger('reset');
                 $('.addProductModal').modal('hide');
