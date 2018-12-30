@@ -57,6 +57,8 @@ class EnquiriesController extends Controller
             'followup_date' => request('followup_date'),
             'enquiry_date' => request('enquiry_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
+            'discount_type' => request('discount_type'),
+            'discount' => !empty(request('discount')) ? request('discount') : 0,
             'grand_total' => request('grand_total')
         ]);
         for ($i=0; $i < count(request('product_id')); $i++) {
@@ -116,6 +118,8 @@ class EnquiriesController extends Controller
             'followup_date' => request('followup_date'),
             'enquiry_date' => request('enquiry_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
+            'discount_type' => request('discount_type'),
+            'discount' => !empty(request('discount')) ? request('discount') : 0,
             'grand_total' => request('grand_total')
         ]);
         $enquiry->enquiryitems()->delete();
@@ -149,6 +153,8 @@ class EnquiriesController extends Controller
             'invoice_date' => date('d-m-Y'),
             'due_date' => date('d-m-Y'),
             'sub_tot_amt' => $enquiry->sub_tot_amt,
+            'discount_type' => $enquiry->discount_type,
+            'discount' => !empty($enquiry->discount) ? $enquiry->discount : 0,
             'grand_total' => $enquiry->grand_total
         ]);
 

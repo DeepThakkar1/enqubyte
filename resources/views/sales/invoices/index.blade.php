@@ -29,6 +29,7 @@
                     <td class="text-right">{{$invoice->grand_total}}</td>
                     <td><span class="badge badge-warning">Pending</span> </td>
                     <td>
+                        <a href="/sales/invoices/{{$invoice->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                         <a href="/sales/invoices/{{$invoice->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>
                         <form method="post" action="/sales/invoices/{{$invoice->id}}/delete" class="d-inline">
                             @csrf

@@ -84,6 +84,9 @@
                         <li>
                             <a href="/employees">{{ __('Employees') }}</a>
                         </li>
+                        <li>
+                            <a href="/taxes">{{ __('Taxes') }}</a>
+                        </li>
                     </ul>
                 </li>
               <!--   <li class="{{ request()->is('products*') ? 'active' : ''}}">

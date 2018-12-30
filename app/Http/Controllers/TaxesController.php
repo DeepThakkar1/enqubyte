@@ -1,22 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Visitor;
-use App\Models\Customer;
+
+use App\Models\Tax;
 use Illuminate\Http\Request;
 
-class CustomersController extends Controller
+class TaxesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware(['auth', 'verified']);
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,10 +19,8 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $stores = auth()->user()->stores;
-        $customers = auth()->user()->customers()->paginate(10);
-
-        return view('customers.index', compact('stores', 'customers'));
+        $taxes = Tax::paginate(10);
+        return view('taxes.index', compact('taxes'));
     }
 
     /**
@@ -48,26 +41,23 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        $newData = $request->all();
-        $newData['company_id'] = auth()->id();
-        $newData['is_customer'] = 1;
-        $customer = auth()->user()->visitors()->create($newData);
+        $tax = auth()->user()->taxes()->create($request->all());
 
         if($request->wantsJson())
         {
-            return response([$customer], 200);
+            return response([$tax], 200);
         }
-        flash('Customer added successfully!');
+        flash('Tax added successfully!');
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Tax  $tax
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(Tax $tax)
     {
         //
     }
@@ -75,10 +65,10 @@ class CustomersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Tax  $tax
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit(Tax $tax)
     {
         //
     }
@@ -87,26 +77,31 @@ class CustomersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Tax  $tax
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Tax $tax)
     {
-        $customer->update($request->all());
-        flash('Customer updated successfully!');
+        $tax->update($request->all());
+
+        if($request->wantsJson())
+        {
+            return response([$tax], 200);
+        }
+        flash('Tax updated successfully!');
         return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Tax  $tax
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(Tax $tax)
     {
-        $customer->delete();
-        flash('Customer deleted successfully!');
+        $tax->delete();
+        flash('Tax deleted successfully!');
         return back();
     }
 }

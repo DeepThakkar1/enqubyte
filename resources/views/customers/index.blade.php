@@ -29,7 +29,7 @@
                         <a href="#editCustomerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
                         <form method="post" action="/customers/{{$customer->id}}/delete" class="d-inline">
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
+                            <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this customer?');"><i class="fa fa-trash"></i> </button>
                         </form>
 
                         <div class="modal fade in editCustomerModal{{$key}}" id="editCustomerModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

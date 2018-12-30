@@ -106,7 +106,14 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Tax<sup class="error">*</sup></label>
-                            <input type="text" pattern="\d*" name="tax" class="form-control" placeholder="Tax" required>
+                            <select class="form-control" name="tax" required>
+                                <option selected disabled>-- Choose Tax --</option>
+                                <option value="0">None</option>
+                                <?php $taxes = getTaxes() ?>
+                                @foreach($taxes as $tax )
+                                    <option value="{{$tax->rate}}">{{$tax->abbreviation}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row form-group">

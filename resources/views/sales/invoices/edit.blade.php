@@ -3,8 +3,10 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content">Edit Invoice</h2>
-        <a href="/sales/invoices" class="btn btn-secondary float-right">Back</a>
+        <h2 class="d-inline-block headline-content"><a href="/sales/invoices" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Edit Invoice</h2>
+        <div class="float-right">
+            <a href="/sales/invoices/{{$invoice->id}}" class="btn btn-primary">View Invoice</a>
+        </div>
     </div>
     <!-- <hr> -->
     <div class="card">
@@ -35,8 +37,8 @@
                     </div>
                 </div>
                 <hr>
-                <div class="table-responsive">
-                    <table class="table table-invoiceItems">
+                <div class="table-responsive" style="position: relative;">
+                    <table class="table table-invoiceItems m-0">
                         <thead>
                             <tr class="product-list-menu">
                                 <th>Items</th>
@@ -72,10 +74,10 @@
                                     <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">
                                         <option selected disabled>-- Choose Tax --</option>
                                         <option value="0" {{$item->tax == 0 ? 'selected' : ''}}>None</option>
-                                        <option value="2"{{$item->tax == 2 ? 'selected' : ''}}>2%</option>
-                                        <option value="3"{{$item->tax == 3 ? 'selected' : ''}}>3%</option>
-                                        <option value="5"{{$item->tax == 5 ? 'selected' : ''}}>5%</option>
-                                        <option value="12"{{$item->tax == 12 ? 'selected' : ''}}>12%</option>
+                                        <?php $taxes = getTaxes() ?>
+                                        @foreach($taxes as $tax )
+                                        <option value="{{$tax->rate}}" {{$item->tax == $tax->rate ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
+                                        @endforeach
                                     </select>
                                 </td>
                                 <td class="text-right">
@@ -88,28 +90,36 @@
                             </tr>
                             @endforeach
                         </tbody>
-                        <tbody>
-                            <tr>
-                                <td colspan="4"></td>
-                                <td class="text-right font-weight-bold">Subtotal : </td>
-                                <td class="text-right font-weight-bold">
-                                    &#8377; <span class="subTotAmount"> {{$invoice->sub_tot_amt}}</span>
-                                    <input type="hidden" name="sub_tot_amt" value="{{$invoice->sub_tot_amt}}">
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td colspan="4"></td>
-                                <td class="text-right font-weight-bold">Total (INR): </td>
-                                <td class="text-right font-weight-bold">
-                                    &#8377; <span class="grandTotAmount"> {{$invoice->grand_total}}</span>
-                                    <input type="hidden" name="grand_total" value="{{$invoice->grand_total}}">
-                                </td>
-                                <td></td>
-                            </tr>
-                        </tbody>
                     </table>
                     <a href="javascript:;" class="text-primary btn-addMoreItems">Add more item</a>
+                </div>
+                <hr>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2 px-3"></div>
+                    <div class="p-2">
+                        &#8377; <span class="subTotAmount font-weight-bold"> {{$invoice->sub_tot_amt}}</span>
+                        <input type="hidden" name="sub_tot_amt" value="{{$invoice->sub_tot_amt}}">
+                    </div>
+                    <div class="p-2 text-right font-weight-bold">Subtotal :</div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2 px-3"></div>
+                    <div class="p-2">
+                        <select name="discount_type"  style="width: 80px">
+                            <option value="0" {{$invoice->discount_type == 0 ? 'selected' : ''}}>Fixed</option>
+                            <option value="1" {{$invoice->discount_type == 1 ? 'selected' : ''}}>Percentage</option>
+                        </select>
+                        <input type="number" name="discount" value="{{$invoice->discount}}" class="text-right" style="width: 80px">
+                    </div>
+                    <div class="p-2 text-right font-weight-bold">Discount :</div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2 px-3"></div>
+                    <div class="p-2">
+                        &#8377; <span class="grandTotAmount font-weight-bold"> {{$invoice->grand_total}}</span>
+                        <input type="hidden" name="grand_total" value="{{$invoice->grand_total}}">
+                    </div>
+                    <div class="p-2 text-right font-weight-bold">Total (INR) :</div>
                 </div>
             </div>
             <div class="card-footer">
@@ -128,6 +138,10 @@
     $('.table-invoiceItems').on('change', '.select-product', function(){
         var productId = $(this).val();
         var row = $(this).parents('tr');
+        row.find('.input-qty').val(1);
+        row.find('.select-tax').val(0);
+        row.find('[name="description[]"]').val('');
+
         axios.get('/products/'+ productId + '/get')
         .then(function (response) {
             // console.log(response);
@@ -177,6 +191,42 @@
         total();
     });
 
+    var grandTotal = $('[name="grand_total"]').val();
+    $('[name="discount"]').on('keyup', function(){
+        var subTotal = $('[name="sub_tot_amt"]').val();
+        var discountType = $('[name="discount_type"]').val();
+        var discount = $(this).val();
+        totamt = 0;
+        if(discountType == 1){
+            discountVal = (subTotal * discount) / 100;
+            totamt = grandTotal - discountVal;
+            $("input[name='grand_total']").val(totamt);
+            $(".grandTotAmount").html(totamt);
+        }else{
+            totamt = grandTotal - discount;
+            $("input[name='grand_total']").val(totamt);
+            $(".grandTotAmount").html(totamt);
+        }
+    });
+
+    $('[name="discount_type"]').on('change', function(){
+        $('[name="discount"]').val(0);
+        var subTotal = $('[name="sub_tot_amt"]').val();
+        var discountType = $(this).val();
+        var discount = 0;
+        totamt = 0;
+        if(discountType == 1){
+            discountVal = (subTotal * discount) / 100;
+            totamt = subTotal - discountVal;
+            $("input[name='grand_total']").val(totamt);
+            $(".grandTotAmount").html(totamt);
+        }else{
+            totamt = subTotal - discount;
+            $("input[name='grand_total']").val(totamt);
+            $(".grandTotAmount").html(totamt);
+        }
+    });
+
     $('.table-invoiceItems').on('click', '.btn-removeItem', function(){
         var row = $(this).parents('tr');
         row.remove();
@@ -185,38 +235,38 @@
 
     $('.btn-addMoreItems').on('click', function(){
         var html = '<tr><td>\
-            <select class="form-control form-control-sm select-product selectCustomer" name="product_id[]" style="width: 180px">\
-            <option selected disabled>-- Choose Product --</option>\
-            @foreach($products as $product)\
-            <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>\
-            @endforeach\
-            </select></td>\
-            <td>\
-            <textarea class="form-control" name="description[]" style="width: 150px"></textarea>\
-            </td>\
-            <td>\
-            <input type="text" name="qty[]" style="width: 80px" value="1" class="form-control form-control-sm input-qty">\
-            </td>\
-            <td>\
-            <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">\
-            </td>\
-            <td>\
-            <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">\
-            <option selected disabled>-- Choose Tax --</option>\
-            <option value="0">None</option>\
-            <option value="2">2%</option>\
-            <option value="3">3%</option>\
-            <option value="5">5%</option>\
-            <option value="12">12%</option>\
-            </select>\
-            </td>\
-            <td class="text-right">\
-            &#8377; <span class="totAmount"> 0.00</span>\
-            <input type="hidden" name="product_tot_amt[]" value="0">\
-            </td>\
-            <td>\
-            <a href="javascript:;" class="btn-removeItem"><i class="fa fa-trash"></i></a>\
-            </td></tr>';
+        <select class="form-control form-control-sm select-product selectCustomer" name="product_id[]" style="width: 180px">\
+        <option selected disabled>-- Choose Product --</option>\
+        @foreach($products as $product)\
+        <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>\
+        @endforeach\
+        </select></td>\
+        <td>\
+        <textarea class="form-control" name="description[]" style="width: 150px"></textarea>\
+        </td>\
+        <td>\
+        <input type="text" name="qty[]" style="width: 80px" value="1" class="form-control form-control-sm input-qty">\
+        </td>\
+        <td>\
+        <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">\
+        </td>\
+        <td>\
+        <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">\
+        <option selected disabled>-- Choose Tax --</option>\
+        <option value="0">None</option>\
+        <?php $taxes = getTaxes() ?>\
+        @foreach($taxes as $tax )\
+        <option value="{{$tax->rate}}">{{$tax->abbreviation}}</option>\
+        @endforeach\
+        </select>\
+        </td>\
+        <td class="text-right">\
+        &#8377; <span class="totAmount"> 0.00</span>\
+        <input type="hidden" name="product_tot_amt[]" value="0">\
+        </td>\
+        <td>\
+        <a href="javascript:;" class="btn-removeItem"><i class="fa fa-trash"></i></a>\
+        </td></tr>';
 
         $('.table-invoiceItems .tableBodyItems').append(html);
         $('.table-invoiceItems .select-product').select2()
@@ -226,25 +276,41 @@
         });
     });
 
-function total(){
-    var totamt = 0 ;
-    var theTbl = $('.table-invoiceItems');
-    var trs = theTbl.find("input[name='product_tot_amt[]']");
-    for(var i=0;i<trs.length;i++)
-    {
-        $(".subTotAmount").html(totamt+=parseFloat(trs[i].value));
-        $("input[name='sub_tot_amt']").val(totamt);
-        $("input[name='grand_total']").val(totamt);
-        $(".grandTotAmount").html(totamt);
+    function total(){
+        var totamt = 0 ;
+        var theTbl = $('.table-invoiceItems');
+        var trs = theTbl.find("input[name='product_tot_amt[]']");
+        for(var i=0;i<trs.length;i++)
+        {
+            $(".subTotAmount").html(totamt+=parseFloat(trs[i].value));
+            $("input[name='sub_tot_amt']").val(totamt);
+            $("input[name='grand_total']").val(totamt);
+            $(".grandTotAmount").html(totamt);
+        }
+
+        grandTotal = totamt;
+
+        var subTotal = $('[name="sub_tot_amt"]').val();
+        var discountType = $('[name="discount_type"]').val();
+        var discount = $('[name="discount"]').val();
+        if(discountType == 1){
+            discountVal = (subTotal * discount) / 100;
+            totamt = grandTotal - discountVal;
+            $("input[name='grand_total']").val(totamt);
+            $(".grandTotAmount").html(totamt);
+        }else{
+            totamt = grandTotal - discount;
+            $("input[name='grand_total']").val(totamt);
+            $(".grandTotAmount").html(totamt);
+        }
     }
-}
 
-$('.selectCustomer').select2()
-.on('select2:open', () => {
-    $(".select2-results:not(:has(a))").append('<a href="#addCustomerModal" data-toggle="modal" onclick="closeSelect2(this, \'selectCustomer\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new customer</a>');
-});
+    $('.selectCustomer').select2()
+    .on('select2:open', () => {
+        $(".select2-results:not(:has(a))").append('<a href="#addCustomerModal" data-toggle="modal" onclick="closeSelect2(this, \'selectCustomer\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new customer</a>');
+    });
 
-$('.table-invoiceItems .select-product').select2()
+    $('.table-invoiceItems .select-product').select2()
     .on('select2:open', (e) => {
         window.selectedBox = $(e.currentTarget);
         $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');

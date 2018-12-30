@@ -97,11 +97,11 @@
                                                     <label>Tax<sup class="error">*</sup></label>
                                                     <select class="form-control" name="tax" required>
                                                         <option selected disabled>-- Choose Tax --</option>
-                                                        <option value="0" {{isset($product->tax) && $product->tax == 0 ? 'selected' : ''}}>None</option>
-                                                        <option value="2" {{isset($product->tax) && $product->tax == 2 ? 'selected' : ''}}>2%</option>
-                                                        <option value="3" {{isset($product->tax) && $product->tax == 3 ? 'selected' : ''}}>3%</option>
-                                                        <option value="5" {{isset($product->tax) && $product->tax == 5 ? 'selected' : ''}}>5%</option>
-                                                        <option value="12" {{isset($product->tax) && $product->tax == 12 ? 'selected' : ''}}>12%</option>
+                                                        <option value="0">None</option>
+                                                        <?php $taxes = getTaxes() ?>
+                                                        @foreach($taxes as $tax )
+                                                            <option value="{{$tax->rate}}" {{isset($product->tax) && $product->tax == $tax->rate ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -182,10 +182,10 @@
                             <select class="form-control" name="tax" required>
                                 <option selected disabled>-- Choose Tax --</option>
                                 <option value="0">None</option>
-                                <option value="2">2%</option>
-                                <option value="3">3%</option>
-                                <option value="5">5%</option>
-                                <option value="12">12%</option>
+                                <?php $taxes = getTaxes() ?>
+                                @foreach($taxes as $tax )
+                                    <option value="{{$tax->rate}}" {{isset($product->tax) && $product->tax == $tax->rate ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-sm-6">

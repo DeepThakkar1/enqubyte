@@ -55,6 +55,8 @@ class InvoicesController extends Controller
             'due_date' => request('due_date'),
             'invoice_date' => request('invoice_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
+            'discount_type' => request('discount_type'),
+            'discount' => !empty(request('discount')) ? request('discount') : 0,
             'grand_total' => request('grand_total')
         ]);
         for ($i=0; $i < count(request('product_id')); $i++) {
@@ -84,7 +86,7 @@ class InvoicesController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        //
+        return view('sales.invoices.show', compact('invoice'));
     }
 
     /**
@@ -118,6 +120,8 @@ class InvoicesController extends Controller
             'due_date' => request('due_date'),
             'invoice_date' => request('invoice_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
+            'discount_type' => request('discount_type'),
+            'discount' => !empty(request('discount')) ? request('discount') : 0,
             'grand_total' => request('grand_total')
         ]);
 

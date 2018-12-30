@@ -28,13 +28,8 @@
                     <td>{{$enquiry->enquiry_date}}</td>
                     <td>{{$enquiry->followup_date}}</td>
                     <td class="text-right">{{$enquiry->grand_total}}</td>
-                    <td><span class="badge badge-{{$enquiry->status == 1 ? 'success' : 'warning'}}">{{$enquiry->status == 1 ? 'Invoiced' : 'Pending'}}</span> </td>
+                    <td><span class="badge badge-{{$enquiry->status == 1 ? 'success' : 'warning'}}">{{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span> </td>
                     <td>
-                        @if(!$enquiry->status == 1)
-                        <a href="/enquiries/{{$enquiry->id}}/invoice" class="btn btn-sm" title="Convert to Invoice"><i class="fa fa-file"></i></a>
-                        @else
-                        <a href="javascript:;" class="btn btn-sm disabled"  title="Convert to Invoice"><i class="fa fa-file"></i></a>
-                        @endif
                         <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
                         <form method="post" action="/enquiries/{{$enquiry->id}}/delete" class="d-inline">
                             @csrf

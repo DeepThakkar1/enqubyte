@@ -73,10 +73,10 @@
                                     <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">
                                         <option selected disabled>-- Choose Tax --</option>
                                         <option value="0" {{$item->tax == 0 ? 'selected' : ''}}>None</option>
-                                        <option value="2"{{$item->tax == 2 ? 'selected' : ''}}>2%</option>
-                                        <option value="3"{{$item->tax == 3 ? 'selected' : ''}}>3%</option>
-                                        <option value="5"{{$item->tax == 5 ? 'selected' : ''}}>5%</option>
-                                        <option value="12"{{$item->tax == 12 ? 'selected' : ''}}>12%</option>
+                                        <?php $taxes = getTaxes() ?>
+                                        @foreach($taxes as $tax )
+                                            <option value="{{$tax->rate}}" {{$item->tax == $tax->rate ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
+                                        @endforeach
                                     </select>
                                 </td>
                                 <td class="text-right">
@@ -202,10 +202,10 @@
             <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">\
             <option selected disabled>-- Choose Tax --</option>\
             <option value="0">None</option>\
-            <option value="2">2%</option>\
-            <option value="3">3%</option>\
-            <option value="5">5%</option>\
-            <option value="12">12%</option>\
+            <?php $taxes = getTaxes() ?>\
+            @foreach($taxes as $tax )\
+            <option value="{{$tax->rate}}" {{$item->tax == $tax->rate ? "selected" : ""}}>{{$tax->abbreviation}}</option>\
+            @endforeach\
             </select>\
             </td>\
             <td class="text-right">\

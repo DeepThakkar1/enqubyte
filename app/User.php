@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Models\Tax;
 use App\Models\Stock;
 use App\Models\Store;
 use App\Models\Vendor;
@@ -92,6 +93,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function purchases()
     {
         return $this->hasMany(PurchaseOrder::class, 'company_id')->latest();
+    }
+
+    public function taxes()
+    {
+        return $this->hasMany(Tax::class, 'company_id')->latest();
     }
 
     public function getFullnameAttribute()

@@ -101,6 +101,11 @@ Route::get('/purchases/{purchaseOrder}', 'PurchaseOrdersController@show');
 Route::post('/purchases/{purchaseOrder}/delete', 'PurchaseOrdersController@destroy');
 Route::post('/purchases/{purchaseOrder}/update', 'PurchaseOrdersController@update');
 
+Route::get('/taxes', 'TaxesController@index');
+Route::post('/taxes', 'TaxesController@store');
+Route::post('/taxes/{tax}/update', 'TaxesController@update');
+Route::post('/taxes/{tax}/delete', 'TaxesController@destroy');
+
 Route::get('/settings', 'SettingsController@index');
 Route::post('/settings/general/mode', 'SettingsController@changeMode');
 Route::post('/settings/profile/update', 'SettingsController@updateProfile');

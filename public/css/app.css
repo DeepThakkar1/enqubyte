@@ -10739,7 +10739,7 @@ input.parsley-error {
 
 a.btn-addMoreItems {
   position: absolute;
-  bottom: 195px;
+  bottom: 0px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {

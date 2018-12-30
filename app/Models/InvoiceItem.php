@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Invoice;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class InvoiceItem extends Model
@@ -14,5 +15,10 @@ class InvoiceItem extends Model
     public function invoice()
     {
         return $this->belongsTo(Invoice::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

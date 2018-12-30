@@ -5,6 +5,7 @@ namespace App\Models;
 use App\User;
 use App\Models\Store;
 use App\Models\Enquiry;
+use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Customer;
 use App\Models\InvoiceItem;
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     protected $fillable = [
-        'customer_id', 'company_id', 'employee_id', 'store_id', 'enquiry_id', 'due_date', 'invoice_date', 'sub_tot_amt', 'grand_total'
+        'customer_id', 'company_id', 'employee_id', 'store_id', 'enquiry_id', 'due_date', 'invoice_date', 'sub_tot_amt', 'grand_total', 'status', 'discount_type', 'discount'
     ];
 
     public function company()
@@ -24,6 +25,11 @@ class Invoice extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 
     public function invoiceitems()
