@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <div>Due</div>
-                    <h3>Today</h3>
+                    <h3>{{$invoice->due_date}}</h3>
                 </div>
             </div>
         </div>
@@ -106,6 +106,7 @@
                                 <th>Description</th>
                                 <th class="right">Price</th>
                                 <th class="center">Qty</th>
+                                <th class="center">Tax</th>
                                 <th class="right">Total</th>
                             </tr>
                         </thead>
@@ -117,6 +118,7 @@
                                 <td class="left">{{$item->product->description}}</td>
                                 <td class="right">{{$item->price}}</td>
                                 <td class="center">{{$item->qty}}</td>
+                                <td class="center">{{$item->tax}} %</td>
                                 <td class="right">{{$item->product_tot_amt}}</td>
                             </tr>
                             @endforeach
