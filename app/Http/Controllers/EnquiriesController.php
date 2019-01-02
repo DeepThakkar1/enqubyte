@@ -155,7 +155,8 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => $enquiry->sub_tot_amt,
             'discount_type' => $enquiry->discount_type,
             'discount' => !empty($enquiry->discount) ? $enquiry->discount : 0,
-            'grand_total' => $enquiry->grand_total
+            'grand_total' => $enquiry->grand_total,
+            'remaining_amount' => $enquiry->grand_total
         ]);
 
         foreach ($enquiry->enquiryitems as $key => $item) {
