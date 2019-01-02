@@ -164,7 +164,7 @@
                                     @foreach($invoice->payments as $payment)
                                     <tr>
                                         <td class="left">
-                                            Payment on {{ $payment->created_at->toFormattedDateString()}} using
+                                            Payment on {{ $payment->payment_date}} using
                                             @if($payment->payment_method == 1)
                                             Bank Payment :
                                             @elseif($payment->payment_method == 2)
