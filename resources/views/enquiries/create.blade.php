@@ -200,11 +200,11 @@
         totamt = 0;
         if(discountType == 1){
             discountVal = (subTotal * discount) / 100;
-            totamt = grandTotal - discountVal;
+            totamt = subTotal - discountVal;
             $("input[name='grand_total']").val(totamt);
             $(".grandTotAmount").html(totamt);
         }else{
-            totamt = grandTotal - discount;
+            totamt = subTotal - discount;
             $("input[name='grand_total']").val(totamt);
             $(".grandTotAmount").html(totamt);
         }

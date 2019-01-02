@@ -84,7 +84,7 @@ class EnquiriesController extends Controller
      */
     public function show(Enquiry $enquiry)
     {
-        //
+        return view('enquiries.show', compact('enquiry'));
     }
 
     /**

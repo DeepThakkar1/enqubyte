@@ -30,6 +30,7 @@
                     <td class="text-right">{{$enquiry->grand_total}}</td>
                     <td><span class="badge badge-{{$enquiry->status == 1 ? 'success' : 'warning'}}">{{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span> </td>
                     <td>
+                        <a href="/enquiries/{{$enquiry->id}}" class="btn btn-sm" title="Edit"><i class="fa fa-eye"></i></a>
                         <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
                         <form method="post" action="/enquiries/{{$enquiry->id}}/delete" class="d-inline">
                             @csrf
