@@ -111,6 +111,12 @@ Route::post('/taxes', 'TaxesController@store');
 Route::post('/taxes/{tax}/update', 'TaxesController@update');
 Route::post('/taxes/{tax}/delete', 'TaxesController@destroy');
 
+Route::get('/incentives', 'IncentivesController@index');
+Route::post('/incentives', 'IncentivesController@store');
+Route::post('/incentives/{incentive}/update', 'IncentivesController@update');
+Route::post('/incentives/{incentive}/delete', 'IncentivesController@destroy');
+
+
 Route::get('/settings', 'SettingsController@index');
 Route::post('/settings/general/mode', 'SettingsController@changeMode');
 Route::post('/settings/profile/update', 'SettingsController@updateProfile');

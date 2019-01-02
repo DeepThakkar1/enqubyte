@@ -7,6 +7,7 @@ use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Customer;
+use App\Models\Employee;
 use App\Models\EnquiryItem;
 use Illuminate\Http\Request;
 
@@ -36,9 +37,10 @@ class EnquiriesController extends Controller
     public function create()
     {
         $customers = Visitor::all();
+        $salesmans = Employee::all();
         $products = Product::all();
         $enquiry =Enquiry::orderBy('created_at', 'desc')->first();
-        return view('enquiries.create', compact('customers', 'products', 'enquiry'));
+        return view('enquiries.create', compact('salesmans', 'customers', 'products', 'enquiry'));
     }
 
     /**
@@ -51,8 +53,8 @@ class EnquiriesController extends Controller
     {
         $enquiry = Enquiry::create([
             'company_id' => auth()->id(),
-            /*'employee_id' => 0,
-            'store_id' => 0,*/
+            'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
+            // 'store_id' => 0,
             'customer_id' => request('customer_id'),
             'followup_date' => request('followup_date'),
             'enquiry_date' => request('enquiry_date'),
@@ -95,10 +97,11 @@ class EnquiriesController extends Controller
      */
     public function edit(Enquiry $enquiry)
     {
+        $salesmans = Employee::all();
         $customers = Visitor::all();
         $products = Product::all();
         $enquiryitems = $enquiry->enquiryitems;
-        return view('enquiries.edit', compact('enquiry', 'customers', 'products', 'enquiryitems'));
+        return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems'));
     }
 
     /**
@@ -112,8 +115,8 @@ class EnquiriesController extends Controller
     {
         $enquiry->update([
             'company_id' => auth()->id(),
-            /*'employee_id' => 0,
-            'store_id' => 0,*/
+            'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
+            // 'store_id' => 0,
             'customer_id' => request('customer_id'),
             'followup_date' => request('followup_date'),
             'enquiry_date' => request('enquiry_date'),

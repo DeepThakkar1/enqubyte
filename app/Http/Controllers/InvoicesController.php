@@ -6,6 +6,7 @@ use App\Models\Enquiry;
 use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\Visitor;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class InvoicesController extends Controller
@@ -33,10 +34,11 @@ class InvoicesController extends Controller
      */
     public function create()
     {
+        $salesmans = Employee::all();
         $customers = Visitor::all();
         $products = Product::all();
         $invoice =Invoice::orderBy('created_at', 'desc')->first();
-        return view('sales.invoices.create', compact('customers', 'products', 'invoice'));
+        return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoice'));
     }
 
     /**
@@ -49,8 +51,8 @@ class InvoicesController extends Controller
     {
         $invoice = Invoice::create([
             'company_id' => auth()->id(),
-            /*'employee_id' => 0,
-            'store_id' => 0,*/
+            'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
+            // 'store_id' => 0,
             'customer_id' => request('customer_id'),
             'due_date' => request('due_date'),
             'invoice_date' => request('invoice_date'),
@@ -98,10 +100,11 @@ class InvoicesController extends Controller
      */
     public function edit(Invoice $invoice)
     {
+        $salesmans = Employee::all();
         $customers = Visitor::all();
         $products = Product::all();
         $invoiceitems = $invoice->invoiceitems;
-        return view('sales.invoices.edit', compact('invoice', 'customers', 'products', 'invoiceitems'));
+        return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems'));
     }
 
     /**
@@ -115,8 +118,8 @@ class InvoicesController extends Controller
     {
         $invoice->update([
             'company_id' => auth()->id(),
-            /*'employee_id' => 0,
-            'store_id' => 0,*/
+            'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
+            // 'store_id' => 0,
             'customer_id' => request('customer_id'),
             'due_date' => request('due_date'),
             'invoice_date' => request('invoice_date'),

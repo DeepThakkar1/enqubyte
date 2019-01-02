@@ -67,7 +67,13 @@ class EmployeesController extends Controller
 
         $newData['company_id'] = auth()->id();
         $newData['password'] = Hash::make($newData['password']);
-        auth()->user()->employees()->create($newData);
+        $employee = auth()->user()->employees()->create($newData);
+
+        if($request->wantsJson())
+        {
+            return response($employee, 200);
+        }
+
         flash('Employee added successfully!');
         return back();
     }

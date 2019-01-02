@@ -87,6 +87,27 @@
                         <li>
                             <a href="/taxes">{{ __('Taxes') }}</a>
                         </li>
+                        <li>
+                            <a href="/incentives">{{ __('Payout & Incentives') }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="{{ request()->is('statements*') ? 'active' : ''}}">
+                    <a href="#statementsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/statement.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/statement-clr.png') }}" class="active-icon">
+                        <span>{{ __('Statements') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="statementsSubmenu">
+                        <li>
+                            <a href="/statements/customer">{{ __('Customer') }}</a>
+                        </li>
+                        <li>
+                            <a href="/statements/vendor">{{ __('Vendor') }}</a>
+                        </li>
+                        <li>
+                            <a href="/statements/salesman">{{ __('Salesman Incentives') }}</a>
+                        </li>
                     </ul>
                 </li>
               <!--   <li class="{{ request()->is('products*') ? 'active' : ''}}">

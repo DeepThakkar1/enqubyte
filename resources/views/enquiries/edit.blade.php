@@ -36,6 +36,15 @@
                         </select>
                     </div>
                     <div class="col-sm-4 form-group">
+                        <label>Salesman</label>
+                        <select class="form-control selectWithSearch selectEmployee" name="employee_id">
+                            <option selected disabled>-- Choose Salesman --</option>
+                            @foreach($salesmans as $salesman)
+                            <option value="{{$salesman->id}}" {{$enquiry->employee_id == $salesman->id ? 'selected' : ''}}>{{$salesman->fullname}} ({{$salesman->phone}})</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-sm-4 form-group">
                         <label>Date</label>
                         <input type="text" class="form-control datepicker" autocomplete="off" name="enquiry_date" value="{{$enquiry->enquiry_date}}" placeholder="Enquiry date">
                     </div>
@@ -342,6 +351,11 @@
     .on('select2:open', (e) => {
         window.selectedBox = $(e.currentTarget);
         $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+    });
+
+    $('.selectEmployee').select2()
+    .on('select2:open', () => {
+        $(".select2-results:not(:has(a))").append('<a href="#addEmployeeModal" data-toggle="modal" onclick="closeSelect2(\'selectEmployee\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new salesman</a>');
     });
 
 </script>
