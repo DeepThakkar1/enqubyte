@@ -6,7 +6,7 @@
         <h2 class="d-inline-block headline-content"><a href="/sales/invoices" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Invoice</h2>
         <!-- <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a> -->
     </div>
-    <div class="container">
+    <div class="container px-5">
     <div class="d-flex px-3 align-self-center">
         <div class="py-2">
             <div>Status</div>
@@ -14,13 +14,13 @@
         </div>
         <div class="px-4 py-2">
             <div>Customer</div>
-            <h3><a href="" class="text-primary"> {{$invoice->customer->fullname}}</a></h3>
+            <h3><a href="" class="text-primary"> {{$invoice->visitor->fullname}}</a></h3>
         </div>
         <div class="ml-auto p-2">
             <div class="d-flex">
                 <div class="px-4">
                     <div>Amount Due</div>
-                    <h3>&#8377; {{$invoice->grand_total}}</h3>
+                    <h3>&#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}}</span></h3>
                 </div>
                 <div>
                     <div>Due</div>
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-    <div class="card mt-3">
+    <!-- <div class="card mt-3">
         <div class="card-body">
             <div class="d-flex p-3">
                 <div class="px-4">
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="card mt-3">
         <div class="card-body">
@@ -64,14 +64,14 @@
                     <h3 class="">Get Paid</h3>
                 </div>
                 <div class="ml-auto p-2">
-                    <a href="#" class="btn btn-outline-primary">Record a Payment</a>
+                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary">Record a Payment</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-    <div class="container mt-3">
+    <div class="container px-5 mt-3">
         <div class="card">
             <div class="card-header">
                 Invoice
@@ -80,21 +80,30 @@
             </div>
             <div class="card-body">
                 <div class="row mb-4">
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
                         <h6 class="mb-3">From:</h6>
                         <div>
                             <strong>{{auth()->user()->company_name}}</strong>
                         </div>
                         <div>Email: {{auth()->user()->email}}</div>
-                    </div>
-                    <div class="col-sm-6">
-                        <h6 class="mb-3">To:</h6>
+                    </div> -->
+                    <div class="col-sm-8">
+                        <h6 class="mb-3">Bill To:</h6>
                         <div>
-                            <strong>{{$invoice->customer->fullname}}</strong>
+                            <strong>{{$invoice->visitor->fullname}}</strong>
                         </div>
-                        <div>{{$invoice->customer->address}}</div>
-                        <div>{{$invoice->customer->phone}}</div>
-                        <div>{{$invoice->customer->email}}</div>
+                        <div>{{$invoice->visitor->address}}</div>
+                        <div>{{$invoice->visitor->phone}}</div>
+                        <div>{{$invoice->visitor->email}}</div>
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- <h6 class="mb-3">Bill To:</h6> -->
+                        <div>
+                            <strong>Invoice Number : </strong> {{$invoice->id}}
+                        </div>
+                        <div><strong>Invoice Date : </strong> {{$invoice->invoice_date}}</div>
+                        <div><strong>Payment Due : </strong> {{$invoice->due_date}}</div>
+                        <div><strong>Amount Due (INR) : </strong> &#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}} </span></div>
                     </div>
                 </div>
                 <div class="table-responsive-sm">
@@ -128,20 +137,20 @@
                 <div class="row">
                     <div class="col-lg-4 col-sm-5">
                     </div>
-                    <div class="col-lg-4 col-sm-5 ml-auto">
-                        <table class="table table-clear">
+                    <div class="col-lg-5 col-sm-5 ml-auto">
+                        <table class="table table-clear table-invoiceTotal">
                             <tbody>
                                 <tr>
                                     <td class="left">
                                         <strong>Subtotal</strong>
                                     </td>
-                                    <td class="right">&#8377; {{$invoice->sub_tot_amt}}</td>
+                                    <td class="right" width="130">&#8377; {{$invoice->sub_tot_amt}}</td>
                                 </tr>
                                 <tr>
                                     <td class="left">
                                         <strong>Discount</strong>
                                     </td>
-                                    <td class="right">{{isset($invoice->discount_type) && $invoice->discount_type ==0 ? '&#8377;' : ''}} {{$invoice->discount}} {{isset($invoice->discount_type) && $invoice->discount_type ==1 ? '%' : ''}}</td>
+                                    <td class="right">{!!isset($invoice->discount_type) && $invoice->discount_type ==0 ? '&#8377;' : ''!!} {{$invoice->discount}} {{isset($invoice->discount_type) && $invoice->discount_type ==1 ? '%' : ''}}</td>
                                 </tr>
                                 <tr>
                                     <td class="left">
@@ -151,6 +160,38 @@
                                         <strong>&#8377; {{$invoice->grand_total}}</strong>
                                     </td>
                                 </tr>
+                                @if(count($invoice->payments))
+                                    @foreach($invoice->payments as $payment)
+                                    <tr>
+                                        <td class="left">
+                                            Payment on {{ $payment->created_at->toFormattedDateString()}} using
+                                            @if($payment->payment_method == 1)
+                                            Bank Payment :
+                                            @elseif($payment->payment_method == 2)
+                                            Cash :
+                                            @elseif($payment->payment_method == 3)
+                                            Cheque :
+                                            @elseif($payment->payment_method == 4)
+                                            Credit Card :
+                                            @else
+                                            Other :
+                                            @endif
+                                        </td>
+                                        <td class="right">
+                                            <strong>&#8377; {{$payment->amount}}</strong>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    <tr class="rowAmountDue">
+                                        <td class="left">
+                                            <strong>Amount Due (INR):</strong>
+                                        </td>
+                                        <td class="right">
+                                            <strong>&#8377; {{$invoice->remaining_amount}}</strong>
+                                        </td>
+                                    </tr>
+
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -159,4 +200,7 @@
         </div>
     </div>
 </div>
+
+@include('sales.invoices.partials.modals')
+
 @endsection

@@ -28,10 +28,12 @@
                     <td>{{$enquiry->enquiry_date}}</td>
                     <td>{{$enquiry->followup_date}}</td>
                     <td class="text-right">{{$enquiry->grand_total}}</td>
-                    <td><span class="badge badge-{{$enquiry->status == 1 ? 'success' : 'warning'}}">{{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span> </td>
+                    <td><span class="badge badge-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}}">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</span> </td>
                     <td>
                         <a href="/enquiries/{{$enquiry->id}}" class="btn btn-sm" title="Edit"><i class="fa fa-eye"></i></a>
+                        @if(!$enquiry->status == -1 && !$enquiry->status == 1)
                         <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-sm" title="Edit"><i class="fa fa-pencil"></i></a>
+                        @endif
                         <form method="post" action="/enquiries/{{$enquiry->id}}/delete" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm" title="Delete" onclick="return confirm('Are you sure, You want to delete this enquiry?');"><i class="fa fa-trash"></i></button>

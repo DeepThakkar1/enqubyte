@@ -78,6 +78,7 @@ Route::get('/enquiries/{enquiry}', 'EnquiriesController@show');
 Route::post('/enquiries/{enquiry}/delete', 'EnquiriesController@destroy');
 Route::post('/enquiries/{enquiry}/update', 'EnquiriesController@update');
 Route::get('/enquiries/{enquiry}/invoice', 'EnquiriesController@createInvoice');
+Route::get('/enquiries/{enquiry}/cancel', 'EnquiriesController@cancel');
 
 Route::get('/sales/invoices', 'InvoicesController@index');
 Route::get('/sales/invoices/add', 'InvoicesController@create');
@@ -86,6 +87,10 @@ Route::post('/sales/invoices', 'InvoicesController@store');
 Route::get('/sales/invoices/{invoice}', 'InvoicesController@show');
 Route::post('/sales/invoices/{invoice}/delete', 'InvoicesController@destroy');
 Route::post('/sales/invoices/{invoice}/update', 'InvoicesController@update');
+
+
+Route::post('/sales/invoices/{invoice}/recordpayment', 'RecordPaymentsController@store');
+
 
 Route::get('/vendors', 'VendorsController@index');
 Route::post('/vendors', 'VendorsController@store');
@@ -110,3 +115,5 @@ Route::get('/settings', 'SettingsController@index');
 Route::post('/settings/general/mode', 'SettingsController@changeMode');
 Route::post('/settings/profile/update', 'SettingsController@updateProfile');
 Route::post('/settings/security/changepassword', 'SettingsController@updatePassword');
+
+

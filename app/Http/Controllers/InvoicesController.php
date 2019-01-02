@@ -57,7 +57,8 @@ class InvoicesController extends Controller
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
-            'grand_total' => request('grand_total')
+            'grand_total' => request('grand_total'),
+            'remaining_amount' => request('grand_total')
         ]);
         for ($i=0; $i < count(request('product_id')); $i++) {
             $invoice->invoiceitems()->create([

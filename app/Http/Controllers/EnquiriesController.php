@@ -190,4 +190,11 @@ class EnquiriesController extends Controller
         flash('Enquiry deleted successfully!');
         return redirect('/enquiries');
     }
+
+    public function cancel(Enquiry $enquiry)
+    {
+        $enquiry->update(['status' => -1]);
+        flash('Enquiry cancelled successfully!');
+        return redirect('/enquiries');
+    }
 }

@@ -6,76 +6,83 @@
         <h2 class="d-inline-block headline-content"><a href="/enquiries" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
         <!-- <a href="/enquiries/add" class="btn btn-primary float-right">Add Enquiry : </a> -->
     </div>
-    <div class="container">
-    <div class="d-flex px-3 align-self-center">
-        <div class="py-2">
-            <div>Status</div>
-            <div class="bg-{{$enquiry->status == 1 ? 'primary' : 'secondary'}} text-white px-2 rounded">{{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</div>
-        </div>
-        <div class="px-4 py-2">
-            <div>Customer</div>
-            <h3><a href="" class="text-primary"> {{$enquiry->customer->fullname}}</a></h3>
-        </div>
-        <div class="ml-auto p-2">
-            <div class="d-flex">
-                <div class="px-4">
-                    <div>Amount Due</div>
-                    <h3>&#8377; {{$enquiry->grand_total}}</h3>
-                </div>
-                <div>
-                    <div>Followup Date</div>
-                    <h3>{{$enquiry->followup_date}}</h3>
+    <div class="container px-5 ">
+        <div class="d-flex px-3 align-self-center">
+            <div class="py-2">
+                <div>Status</div>
+                <div class="bg-{{$enquiry->status == 1 ? 'primary' : 'secondary'}} text-white px-2 rounded">{{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</div>
+            </div>
+            <div class="px-4 py-2">
+                <div>Customer</div>
+                <h3><a href="" class="text-primary"> {{$enquiry->customer->fullname}}</a></h3>
+            </div>
+            <div class="ml-auto p-2">
+                <div class="d-flex">
+                    <div class="px-4">
+                        <div>Amount Due</div>
+                        <h3>&#8377; {{$enquiry->grand_total}}</h3>
+                    </div>
+                    <div>
+                        <div>Followup Date</div>
+                        <h3>{{$enquiry->followup_date}}</h3>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <div class="d-flex p-3">
-                <div class="px-4">
-                    <h3 class="">Create enquiry</h3>
-                    <div class=""><b>Created:</b> {{$enquiry->created_at->diffForHumans()}}</div>
-                </div>
-                <div class="ml-auto p-2">
-                    <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-outline-primary">Edit Enquiry : </a>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex p-3">
+                    <div class="px-4">
+                        <h3 class="">Create enquiry</h3>
+                        <div class=""><b>Created:</b> {{$enquiry->created_at->diffForHumans()}}</div>
+                    </div>
+                    <div class="ml-auto p-2">
+                        @if(!$enquiry->status == 1 && !$enquiry->status == -1)
+                        <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-outline-primary">Edit Enquiry </a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="card mt-3">
-        <div class="card-body">
-            <div class="d-flex p-3">
-                <div class="px-4">
-                    <h3 class="">Send enquiry</h3>
-                    <div class=""><b>Skipped:</b> You never sent this enquiry.</div>
+        <!-- <div class="card mt-3">
+            <div class="card-body">
+                <div class="d-flex p-3">
+                    <div class="px-4">
+                        <h3 class="">Send enquiry</h3>
+                        <div class=""><b>Skipped:</b> You never sent this enquiry.</div>
+                    </div>
+                    <div class="ml-auto p-2">
+                        <a href="#" class="btn btn-outline-primary">Send Enquiry </a>
+                        <a href="#" class="btn btn-outline-primary">Mark as Sent</a>
+                    </div>
                 </div>
-                <div class="ml-auto p-2">
-                    <a href="#" class="btn btn-outline-primary">Send Enquiry : </a>
-                    <a href="#" class="btn btn-outline-primary">Mark as Sent</a>
+            </div>
+        </div> -->
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="d-flex p-3">
+                    <div class="px-4">
+                        <h3 class="">Get Invoice</h3>
+                    </div>
+                    <div class="ml-auto p-2">
+                        @if(!$enquiry->status == -1)
+                        <a href="/enquiries/{{$enquiry->id}}/cancel" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
+                        @else
+                        <a href="javascript:;" class="btn btn-outline-danger disabled"  title="Cancel Enquiry">Cancel Enquiry</a>
+                        @endif
+                        @if(!$enquiry->status == 1)
+                        <a href="/enquiries/{{$enquiry->id}}/invoice" class="btn btn-outline-primary" title="Convert to Invoice">Convert to Invoice</a>
+                        @else
+                        <a href="javascript:;" class="btn btn-outline-primary disabled"  title="Convert to Invoice">Convert to Invoice</a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card mt-3">
-        <div class="card-body">
-            <div class="d-flex p-3">
-                <div class="px-4">
-                    <h3 class="">Get Invoice</h3>
-                </div>
-                <div class="ml-auto p-2">
-                    @if(!$enquiry->status == 1)
-                    <a href="/enquiries/{{$enquiry->id}}/invoice" class="btn btn-outline-primary" title="Convert to Invoice">Convert to Invoice</a>
-                    @else
-                    <a href="javascript:;" class="btn btn-outline-primary disabled"  title="Convert to Invoice">Convert to Invoice</a>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <div class="container mt-3">
+    <div class="container px-5 mt-3">
         <div class="card">
             <div class="card-header">
                 Enquiry :
