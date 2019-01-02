@@ -261,13 +261,13 @@
                 $('.rowAmountDue').hide();
                 // $('.invoiceAmt').html(response.data.)
                 var paymentType;
-                if (response.data.payment.payment_type ==1) {
+                if (response.data.payment.payment_method ==1) {
                     paymentType= 'Bank Payment';
-                }else if(response.data.payment.payment_type ==2){
+                }else if(response.data.payment.payment_method ==2){
                     paymentType= 'Cash';
-                }else if(response.data.payment.payment_type ==3){
+                }else if(response.data.payment.payment_method ==3){
                     paymentType= 'Cheque';
-                }else if(response.data.payment.payment_type ==4){
+                }else if(response.data.payment.payment_method ==4){
                     paymentType= 'Credit Card';
                 }else{
                     paymentType= 'Other';
@@ -283,6 +283,7 @@
                             </td></tr>';
                 $('.table-invoiceTotal tbody').append(html);
                 $('.invoiceAmt').html(response.data.invoice.remaining_amount);
+                $('.frmRecordPayment').trigger('reset');
                 $('.recordPaymentModal').modal('hide');
             })
         });
