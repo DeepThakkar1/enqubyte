@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-sm-4 form-group">
                         <label>Invoice Number</label>
-                        <input type="text" class="form-control" value="{{isset($invoice->id) ? $invoice->id + 1 : 1}}" readonly>
+                        <input type="text" class="form-control" value="{{isset($invoice) ? $invoice->id + 1 : 1}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>
