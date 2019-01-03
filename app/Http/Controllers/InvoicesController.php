@@ -35,6 +35,7 @@ class InvoicesController extends Controller
     public function create()
     {
         $salesmans = auth()->user()->employees;
+        dd($salesmans);
         $customers = Visitor::all();
         $products = Product::all();
         $invoice =Invoice::orderBy('created_at', 'desc')->first();
