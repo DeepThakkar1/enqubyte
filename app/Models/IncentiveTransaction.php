@@ -5,10 +5,10 @@ namespace App\Models;
 use App\Models\Employee;
 use Illuminate\Database\Eloquent\Model;
 
-class SalesmanIncentive extends Model
+class IncentiveTransaction extends Model
 {
     protected $fillable = [
-        'employee_id', 'enquiry_id', 'invoice_id', 'incentive_amount'
+        'employee_id', 'amount', 'transaction_date'
     ];
 
     public function employee()

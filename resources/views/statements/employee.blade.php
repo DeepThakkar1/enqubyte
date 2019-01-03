@@ -11,9 +11,9 @@
                 <tr>
                     <th>Sr.No</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Incentive</th>
+                    <th>Total Earn</th>
+                    <th>Paid</th>
+                    <th>Due</th>
                     <th>Status</th>
                     <th width="160px">Action</th>
                 </tr>
@@ -23,8 +23,8 @@
                 <tr>
                     <td>{{$key +1}}</td>
                     <td>{{$employee->fullname}}</td>
-                    <td>{{$employee->email}}</td>
-                    <td>{{$employee->phone}}</td>
+                    <td>{{$employee->incentive_amount}} </td>
+                    <td>500</td>
                     <td>500</td>
                     <td> <span class="badge badge-warning">Pending</span> </td>
                     <td>
@@ -39,59 +39,49 @@
 
 
 
-<div class="modal fade in addCustomerModal" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in recordPaymentModal" id="recordPaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Customer</h5>
+                <h5 class="modal-title">Record a payment for this invoice</h5>
                 <button type="button" class="close btn-close-modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="/customers">
+            <form class="frmRecordPayment">
                 @csrf
                 <div class="modal-body">
-                    @if(auth()->user()->mode)
-                    <div class="form-group">
-                        <label>Store<sup class="error">*</sup></label>
-                        <select name="store_id" class="form-control" required>
-                            <option disabled selected>-- Select Store --</option>
-                            @foreach($stores as $store)
-                            <option value="{{$store->id}}">{{$store->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @else
-                    <input type="hidden" name="store_id" value="0">
-                    @endif
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>First Name<sup class="error">*</sup></label>
-                            <input type="text" name="fname" class="form-control" placeholder="First name" required>
+                            <label>Date<sup class="error">*</sup></label>
+                            <input type="text" name="transaction_date" class="form-control datepicker" autocomplete="off" value="{{date('d-m-Y')}}" required>
                         </div>
                         <div class="col-sm-6">
-                            <label>Last Name<sup class="error">*</sup></label>
-                            <input type="text" name="lname" class="form-control" placeholder="Last name" required>
+                            <label>Amount<sup class="error">*</sup></label>
+                            <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-sm-6">
-                            <label>Email Address<sup class="error">*</sup></label>
-                            <input type="email" name="email" class="form-control" placeholder="Customer email" required>
-                        </div>
-                        <div class="col-sm-6">
-                            <label>Phone<sup class="error">*</sup></label>
-                            <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
+                        <div class="col-sm-12">
+                            <label>Payment Method<sup class="error">*</sup></label>
+                            <select class="form-control" name="payment_method" required>
+                                <option value="" selected disabled>Select Method</option>
+                                <option value="1">Bank Payment</option>
+                                <option value="2">Cash</option>
+                                <option value="3">Cheque</option>
+                                <option value="4">Credit Card</option>
+                                <option value="5">Other</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Address</label>
-                        <textarea name="address" class="form-control" placeholder="Address"></textarea>
+                        <label>Memo / notes</label>
+                        <textarea name="note" class="form-control" placeholder="Memo"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="button" id="recordPayment" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

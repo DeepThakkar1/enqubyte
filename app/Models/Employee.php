@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\Enquiry;
 use App\Models\Incentive;
+use App\Models\SalesmanIncentive;
+use App\Models\IncentiveTransaction;
 use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
@@ -41,8 +43,22 @@ class Employee extends Model
         return $this->belongsTo(Incentive::class);
     }
 
+    public function salesmanincentives()
+    {
+        return $this->hasMany(SalesmanIncentive::class)->latest();
+    }
+
+
+
+    public function incentivetransactions()
+    {
+        return $this->hasMany(IncentiveTransaction::class);
+    }
+
+
+
     public function getIncentiveAmountAttribute()
     {
-        return $this->incentive()->where('status', 1)->get();
+        return $this->salesmanincentives()->sum('incentive_amount');
     }
 }
