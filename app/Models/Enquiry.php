@@ -6,6 +6,7 @@ use App\User;
 use App\Models\Store;
 use App\Models\Invoice;
 use App\Models\Customer;
+use App\Models\Employee;
 use App\Models\EnquiryItem;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +24,11 @@ class Enquiry extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
     }
 
     public function enquiryitems()

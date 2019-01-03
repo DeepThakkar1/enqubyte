@@ -9,4 +9,5 @@ class Incentive extends Model
     protected $fillable = [
         'name', 'type', 'rate'
     ];
+
 }

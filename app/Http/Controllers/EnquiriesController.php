@@ -38,7 +38,7 @@ class EnquiriesController extends Controller
     public function create()
     {
         $customers = Visitor::all();
-        $salesmans = Employee::all();
+        $salesmans = auth()->user()->employees;
         $products = Product::all();
         $enquiry =Enquiry::orderBy('created_at', 'desc')->first();
         return view('enquiries.create', compact('salesmans', 'customers', 'products', 'enquiry'));
@@ -98,7 +98,7 @@ class EnquiriesController extends Controller
      */
     public function edit(Enquiry $enquiry)
     {
-        $salesmans = Employee::all();
+       $salesmans = auth()->user()->employees;
         $customers = Visitor::all();
         $products = Product::all();
         $enquiryitems = $enquiry->enquiryitems;
@@ -178,7 +178,12 @@ class EnquiriesController extends Controller
             $product->save();
         }
 
-        $incentiveAmt = (($enquiry->grand_total * 10) / 100);
+        $incentiveAmt = 0;
+        if ($enquiry->employee->incentive->type == 1) {
+            $incentiveAmt = $enquiry->grand_total + $enquiry->employee->incentive->rate;
+        }else if ($enquiry->employee->incentive->type == 2) {
+            $incentiveAmt = (($enquiry->grand_total * $enquiry->employee->incentive->rate) / 100);
+        }
 
         $incentive = SalesmanIncentive::create([
             'employee_id' => $enquiry->employee_id,

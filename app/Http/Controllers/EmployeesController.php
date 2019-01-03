@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Incentive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,8 +30,8 @@ class EmployeesController extends Controller
     {
         $stores = auth()->user()->stores;
         $employees = auth()->user()->employees()->paginate(10);
-
-        return view('employees.index', compact('stores', 'employees'));
+        $incentives = Incentive::all();
+        return view('employees.index', compact('stores', 'employees', 'incentives'));
     }
 
     /**

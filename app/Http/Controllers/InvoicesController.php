@@ -34,7 +34,7 @@ class InvoicesController extends Controller
      */
     public function create()
     {
-        $salesmans = Employee::all();
+        $salesmans = auth()->user()->employees;
         $customers = Visitor::all();
         $products = Product::all();
         $invoice =Invoice::orderBy('created_at', 'desc')->first();
@@ -100,7 +100,7 @@ class InvoicesController extends Controller
      */
     public function edit(Invoice $invoice)
     {
-        $salesmans = Employee::all();
+        $salesmans = auth()->user()->employees;
         $customers = Visitor::all();
         $products = Product::all();
         $invoiceitems = $invoice->invoiceitems;

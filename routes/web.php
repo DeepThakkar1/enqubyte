@@ -117,6 +117,12 @@ Route::post('/incentives/{incentive}/update', 'IncentivesController@update');
 Route::post('/incentives/{incentive}/delete', 'IncentivesController@destroy');
 
 
+Route::get('/statements/customer', 'StatementsController@customer');
+Route::get('/statements/vendor', 'StatementsController@vendor');
+Route::get('/statements/salesman', 'StatementsController@employee');
+
+
+
 Route::get('/settings', 'SettingsController@index');
 Route::post('/settings/general/mode', 'SettingsController@changeMode');
 Route::post('/settings/profile/update', 'SettingsController@updateProfile');

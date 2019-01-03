@@ -19,6 +19,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Incentive</th>
                 <th width="160px">Action</th>
             </tr>
         </thead>
@@ -28,9 +29,9 @@
                 <td>{{$key + 1}}</td>
                 <td>
                     @if($employee->photo)
-                    <img src="{{Storage::url($employee->photo)}}" height="70px" style="border-radius: 50%;width: 70px;">
+                    <img src="{{Storage::url($employee->photo)}}" style="border-radius: 50%;width: 70px; height: 70px;">
                     @else
-                    <img src="{{asset('img/user.png')}}" height="70px" style="border-radius: 50%;width: 70px;">
+                    <img src="{{asset('img/user.png')}}" style="border-radius: 50%;width: 70px; height: 70px;">
                     @endif
                 </td>
                 @if(auth()->user()->mode)
@@ -39,6 +40,7 @@
                 <td>{{$employee->fullname}}</td>
                 <td>{{$employee->email}}</td>
                 <td>{{$employee->phone}}</td>
+                <td>{{isset($employee->incentive) && $employee->incentive ? $employee->incentive->name : '-'}}</td>
                 <td>
                     <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
                     <form method="post" action="/employees/{{$employee->id}}/delete" class="d-inline">
@@ -108,29 +110,38 @@
                                                 @endif
                                             </div>
                                         </div>
-                                                <!-- <div class="row form-group">
-                                                    <div class="col-sm-6">
-                                                        <label>Password<sup class="error">*</sup></label>
-                                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
-                                                    </div>
-                                                </div> -->
+                                        <div class="row form-group">
+                                            <div class="col-sm-6">
+                                                <label>Payout & Incentives<sup class="error">*</sup></label>
+                                                <select name="incentive_id" class="form-control" required>
+                                                    <option disabled selected>-- Select Incentive --</option>
+                                                    @foreach($incentives as $incentive)
+                                                    <option value="{{$incentive->id}}" {{isset($employee->incentive_id) && $employee->incentive_id == $incentive->id ? 'selected' : ''}}>{{$incentive->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                                                <button type="submit" class="btn btn-primary">Update</button>
-                                            </div>
-                                        </form>
+                                            <!-- <div class="col-sm-6">
+                                                <label>Password<sup class="error">*</sup></label>
+                                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                            </div> -->
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
                             </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-            {{ $employees->links() }}
-        </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+    {{ $employees->links() }}
+</div>
 
 
         <div class="modal fade in addEmployeeModal" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -190,6 +201,15 @@
                                 </div>
                             </div>
                             <div class="row form-group">
+                                <div class="col-sm-6">
+                                    <label>Payout & Incentives<sup class="error">*</sup></label>
+                                    <select name="incentive" class="form-control" required>
+                                        <option disabled selected>-- Select Incentive --</option>
+                                        @foreach($incentives as $incentive)
+                                        <option value="{{$incentive->id}}">{{$incentive->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="col-sm-6">
                                     <label>Password<sup class="error">*</sup></label>
                                     <input type="password" name="password" class="form-control" placeholder="Password" required>
