@@ -116,6 +116,7 @@ Route::post('/incentives', 'IncentivesController@store');
 Route::post('/incentives/{incentive}/update', 'IncentivesController@update');
 Route::post('/incentives/{incentive}/delete', 'IncentivesController@destroy');
 
+Route::post('/incentives/{employee}/pay', 'IncentiveTransactions@store');
 
 Route::get('/statements/customer', 'StatementsController@customer');
 Route::get('/statements/vendor', 'StatementsController@vendor');

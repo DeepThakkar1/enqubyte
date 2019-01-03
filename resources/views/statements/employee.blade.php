@@ -24,11 +24,44 @@
                     <td>{{$key +1}}</td>
                     <td>{{$employee->fullname}}</td>
                     <td>{{$employee->incentive_amount}} </td>
-                    <td>500</td>
-                    <td>500</td>
-                    <td> <span class="badge badge-warning">Pending</span> </td>
+                    <td>{{$employee->incentive_paid_amount}}</td>
+                    <td>{{$employee->incentive_amount - $employee->incentive_paid_amount}}</td>
+                    <td> <span class="badge badge-{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'success' : 'warning'}}">{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'Paid' : 'Pending'}}</span> </td>
                     <td>
-                        <a href="" class=""><i class="fa fa-eye"></i> </a>
+                        <a href="" class="btn btn-sm"><i class="fa fa-eye"></i> </a>
+                        <a href="#incentivePaymentModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fa fa-pencil"></i> </a>
+
+                        <div class="modal fade in incentivePaymentModal{{$key}}" id="incentivePaymentModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Record a incentive payment for this employee</h5>
+                                        <button type="button" class="close btn-close-modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form method="post" action="/incentives/{{$employee->id}}/pay">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <div class="row form-group">
+                                                <div class="col-sm-6">
+                                                    <label>Date<sup class="error">*</sup></label>
+                                                    <input type="text" name="transaction_date" class="form-control datepicker" autocomplete="off" value="{{date('d-m-Y')}}" required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label>Amount<sup class="error">*</sup></label>
+                                                    <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
@@ -36,57 +69,5 @@
         </table>
     </div>
 </div>
-
-
-
-<div class="modal fade in recordPaymentModal" id="recordPaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Record a payment for this invoice</h5>
-                <button type="button" class="close btn-close-modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form class="frmRecordPayment">
-                @csrf
-                <div class="modal-body">
-                    <div class="row form-group">
-                        <div class="col-sm-6">
-                            <label>Date<sup class="error">*</sup></label>
-                            <input type="text" name="transaction_date" class="form-control datepicker" autocomplete="off" value="{{date('d-m-Y')}}" required>
-                        </div>
-                        <div class="col-sm-6">
-                            <label>Amount<sup class="error">*</sup></label>
-                            <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-sm-12">
-                            <label>Payment Method<sup class="error">*</sup></label>
-                            <select class="form-control" name="payment_method" required>
-                                <option value="" selected disabled>Select Method</option>
-                                <option value="1">Bank Payment</option>
-                                <option value="2">Cash</option>
-                                <option value="3">Cheque</option>
-                                <option value="4">Credit Card</option>
-                                <option value="5">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Memo / notes</label>
-                        <textarea name="note" class="form-control" placeholder="Memo"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="button" id="recordPayment" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 
 @endsection

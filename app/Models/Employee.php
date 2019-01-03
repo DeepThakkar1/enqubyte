@@ -55,10 +55,13 @@ class Employee extends Model
         return $this->hasMany(IncentiveTransaction::class);
     }
 
-
-
     public function getIncentiveAmountAttribute()
     {
         return $this->salesmanincentives()->sum('incentive_amount');
+    }
+
+    public function getIncentivePaidAmountAttribute()
+    {
+        return $this->incentivetransactions()->sum('amount');
     }
 }
