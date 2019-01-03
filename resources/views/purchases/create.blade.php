@@ -7,7 +7,7 @@
         <a href="/purchases" class="btn btn-secondary float-right">Back</a>
     </div>
     <div class="card">
-        <form method="post" action="/purchases">
+        <form method="post" action="/purchases" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="row">
@@ -36,9 +36,14 @@
                         <label>Due Date</label>
                         <input type="text" class="form-control datepicker" autocomplete="off" name="due_date" placeholder="Due date">
                     </div>
+                    <div class="col-sm-4 form-group">
+                        <label>Purchase Order Scan Copy (Optional)</label>
+                        <input type="file" class="form-control" name="order_scan_copy">
+                        <p class="m-0 text-muted"><small>(eg: .png, .jpeg, .jpg, .png, .pdf)</small></p>
+                    </div>
                 </div>
                 <hr>
-                <div class="table-responsive">
+                <div class="table-responsive m-0" style="position: relative;">
                     <table class="table table-purchaseItems">
                         <thead>
                             <tr class="product-list-menu">
@@ -81,32 +86,30 @@
                                     <input type="hidden" name="product_tot_amt[]" value="0">
                                 </td>
                                 <td>
-                                    <!-- <a href="javascript:;" class="btn-removeItem"><i class="fa fa-trash"></i></a> -->
                                 </td>
                             </tr>
                         </tbody>
-                        <tbody>
-                            <tr>
-                                <td colspan="3"></td>
-                                <td class="text-right font-weight-bold">Subtotal : </td>
-                                <td class="text-right font-weight-bold">
-                                    &#8377; <span class="subTotAmount"> 0.00</span>
-                                    <input type="hidden" name="sub_tot_amt" value="0">
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"></td>
-                                <td class="text-right font-weight-bold">Total (INR): </td>
-                                <td class="text-right font-weight-bold">
-                                    &#8377; <span class="grandTotAmount"> 0.00</span>
-                                    <input type="hidden" name="grand_total" value="0">
-                                </td>
-                                <td></td>
-                            </tr>
-                        </tbody>
+
                     </table>
                     <a href="javascript:;" class="text-primary btn-addMoreItems">Add more item</a>
+                </div>
+
+                <hr>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2 px-3"></div>
+                    <div class="p-2">
+                        &#8377; <span class="subTotAmount font-weight-bold"> 0.00</span>
+                        <input type="hidden" name="sub_tot_amt" value="0">
+                    </div>
+                    <div class="p-2 text-right font-weight-bold">Subtotal :</div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2 px-3"></div>
+                    <div class="p-2">
+                        &#8377; <span class="grandTotAmount font-weight-bold"> 0.00</span>
+                        <input type="hidden" name="grand_total" value="0">
+                    </div>
+                    <div class="p-2 text-right font-weight-bold">Total (INR) :</div>
                 </div>
             </div>
             <div class="card-footer">

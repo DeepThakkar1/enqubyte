@@ -13,7 +13,8 @@ class StatementsController extends Controller
      */
     public function customer()
     {
-        return view('statements.customer');
+        $customers = auth()->user()->visitors()->where('is_customer', 1)->get();
+        return view('statements.customer', compact('customers'));
     }
 
     /**
@@ -23,7 +24,8 @@ class StatementsController extends Controller
      */
     public function vendor()
     {
-        return view('statements.vendor');
+        $vendors = auth()->user()->vendors;
+        return view('statements.vendor', compact('vendors'));
     }
 
     /**

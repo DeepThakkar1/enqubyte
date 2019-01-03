@@ -15,7 +15,7 @@ class CreateIncentivesTable extends Migration
     {
         Schema::create('incentives', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('level')->default(0);
+            $table->string('name')->nullable();
             $table->integer('type')->default(0);
             $table->double('rate')->default(0);
             $table->timestamps();

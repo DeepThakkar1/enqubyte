@@ -11,7 +11,7 @@
                 <tr>
                     <th>Sr.No</th>
                     <th>Name</th>
-                    <th>Total Earn</th>
+                    <th>Total Earning</th>
                     <th>Paid</th>
                     <th>Due</th>
                     <th>Status</th>
@@ -23,13 +23,12 @@
                 <tr>
                     <td>{{$key +1}}</td>
                     <td>{{$employee->fullname}}</td>
-                    <td>{{$employee->incentive_amount}} </td>
-                    <td>{{$employee->incentive_paid_amount}}</td>
-                    <td>{{$employee->incentive_amount - $employee->incentive_paid_amount}}</td>
+                    <td>&#8377; {{$employee->incentive_amount}} </td>
+                    <td>&#8377; {{$employee->incentive_paid_amount}}</td>
+                    <td>&#8377; {{$employee->incentive_amount - $employee->incentive_paid_amount}}</td>
                     <td> <span class="badge badge-{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'success' : 'warning'}}">{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'Paid' : 'Pending'}}</span> </td>
                     <td>
-                        <a href="" class="btn btn-sm"><i class="fa fa-eye"></i> </a>
-                        <a href="#incentivePaymentModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fa fa-pencil"></i> </a>
+                        <a href="#incentivePaymentModal{{$key}}" data-toggle="modal" class="btn btn-sm btn-primary {{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'disabled' : ''}}"><i class="fa fa-money"></i> Pay</a>
 
                         <div class="modal fade in incentivePaymentModal{{$key}}" id="incentivePaymentModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -56,7 +55,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary">Pay</button>
                                         </div>
                                     </form>
                                 </div>

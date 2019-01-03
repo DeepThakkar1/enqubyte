@@ -62,6 +62,9 @@ class InvoicesController extends Controller
             'grand_total' => request('grand_total'),
             'remaining_amount' => request('grand_total')
         ]);
+
+        $invoice->visitor->update(['is_customer' => 1]);
+
         for ($i=0; $i < count(request('product_id')); $i++) {
             $invoice->invoiceitems()->create([
                 'product_id' => request('product_id')[$i],

@@ -163,6 +163,8 @@ class EnquiriesController extends Controller
             'remaining_amount' => $enquiry->grand_total
         ]);
 
+        $enquiry->customer->update(['is_customer' => 1]);
+
         foreach ($enquiry->enquiryitems as $key => $item) {
             $invoice->invoiceitems()->create([
                 'product_id' => $item->product_id,

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Enquiry;
+use App\Models\Invoice;
 use Illuminate\Database\Eloquent\Model;
 
 class Visitor extends Model
@@ -24,6 +25,16 @@ class Visitor extends Model
     public function enquiries()
     {
         return $this->hasMany(Enquiry::class)->latest();
+    }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'customer_id')->latest();
+    }
+
+    public function getTotalEarningsAttribute()
+    {
+        return $this->invoices()->sum('grand_total');
     }
 
     public function getFullnameAttribute()

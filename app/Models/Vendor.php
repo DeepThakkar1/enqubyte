@@ -27,4 +27,9 @@ class Vendor extends Model
     {
         return $this->hasMany(PurchaseOrder::class)->latest();
     }
+
+    public function getTotalPaymentsAttribute()
+    {
+        return $this->purchases()->sum('grand_total');
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\User;
 use App\Models\Store;
 use App\Models\Enquiry;
+use App\Models\Invoice;
 use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
@@ -31,5 +32,10 @@ class Customer extends Model
     public function enquiries()
     {
         return $this->hasMany(Enquiry::class)->latest();
+    }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class)->latest();
     }
 }

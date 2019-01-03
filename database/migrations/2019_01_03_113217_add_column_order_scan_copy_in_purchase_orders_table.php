@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnNameInIncentives extends Migration
+class AddColumnOrderScanCopyInPurchaseOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddColumnNameInIncentives extends Migration
      */
     public function up()
     {
-        Schema::table('incentives', function (Blueprint $table) {
-            $table->string('name')->nullable();
-            $table->dropColumn('level');
+        Schema::table('purchase_orders', function (Blueprint $table) {
+            $table->string('order_scan_copy')->nullable();
         });
     }
 
@@ -26,9 +25,8 @@ class AddColumnNameInIncentives extends Migration
      */
     public function down()
     {
-        Schema::table('incentives', function (Blueprint $table) {
-            $table->integer('level')->default(0);
-            $table->dropColumn('name');
+        Schema::table('purchase_orders', function (Blueprint $table) {
+            $table->dropColumn('order_scan_copy');
         });
     }
 }

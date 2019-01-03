@@ -46,6 +46,14 @@ class PurchaseOrdersController extends Controller
      */
     public function store(Request $request)
     {
+        $scanCopy = '';
+        if(request()->has('order_scan_copy'))
+        {
+            $scanCopy = request()->file('order_scan_copy')->store(
+                '/uploads/purchaseorder/scancopy', 'public'
+            );
+        }
+
         $purchaseOrder = PurchaseOrder::create([
             'company_id' => auth()->id(),
             /*'employee_id' => 0,
@@ -55,7 +63,9 @@ class PurchaseOrdersController extends Controller
             'purchase_date' => request('purchase_date'),
             'due_date' => request('due_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
-            'grand_total' => request('grand_total')
+            'grand_total' => request('grand_total'),
+            'order_scan_copy' => $scanCopy
+
         ]);
         for ($i=0; $i < count(request('product_id')); $i++) {
             $purchaseOrder->purchaseitems()->create([
@@ -110,6 +120,13 @@ class PurchaseOrdersController extends Controller
      */
     public function update(Request $request, PurchaseOrder $purchaseOrder)
     {
+        $scanCopy = '';
+        if(request()->has('order_scan_copy'))
+        {
+            $scanCopy = request()->file('order_scan_copy')->store(
+                '/uploads/purchaseorder/scancopy', 'public'
+            );
+        }
         $purchaseOrder->update([
             'company_id' => auth()->id(),
             /*'employee_id' => 0,
@@ -118,7 +135,8 @@ class PurchaseOrdersController extends Controller
             'purchase_date' => request('purchase_date'),
             'due_date' => request('due_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
-            'grand_total' => request('grand_total')
+            'grand_total' => request('grand_total'),
+            'order_scan_copy' => $scanCopy
         ]);
 
         foreach ($purchaseOrder->purchaseitems as $key => $item) {
