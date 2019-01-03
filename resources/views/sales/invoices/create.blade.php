@@ -2,7 +2,6 @@
 
 @section('content')
 
-@dd($invoice->id);
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content"><a href="/sales/invoices" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Add Invoice</h2>
