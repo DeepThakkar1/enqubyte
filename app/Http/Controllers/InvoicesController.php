@@ -38,7 +38,6 @@ class InvoicesController extends Controller
         $customers = Visitor::all();
         $products = Product::all();
         $invoice =Invoice::orderBy('created_at', 'desc')->first();
-        dd($invoice);
         return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoice'));
     }
 
