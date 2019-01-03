@@ -182,7 +182,7 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <label>Email Address<sup class="error">*</sup></label>
-                                    <input type="email" name="email" class="form-control" placeholder="Store email" required>
+                                    <input type="email" name="email" class="form-control" placeholder="Employee email" data-parsley-remote="{{url('/employees/email/{value}/available')}}" data-parsley-remote-message="Email already exist!" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Phone<sup class="error">*</sup></label>

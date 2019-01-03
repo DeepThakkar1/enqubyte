@@ -33,7 +33,7 @@ class PurchaseOrdersController extends Controller
     public function create()
     {
         $vendors = Vendor::all();
-        $products = Product::all();
+        $products = auth()->user()->products;
         $purchase =PurchaseOrder::orderBy('created_at', 'desc')->first();
         return view('purchases.create', compact('vendors', 'products', 'purchase'));
     }
@@ -106,7 +106,7 @@ class PurchaseOrdersController extends Controller
     public function edit(PurchaseOrder $purchaseOrder)
     {
         $vendors = Vendor::all();
-        $products = Product::all();
+        $products = auth()->user()->products;
         $purchaseitems = $purchaseOrder->purchaseitems;
         return view('purchases.edit', compact('purchaseOrder', 'vendors', 'products', 'purchaseitems'));
     }
@@ -175,6 +175,12 @@ class PurchaseOrdersController extends Controller
      */
     public function destroy(PurchaseOrder $purchaseOrder)
     {
+
+        foreach ($purchaseOrder->purchaseitems as $key => $item) {
+            $product = Product::where('id', $item->product_id)->first();
+            $product->stock -= $item->qty;
+            $product->save();
+        }
         $purchaseOrder->purchaseitems()->delete();
         $purchaseOrder->delete();
         flash('Purchase order deleted successfully!');

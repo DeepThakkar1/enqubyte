@@ -56,6 +56,8 @@ Route::post('/employees', 'EmployeesController@store');
 Route::get('/employees/{employee}', 'EmployeesController@show');
 Route::post('/employees/{employee}/delete', 'EmployeesController@destroy');
 Route::post('/employees/{employee}/update', 'EmployeesController@update');
+Route::get('/employees/email/{email}/available', 'EmployeesController@emailIsAvailable');
+
 
 Route::get('/visitors', 'VisitorsController@index');
 Route::post('/visitors', 'VisitorsController@store');

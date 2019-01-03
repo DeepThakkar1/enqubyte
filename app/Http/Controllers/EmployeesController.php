@@ -140,4 +140,14 @@ class EmployeesController extends Controller
         flash('Employee deleted successfully!');
         return back();
     }
+
+    public function emailIsAvailable($email)
+    {
+        $isAvailable = !Employee::where('email', $email)->exists();
+        if ($isAvailable) {
+            return response(['status'=>true], 200);
+        }else{
+            return response(['status'=>false], 404);
+        }
+    }
 }

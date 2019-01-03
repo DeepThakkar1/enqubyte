@@ -10,7 +10,7 @@
         <div class="d-flex px-3 align-self-center">
             <div class="py-2">
                 <div>Status</div>
-                <div class="bg-{{$enquiry->status == 1 ? 'primary' : 'secondary'}} text-white px-2 rounded">{{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</div>
+                <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
             </div>
             <div class="px-4 py-2">
                 <div>Customer</div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="ml-auto p-2">
                         @if(!$enquiry->status == -1)
-                        <a href="/enquiries/{{$enquiry->id}}/cancel" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
+                        <a href="#cancelEnquiryModal" data-toggle="modal" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
                         @else
                         <a href="javascript:;" class="btn btn-outline-danger disabled"  title="Cancel Enquiry">Cancel Enquiry</a>
                         @endif
@@ -166,6 +166,28 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade in cancelEnquiryModal" id="cancelEnquiryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cancel Enquiry</h5>
+                <button type="button" class="close btn-close-modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to cancel this order? <br>When you cancel this order you doesn't change in that enquiry.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-close-modal">Close</button>
+                <a href="/enquiries/{{$enquiry->id}}/cancel" class="btn btn-danger">Cancel Enquiry</a>
             </div>
         </div>
     </div>

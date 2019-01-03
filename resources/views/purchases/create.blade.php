@@ -20,8 +20,8 @@
                         <input type="text" class="form-control" name="order_id" placeholder="Purchase Order Number">
                     </div>
                     <div class="col-sm-4 form-group">
-                        <label>Vendor</label>
-                        <select class="form-control selectWithSearch selectVendor" name="vendor_id">
+                        <label>Vendor<sup class="error">*</sup></label>
+                        <select class="form-control selectWithSearch selectVendor" name="vendor_id" required>
                             <option selected disabled>-- Choose Vendor --</option>
                             @foreach($vendors as $vendor)
                             <option value="{{$vendor->id}}">{{$vendor->name}} ({{$vendor->phone}})</option>
@@ -29,12 +29,12 @@
                         </select>
                     </div>
                     <div class="col-sm-4 form-group">
-                        <label>Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="purchase_date" placeholder="Purchase Order date">
+                        <label>Date<sup class="error">*</sup></label>
+                        <input type="text" class="form-control datepicker" autocomplete="off" required name="purchase_date" placeholder="Purchase Order date">
                     </div>
                     <div class="col-sm-4 form-group">
-                        <label>Due Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="due_date" placeholder="Due date">
+                        <label>Due Date<sup class="error">*</sup></label>
+                        <input type="text" class="form-control datepicker" autocomplete="off" required name="due_date" placeholder="Due date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Purchase Order Scan Copy (Optional)</label>
@@ -58,7 +58,7 @@
                         <tbody class="tableBodyItems">
                             <tr>
                                 <td>
-                                    <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">
+                                    <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px"  required>
                                         <option selected disabled>-- Choose Product --</option>
                                         @foreach($products as $product)
                                         <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>

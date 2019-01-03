@@ -21,8 +21,8 @@
                         <input type="text" class="form-control" value="{{$purchaseOrder->order_id}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
-                        <label>Vendor</label>
-                        <select class="form-control selectWithSearch selectVendor" name="vendor_id">
+                        <label>Vendor<sup class="error">*</sup></label>
+                        <select class="form-control selectWithSearch selectVendor" name="vendor_id" required>
                             <option selected disabled>-- Choose Vendor --</option>
                             @foreach($vendors as $vendor)
                             <option value="{{$vendor->id}}" {{$purchaseOrder->vendor_id == $vendor->id ? 'selected' : ''}}>{{$vendor->name}} ({{$vendor->phone}})</option>
@@ -31,12 +31,12 @@
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <label>Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="purchase_date" value="{{$purchaseOrder->purchase_date}}" placeholder="Invoice date">
+                        <label>Date<sup class="error">*</sup></label>
+                        <input type="text" class="form-control datepicker" autocomplete="off" required name="purchase_date" value="{{$purchaseOrder->purchase_date}}" placeholder="Invoice date">
                     </div>
                     <div class="col-sm-4 form-group">
-                        <label>Due Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="due_date" value="{{$purchaseOrder->due_date}}" placeholder="Due date">
+                        <label>Due Date<sup class="error">*</sup></label>
+                        <input type="text" class="form-control datepicker" autocomplete="off" required name="due_date" value="{{$purchaseOrder->due_date}}" placeholder="Due date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Purchase Order Scan Copy (Optional)</label>

@@ -10735,6 +10735,7 @@ input.parsley-error {
   font-weight: 500;
   font-size: 16px;
   color: #222629;
+  z-index: 9999;
 }
 
 a.btn-addMoreItems {
