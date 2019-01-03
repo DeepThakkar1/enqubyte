@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIncentivesTable extends Migration
+class CreateSalesmanIncentivesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateIncentivesTable extends Migration
      */
     public function up()
     {
-        Schema::create('incentives', function (Blueprint $table) {
+        Schema::create('salesman_incentives', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->integer('type')->default(0);
-            $table->double('rate')->default(0);
+            $table->integer('employee_id')->default(0);
+            $table->integer('enquiry_id')->default(0);
+            $table->integer('invoice_id')->default(0);
+            $table->double('incentive_amount')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateIncentivesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incentives');
+        Schema::dropIfExists('salesman_incentives');
     }
 }

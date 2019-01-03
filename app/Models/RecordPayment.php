@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class RecordPayment extends Model
 {
     protected $fillable = [
-    'payment_date','amount','payment_method','payment_account','note'
+        'payment_date','amount','payment_method','payment_account','note'
     ];
 
     public function invoice()

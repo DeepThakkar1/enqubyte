@@ -10,6 +10,7 @@ use App\Models\Customer;
 use App\Models\Employee;
 use App\Models\EnquiryItem;
 use Illuminate\Http\Request;
+use App\Models\SalesmanIncentive;
 
 class EnquiriesController extends Controller
 {
@@ -149,8 +150,8 @@ class EnquiriesController extends Controller
         $enquiry->update(['status' => 1]);
         $invoice = Invoice::create([
             'company_id' => auth()->id(),
-            /*'employee_id' => 0,
-            'store_id' => 0,*/
+            'employee_id' => !empty($enquiry->employee_id) ? $enquiry->employee_id : 0,
+            // 'store_id' => 0,
             'customer_id' => $enquiry->customer_id,
             'enquiry_id' => $enquiry->id,
             'invoice_date' => date('d-m-Y'),
@@ -176,6 +177,15 @@ class EnquiriesController extends Controller
             $product->stock -= $item->qty;
             $product->save();
         }
+
+        $incentiveAmt = (($enquiry->grand_total * 10) / 100);
+
+        $incentive = SalesmanIncentive::create([
+            'employee_id' => $enquiry->employee_id,
+            'enquiry_id' => $enquiry->id,
+            'invoice_id' => $invoice->id,
+            'incentive_amount' => $incentiveAmt,
+        ]);
 
         flash('Invoice created successfully!');
         return redirect('/sales/invoices/' . $invoice->id . '/edit');

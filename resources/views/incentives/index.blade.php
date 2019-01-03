@@ -12,7 +12,7 @@
             <thead>
                 <tr>
                     <th>Sr.No</th>
-                    <th>Level</th>
+                    <th>Name</th>
                     <th>Type</th>
                     <th>Rate</th>
                     <th width="160px">Action</th>
@@ -22,7 +22,7 @@
                 @foreach($incentives as $key => $incentive)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td>Level {{$incentive->level}}</td>
+                    <td>{{$incentive->name}}</td>
                     <td>{{$incentive->type == 1 ? 'Fixed' : 'Percentage'}}</td>
                     <td>{!!$incentive->type == 1 ? '&#8377;' : ''!!} {{$incentive->rate}} {{$incentive->type == 2 ? '%' : ''}}</td>
                     <td>
@@ -45,13 +45,8 @@
                                         @csrf
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <label>Level<sup class="error">*</sup></label>
-                                                <select name="level" class="form-control">
-                                                    <option value="">-- Choose Level --</option>
-                                                    <option value="1" {{$incentive->level == 1 ? 'selected' : ''}}>Level 1</option>
-                                                    <option value="2" {{$incentive->level == 2 ? 'selected' : ''}}>Level 2</option>
-                                                    <option value="3" {{$incentive->level == 3 ? 'selected' : ''}}>Level 3</option>
-                                                </select>
+                                                <label>Name<sup class="error">*</sup></label>
+                                                <input name="name" class="form-control" placeholder="Name" value="{{$incentive->name}}">
                                             </div>
                                             <div class="form-group">
                                                 <label>Type<sup class="error">*</sup></label>
@@ -97,13 +92,8 @@
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Level<sup class="error">*</sup></label>
-                        <select name="level" class="form-control">
-                            <option value="">-- Choose Level --</option>
-                            <option value="1">Level 1</option>
-                            <option value="2">Level 2</option>
-                            <option value="3">Level 3</option>
-                        </select>
+                        <label>Name<sup class="error">*</sup></label>
+                        <input name="name" class="form-control" placeholder="Name">
                     </div>
                     <div class="form-group">
                         <label>Type<sup class="error">*</sup></label>

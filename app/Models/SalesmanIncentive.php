@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Incentive extends Model
+class SalesmanIncentive extends Model
 {
     protected $fillable = [
-        'name', 'type', 'rate'
+        'employee_id', 'enquiry_id', 'invoice_id', 'incentive_amount'
     ];
 }
