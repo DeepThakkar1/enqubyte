@@ -350,7 +350,7 @@
 
         $('#recordPayment').on('click', function(){
             var data = $('.frmRecordPayment').serialize();
-            axios.post('/sales/invoices/{{$invoice->id}}/recordpayment', data)
+            axios.post('/sales/invoices/{{isset($invoice) ? $invoice->id : ''}}/recordpayment', data)
             .then(function(response){
                 $('.rowAmountDue').hide();
                 // $('.invoiceAmt').html(response.data.)
