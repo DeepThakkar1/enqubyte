@@ -157,7 +157,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Amount<sup class="error">*</sup></label>
-                            <input type="text" name="amount" value="{{$invoice->remaining_amount}}" class="form-control" autocomplete="off" placeholder="Amount" required>
+                            <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
                         </div>
                     </div>
                     <div class="row form-group">
