@@ -4,6 +4,8 @@ namespace App\Models;
 use App\User;
 use App\Models\Stock;
 use App\Models\Store;
+use App\Models\Enquiry;
+use App\Models\Invoice;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -26,4 +28,20 @@ class Product extends Model
     {
         return $this->hasOne(Stock::class);
     }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class)->latest();
+    }
+
+    public function enquiries()
+    {
+        return $this->hasMany(Enquiry::class)->latest();
+    }
+
+    public function getProductEnquiryAttribute()
+    {
+        return $this->enquiries()->enquiryitems()->where('product_id', $this->id);
+    }
+
 }

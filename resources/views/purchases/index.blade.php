@@ -12,7 +12,7 @@
                 <tr class="product-list-menu">
                     <th>Purchase No.</th>
                     <th>Order ID</th>
-                    <th>Customer Name</th>
+                    <th>Vendor Name</th>
                     <th>Date</th>
                     <th>Due Date</th>
                     <th class="text-right">Amount</th>
@@ -32,6 +32,8 @@
                     <td><span class="badge badge-warning">Pending</span> </td>
                     <td>
                         <a href="/purchases/{{$purchase->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>
+                        <a href="/purchases/{{$purchase->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
+
                         <form method="post" action="/purchases/{{$purchase->id}}/delete" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm" onclick="return confirm('Are you sure, You want to delete this purchase?');"><i class="fa fa-trash"></i></button>

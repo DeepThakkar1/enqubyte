@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+use App\User;
+use App\Models\Store;
+use App\Models\Vendor;
 use App\Models\PurchaseItem;
+use App\Models\PusrchaseOrderRecordPayment;
 use Illuminate\Database\Eloquent\Model;
 
 class PurchaseOrder extends Model
 {
     protected $fillable = [
-        'company_id', 'store_id', 'order_id', 'vendor_id', 'due_date', 'purchase_date', 'sub_tot_amt', 'grand_total', 'order_scan_copy'
+        'company_id', 'store_id', 'order_id', 'vendor_id', 'due_date', 'purchase_date', 'sub_tot_amt', 'grand_total', 'order_scan_copy', 'remaining_amount'
     ];
 
     public function company()
@@ -29,5 +33,10 @@ class PurchaseOrder extends Model
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(PurchaseOrderRecordPayment::class);
     }
 }

@@ -68,9 +68,9 @@ Route::post('/visitors/{visitor}/update', 'VisitorsController@update');
 
 Route::get('/customers', 'CustomersController@index');
 Route::post('/customers', 'CustomersController@store');
-Route::get('/customers/{customer}', 'CustomersController@show');
 Route::post('/customers/{customer}/delete', 'CustomersController@destroy');
 Route::post('/customers/{customer}/update', 'CustomersController@update');
+Route::get('/customers/{visitor}', 'CustomersController@show');
 
 Route::get('/enquiries', 'EnquiriesController@index');
 Route::get('/enquiries/add', 'EnquiriesController@create');
@@ -81,6 +81,9 @@ Route::post('/enquiries/{enquiry}/delete', 'EnquiriesController@destroy');
 Route::post('/enquiries/{enquiry}/update', 'EnquiriesController@update');
 Route::get('/enquiries/{enquiry}/invoice', 'EnquiriesController@createInvoice');
 Route::get('/enquiries/{enquiry}/cancel', 'EnquiriesController@cancel');
+
+Route::post('/enquiries/{enquiry}/changefollowupdate', 'EnquiriesController@changefollowupdate');
+
 
 Route::get('/sales/invoices', 'InvoicesController@index');
 Route::get('/sales/invoices/add', 'InvoicesController@create');
@@ -108,6 +111,8 @@ Route::get('/purchases/{purchaseOrder}', 'PurchaseOrdersController@show');
 Route::post('/purchases/{purchaseOrder}/delete', 'PurchaseOrdersController@destroy');
 Route::post('/purchases/{purchaseOrder}/update', 'PurchaseOrdersController@update');
 
+Route::post('/purchases/{purchaseOrder}/recordpayment', 'PurchaseOrderRecordPaymentController@store');
+
 Route::get('/taxes', 'TaxesController@index');
 Route::post('/taxes', 'TaxesController@store');
 Route::post('/taxes/{tax}/update', 'TaxesController@update');
@@ -121,8 +126,11 @@ Route::post('/incentives/{incentive}/delete', 'IncentivesController@destroy');
 Route::post('/incentives/{employee}/pay', 'IncentiveTransactions@store');
 
 Route::get('/statements/customer', 'StatementsController@customer');
+Route::get('/statements/customer/{customer}', 'StatementsController@customerShow');
 Route::get('/statements/vendor', 'StatementsController@vendor');
+Route::get('/statements/vendor/{vendor}', 'StatementsController@vendorShow');
 Route::get('/statements/salesman', 'StatementsController@employee');
+Route::get('/statements/salesman/{employee}', 'StatementsController@salesmanShow');
 
 
 

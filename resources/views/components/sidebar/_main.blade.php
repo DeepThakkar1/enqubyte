@@ -84,12 +84,6 @@
                         <li>
                             <a href="/employees">{{ __('Employees') }}</a>
                         </li>
-                        <li>
-                            <a href="/taxes">{{ __('Taxes') }}</a>
-                        </li>
-                        <li>
-                            <a href="/incentives">{{ __('Payout & Incentives') }}</a>
-                        </li>
                     </ul>
                 </li>
                 <li class="{{ request()->is('statements*') ? 'active' : ''}}">
@@ -145,14 +139,31 @@
                         <span>{{ __('Reports') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('settings*') ? 'active' : ''}}">
+                <!-- <li class="{{ request()->is('settings*') ? 'active' : ''}}">
                     <a href="/settings">
                         <img src="{{ url('img/sidebar/settings.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/settings-clr.png') }}" class="active-icon">
                         <span>{{ __('Settings') }}</span>
                     </a>
+                </li> -->
+                <li class="{{ request()->is('settings*') ? 'active' : ''}}">
+                    <a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/settings.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/settings-clr.png') }}" class="active-icon">
+                        <span>{{ __('Settings') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="settingsSubmenu">
+                        <li>
+                            <a href="/settings">{{ __('General') }}</a>
+                        </li>
+                        <li>
+                            <a href="/taxes">{{ __('Taxes') }}</a>
+                        </li>
+                        <li>
+                            <a href="/incentives">{{ __('Payout & Incentives') }}</a>
+                        </li>
+                    </ul>
                 </li>
-
 
 
                 <li>

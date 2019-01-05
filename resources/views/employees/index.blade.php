@@ -42,10 +42,11 @@
                 <td>{{$employee->phone}}</td>
                 <td>{{isset($employee->incentive) && $employee->incentive ? $employee->incentive->name : '-'}}</td>
                 <td>
-                    <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                    <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                    <a href="/employees/{{$employee->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
                     <form method="post" action="/employees/{{$employee->id}}/delete" class="d-inline">
                         @csrf
-                        <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
+                        <button type="submit" class="btn btn-sm" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
                     </form>
 
                     <div class="modal fade in editEmployeeModal{{$key}}" id="editEmployeeModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

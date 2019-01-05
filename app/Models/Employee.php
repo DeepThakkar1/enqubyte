@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Enquiry;
+use App\Models\Invoice;
 use App\Models\Incentive;
 use App\Models\SalesmanIncentive;
 use App\Models\IncentiveTransaction;
@@ -38,6 +39,11 @@ class Employee extends Model
         return $this->hasMany(Enquiry::class)->latest();
     }
 
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class)->latest();
+    }
+
     public function incentive()
     {
         return $this->belongsTo(Incentive::class);
@@ -63,5 +69,15 @@ class Employee extends Model
     public function getIncentivePaidAmountAttribute()
     {
         return $this->incentivetransactions()->sum('amount');
+    }
+
+    public function getTotalEarningsAttribute()
+    {
+        return $this->invoices()->sum('grand_total');
+    }
+
+    public function getTotalRemainingAttribute()
+    {
+        return $this->invoices()->sum('remaining_amount');
     }
 }

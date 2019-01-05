@@ -18,7 +18,15 @@
         </div>
         <div class="ml-auto p-2">
             <div class="d-flex">
+                @if(isset($invoice->enquiry))
                 <div class="px-4">
+                    <div>Enquiry</div>
+                    <h3>
+                    <a href="/enquiries/{{$invoice->enquiry->id}}" target="_blank" class="text-primary"># Enquiry {{$invoice->enquiry->id}} </a>
+                    </h3>
+                </div>
+                @endif
+                <div class="pr-4">
                     <div>Amount Due</div>
                     <h3>&#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}}</span></h3>
                 </div>
@@ -37,7 +45,11 @@
                     <div class=""><b>Created:</b> {{$invoice->created_at->diffForHumans()}}</div>
                 </div>
                 <div class="ml-auto p-2">
+                    @if(count($invoice->payments))
+                    <a href="javascript:;" class="btn btn-outline-primary disabled">Edit Invoice</a>
+                    @else
                     <a href="/sales/invoices/{{$invoice->id}}/edit" class="btn btn-outline-primary">Edit Invoice</a>
+                    @endif
                 </div>
             </div>
         </div>

@@ -69,7 +69,8 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        dd($product->product_enquiry);
+        return view('products.show', compact('product'));
     }
 
     /**

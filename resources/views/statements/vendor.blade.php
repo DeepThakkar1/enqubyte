@@ -26,7 +26,7 @@
                     <td>{{$vendor->name}} ({{$vendor->phone}})</td>
                     <td>&#8377; {{$vendor->total_payments}}</td>
                     <td>
-                        <a href="" class="btn btn-sm"><i class="fa fa-eye"></i></a>
+                        <a href="/statements/vendor/{{$vendor->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                     </td>
                 </tr>
                 @endforeach

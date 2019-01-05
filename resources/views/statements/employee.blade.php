@@ -29,6 +29,7 @@
                     <td> <span class="badge badge-{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'success' : 'warning'}}">{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'Paid' : 'Pending'}}</span> </td>
                     <td>
                         <a href="#incentivePaymentModal{{$key}}" data-toggle="modal" class="btn btn-sm btn-primary {{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'disabled' : ''}}"><i class="fa fa-money"></i> Pay</a>
+                        <a href="/statements/salesman/{{$employee->id}}" class="btn btn-sm "><i class="fa fa-eye"></i></a>
 
                         <div class="modal fade in incentivePaymentModal{{$key}}" id="incentivePaymentModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">

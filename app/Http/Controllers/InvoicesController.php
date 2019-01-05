@@ -103,11 +103,17 @@ class InvoicesController extends Controller
      */
     public function edit(Invoice $invoice)
     {
-        $salesmans = auth()->user()->employees;
-        $customers = Visitor::all();
-        $products = Product::all();
-        $invoiceitems = $invoice->invoiceitems;
-        return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems'));
+        if(count($invoice->payments)){
+            flash("You didn't edit this invoice!");
+            return redirect('/sales/invoices/'.$invoice->id);
+        }
+        else{
+            $salesmans = auth()->user()->employees;
+            $customers = Visitor::all();
+            $products = Product::all();
+            $invoiceitems = $invoice->invoiceitems;
+            return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems'));
+        }
     }
 
     /**

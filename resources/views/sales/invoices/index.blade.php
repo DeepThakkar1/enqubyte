@@ -26,7 +26,7 @@
                     <td>{{$invoice->visitor->fullname}}</td>
                     <td>{{$invoice->invoice_date}}</td>
                     <td>{{$invoice->due_date}}</td>
-                    <td class="text-right">&#8377; {{$invoice->remaining_amount}}</td>
+                    <td class="text-right">&#8377; {{$invoice->grand_total}}</td>
                     <td><span class="badge badge-warning">Pending</span> </td>
                     <td>
                         <a href="/sales/invoices/{{$invoice->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>

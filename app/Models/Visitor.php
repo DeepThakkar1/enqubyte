@@ -24,7 +24,7 @@ class Visitor extends Model
 
     public function enquiries()
     {
-        return $this->hasMany(Enquiry::class)->latest();
+        return $this->hasMany(Enquiry::class, 'customer_id')->latest();
     }
 
     public function invoices()
@@ -35,6 +35,11 @@ class Visitor extends Model
     public function getTotalEarningsAttribute()
     {
         return $this->invoices()->sum('grand_total');
+    }
+
+    public function getTotalRemainingAttribute()
+    {
+        return $this->invoices()->sum('remaining_amount');
     }
 
     public function getFullnameAttribute()

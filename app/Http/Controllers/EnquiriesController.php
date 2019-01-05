@@ -98,11 +98,19 @@ class EnquiriesController extends Controller
      */
     public function edit(Enquiry $enquiry)
     {
-       $salesmans = auth()->user()->employees;
-        $customers = Visitor::all();
-        $products = Product::all();
-        $enquiryitems = $enquiry->enquiryitems;
-        return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems'));
+        if($enquiry->status == 1 || $enquiry->status == -1)
+        {
+            flash("You didn't edit this enquiry!");
+            return redirect('/enquiries/'.$enquiry->id);
+        }
+        else
+        {
+            $salesmans = auth()->user()->employees;
+            $customers = Visitor::all();
+            $products = Product::all();
+            $enquiryitems = $enquiry->enquiryitems;
+            return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems'));
+        }
     }
 
     /**
@@ -124,7 +132,8 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
-            'grand_total' => request('grand_total')
+            'grand_total' => request('grand_total'),
+            'remaining_amount' => request('grand_total')
         ]);
         $enquiry->enquiryitems()->delete();
 
@@ -217,5 +226,12 @@ class EnquiriesController extends Controller
         $enquiry->update(['status' => -1]);
         flash('Enquiry cancelled successfully!');
         return redirect('/enquiries');
+    }
+
+    public function changefollowupdate(Request $request, Enquiry $enquiry)
+    {
+        $enquiry->update(['followup_date' => $request->followup_date]);
+        flash('Enquiry followup date updated successfully!');
+        return redirect('/enquiries/'.$enquiry->id);
     }
 }

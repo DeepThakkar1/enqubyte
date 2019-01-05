@@ -94,7 +94,7 @@ class PurchaseOrdersController extends Controller
      */
     public function show(PurchaseOrder $purchaseOrder)
     {
-        //
+        return view('purchases.show', compact(('purchaseOrder')));
     }
 
     /**

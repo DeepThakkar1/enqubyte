@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use App\Models\PurchaseOrder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,5 +15,10 @@ class PurchaseItem extends Model
     public function purchase()
     {
         return $this->belongsTo(PurchaseOrder::class, 'purchase_order_id');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

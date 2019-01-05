@@ -7,7 +7,7 @@
         <!-- <a href="/enquiries/add" class="btn btn-primary float-right">Add Enquiry : </a> -->
     </div>
     <div class="container px-5 ">
-        <div class="d-flex px-3 align-self-center">
+        <div class="d-flex align-self-center">
             <div class="py-2">
                 <div>Status</div>
                 <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
@@ -18,7 +18,15 @@
             </div>
             <div class="ml-auto p-2">
                 <div class="d-flex">
+                    @if(isset($enquiry->invoice))
                     <div class="px-4">
+                        <div>Invoice</div>
+                        <h3>
+                        <a href="/sales/invoices/{{$enquiry->invoice->id}}" target="_blank" class="text-primary"># Invoice {{$enquiry->invoice->id}} </a>
+                        </h3>
+                    </div>
+                    @endif
+                    <div class="pr-4">
                         <div>Amount Due</div>
                         <h3>&#8377; {{$enquiry->grand_total}}</h3>
                     </div>
@@ -44,6 +52,23 @@
                 </div>
             </div>
         </div>
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="d-flex p-3">
+                    <div class="px-4">
+                        <h3 class="">Followup Date</h3>
+                        <div class=""> {{$enquiry->followup_date}}</div>
+                    </div>
+                    <div class="ml-auto p-2">
+                        @if(!$enquiry->status == 1 && !$enquiry->status == -1)
+                        <a href="#changeFollowupDateModal" data-toggle="modal" class="btn btn-outline-primary">Change Date </a>
+                        @else
+                        <a href="javascript:;" class="btn btn-outline-primary disabled"  title="Convert to Invoice">Change Date</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- <div class="card mt-3">
             <div class="card-body">
                 <div class="d-flex p-3">
@@ -64,6 +89,9 @@
                 <div class="d-flex p-3">
                     <div class="px-4">
                         <h3 class="">Get Invoice</h3>
+                        @if(isset($enquiry->invoice))
+                        <div class=""><a href="/sales/invoices/{{$enquiry->invoice->id}}" class="text-primary" target="_blank"># Invoice {{$enquiry->invoice->id}} </a> </div>
+                        @endif
                     </div>
                     <div class="ml-auto p-2">
                         @if(!$enquiry->status == -1)
@@ -189,6 +217,32 @@
                 <button type="button" class="btn btn-secondary btn-close-modal">Close</button>
                 <a href="/enquiries/{{$enquiry->id}}/cancel" class="btn btn-danger">Cancel Enquiry</a>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade in changeFollowupDateModal" id="changeFollowupDateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Followup Date</h5>
+                <button type="button" class="close btn-close-modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/enquiries/{{$enquiry->id}}/changefollowupdate" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Follow Up Date</label>
+                        <input type="text" class="form-control datepicker" name="followup_date" autocomplete="off" placeholder="Enquiry followup date">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-close-modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

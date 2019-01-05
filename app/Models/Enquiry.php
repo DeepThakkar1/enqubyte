@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\User;
 use App\Models\Store;
+use App\Models\Product;
 use App\Models\Invoice;
 use App\Models\Customer;
 use App\Models\Employee;
@@ -34,6 +35,11 @@ class Enquiry extends Model
     public function enquiryitems()
     {
         return $this->hasMany(EnquiryItem::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
     public function customer()

@@ -10,6 +10,7 @@ use App\Models\Visitor;
 use App\Models\Customer;
 use App\Models\InvoiceItem;
 use App\Models\RecordPayment;
+use App\Models\SalesmanIncentive;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
@@ -28,9 +29,9 @@ class Invoice extends Model
         return $this->belongsTo(Store::class);
     }
 
-    public function product()
+    public function products()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasMany(Product::class);
     }
 
     public function invoiceitems()
@@ -57,4 +58,11 @@ class Invoice extends Model
     {
         return $this->hasMany(RecordPayment::class);
     }
+
+    public function incentive()
+    {
+        return $this->hasOne(SalesmanIncentive::class);
+
+    }
+
 }

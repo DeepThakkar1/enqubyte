@@ -68,7 +68,7 @@ class VisitorsController extends Controller
      */
     public function show(Visitor $visitor)
     {
-        //
+        return view('visitors.show', compact('visitor'));
     }
 
     /**

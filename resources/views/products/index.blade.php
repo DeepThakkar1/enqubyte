@@ -44,6 +44,7 @@
                 <td>{{$product->stock}}</td>
                 <td>
                     <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="/products/{{$product->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
                     <form method="post" action="/products/{{$product->id}}/delete" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i></button>

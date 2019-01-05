@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vendor;
+use App\Models\Visitor;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class StatementsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +22,11 @@ class StatementsController extends Controller
     {
         $customers = auth()->user()->visitors()->where('is_customer', 1)->get();
         return view('statements.customer', compact('customers'));
+    }
+
+    public function customerShow(Visitor $customer)
+    {
+        return view('statements.showcustomer', compact('customer'));
     }
 
     /**
@@ -28,6 +40,11 @@ class StatementsController extends Controller
         return view('statements.vendor', compact('vendors'));
     }
 
+    public function vendorShow(Vendor $vendor)
+    {
+        return view('statements.showvendor', compact('vendor'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +54,11 @@ class StatementsController extends Controller
     {
         $employees = auth()->user()->employees;
         return view('statements.employee', compact('employees'));
+    }
+
+    public function salesmanShow(Employee $employee)
+    {
+        return view('statements.showemployee', compact('employee'));
     }
 
     /**
