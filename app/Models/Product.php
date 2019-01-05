@@ -5,6 +5,7 @@ use App\User;
 use App\Models\Stock;
 use App\Models\Store;
 use App\Models\Enquiry;
+use App\Models\EnquiryItem;
 use App\Models\Invoice;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,14 +35,19 @@ class Product extends Model
         return $this->hasMany(Invoice::class)->latest();
     }
 
-    public function enquiries()
+    /*public function enquiries()
     {
-        return $this->hasMany(Enquiry::class)->latest();
+        return $this->hasManyThrough(Enquiry::class, EnquiryItem::class, 'product_id', 'id', 'enquiry_id', 'product_id');
+    }
+*/
+    public function enquiryitems()
+    {
+        return $this->hasMany(EnquiryItem::class);
     }
 
     public function getProductEnquiryAttribute()
     {
-        return $this->enquiries()->enquiryitems()->where('product_id', $this->id);
+        return $this->enquiryitems()->where('product_id', $this->id);
     }
 
 }

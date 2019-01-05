@@ -69,8 +69,31 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        dd($product->product_enquiry);
-        return view('products.show', compact('product'));
+        /*$enquiries = \DB::select('enquiries.*','enquiry_items.enquiry_id','enquiry_items.product_id')
+                            ->from('enquiries')
+                            ->innerJoin('enquiry_items' , 'enquiry_items.enquiry_id', '=', 'enquiries.id')
+                            ->where('enquiry_items.product_id', '=', $product->id)
+                            ->get();*/
+        $enquiries = \DB::select('select
+          `enquiries`.*,
+          `enquiry_items`.`enquiry_id`, `enquiry_items`.`product_id`
+        from
+          `enquiries`
+          inner join `enquiry_items` on `enquiry_items`.`enquiry_id` = `enquiries`.`id`
+        where
+          `enquiry_items`.`product_id` = '.$product->id);
+
+        $invoices = \DB::select('select
+          `invoices`.*,
+          `invoice_items`.`invoice_id`, `invoice_items`.`product_id`
+        from
+          `invoices`
+          inner join `invoice_items` on `invoice_items`.`invoice_id` = `invoices`.`id`
+        where
+          `invoice_items`.`product_id` = '.$product->id);
+
+        // dd($enquiries->products);
+        return view('products.show', compact('product', 'enquiries', 'invoices'));
     }
 
     /**

@@ -6,25 +6,25 @@
         <h2 class="d-inline-block headline-content"><span>
             <a href="/products" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a>
             <a href="/home"> Home  </a>
-            <a href="/products"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Employees</a>
+            <a href="/products"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Products</a>
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> {{$product->name}}
         </h2>
     </div>
     <div class="container px-5">
         <div class="d-flex align-self-center">
             <div class="py-2">
-                <div>Salesman</div>
+                <div>Product</div>
                 <h3><a href="" class="text-primary"> {{$product->name}}</a></h3>
             </div>
             <div class="ml-auto p-2">
                 <div class="d-flex">
                     <div class="px-4 text-center">
                         <div>Total Enquiries</div>
-                        <h3>{{ count($product->enquiries)}}</h3>
+                        <h3>{{ count($enquiries)}}</h3>
                     </div>
                     <div class="px-4 text-center">
                         <div>Total Invoices</div>
-                        <h3>{{ count($product->invoices)}}</h3>
+                        <h3>{{ count($invoices)}}</h3>
                     </div>
                     <div class="px-4 text-center">
                         <div>Total Earnings</div>
@@ -62,7 +62,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($product->enquiries as $key => $enquiry)
+                            @foreach($enquiries as $key => $enquiry)
                             <tr>
                                 <td>{{$enquiry->id}}</td>
                                 <td>{{$enquiry->enquiry_date}}</td>
@@ -91,19 +91,17 @@
                                 <th>Due Date</th>
                                 <th>Details</th>
                                 <th>Amount</th>
-                                <th>Incentive</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($product->invoices as $key => $invoice)
+                            @foreach($invoices as $key => $invoice)
                             <tr>
                                 <td>{{$invoice->id}}</td>
                                 <td>{{$invoice->invoice_date}}</td>
                                 <td>{{$invoice->due_date}}</td>
                                 <td><a href="/sales/invoices/{{$invoice->id}}" target="_blank"># Invoice {{$invoice->id}}</a></td>
                                 <td>&#8377; {{$invoice->grand_total}}</td>
-                                <td>&#8377; {{isset($invoice->incentive) ? $invoice->incentive->incentive_amount : '0'}}</td>
                                 <td><span class="badge badge-warning">Pending</span> </td>
                             </tr>
                             @endforeach
