@@ -49,6 +49,14 @@ class InvoicesController extends Controller
      */
     public function store(Request $request)
     {
+        for ($i=0; $i < count(request('product_id')); $i++) {
+            $product = Product::where('id', request('product_id')[$i])->first();
+            if ($product >= request('qty')[$i]) {
+                flash('Stock not available for '. $product->name .'!');
+                return back();
+            }
+        }
+
         $invoice = Invoice::create([
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
@@ -125,6 +133,14 @@ class InvoicesController extends Controller
      */
     public function update(Request $request, Invoice $invoice)
     {
+        for ($i=0; $i < count(request('product_id')); $i++) {
+            $product = Product::where('id', request('product_id')[$i])->first();
+            if ($product >= request('qty')[$i]) {
+                flash('Stock not available for '. $product->name .'!');
+                return back();
+            }
+        }
+
         $invoice->update([
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
