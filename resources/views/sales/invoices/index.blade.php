@@ -15,7 +15,7 @@
                     <th>Date</th>
                     <th>Due Date</th>
                     <th class="text-right">Amount</th>
-                    <th class="text-right">Remaining Amount</th>
+                    <th class="text-right">Remaining Amt</th>
                     <th>Status</th>
                     <th width="160px">Action</th>
                 </tr>
