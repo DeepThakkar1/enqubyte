@@ -99,7 +99,7 @@ class InvoicesController extends Controller
         if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
             $incentive = SalesmanIncentive::create([
                 'employee_id' => $invoice->employee_id,
-                'enquiry_id' => $invoice->enquiry_id,
+                'enquiry_id' => isset($invoice->enquiry_id) ? $invoice->enquiry_id : 0,
                 'invoice_id' => $invoice->id,
                 'incentive_amount' => $incentiveAmt,
             ]);
