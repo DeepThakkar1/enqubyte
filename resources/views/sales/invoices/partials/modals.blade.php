@@ -377,7 +377,12 @@
                             </td></tr>';
                 $('.table-invoiceTotal tbody').append(html);
                 $('.invoiceAmt').html(response.data.invoice.remaining_amount);
+                $('.invoiceStatus').html(response.data.invoice.remaining_amount ? 'Pending' : 'Completed');
                 $('.frmRecordPayment').trigger('reset');
+                $('.btnEditInvoice').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
+                $('.btnRecordPayment').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
+                $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.invoice.remaining_amount ? 'bg-warning' : 'bg-success');
+
                 $('.recordPaymentModal').modal('hide');
             })
         });

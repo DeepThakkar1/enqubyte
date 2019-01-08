@@ -10,7 +10,7 @@
     <div class="d-flex align-self-center">
         <div class="py-2">
             <div>Status</div>
-            <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded">{{$invoice->remaining_amount ? 'Pending' : 'Completed'}}</div>
+            <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded"><span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
         </div>
         <div class="px-4 py-2">
             <div>Customer</div>
@@ -48,7 +48,7 @@
                     @if(count($invoice->payments))
                     <a href="javascript:;" class="btn btn-outline-primary disabled">Edit Invoice</a>
                     @else
-                    <a href="/sales/invoices/{{$invoice->id}}/edit" class="btn btn-outline-primary">Edit Invoice</a>
+                    <a href="/sales/invoices/{{$invoice->id}}/edit" class="btn btn-outline-primary btnEditInvoice">Edit Invoice</a>
                     @endif
                 </div>
             </div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="ml-auto p-2">
                     @if($invoice->remaining_amount)
-                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary">Record a Payment</a>
+                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary btnRecordPayment">Record a Payment</a>
                     @else
                     <a href="#" class="btn btn-outline-primary disabled">Record a Payment</a>
                     @endif
@@ -92,7 +92,7 @@
             <div class="card-header">
                 Invoice
                 <strong>{{$invoice->id}}</strong>
-                <span class="float-right"> <strong>Status:</strong> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}}</span>
+                <span class="float-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
             </div>
             <div class="card-body">
                 <div class="row mb-4">
