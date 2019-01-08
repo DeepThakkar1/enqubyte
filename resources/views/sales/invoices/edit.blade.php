@@ -169,11 +169,26 @@
         var qty = $(this).val();
         var price = row.find('.input-price').val();
         var tax = row.find('.select-tax').val();
-        var noTaxAmt = price * qty;
-        var taxAmt = ((noTaxAmt * tax) / 100);
-        row.find('.totAmount').html(noTaxAmt + taxAmt);
-        row.find('[name="product_tot_amt[]"]').val(noTaxAmt + taxAmt);
-        total();
+
+        var productId = row.find('.select-product').val();
+
+        axios.get('/products/'+ productId + '/get')
+        .then(function (response) {
+            console.log(response);
+            if (response.data.stock >= qty) {
+                var noTaxAmt = price * qty;
+                var taxAmt = ((noTaxAmt * tax) / 100);
+                row.find('.totAmount').html(noTaxAmt + taxAmt);
+                row.find('[name="product_tot_amt[]"]').val(noTaxAmt + taxAmt);
+                total();
+            }else{
+                alert('Available stock is : '+response.data.stock);
+                row.find('.input-qty').val(1);
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     });
 
     $('.table-invoiceItems').on('keyup', '.input-price', function(){
