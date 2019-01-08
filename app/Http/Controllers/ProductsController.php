@@ -92,7 +92,6 @@ class ProductsController extends Controller
         where
           `invoice_items`.`product_id` = '.$product->id);
 
-        // dd($enquiries->products);
         return view('products.show', compact('product', 'enquiries', 'invoices'));
     }
 
