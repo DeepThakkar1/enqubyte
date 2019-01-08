@@ -196,12 +196,14 @@ class EnquiriesController extends Controller
             $incentiveAmt = (($enquiry->grand_total * $enquiry->employee->incentive->rate) / 100);
         }
 
-        $incentive = SalesmanIncentive::create([
-            'employee_id' => $enquiry->employee_id,
-            'enquiry_id' => $enquiry->id,
-            'invoice_id' => $invoice->id,
-            'incentive_amount' => $incentiveAmt,
-        ]);
+        if ($enquiry->grand_total >= $enquiry->employee->incentive->minimum_invoice_amt) {
+            $incentive = SalesmanIncentive::create([
+                'employee_id' => $enquiry->employee_id,
+                'enquiry_id' => $enquiry->id,
+                'invoice_id' => $invoice->id,
+                'incentive_amount' => $incentiveAmt,
+            ]);
+        }
 
         flash('Invoice created successfully!');
         return redirect('/sales/invoices/' . $invoice->id . '/edit');

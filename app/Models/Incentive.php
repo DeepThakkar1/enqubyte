@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Incentive extends Model
 {
     protected $fillable = [
-        'name', 'type', 'rate'
+        'name', 'type', 'rate', 'minimum_invoice_amt'
     ];
 
 }

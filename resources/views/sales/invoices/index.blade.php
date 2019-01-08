@@ -29,7 +29,7 @@
                     <td>{{$invoice->due_date}}</td>
                     <td class="text-right">&#8377; {{$invoice->grand_total}}</td>
                     <td class="text-right">&#8377; {{$invoice->remaining_amount}}</td>
-                    <td><span class="badge badge-warning">Pending</span> </td>
+                    <td><span class="badge badge-{{$invoice->remaining_amount ? 'warning' : 'success'}}">{{$invoice->remaining_amount ? 'Pending' : 'Complete'}}</span> </td>
                     <td>
                         <a href="/sales/invoices/{{$invoice->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                         <a href="/sales/invoices/{{$invoice->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>

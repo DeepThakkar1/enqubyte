@@ -7,6 +7,7 @@ use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Employee;
+use App\Models\SalesmanIncentive;
 use Illuminate\Http\Request;
 
 class InvoicesController extends Controller
@@ -86,6 +87,22 @@ class InvoicesController extends Controller
             $product = Product::where('id', request('product_id')[$i])->first();
             $product->stock -= request('qty')[$i];
             $product->save();
+        }
+
+        $incentiveAmt = 0;
+        if ($invoice->employee->incentive->type == 1) {
+            $incentiveAmt = $invoice->grand_total + $invoice->employee->incentive->rate;
+        }else if ($invoice->employee->incentive->type == 2) {
+            $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
+        }
+
+        if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
+            $incentive = SalesmanIncentive::create([
+                'employee_id' => $invoice->employee_id,
+                'enquiry_id' => $invoice->enquiry_id,
+                'invoice_id' => $invoice->id,
+                'incentive_amount' => $incentiveAmt,
+            ]);
         }
 
         flash('Invoice added successfully!');
