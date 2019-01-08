@@ -185,7 +185,7 @@
                                 <option value="0">None</option>
                                 <?php $taxes = getTaxes() ?>
                                 @foreach($taxes as $tax )
-                                    <option value="{{$tax->rate}}" {{isset($product->tax) && $product->tax == $tax->rate ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
+                                    <option value="{{$tax->rate}}" >{{$tax->abbreviation}}</option>
                                 @endforeach
                             </select>
                         </div>
