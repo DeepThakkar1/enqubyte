@@ -29,7 +29,7 @@ class EmployeesController extends Controller
     public function index()
     {
         $stores = auth()->user()->stores;
-        $employees = auth()->user()->employees()->paginate(10);
+        $employees = auth()->user()->employees()->get();
         $incentives = Incentive::all();
         return view('employees.index', compact('stores', 'employees', 'incentives'));
     }

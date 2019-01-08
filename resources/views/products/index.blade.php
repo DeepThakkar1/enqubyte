@@ -20,7 +20,7 @@
     </div>
 </div>
 <!-- <hr> -->
-<div class="table-responsive product-add-list">
+<div class=" product-add-list">
     <table class="table dataTable">
         <thead>
             <tr class="product-list-menu">
@@ -131,7 +131,6 @@
             </tbody>
         </table>
     </div>
-    {{ $products->links() }}
 </div>
 
 <div class="modal fade in addProductModal" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

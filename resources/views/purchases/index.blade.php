@@ -6,7 +6,7 @@
         <h2 class="d-inline-block headline-content">Purchases</h2>
         <a href="/purchases/add" class="btn btn-primary float-right">Add Purchase</a>
     </div>
-    <div class="table-responsive">
+    <div class="">
         <table class="table dataTable">
             <thead>
                 <tr class="product-list-menu">

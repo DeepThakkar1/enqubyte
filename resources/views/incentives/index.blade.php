@@ -7,7 +7,7 @@
         <a href="#addIncentiveModal" data-toggle="modal" class="btn btn-primary float-right">Add Incentives</a>
     </div>
     <!-- <hr> -->
-    <div class="table-responsive">
+    <div class="">
         <table class="table dataTable">
             <thead>
                 <tr>

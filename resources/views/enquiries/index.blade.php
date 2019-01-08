@@ -7,7 +7,7 @@
         <a href="/enquiries/add" class="btn btn-primary float-right">Add Enquiry</a>
     </div>
     <!-- <hr> -->
-    <div class="table-responsive">
+    <div class="">
         <table class="table dataTable">
             <thead>
                 <tr class="product-list-menu">

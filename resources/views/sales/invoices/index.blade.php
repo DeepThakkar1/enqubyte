@@ -6,7 +6,7 @@
         <h2 class="d-inline-block headline-content">Invoices</h2>
         <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a>
     </div>
-    <div class="table-responsive">
+    <div class="">
         <table class="table dataTable">
             <thead>
                 <tr class="product-list-menu">

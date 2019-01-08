@@ -80,7 +80,6 @@
             @endif
         </tbody>
     </table>
-    {{ $managers->links() }}
 </div>
 
 

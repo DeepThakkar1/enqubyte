@@ -25,7 +25,7 @@ class VendorsController extends Controller
     public function index()
     {
         $stores = auth()->user()->stores;
-        $vendors = auth()->user()->vendors()->paginate(10);
+        $vendors = auth()->user()->vendors()->get();
 
         return view('vendors.index', compact('stores', 'vendors'));
     }

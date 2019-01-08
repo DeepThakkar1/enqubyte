@@ -9,7 +9,7 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Customer
         </h2>
     </div>
-    <div class="table-responsive">
+    <div class="">
         <table class="table dataTable">
             <thead>
                 <tr>

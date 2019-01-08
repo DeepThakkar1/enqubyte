@@ -7,7 +7,7 @@
         <a href="#addVendorModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Vendor</a>
         </div>
     <!-- <hr> -->
-    <div class="table-responsive">
+    <div class="">
         <table class="table dataTable">
             <thead>
                 <tr>
@@ -98,7 +98,6 @@
             </tbody>
         </table>
     </div>
-    {{ $vendors->links() }}
 </div>
 
 

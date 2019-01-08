@@ -25,7 +25,7 @@ class CustomersController extends Controller
     public function index()
     {
         $stores = auth()->user()->stores;
-        $customers = auth()->user()->visitors()->where('is_customer', 1)->paginate(10);
+        $customers = auth()->user()->visitors()->where('is_customer', 1)->get();
 
         return view('customers.index', compact('stores', 'customers'));
     }

@@ -5,7 +5,7 @@
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Statements <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Salesman Incentives</h2>
     </div>
-    <div class="table-responsive">
+    <div class="">
         <table class="table dataTable">
             <thead>
                 <tr>
