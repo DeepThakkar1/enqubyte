@@ -156,6 +156,14 @@ class EnquiriesController extends Controller
 
     public function createInvoice(Enquiry $enquiry)
     {
+        foreach ($enquiry->enquiryitems as $key => $item) {
+            $product = Product::where('id', $item->product_id)->first();
+            if ($product->stock < $item->qty) {
+                flash('Only '. $product->stock . ' '.$product->name. ' available!');
+                return back();
+            }
+        }
+
         $enquiry->update(['status' => 1]);
         $invoice = Invoice::create([
             'company_id' => auth()->id(),
@@ -206,7 +214,7 @@ class EnquiriesController extends Controller
         }
 
         flash('Invoice created successfully!');
-        return redirect('/sales/invoices/' . $invoice->id . '/edit');
+        return redirect('/sales/invoices/' . $invoice->id);
     }
 
     /**
