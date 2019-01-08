@@ -191,7 +191,7 @@ class EnquiriesController extends Controller
 
         $incentiveAmt = 0;
         if ($enquiry->employee->incentive->type == 1) {
-            $incentiveAmt = $enquiry->grand_total + $enquiry->employee->incentive->rate;
+            $incentiveAmt = $enquiry->employee->incentive->rate;
         }else if ($enquiry->employee->incentive->type == 2) {
             $incentiveAmt = (($enquiry->grand_total * $enquiry->employee->incentive->rate) / 100);
         }

@@ -91,7 +91,7 @@ class InvoicesController extends Controller
 
         $incentiveAmt = 0;
         if ($invoice->employee->incentive->type == 1) {
-            $incentiveAmt = $invoice->grand_total + $invoice->employee->incentive->rate;
+            $incentiveAmt = $invoice->employee->incentive->rate;
         }else if ($invoice->employee->incentive->type == 2) {
             $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
         }
