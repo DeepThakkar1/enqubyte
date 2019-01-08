@@ -7,6 +7,7 @@ use App\Models\Store;
 use App\Models\Enquiry;
 use App\Models\Product;
 use App\Models\Visitor;
+use App\Models\Employee;
 use App\Models\Customer;
 use App\Models\InvoiceItem;
 use App\Models\RecordPayment;
@@ -27,6 +28,11 @@ class Invoice extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
     }
 
     public function products()
