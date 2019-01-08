@@ -15,6 +15,7 @@
                     <th>Date</th>
                     <th>Due Date</th>
                     <th class="text-right">Amount</th>
+                    <th class="text-right">Remaining Amount</th>
                     <th>Status</th>
                     <th width="160px">Action</th>
                 </tr>
@@ -26,6 +27,7 @@
                     <td>{{$invoice->visitor->fullname}}</td>
                     <td>{{$invoice->invoice_date}}</td>
                     <td>{{$invoice->due_date}}</td>
+                    <td class="text-right">&#8377; {{$invoice->remaining_amount}}</td>
                     <td class="text-right">&#8377; {{$invoice->grand_total}}</td>
                     <td><span class="badge badge-warning">Pending</span> </td>
                     <td>
