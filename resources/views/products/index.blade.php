@@ -21,7 +21,7 @@
 </div>
 <!-- <hr> -->
 <div class="table-responsive product-add-list">
-    <table class="table">
+    <table class="table dataTable">
         <thead>
             <tr class="product-list-menu">
                 <th>Sr.No</th>

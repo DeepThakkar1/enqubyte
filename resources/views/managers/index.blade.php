@@ -7,7 +7,7 @@
         <a href="#addManagerModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Manager</a>
     </div>
     <!-- <hr> -->
-    <table class="table">
+    <table class="table dataTable">
         <thead>
             <tr>
                 <th>Sr.No</th>

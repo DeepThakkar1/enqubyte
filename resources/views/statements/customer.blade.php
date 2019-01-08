@@ -10,7 +10,7 @@
         </h2>
     </div>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table dataTable">
             <thead>
                 <tr>
                     <th>Sr.No</th>

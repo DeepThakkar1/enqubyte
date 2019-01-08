@@ -23,6 +23,10 @@
     <link href="{{ asset('css/datetimepicker.min.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/rowreorder/1.2.5/css/rowReorder.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+
 </head>
 <body>
     <div id="app" class="wrapper">
@@ -105,6 +109,12 @@
     <script src="{{ asset('js/parsley.js') }}"></script>
     <script src="{{ asset('js/datetimepicker.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.5/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
+
     <script>
         $('form').parsley({
             classHandler: function(el) {
@@ -120,6 +130,13 @@
                 $('#sidebar, #content').toggleClass('active');
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+
+            var table = $('.dataTable').DataTable( {
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true
             });
 
             $('.btn-close-modal').on('click', function(){

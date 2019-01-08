@@ -7,7 +7,7 @@
         <a href="/purchases/add" class="btn btn-primary float-right">Add Purchase</a>
     </div>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table dataTable">
             <thead>
                 <tr class="product-list-menu">
                     <th>Purchase No.</th>

@@ -7,7 +7,7 @@
         <a href="#addTaxModal" data-toggle="modal" class="btn btn-primary float-right">Add Tax</a>
         </div>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table dataTable">
             <thead>
                 <tr>
                     <th>Sr.No</th>
