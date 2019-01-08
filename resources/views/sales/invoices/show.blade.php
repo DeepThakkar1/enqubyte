@@ -7,7 +7,7 @@
         <!-- <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a> -->
     </div>
     <div class="container px-5">
-    <div class="d-flex px-3 align-self-center">
+    <div class="d-flex align-self-center">
         <div class="py-2">
             <div>Status</div>
             <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded">{{$invoice->remaining_amount ? 'Pending' : 'Complete'}}</div>
