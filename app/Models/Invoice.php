@@ -68,7 +68,6 @@ class Invoice extends Model
     public function incentive()
     {
         return $this->hasOne(SalesmanIncentive::class);
-
     }
 
 }

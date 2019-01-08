@@ -40,7 +40,11 @@ class IncentivesController extends Controller
      */
     public function store(Request $request)
     {
-        $incentive = Incentive::create($request->all());
+        $newData = $request->all();
+        if (!$newData['minimum_invoice_amt']) {
+            $newData['minimum_invoice_amt'] = 0;
+        }
+        $incentive = Incentive::create($newData);
 
         if($request->wantsJson())
         {
