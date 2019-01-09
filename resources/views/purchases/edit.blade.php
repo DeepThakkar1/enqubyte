@@ -134,9 +134,9 @@
         axios.get('/products/'+ productId + '/get')
         .then(function (response) {
             // console.log(response);
-            row.find('.input-price').val(response.data.selling_price);
-            row.find('.totAmount').html(response.data.selling_price);
-            row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
+            row.find('.input-price').val(response.data.cost_price);
+            row.find('.totAmount').html(response.data.cost_price);
+            row.find('[name="product_tot_amt[]"]').val(response.data.cost_price);
 
             row.find('.select-tax').val(response.data.tax);
 
