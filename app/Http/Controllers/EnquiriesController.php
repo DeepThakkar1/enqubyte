@@ -52,6 +52,12 @@ class EnquiriesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'customer_id' => 'required',
+            'enquiry_date' => 'required',
+            'sub_tot_amt' => 'required',
+            'grand_total' => 'required'
+        ]);
         $enquiry = Enquiry::create([
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
@@ -122,6 +128,13 @@ class EnquiriesController extends Controller
      */
     public function update(Request $request, Enquiry $enquiry)
     {
+        $request->validate([
+            'customer_id' => 'required',
+            'enquiry_date' => 'required',
+            'sub_tot_amt' => 'required',
+            'grand_total' => 'required'
+        ]);
+
         $enquiry->update([
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
@@ -132,8 +145,7 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
-            'grand_total' => request('grand_total'),
-            'remaining_amount' => request('grand_total')
+            'grand_total' => request('grand_total')
         ]);
         $enquiry->enquiryitems()->delete();
 

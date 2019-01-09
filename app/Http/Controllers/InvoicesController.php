@@ -50,6 +50,13 @@ class InvoicesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'customer_id' => 'required',
+            'invoice_date' => 'required',
+            'sub_tot_amt' => 'required',
+            'grand_total' => 'required'
+        ]);
+
         for ($i=0; $i < count(request('product_id')); $i++) {
             $product = Product::where('id', request('product_id')[$i])->first();
             if ($product->stock < request('qty')[$i]) {
@@ -152,6 +159,14 @@ class InvoicesController extends Controller
      */
     public function update(Request $request, Invoice $invoice)
     {
+
+        $request->validate([
+            'customer_id' => 'required',
+            'invoice_date' => 'required',
+            'sub_tot_amt' => 'required',
+            'grand_total' => 'required'
+        ]);
+
         for ($i=0; $i < count(request('product_id')); $i++) {
             $product = Product::where('id', request('product_id')[$i])->first();
             if ($product->stock < request('qty')[$i]) {
