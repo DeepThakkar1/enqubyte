@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 use App\Models\RecordPayment;
+use App\Notifications\InvoiceTransaction;
 
 class RecordPaymentsController extends Controller
 {
@@ -39,6 +40,9 @@ class RecordPaymentsController extends Controller
         $invoice->remaining_amount -= floatval($request->amount);
         $invoice->save();
         $payment = $invoice->payments()->create($request->all());
+
+        $invoice->customer->notify(new InvoiceTransaction($invoice, $payment, auth()->user()));
+
         return response(['invoice' => $invoice, 'payment' => $payment], 200);
     }
 

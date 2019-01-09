@@ -1,28 +1,29 @@
 <?php
 
 namespace App\Notifications;
-
 use App\User;
-use App\Models\Enquiry;
+use App\Models\Invoice;
+use App\Models\RecordPayment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class NewEnquiry extends Notification
+class InvoiceTransaction extends Notification
 {
     use Queueable;
-    public $enquiry;
+    public $invoice;
+    public $payment;
     public $company;
-
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Enquiry $enquiry, User $company)
+    public function __construct(Invoice $invoice, RecordPayment $payment, User $company)
     {
-        $this->enquiry = $enquiry;
+        $this->invoice = $invoice;
+        $this->payment = $payment;
         $this->company = $company;
     }
 
@@ -46,9 +47,8 @@ class NewEnquiry extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('Hello '. $this->enquiry->customer->fullname .'!')
-                    ->line('Thanks for enquiry in ' . $this->company->company_name)
-                    ->line('We hope you enjoy the new styles you bought!')
+                    ->greeting('Hello '. $this->invoice->customer->fullname .'!')
+                    ->line('Thanks for shopping &#8377;'.$this->payment->amount. '. '.$this->company->company_name)
                     ->line('Visit again!');
     }
 
@@ -64,10 +64,10 @@ class NewEnquiry extends Notification
             'id' => $this->id,
             'read_at' => null,
             'data' => [
-                'message' =>  'Enquiry added successfully!',
+                'message' =>  'Payment added successfully!',
                 'icon' => '/img/sidebar/sale.png',
-                'link' => '/enquiries/'.$this->enquiry->id,
-                'type' => 'enquiries'
+                'link' => '/invoices/'.$this->invoice->id,
+                'type' => 'invoices'
             ]
         ];
     }
@@ -77,10 +77,11 @@ class NewEnquiry extends Notification
         return [
             'id' => $this->id,
             'read_at' => null,
-            'message' =>  'Enquiry added successfully!',
+            'message' =>  'Payment added successfully!',
             'icon' => '/img/sidebar/sale.png',
-            'link' => '/enquiries/'.$this->enquiry->id,
-            'type' => 'enquiries'
+            'link' => '/invoices/'.$this->invoice->id,
+            'type' => 'invoices'
         ];
     }
 }
+

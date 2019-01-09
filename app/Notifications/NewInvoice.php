@@ -47,7 +47,7 @@ class NewInvoice extends Notification
                     ->greeting('Hello '. $this->invoice->customer->fullname .'!')
                     ->line('Thanks for purchase from ' . $this->company->company_name)
                     ->line('We hope you enjoy the new styles you bought!')
-                    ->line('Thank you for using Enqubyte!');
+                    ->line('Visit again!');
     }
 
     /**
