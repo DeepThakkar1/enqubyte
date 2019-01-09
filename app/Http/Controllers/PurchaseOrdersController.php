@@ -64,8 +64,8 @@ class PurchaseOrdersController extends Controller
             'due_date' => request('due_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
             'grand_total' => request('grand_total'),
+            'remaining_amount' => request('grand_total'),
             'order_scan_copy' => $scanCopy
-
         ]);
         for ($i=0; $i < count(request('product_id')); $i++) {
             $purchaseOrder->purchaseitems()->create([
@@ -136,6 +136,7 @@ class PurchaseOrdersController extends Controller
             'due_date' => request('due_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
             'grand_total' => request('grand_total'),
+            'remaining_amount' => request('grand_total'),
             'order_scan_copy' => $scanCopy
         ]);
 
