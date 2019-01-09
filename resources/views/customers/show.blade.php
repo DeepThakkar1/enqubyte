@@ -114,7 +114,7 @@
                                 <td><span class="badge badge-warning">Pending</span> </td>
                                 <td>
                                     @if(isset($invoice->enquiry))
-                                    <a href="/sales/invoices/{{$invoice->enquiry->id}}" target="_blank"># Enquiry {{$invoice->enquiry->id}}</a>
+                                    <a href="/enquiries/{{$invoice->enquiry->id}}" target="_blank"># Enquiry {{$invoice->enquiry->id}}</a>
                                     @else
                                     -
                                     @endif
