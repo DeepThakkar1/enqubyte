@@ -137,6 +137,17 @@
             row.find('.input-price').val(response.data.selling_price);
             row.find('.totAmount').html(response.data.selling_price);
             row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
+
+            row.find('.select-tax').val(response.data.tax);
+
+            var tax = response.data.tax;
+            var qty = row.find('.input-qty').val();
+            var price = response.data.cost_price;
+            var noTaxAmt = price * qty;
+            var taxAmt = ((noTaxAmt * tax) / 100);
+            row.find('.totAmount').html(noTaxAmt + taxAmt);
+            row.find('[name="product_tot_amt[]"]').val(noTaxAmt + taxAmt);
+
             total();
         })
         .catch(function (error) {
