@@ -96,13 +96,12 @@
                     <div class="ml-auto p-2">
                         @if(!$enquiry->status == -1)
                         <a href="#cancelEnquiryModal" data-toggle="modal" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
-                        @else
-                        <a href="javascript:;" class="btn btn-outline-danger disabled"  title="Cancel Enquiry">Cancel Enquiry</a>
                         @endif
                         @if(!$enquiry->status == 1)
                         <a href="/enquiries/{{$enquiry->id}}/invoice" class="btn btn-outline-primary" title="Convert to Invoice">Convert to Invoice</a>
-                        @else
-                        <a href="javascript:;" class="btn btn-outline-primary disabled"  title="Convert to Invoice">Convert to Invoice</a>
+                        @endif
+                        @if($enquiry->status == 1)
+                        <a href="/sales/invoices/{{$enquiry->invoice->id}}" target="_blank" class="btn btn-outline-primary" title="View Invoice">View Invoice</a>
                         @endif
                     </div>
                 </div>

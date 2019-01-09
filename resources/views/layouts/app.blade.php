@@ -139,6 +139,14 @@
                 responsive: true
             });
 
+            $('.descDataTable').DataTable({
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
+                "order": [[ 0, "desc" ]]
+            });
+
             $('.btn-close-modal').on('click', function(){
                 var modal = $(this).parents('.modal');
                 var form = $(this).parents('.modal').find('form');

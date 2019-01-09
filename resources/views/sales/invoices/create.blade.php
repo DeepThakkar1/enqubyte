@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>
-                        <select class="form-control selectWithSearch selectCustomer" name="customer_id">
+                        <select class="form-control selectWithSearch selectCustomer" name="customer_id" required>
                             <option selected disabled>-- Choose Customer --</option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}">{{$customer->fullname}} ({{$customer->phone}})</option>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="invoice_date" placeholder="Invoice date">
+                        <input type="text" class="form-control datepicker" autocomplete="off" name="invoice_date" placeholder="Invoice date" required>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Due Date</label>
@@ -59,7 +59,7 @@
                         <tbody class="tableBodyItems">
                             <tr>
                                 <td>
-                                    <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">
+                                    <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px" required>
                                         <option selected disabled>-- Choose Product --</option>
                                         @foreach($products as $product)
                                         <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>
@@ -153,6 +153,16 @@
                 row.find('.input-price').val(response.data.selling_price);
                 row.find('.totAmount').html(response.data.selling_price);
                 row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
+                row.find('.select-tax').val(response.data.tax);
+
+                var tax = response.data.tax;
+                var qty = row.find('.input-qty').val();
+                var price = response.data.selling_price;
+                var noTaxAmt = price * qty;
+                var taxAmt = ((noTaxAmt * tax) / 100);
+                row.find('.totAmount').html(noTaxAmt + taxAmt);
+                row.find('[name="product_tot_amt[]"]').val(noTaxAmt + taxAmt);
+
                 total();
             })
             .catch(function (error) {
@@ -259,7 +269,7 @@
 
         $('.btn-addMoreItems').on('click', function(){
             var html = '<tr><td>\
-            <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">\
+            <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px" required>\
             <option selected disabled>-- Choose Product --</option>\
             @foreach($products as $product)\
             <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>\

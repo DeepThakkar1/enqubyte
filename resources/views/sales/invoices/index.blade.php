@@ -7,7 +7,7 @@
         <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a>
     </div>
     <div class="">
-        <table class="table dataTable">
+        <table class="table descDataTable">
             <thead>
                 <tr class="product-list-menu">
                     <th>Invoice No.</th>

@@ -89,20 +89,22 @@ class InvoicesController extends Controller
             $product->save();
         }
 
-        $incentiveAmt = 0;
-        if ($invoice->employee->incentive->type == 1) {
-            $incentiveAmt = $invoice->employee->incentive->rate;
-        }else if ($invoice->employee->incentive->type == 2) {
-            $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
-        }
+        if(isset($invoice->employee)){
+            $incentiveAmt = 0;
+            if ($invoice->employee->incentive->type == 1) {
+                $incentiveAmt = $invoice->employee->incentive->rate;
+            }else if ($invoice->employee->incentive->type == 2) {
+                $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
+            }
 
-        if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
-            $incentive = SalesmanIncentive::create([
-                'employee_id' => $invoice->employee_id,
-                'enquiry_id' => isset($invoice->enquiry_id) ? $invoice->enquiry_id : 0,
-                'invoice_id' => $invoice->id,
-                'incentive_amount' => $incentiveAmt,
-            ]);
+            if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
+                $incentive = SalesmanIncentive::create([
+                    'employee_id' => $invoice->employee_id,
+                    'enquiry_id' => isset($invoice->enquiry_id) ? $invoice->enquiry_id : 0,
+                    'invoice_id' => $invoice->id,
+                    'incentive_amount' => $incentiveAmt,
+                ]);
+            }
         }
 
         flash('Invoice added successfully!');
@@ -181,20 +183,22 @@ class InvoicesController extends Controller
         $invoice->invoiceitems()->delete();
         $invoice->incentive->delete();
 
-        $incentiveAmt = 0;
-        if ($invoice->employee->incentive->type == 1) {
-            $incentiveAmt = $invoice->employee->incentive->rate;
-        }else if ($invoice->employee->incentive->type == 2) {
-            $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
-        }
+        if(isset($invoice->employee)){
+            $incentiveAmt = 0;
+            if ($invoice->employee->incentive->type == 1) {
+                $incentiveAmt = $invoice->employee->incentive->rate;
+            }else if ($invoice->employee->incentive->type == 2) {
+                $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
+            }
 
-        if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
-            $incentive = SalesmanIncentive::create([
-                'employee_id' => $invoice->employee_id,
-                'enquiry_id' => isset($invoice->enquiry_id) ? $invoice->enquiry_id : 0,
-                'invoice_id' => $invoice->id,
-                'incentive_amount' => $incentiveAmt,
-            ]);
+            if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
+                $incentive = SalesmanIncentive::create([
+                    'employee_id' => $invoice->employee_id,
+                    'enquiry_id' => isset($invoice->enquiry_id) ? $invoice->enquiry_id : 0,
+                    'invoice_id' => $invoice->id,
+                    'incentive_amount' => $incentiveAmt,
+                ]);
+            }
         }
 
         for ($i=0; $i < count(request('product_id')); $i++) {

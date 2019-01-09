@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>
-                        <select class="form-control selectCustomer" name="customer_id">
+                        <select class="form-control selectCustomer" name="customer_id" required>
                             <option selected disabled>-- Choose Customer --</option>
                             @foreach($customers as $customer)
                             <option value="{{$customer->id}}" {{$enquiry->customer_id == $customer->id ? 'selected' : ''}}>{{$customer->fullname}} ({{$customer->phone}})</option>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="enquiry_date" value="{{$enquiry->enquiry_date}}" placeholder="Enquiry date">
+                        <input type="text" class="form-control datepicker" autocomplete="off" name="enquiry_date" value="{{$enquiry->enquiry_date}}" placeholder="Enquiry date" required>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Follow Up Date</label>
@@ -71,7 +71,7 @@
                             @foreach($enquiryitems as $item)
                             <tr>
                                 <td>
-                                    <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">
+                                    <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px" required>
                                         <option selected disabled>-- Choose Product --</option>
                                         @foreach($products as $product)
                                         <option value="{{$product->id}}" {{$item->product_id ==$product->id ? 'selected' : ''}}>{{$product->name}} ({{$product->product_code}})</option>
@@ -167,6 +167,15 @@
             row.find('.input-price').val(response.data.selling_price);
             row.find('.totAmount').html(response.data.selling_price);
             row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
+
+            var tax = response.data.tax;
+            var qty = row.find('.input-qty').val();
+            var price = response.data.selling_price;
+            var noTaxAmt = price * qty;
+            var taxAmt = ((noTaxAmt * tax) / 100);
+            row.find('.totAmount').html(noTaxAmt + taxAmt);
+            row.find('[name="product_tot_amt[]"]').val(noTaxAmt + taxAmt);
+
             total();
 
         })
@@ -271,7 +280,7 @@
 
     $('.btn-addMoreItems').on('click', function(){
         var html = '<tr><td>\
-        <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px">\
+        <select class="form-control form-control-sm select-product selectWithSearch" name="product_id[]" style="width: 180px" required>\
         <option selected disabled>-- Choose Product --</option>\
         @foreach($products as $product)\
         <option value="{{$product->id}}">{{$product->name}} ({{$product->product_code}})</option>\

@@ -135,6 +135,7 @@
                 $('.divMinimumInviceAmt').show();
             }else{
                 $('.divMinimumInviceAmt').hide();
+                $('[name="minimum_invoice_amt"]').val('');
             }
         });
     </script>
