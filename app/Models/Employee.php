@@ -8,9 +8,12 @@ use App\Models\Incentive;
 use App\Models\SalesmanIncentive;
 use App\Models\IncentiveTransaction;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Employee extends Model
 {
+    use Notifiable;
+
     protected $fillable = [
         'fname', 'lname', 'email', 'phone', 'photo', 'verification_doc', 'password', 'company_id', 'store_id', 'incentive_id'
     ];

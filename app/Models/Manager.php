@@ -4,9 +4,13 @@ namespace App\Models;
 use App\User;
 use App\Models\Store;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Manager extends Model
 {
+
+    use Notifiable;
+
     protected $fillable = [
         'fname', 'lname', 'email', 'phone', 'password', 'company_id', 'store_id',
     ];

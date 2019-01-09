@@ -6,6 +6,7 @@ use App\Models\Employee;
 use App\Models\Incentive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\NewEmployee;
 
 class EmployeesController extends Controller
 {
@@ -74,6 +75,8 @@ class EmployeesController extends Controller
         {
             return response($employee, 200);
         }
+
+        $employee->notify(new NewEmployee($employee, auth()->user()));
 
         flash('Employee added successfully!');
         return back();

@@ -57,7 +57,7 @@ class Invoice extends Model
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Visitor::class, 'customer_id');
     }
 
     public function payments()

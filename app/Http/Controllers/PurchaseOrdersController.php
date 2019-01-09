@@ -63,6 +63,8 @@ class PurchaseOrdersController extends Controller
             'purchase_date' => request('purchase_date'),
             'due_date' => request('due_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
+            'discount_type' => request('discount_type'),
+            'discount' => !empty(request('discount')) ? request('discount') : 0,
             'grand_total' => request('grand_total'),
             'remaining_amount' => request('grand_total'),
             'order_scan_copy' => $scanCopy
@@ -135,6 +137,8 @@ class PurchaseOrdersController extends Controller
             'purchase_date' => request('purchase_date'),
             'due_date' => request('due_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
+            'discount_type' => request('discount_type'),
+            'discount' => !empty(request('discount')) ? request('discount') : 0,
             'grand_total' => request('grand_total'),
             'remaining_amount' => request('grand_total'),
             'order_scan_copy' => $scanCopy

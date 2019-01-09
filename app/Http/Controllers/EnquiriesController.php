@@ -11,6 +11,8 @@ use App\Models\Employee;
 use App\Models\EnquiryItem;
 use Illuminate\Http\Request;
 use App\Models\SalesmanIncentive;
+use App\Notifications\NewEnquiry;
+use App\Notifications\NewInvoice;
 
 class EnquiriesController extends Controller
 {
@@ -80,6 +82,8 @@ class EnquiriesController extends Controller
                 'product_tot_amt' => request('product_tot_amt')[$i]
             ]);
         }
+
+        $enquiry->customer->notify(new NewEnquiry($enquiry, auth()->user()));
 
         flash('Enquiry added successfully!');
         return redirect('/enquiries');
@@ -226,6 +230,8 @@ class EnquiriesController extends Controller
                 ]);
             }
         }
+
+        $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
 
         flash('Invoice created successfully!');
         return redirect('/sales/invoices/' . $invoice->id);

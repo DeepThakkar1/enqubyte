@@ -6,9 +6,12 @@ use App\User;
 use App\Models\Store;
 use App\Models\PurchaseOrder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Vendor extends Model
 {
+    use Notifiable;
+
     protected $fillable = [
         'company_id', 'store_id', 'name', 'phone', 'email', 'contact_person', 'address'
     ];

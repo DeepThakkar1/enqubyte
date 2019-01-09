@@ -5,9 +5,12 @@ namespace App\Models;
 use App\Models\Enquiry;
 use App\Models\Invoice;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Visitor extends Model
 {
+    use Notifiable;
+
     protected $fillable = [
         'company_id', 'store_id', 'fname', 'lname', 'phone', 'email', 'address', 'is_customer'
     ];

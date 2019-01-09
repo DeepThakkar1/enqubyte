@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseOrder extends Model
 {
     protected $fillable = [
-        'company_id', 'store_id', 'order_id', 'vendor_id', 'due_date', 'purchase_date', 'sub_tot_amt', 'grand_total', 'order_scan_copy', 'remaining_amount'
+        'company_id', 'store_id', 'order_id', 'vendor_id', 'due_date', 'purchase_date', 'sub_tot_amt', 'grand_total', 'order_scan_copy', 'remaining_amount', 'status', 'discount', 'discount_type'
     ];
 
     public function company()

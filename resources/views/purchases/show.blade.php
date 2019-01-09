@@ -11,7 +11,7 @@
     <div class="d-flex align-self-center">
         <div class="py-2">
             <div>Status</div>
-            <div class="bg-primary text-white px-2 rounded">Unset</div>
+            <div class="bg-{{$purchaseOrder->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded"><span class="purchaseOrderStatus"> {{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
         </div>
         <div class="px-4 py-2">
             <div>Vendor</div>
@@ -51,7 +51,11 @@
                     <h3 class="">Get Paid</h3>
                 </div>
                 <div class="ml-auto p-2">
-                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary">Record a Payment</a>
+                    @if($purchaseOrder->remaining_amount)
+                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary btnRecordPayment">Record a Payment</a>
+                    @else
+                    <a href="#" class="btn btn-outline-primary disabled">Record a Payment</a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -63,7 +67,7 @@
             <div class="card-header">
                 Invoice
                 <strong>{{$purchaseOrder->id}}</strong>
-                <span class="float-right"> <strong>Status:</strong> Pending</span>
+                <span class="float-right"> <strong>Status:</strong> <span class="purchaseOrderStatus">{{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}}</span></span>
             </div>
             <div class="card-body">
                 <div class="row mb-4">
@@ -260,6 +264,11 @@
                 $('.table-purchaseOrderTotal tbody').append(html);
                 $('.purchaseOrderAmt').html(response.data.purchaseOrder.remaining_amount);
                 $('.frmRecordPayment').trigger('reset');
+
+                $('.btnRecordPayment').addClass(response.data.purchaseOrder.remaining_amount ? '' : 'disabled');
+                $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.purchaseOrder.remaining_amount ? 'bg-warning' : 'bg-success');
+
+                $('.purchaseOrderStatus').html(response.data.purchaseOrder.remaining_amount ? 'Pending' : 'Completed');
                 $('.recordPaymentModal').modal('hide');
             })
         });

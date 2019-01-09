@@ -9,7 +9,7 @@ use App\Models\Visitor;
 use App\Models\Employee;
 use App\Models\SalesmanIncentive;
 use Illuminate\Http\Request;
-
+use App\Notifications\NewInvoice;
 class InvoicesController extends Controller
 {
     public function __construct()
@@ -113,6 +113,8 @@ class InvoicesController extends Controller
                 ]);
             }
         }
+
+        $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
 
         flash('Invoice added successfully!');
         return redirect('/sales/invoices');
