@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ReportFrequency;
 
 class SettingsController extends Controller
 {
@@ -61,6 +62,39 @@ class SettingsController extends Controller
 
         flash('Your password was successfully updated!')->success();
 
+        return back();
+    }
+
+    public function updateCompany(Request $request)
+    {
+        $newData = $request->all();
+        if(request()->has('company_logo'))
+        {
+            $newData['company_logo'] = request()->file('company_logo')->store(
+                '/uploads/company/'. auth()->id(), 'public'
+            );
+        }
+        auth()->user()->update($newData);
+        flash('Company information has been updated successfully!')->success();
+        return back();
+    }
+
+    public function reportFrequency(Request $request)
+    {
+        $newData = $request->all();
+        $report = auth()->user()->reportfrequency;
+        if ($report) {
+            $newData['weekly'] = isset($newData['weekly']) ? 1 : 0;
+            $newData['monthly'] = isset($newData['monthly']) ? 1 : 0;
+            $newData['quarterly'] = isset($newData['quarterly']) ? 1 : 0;
+            $newData['sixmonth'] = isset($newData['sixmonth']) ? 1 : 0;
+            $newData['yearly'] = isset($newData['yearly']) ? 1 : 0;
+            $report->update($newData);
+            flash('Report frequency has been updated successfully!')->success();
+        }else{
+            auth()->user()->reportfrequency()->create($newData);
+            flash('Report frequency has been added successfully!')->success();
+        }
         return back();
     }
 

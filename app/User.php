@@ -13,6 +13,7 @@ use App\Models\Visitor;
 use App\Models\Customer;
 use App\Models\Employee;
 use App\Models\PurchaseOrder;
+use App\Models\ReportFrequency;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,7 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'email', 'company_name', 'company_username', 'company_type', 'estimated_monthly_sales', 'number_of_employees', 'password', 'mode', 'demo', 'email_verified_at'
+        'fname', 'lname', 'email', 'company_email', 'company_phone', 'company_name', 'company_username', 'company_type', 'estimated_monthly_sales', 'number_of_employees', 'password', 'mode', 'demo', 'email_verified_at', 'company_address', 'footer_line', 'company_logo'
     ];
 
     /**
@@ -99,6 +100,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Tax::class, 'company_id')->latest();
     }
+
+    public function reportfrequency()
+    {
+        return $this->hasOne(ReportFrequency::class, 'company_id');
+    }
+
 
     public function getFullnameAttribute()
     {

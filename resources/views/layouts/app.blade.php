@@ -177,6 +177,10 @@
                 theme: "minimal"
             });
 
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
             $('.selectWithSearch').select2();
 
             $('#sidebars #dismiss, .overlay').on('click', function () {

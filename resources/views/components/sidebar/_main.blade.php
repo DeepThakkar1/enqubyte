@@ -10,8 +10,8 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <a href="/home">
-                <img src="{{ url('img/logo.png') }}">
-            </a>
+                    <img src="{{ url('img/logo.png') }}">
+                </a>
             </div>
 
             <ul class="list-unstyled components">
