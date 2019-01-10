@@ -10,6 +10,8 @@ use App\Models\Employee;
 use App\Models\SalesmanIncentive;
 use Illuminate\Http\Request;
 use App\Notifications\NewInvoice;
+use App\Notifications\UpdateInvoice;
+
 class InvoicesController extends Controller
 {
     public function __construct()
@@ -197,8 +199,13 @@ class InvoicesController extends Controller
             $product->save();
         }
 
-        $invoice->invoiceitems()->delete();
-        $invoice->incentive->delete();
+        if (isset($invoice->invoiceitems)) {
+            $invoice->invoiceitems()->delete();
+        }
+
+        if (isset($invoice->incentive)) {
+            $invoice->incentive->delete();
+        }
 
         if(isset($invoice->employee)){
             $incentiveAmt = 0;
@@ -232,6 +239,8 @@ class InvoicesController extends Controller
             $product->stock -= request('qty')[$i];
             $product->save();
         }
+
+        $invoice->customer->notify(new UpdateInvoice($invoice, auth()->user()));
 
         flash('Invoice updated successfully!');
         return redirect('/sales/invoices');

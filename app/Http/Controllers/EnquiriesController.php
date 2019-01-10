@@ -12,6 +12,7 @@ use App\Models\EnquiryItem;
 use Illuminate\Http\Request;
 use App\Models\SalesmanIncentive;
 use App\Notifications\NewEnquiry;
+use App\Notifications\UpdateEnquiry;
 use App\Notifications\NewInvoice;
 
 class EnquiriesController extends Controller
@@ -163,6 +164,8 @@ class EnquiriesController extends Controller
                 'product_tot_amt' => request('product_tot_amt')[$i]
             ]);
         }
+
+        $enquiry->customer->notify(new UpdateEnquiry($enquiry, auth()->user()));
 
         flash('Enquiry updated successfully!');
         return redirect('/enquiries');
