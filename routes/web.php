@@ -146,5 +146,3 @@ Route::post('/settings/general/report', 'SettingsController@reportFrequency');
 
 
 Route::get('/reports', 'ReportsController@index');
-
-

@@ -337,8 +337,10 @@
         $('#addEmployee').on('click', function(){
 
         var selectBox = $(this).data('select');
-        var data = $('.frmEmployee').serialize();
-        axios.post('/employees', data)
+        /*var data = $('.frmEmployee').serialize();
+        axios.post('/employees', data)*/
+        var formData = new FormData($('.frmEmployee')[0]);
+        axios.post('/employees', formData)
         .then(function(response){
             var newEmpVal = response.data.id;
             var newEmpName = response.data.fname + ' '+ response.data.lname + ' ( ' + response.data.phone + ' ) ';

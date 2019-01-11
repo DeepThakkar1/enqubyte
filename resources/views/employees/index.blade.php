@@ -205,6 +205,7 @@
                                     <label>Payout & Incentives<sup class="error">*</sup></label>
                                     <select name="incentive_id" class="form-control" required>
                                         <option disabled selected>-- Select Incentive --</option>
+                                        <option value="0">None</option>
                                         @foreach($incentives as $incentive)
                                         <option value="{{$incentive->id}}">{{$incentive->name}}</option>
                                         @endforeach
