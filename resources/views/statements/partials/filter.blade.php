@@ -8,7 +8,7 @@
     </div>
 </div>
 </div>
-<div class="card">
+<div class="card rounded-0">
     <div class="card-body">
         <form action="">
             <div class="row">
