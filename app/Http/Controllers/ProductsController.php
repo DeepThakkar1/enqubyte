@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Store;
 use App\Models\Product;
+use App\Models\InvoiceItem;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -27,8 +28,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $stores = Store::all();
-        $products = auth()->user()->products()->get();
+        $stores = auth()->user()->stores;
+        $products = auth()->user()->products;
         return view('products.index', compact('stores', 'products'));
     }
 
@@ -92,7 +93,12 @@ class ProductsController extends Controller
         where
           `invoice_items`.`product_id` = '.$product->id);
 
-        return view('products.show', compact('product', 'enquiries', 'invoices'));
+        $invoiceIds =  collect($invoices)->pluck('id');
+        $productTotal = InvoiceItem::whereIn('invoice_id', $invoiceIds)->where('product_id', $product->id)->sum('product_tot_amt');
+        $qtySold = InvoiceItem::whereIn('invoice_id', $invoiceIds)->where('product_id', $product->id)->sum('qty');
+
+
+        return view('products.show', compact('product', 'enquiries', 'invoices', 'productTotal','qtySold'));
     }
 
     /**

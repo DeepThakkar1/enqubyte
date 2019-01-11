@@ -94,16 +94,13 @@
                             <label>Selling Price<sup class="error">*</sup></label>
                             <input type="text" name="selling_price" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                         </div>
-                        <div class="col-sm-6">
-                            <label>Available Stock</label>
-                            <input type="text" pattern="\d*" name="stock" class="form-control" placeholder="Available Stock">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                         <div class="col-sm-6">
                             <label>Cost Price</label>
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>
+
+                    </div>
+                    <div class="row form-group">
                         <div class="col-sm-6">
                             <label>Tax<sup class="error">*</sup></label>
                             <select class="form-control" name="tax" required>
@@ -111,16 +108,17 @@
                                 <option value="0">None</option>
                                 <?php $taxes = getTaxes() ?>
                                 @foreach($taxes as $tax )
-                                    <option value="{{$tax->rate}}">{{$tax->abbreviation}}</option>
+                                <option value="{{$tax->rate}}">{{$tax->abbreviation}}</option>
                                 @endforeach
                             </select>
                         </div>
-                    </div>
-                    <div class="row form-group">
                         <div class="col-sm-6">
                             <label>HSN Code</label>
                             <input type="text" name="hsn_code" class="form-control" placeholder="HSN Code">
                         </div>
+                    </div>
+                    <div class="row form-group">
+
                         <div class="col-sm-6">
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">
@@ -252,6 +250,16 @@
                         </div>
                     </div>
                     <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label>Payout & Incentives<sup class="error">*</sup></label>
+                            <select name="incentive_id" class="form-control" required>
+                                <option disabled selected>-- Select Incentive --</option>
+                                <option value="0">None</option>
+                                @foreach(auth()->user()->incentives as $incentive)
+                                 <option value="{{$incentive->id}}">{{$incentive->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-sm-6">
                             <label>Password<sup class="error">*</sup></label>
                             <input type="password" name="password" class="form-control" placeholder="Password" required>

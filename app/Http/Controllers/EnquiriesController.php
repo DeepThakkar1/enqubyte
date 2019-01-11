@@ -40,11 +40,11 @@ class EnquiriesController extends Controller
      */
     public function create()
     {
-        $customers = Visitor::all();
+        $customers = auth()->user()->visitors;
         $salesmans = auth()->user()->employees;
-        $products = Product::all();
-        $enquiry =Enquiry::orderBy('created_at', 'desc')->first();
-        return view('enquiries.create', compact('salesmans', 'customers', 'products', 'enquiry'));
+        $products = auth()->user()->products;
+        $enquirySrno = Enquiry::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
+        return view('enquiries.create', compact('salesmans', 'customers', 'products', 'enquirySrno'));
     }
 
     /**
@@ -62,6 +62,7 @@ class EnquiriesController extends Controller
             'grand_total' => 'required'
         ]);
         $enquiry = Enquiry::create([
+            'sr_no' => request('sr_no'),
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,
@@ -116,9 +117,9 @@ class EnquiriesController extends Controller
         }
         else
         {
+            $customers = auth()->user()->visitors;
             $salesmans = auth()->user()->employees;
-            $customers = Visitor::all();
-            $products = Product::all();
+            $products = auth()->user()->products;
             $enquiryitems = $enquiry->enquiryitems;
             return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems'));
         }
@@ -184,7 +185,9 @@ class EnquiriesController extends Controller
         }
 
         $enquiry->update(['status' => 1]);
+        $invoiceSrno = Invoice::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
         $invoice = Invoice::create([
+            'sr_no' => $invoiceSrno,
             'company_id' => auth()->id(),
             'employee_id' => !empty($enquiry->employee_id) ? $enquiry->employee_id : 0,
             // 'store_id' => 0,
@@ -216,7 +219,7 @@ class EnquiriesController extends Controller
             $product->save();
         }
 
-        if(isset($enquiry->employee)){
+        if(isset($enquiry->employee) && $enquiry->employee->incentive_id != 0){
             $incentiveAmt = 0;
             if ($enquiry->employee->incentive->type == 1) {
                 $incentiveAmt = $enquiry->employee->incentive->rate;

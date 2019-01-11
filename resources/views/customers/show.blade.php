@@ -54,30 +54,28 @@
                         <thead>
                             <tr>
                                 <th class="center">Enquiry No.</th>
+                                <th>Invoice No.</th>
                                 <th>Date</th>
                                 <th>Followup Date</th>
-                                <th>Details</th>
                                 <th class="right">Amount</th>
                                 <th>Status</th>
-                                <th>Invoice</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($visitor->enquiries as $key => $enquiry)
                             <tr>
-                                <td>{{$enquiry->id}}</td>
-                                <td>{{$enquiry->enquiry_date}}</td>
-                                <td>{{$enquiry->followup_date}}</td>
-                                <td><a href="/enquiries/{{$enquiry->id}}" target="_blank"># Enquiry {{$enquiry->id}}</a></td>
-                                <td>{{$enquiry->grand_total}}</td>
-                                <td><span class="badge badge-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}}">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</span></td>
+                                <td><a href="/enquiries/{{$enquiry->id}}" target="_blank" class="text-primary">ENV-00{{$enquiry->sr_no}}</a></td>
                                 <td>
                                     @if(isset($enquiry->invoice))
-                                    <a href="/sales/invoices/{{$enquiry->invoice->id}}" target="_blank"># Invoice {{$enquiry->invoice->id}}</a>
+                                    <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}" target="_blank" class="text-primary">INV-00{{$enquiry->invoice->sr_no}}</a>
                                     @else
                                     -
                                     @endif
                                 </td>
+                                <td>{{$enquiry->enquiry_date}}</td>
+                                <td>{{$enquiry->followup_date}}</td>
+                                <td>{{$enquiry->grand_total}}</td>
+                                <td><span class="badge badge-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}}">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</span></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -95,30 +93,30 @@
                         <thead>
                             <tr class="product-list-menu">
                                 <th>Invoice No.</th>
+                                <th>Enquiry No.</th>
                                 <th>Date</th>
                                 <th>Due Date</th>
-                                <th>Details</th>
-                                <th>Amount</th>
+                                <th>Total Amount</th>
+                                <th>Remaining Amount</th>
                                 <th>Status</th>
-                                <th>Enquiry</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($visitor->invoices as $key => $invoice)
                             <tr>
-                                <td>{{$invoice->id}}</td>
-                                <td>{{$invoice->invoice_date}}</td>
-                                <td>{{$invoice->due_date}}</td>
-                                <td><a href="/sales/invoices/{{$invoice->id}}" target="_blank"># Invoice {{$invoice->id}}</a></td>
-                                <td>&#8377; {{$invoice->grand_total}}</td>
-                                <td><span class="badge badge-warning">Pending</span> </td>
+                                <td><a href="/sales/invoices/{{$invoice->sr_no}}" target="_blank" class="text-primary">INV-00{{$invoice->sr_no}}</a></td>
                                 <td>
                                     @if(isset($invoice->enquiry))
-                                    <a href="/enquiries/{{$invoice->enquiry->id}}" target="_blank"># Enquiry {{$invoice->enquiry->id}}</a>
+                                    <a href="/enquiries/{{$invoice->enquiry->sr_no}}" target="_blank" class="text-primary">ENQ-00{{$invoice->enquiry->sr_no}}</a>
                                     @else
                                     -
                                     @endif
                                 </td>
+                                <td>{{$invoice->invoice_date}}</td>
+                                <td>{{$invoice->due_date}}</td>
+                                <td>&#8377; {{$invoice->grand_total}}</td>
+                                <td>&#8377; {{$invoice->remaining_amount}}</td>
+                                <td><span class="badge badge-{{$invoice->remaining_amount ? 'warning' : 'success'}}"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}}</span></td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -22,7 +22,7 @@
                     <div class="px-4">
                         <div>Invoice</div>
                         <h3>
-                        <a href="/sales/invoices/{{$enquiry->invoice->id}}" target="_blank" class="text-primary"># Invoice {{$enquiry->invoice->id}} </a>
+                        <a href="/sales/invoices/{{$enquiry->invoice->id}}"  class="text-primary">INV-00{{$enquiry->invoice->id}} </a>
                         </h3>
                     </div>
                     @endif
@@ -41,7 +41,7 @@
             <div class="card-body">
                 <div class="d-flex p-3">
                     <div class="px-4">
-                        <h3 class="">Create enquiry</h3>
+                        <h3 class="">ENQ-00{{ $enquiry->sr_no }} </h3>
                         <div class=""><b>Created:</b> {{$enquiry->created_at->diffForHumans()}}</div>
                     </div>
                     <div class="ml-auto p-2">
@@ -56,8 +56,8 @@
             <div class="card-body">
                 <div class="d-flex p-3">
                     <div class="px-4">
-                        <h3 class="">Followup Date</h3>
-                        <div class=""> {{$enquiry->followup_date}}</div>
+                        <p class="badge badge-success p-2 mb-2" style="letter-spacing: 1px"> {{$enquiry->followup_date}}</p>
+                        <div class="font-weight-bold"> Next Follow-up</div>
                     </div>
                     <div class="ml-auto p-2">
                         @if(!$enquiry->status == 1 && !$enquiry->status == -1)
@@ -90,7 +90,7 @@
                     <div class="px-4">
                         <h3 class="">Get Invoice</h3>
                         @if(isset($enquiry->invoice))
-                        <div class=""><a href="/sales/invoices/{{$enquiry->invoice->id}}" class="text-primary" target="_blank"># Invoice {{$enquiry->invoice->id}} </a> </div>
+                        <div class=""><a href="/sales/invoices/{{$enquiry->invoice->id}}" class="text-primary" target="_blank">#INV-00{{$enquiry->invoice->id}} </a> </div>
                         @endif
                     </div>
                     <div class="ml-auto p-2">
@@ -98,10 +98,10 @@
                         <a href="#cancelEnquiryModal" data-toggle="modal" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
                         @endif
                         @if(!$enquiry->status == 1)
-                        <a href="/enquiries/{{$enquiry->id}}/invoice" class="btn btn-outline-primary" title="Convert to Invoice">Convert to Invoice</a>
+                        <a href="/enquiries/{{$enquiry->id}}/invoice" class="btn btn-outline-primary" title="Convert to Invoice">Convert to Sale</a>
                         @endif
                         @if($enquiry->status == 1)
-                        <a href="/sales/invoices/{{$enquiry->invoice->id}}" target="_blank" class="btn btn-outline-primary" title="View Invoice">View Invoice</a>
+                        <a href="/sales/invoices/{{$enquiry->invoice->id}}"  class="btn btn-outline-primary" title="View Invoice">View Invoice</a>
                         @endif
                     </div>
                 </div>
@@ -112,8 +112,7 @@
     <div class="container px-5 mt-3">
         <div class="card">
             <div class="card-header">
-                Enquiry :
-                <strong>{{$enquiry->id}}</strong>
+                <strong>ENQ-00{{ $enquiry->sr_no }}</strong>
                 <span class="float-right"> <strong>Status:</strong> {{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span>
             </div>
             <div class="card-body">
@@ -234,7 +233,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Follow Up Date</label>
-                        <input type="text" class="form-control datepicker" name="followup_date" autocomplete="off" placeholder="Enquiry followup date">
+                        <input type="text" class="form-control datepicker" name="followup_date" autocomplete="off" value="{{ $enquiry->followup_date }}" placeholder="Enquiry followup date">
                     </div>
                 </div>
                 <div class="modal-footer">

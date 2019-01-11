@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tax;
 use Illuminate\Http\Request;
 
-class TaxesController extends Controller
+class ProfitLossAccountController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware(['auth', 'verified']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +13,7 @@ class TaxesController extends Controller
      */
     public function index()
     {
-        $taxes = auth()->user()->taxes()->paginate(10);
-        return view('taxes.index', compact('taxes'));
+        return view('statements/profit_loss_account');
     }
 
     /**
@@ -41,23 +34,16 @@ class TaxesController extends Controller
      */
     public function store(Request $request)
     {
-        $tax = auth()->user()->taxes()->create($request->all());
-
-        if($request->wantsJson())
-        {
-            return response([$tax], 200);
-        }
-        flash('Tax added successfully!');
-        return back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tax  $tax
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Tax $tax)
+    public function show($id)
     {
         //
     }
@@ -65,10 +51,10 @@ class TaxesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tax  $tax
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tax $tax)
+    public function edit($id)
     {
         //
     }
@@ -77,31 +63,22 @@ class TaxesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tax  $tax
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tax $tax)
+    public function update(Request $request, $id)
     {
-        $tax->update($request->all());
-
-        if($request->wantsJson())
-        {
-            return response([$tax], 200);
-        }
-        flash('Tax updated successfully!');
-        return back();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tax  $tax
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tax $tax)
+    public function destroy($id)
     {
-        $tax->delete();
-        flash('Tax deleted successfully!');
-        return back();
+        //
     }
 }

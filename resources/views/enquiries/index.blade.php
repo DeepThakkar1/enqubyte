@@ -23,7 +23,7 @@
             <tbody>
                 @foreach($enquiries as $key => $enquiry)
                 <tr>
-                    <td>{{$enquiry->id}}</td>
+                    <td>{{$enquiry->sr_no}}</td>
                     <td>{{$enquiry->customer->fullname}}</td>
                     <td>{{$enquiry->enquiry_date}}</td>
                     <td>{{$enquiry->followup_date}}</td>

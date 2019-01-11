@@ -23,7 +23,7 @@
             <tbody>
                 @foreach($invoices as $key => $invoice)
                 <tr>
-                    <td>{{$invoice->id}}</td>
+                    <td>{{$invoice->sr_no}}</td>
                     <td>{{$invoice->visitor->fullname}}</td>
                     <td>{{$invoice->invoice_date}}</td>
                     <td>{{$invoice->due_date}}</td>

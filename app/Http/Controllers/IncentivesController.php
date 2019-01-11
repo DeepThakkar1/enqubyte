@@ -18,7 +18,7 @@ class IncentivesController extends Controller
      */
     public function index()
     {
-        $incentives = Incentive::all();
+        $incentives = auth()->user()->incentives;
         return view('incentives.index', compact('incentives'));
     }
 
@@ -41,10 +41,12 @@ class IncentivesController extends Controller
     public function store(Request $request)
     {
         $newData = $request->all();
+
         if (!$newData['minimum_invoice_amt']) {
             $newData['minimum_invoice_amt'] = 0;
         }
-        $incentive = Incentive::create($newData);
+
+        $incentive = auth()->user()->incentives()->create($newData);
 
         if($request->wantsJson())
         {
