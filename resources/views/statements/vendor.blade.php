@@ -3,10 +3,11 @@
 @section('content')
 <div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"><span>
+        <h2 class="d-inline-block headline-content">
             <a href="/home"> Home  </a>
-            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Statements
-            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Vendor
+            <a href="/reports"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Reports</a>
+            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
+            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Vendor
         </h2>
     </div>
     <div class="">
@@ -26,7 +27,7 @@
                     <td>{{$vendor->name}} ({{$vendor->phone}})</td>
                     <td>&#8377; {{$vendor->total_payments}}</td>
                     <td>
-                        <a href="/statements/vendor/{{$vendor->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
+                        <a href="/vendors/{{$vendor->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                     </td>
                 </tr>
                 @endforeach

@@ -3,7 +3,12 @@
 @section('content')
 <div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Statements <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Salesman Incentives</h2>
+        <h2 class="d-inline-block headline-content">
+            <a href="/home"> Home  </a>
+            <a href="/reports"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Reports</a>
+            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
+            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Salesman Incentives
+        </h2>
     </div>
     <div class="">
         <table class="table dataTable">
@@ -29,7 +34,7 @@
                     <td> <span class="badge badge-{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'success' : 'warning'}}">{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'Paid' : 'Pending'}}</span> </td>
                     <td>
                         <a href="#incentivePaymentModal{{$key}}" data-toggle="modal" class="btn btn-sm btn-primary {{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'disabled' : ''}}"><i class="fa fa-money"></i> Pay</a>
-                        <a href="/statements/salesman/{{$employee->id}}" class="btn btn-sm "><i class="fa fa-eye"></i></a>
+                        <a href="/employees/{{$employee->id}}" class="btn btn-sm "><i class="fa fa-eye"></i></a>
 
                         <div class="modal fade in incentivePaymentModal{{$key}}" id="incentivePaymentModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">

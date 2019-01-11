@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="col-sm-4 form-group">
                         <label>Enquiry Number</label>
-                        <input type="text" name="" class="form-control" value="{{$enquiry->id}}" readonly>
+                        <input type="text" name="" class="form-control" value="{{$enquiry->sr_no}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>

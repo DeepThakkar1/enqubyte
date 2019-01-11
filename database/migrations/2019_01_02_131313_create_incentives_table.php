@@ -18,6 +18,7 @@ class CreateIncentivesTable extends Migration
             $table->string('name')->nullable();
             $table->integer('type')->default(0);
             $table->double('rate')->default(0);
+            $table->integer('company_id')->default(0);
             $table->timestamps();
         });
     }

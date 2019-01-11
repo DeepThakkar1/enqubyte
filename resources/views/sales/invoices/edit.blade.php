@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-sm-4 form-group">
                         <label>Invoice Number</label>
-                        <input type="text" name="" class="form-control" value="{{$invoice->id}}" readonly>
+                        <input type="text" name="" class="form-control" value="{{$invoice->sr_no}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Customer</label>

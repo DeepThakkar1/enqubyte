@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     protected $fillable = [
-        'customer_id', 'company_id', 'employee_id', 'store_id', 'enquiry_id', 'due_date', 'invoice_date', 'sub_tot_amt', 'grand_total', 'status', 'discount_type', 'discount', 'remaining_amount'
+        'sr_no', 'customer_id', 'company_id', 'employee_id', 'store_id', 'enquiry_id', 'due_date', 'invoice_date', 'sub_tot_amt', 'grand_total', 'status', 'discount_type', 'discount', 'remaining_amount'
     ];
 
     public function company()

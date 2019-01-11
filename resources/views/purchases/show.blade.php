@@ -21,7 +21,7 @@
             <div class="d-flex">
                 <div class="px-4">
                     <div>Amount Due</div>
-                    <h3>&#8377; <span class="purchaseAmt">{{$purchaseOrder->remaining_amount}}</span></h3>
+                    <h3>&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></h3>
                 </div>
                 <div>
                     <div>Due Date</div>
@@ -48,7 +48,8 @@
         <div class="card-body">
             <div class="d-flex p-3">
                 <div class="px-4">
-                    <h3 class="">Get Paid</h3>
+                    <h3 class="">P/O-00{{$purchaseOrder->sr_no}}</h3>
+                    <p>Created : {{ $purchaseOrder->created_at->diffForHumans() }}
                 </div>
                 <div class="ml-auto p-2">
                     @if($purchaseOrder->remaining_amount)
@@ -65,8 +66,8 @@
     <div class="container px-5 mt-3">
         <div class="card">
             <div class="card-header">
-                Invoice
-                <strong>{{$purchaseOrder->id}}</strong>
+                P/O
+                <strong>{{$purchaseOrder->sr_no}}</strong>
                 <span class="float-right"> <strong>Status:</strong> <span class="purchaseOrderStatus">{{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}}</span></span>
             </div>
             <div class="card-body">
@@ -83,11 +84,11 @@
                     <div class="col-sm-4">
                         <!-- <h6 class="mb-3">Bill To:</h6> -->
                         <div>
-                            <strong>Invoice Number : </strong> {{$purchaseOrder->id}}
+                            <strong>P/O Number : </strong> {{$purchaseOrder->sr_no}}
                         </div>
                         <div><strong>Invoice Date : </strong> {{$purchaseOrder->purchase_date}}</div>
                         <div><strong>Payment Due : </strong> {{$purchaseOrder->due_date}}</div>
-                        <div><strong>Amount Due (INR) : </strong> &#8377; <span class="purchaseAmt">{{$purchaseOrder->remaining_amount}} </span></div>
+                        <div><strong>Amount Due (INR) : </strong> &#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}} </span></div>
                     </div>
                 </div>
                 <div class="table-responsive-sm">
@@ -192,7 +193,7 @@
             <form class="frmRecordPayment">
                 @csrf
                 <div class="modal-body">
-                    <p>Record a payment you’ve already received, such as cash, cheque, or bank payment.</p>
+                    <p>Record a payment you’ve already made, such as cash, cheque, or bank payment.</p>
                     <div class="row form-group">
                         <div class="col-sm-6">
                             <label>Payment Date<sup class="error">*</sup></label>
@@ -200,7 +201,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Amount<sup class="error">*</sup></label>
-                            <input type="text" name="amount" value="{{isset($purchaseOrder->remaining_amount) ? $purchaseOrder->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
+                            <input type="text" id="amountInput" name="amount" value="{{isset($purchaseOrder->remaining_amount) ? $purchaseOrder->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -264,7 +265,7 @@
                 $('.table-purchaseOrderTotal tbody').append(html);
                 $('.purchaseOrderAmt').html(response.data.purchaseOrder.remaining_amount);
                 $('.frmRecordPayment').trigger('reset');
-
+                $("#amountInput").val(response.data.purchaseOrder.remaining_amount);
                 $('.btnRecordPayment').addClass(response.data.purchaseOrder.remaining_amount ? '' : 'disabled');
                 $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.purchaseOrder.remaining_amount ? 'bg-warning' : 'bg-success');
 

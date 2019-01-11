@@ -14,11 +14,11 @@
                 <div class="row">
                     <div class="col-sm-4 form-group">
                         <label>Sr.No</label>
-                        <input type="text" class="form-control" value="{{isset($purchaseOrder->id)}}" readonly>
+                        <input type="text" class="form-control" value="{{$purchaseOrder->sr_no}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Purchase Order Number</label>
-                        <input type="text" class="form-control" value="{{$purchaseOrder->order_id}}" readonly>
+                        <input type="text" name="order_id" class="form-control" value="{{$purchaseOrder->order_id}}">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Vendor<sup class="error">*</sup></label>

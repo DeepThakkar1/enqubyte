@@ -4,5 +4,5 @@ use App\Models\Tax;
 
 function getTaxes()
 {
-    return Tax::get();
+    return auth()->user()->taxes;
 }

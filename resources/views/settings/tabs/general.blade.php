@@ -6,13 +6,13 @@
                 Store Mode
             </div>
             <div class="row p-4">
-                <div class="col-sm-2 text-center">
+                <div class="col-sm-3 text-center">
                     <label class="mr-4" for="chk-singleStore">
                         <input type="radio" class="radio" name="mode" value="0" {{auth()->user()->mode ? '' : 'checked'}} checked id="chk-singleStore">
                         <h4>Single Store</h4>
                     </label>
                 </div>
-                <div class="col-sm-2 text-center">
+                <div class="col-sm-3 text-center">
                     <label class="mr-4" for="chk-multiStore">
                         <input type="radio" class="radio" name="mode" value="1" {{auth()->user()->mode ? 'checked' : ''}} id="chk-multiStore">
                         <h4>Multi Store</h4>

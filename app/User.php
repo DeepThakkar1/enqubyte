@@ -11,6 +11,7 @@ use App\Models\Manager;
 use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Customer;
+use App\Models\Incentive;
 use App\Models\Employee;
 use App\Models\PurchaseOrder;
 use App\Models\ReportFrequency;
@@ -99,6 +100,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function taxes()
     {
         return $this->hasMany(Tax::class, 'company_id')->latest();
+    }
+
+    public function incentives()
+    {
+        return $this->hasMany(Incentive::class, 'company_id')->latest();
     }
 
     public function reportfrequency()

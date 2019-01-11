@@ -41,19 +41,21 @@
                                 <th>Order No.</th>
                                 <th>Date</th>
                                 <th>Due Date</th>
-                                <th>Details</th>
-                                <th class="right">Amount</th>
+                                <th class="right">Total Amount</th>
+                                <th class="right">Remaining Amount</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($vendor->purchases as $key => $purchase)
                             <tr>
-                                <td>{{$purchase->id}}</td>
+                                <td><a href="/purchases/{{$purchase->sr_no}}" target="_blank" class="text-primary">P/O 00{{$purchase->sr_no}}</a></td>
                                 <td>{{$purchase->order_id}}</td>
                                 <td>{{$purchase->purchase_date}}</td>
                                 <td>{{$purchase->due_date}}</td>
-                                <td><a href="/purchases/{{$purchase->id}}" target="_blank"># Purchase {{$purchase->id}}</a></td>
                                 <td>{{$purchase->grand_total}}</td>
+                                <td>{{$purchase->remaining_amount}}</td>
+                                <td><span class="badge badge-{{$purchase->remaining_amount ? 'warning' : 'success'}}"> {{$purchase->remaining_amount ? 'Pending' : 'Completed'}}</span></td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -38,10 +38,10 @@ class InvoicesController extends Controller
     public function create()
     {
         $salesmans = auth()->user()->employees;
-        $customers = Visitor::all();
-        $products = Product::all();
-        $invoice = Invoice::orderBy('created_at', 'desc')->first();
-        return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoice'));
+        $customers = auth()->user()->visitors;
+        $products = auth()->user()->products;
+        $invoiceSrno = Invoice::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
+        return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoiceSrno'));
     }
 
     /**
@@ -68,6 +68,7 @@ class InvoicesController extends Controller
         }
 
         $invoice = Invoice::create([
+            'sr_no' => request('sr_no'),
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,
@@ -98,7 +99,7 @@ class InvoicesController extends Controller
             $product->save();
         }
 
-        if(isset($invoice->employee)){
+        if(isset($invoice->employee) && $invoice->employee->incentive_id != 0){
             $incentiveAmt = 0;
             if ($invoice->employee->incentive->type == 1) {
                 $incentiveAmt = $invoice->employee->incentive->rate;
@@ -147,8 +148,8 @@ class InvoicesController extends Controller
         }
         else{
             $salesmans = auth()->user()->employees;
-            $customers = Visitor::all();
-            $products = Product::all();
+            $customers = auth()->user()->visitors;
+            $products = auth()->user()->products;
             $invoiceitems = $invoice->invoiceitems;
             return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems'));
         }

@@ -32,10 +32,10 @@ class PurchaseOrdersController extends Controller
      */
     public function create()
     {
-        $vendors = Vendor::all();
+        $vendors = auth()->user()->vendors;
         $products = auth()->user()->products;
-        $purchase =PurchaseOrder::orderBy('created_at', 'desc')->first();
-        return view('purchases.create', compact('vendors', 'products', 'purchase'));
+        $purchaseSrno =PurchaseOrder::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
+        return view('purchases.create', compact('vendors', 'products', 'purchaseSrno'));
     }
 
     /**
@@ -56,6 +56,7 @@ class PurchaseOrdersController extends Controller
 
         $purchaseOrder = PurchaseOrder::create([
             'company_id' => auth()->id(),
+            'sr_no' => request('sr_no'),
             /*'employee_id' => 0,
             'store_id' => 0,*/
             'vendor_id' => request('vendor_id'),
@@ -63,8 +64,8 @@ class PurchaseOrdersController extends Controller
             'purchase_date' => request('purchase_date'),
             'due_date' => request('due_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
-            'discount_type' => request('discount_type'),
-            'discount' => !empty(request('discount')) ? request('discount') : 0,
+           /* 'discount_type' => request('discount_type'),
+            'discount' => !empty(request('discount')) ? request('discount') : 0,*/
             'grand_total' => request('grand_total'),
             'remaining_amount' => request('grand_total'),
             'order_scan_copy' => $scanCopy
@@ -107,7 +108,7 @@ class PurchaseOrdersController extends Controller
      */
     public function edit(PurchaseOrder $purchaseOrder)
     {
-        $vendors = Vendor::all();
+        $vendors = auth()->user()->vendors;
         $products = auth()->user()->products;
         $purchaseitems = $purchaseOrder->purchaseitems;
         return view('purchases.edit', compact('purchaseOrder', 'vendors', 'products', 'purchaseitems'));
@@ -131,14 +132,16 @@ class PurchaseOrdersController extends Controller
         }
         $purchaseOrder->update([
             'company_id' => auth()->id(),
+            //'sr_no' => request('sr_no'),
+            'order_id' => request('order_id'),
             /*'employee_id' => 0,
             'store_id' => 0,*/
             'vendor_id' => request('vendor_id'),
             'purchase_date' => request('purchase_date'),
             'due_date' => request('due_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
-            'discount_type' => request('discount_type'),
-            'discount' => !empty(request('discount')) ? request('discount') : 0,
+          /*  'discount_type' => request('discount_type'),
+            'discount' => !empty(request('discount')) ? request('discount') : 0,*/
             'grand_total' => request('grand_total'),
             'remaining_amount' => request('grand_total'),
             'order_scan_copy' => $scanCopy

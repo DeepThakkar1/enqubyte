@@ -22,7 +22,7 @@
                 <div class="px-4">
                     <div>Enquiry</div>
                     <h3>
-                    <a href="/enquiries/{{$invoice->enquiry->id}}" target="_blank" class="text-primary"># Enquiry {{$invoice->enquiry->id}} </a>
+                    <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary">ENQ-00{{$invoice->enquiry->sr_no}} </a>
                     </h3>
                 </div>
                 @endif
@@ -41,7 +41,7 @@
         <div class="card-body">
             <div class="d-flex p-3">
                 <div class="px-4">
-                    <h3 class="">Create invoice</h3>
+                    <h3 class="">INV-00{{$invoice->sr_no}}</h3>
                     <div class=""><b>Created:</b> {{$invoice->created_at->diffForHumans()}}</div>
                 </div>
                 <div class="ml-auto p-2">
@@ -90,8 +90,7 @@
     <div class="container px-5 mt-3">
         <div class="card">
             <div class="card-header">
-                Invoice
-                <strong>{{$invoice->id}}</strong>
+                <strong>INV-00{{$invoice->sr_no}}</strong>
                 <span class="float-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
             </div>
             <div class="card-body">
@@ -115,7 +114,7 @@
                     <div class="col-sm-4">
                         <!-- <h6 class="mb-3">Bill To:</h6> -->
                         <div>
-                            <strong>Invoice Number : </strong> {{$invoice->id}}
+                            <strong>Invoice Number : </strong> INV-00{{$invoice->sr_no}}
                         </div>
                         <div><strong>Invoice Date : </strong> {{$invoice->invoice_date}}</div>
                         <div><strong>Payment Due : </strong> {{$invoice->due_date}}</div>

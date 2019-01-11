@@ -31,6 +31,7 @@
                 <option value="0">Automobile</option>
                 <option value="1">Electronics</option>
                 <option value="2">Home Decor</option>
+                <option value="3">Other</option>
             </select>
             @if ($errors->has('company_type'))
             <span class="invalid-feedback" role="alert">
