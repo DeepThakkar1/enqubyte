@@ -6,3 +6,4 @@ function getTaxes()
 {
     return auth()->user()->taxes;
 }
+

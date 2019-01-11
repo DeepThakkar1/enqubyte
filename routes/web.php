@@ -131,7 +131,10 @@ Route::get('/statements/vendor', 'StatementsController@vendor');
 Route::get('/statements/vendor/{vendor}', 'StatementsController@vendorShow');
 Route::get('/statements/salesman', 'StatementsController@employee');
 Route::get('/statements/salesman/{employee}', 'StatementsController@salesmanShow');
-
+Route::get('/statements/product', 'StatementsController@product');
+Route::get('/statements/product/{product}', 'StatementsController@productShow');
+Route::get('/statements/profitandloss', 'StatementsController@profitandloss');
+Route::get('/statements/cashaccount', 'StatementsController@cashaccount');
 
 
 Route::get('/settings', 'SettingsController@index');

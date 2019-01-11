@@ -23,6 +23,19 @@
             <div class="card-body">
                 <div class="d-flex p-3">
                     <div class="px-4">
+                        <h3 class="">Cash Flow</h3>
+                        <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,</div>
+                    </div>
+                    <div class="ml-auto p-2">
+                        <a href="/statements/cashaccount" class="btn btn-outline-primary">View Statement</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="d-flex p-3">
+                    <div class="px-4">
                         <h3 class="">Customers Statement</h3>
                         <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,</div>
                     </div>
@@ -53,7 +66,7 @@
                         <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,</div>
                     </div>
                     <div class="ml-auto p-2">
-                        <a href="/statements/products" class="btn btn-outline-primary">View Statement</a>
+                        <a href="/statements/product" class="btn btn-outline-primary">View Statement</a>
                     </div>
                 </div>
             </div>

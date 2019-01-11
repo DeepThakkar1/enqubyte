@@ -10,69 +10,81 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Salesman Incentives
         </h2>
     </div>
-    <div class="">
-        <table class="table dataTable">
-            <thead>
-                <tr>
-                    <th>Sr.No</th>
-                    <th>Name</th>
-                    <th>Total Earning</th>
-                    <th>Paid</th>
-                    <th>Due</th>
-                    <th>Status</th>
-                    <th width="160px">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($employees as $key => $employee)
-                <tr>
-                    <td>{{$key +1}}</td>
-                    <td>{{$employee->fullname}}</td>
-                    <td>&#8377; {{$employee->incentive_amount}} </td>
-                    <td>&#8377; {{$employee->incentive_paid_amount}}</td>
-                    <td>&#8377; {{$employee->incentive_amount - $employee->incentive_paid_amount}}</td>
-                    <td> <span class="badge badge-{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'success' : 'warning'}}">{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'Paid' : 'Pending'}}</span> </td>
-                    <td>
-                        <a href="#incentivePaymentModal{{$key}}" data-toggle="modal" class="btn btn-sm btn-primary {{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'disabled' : ''}}"><i class="fa fa-money"></i> Pay</a>
-                        <a href="/employees/{{$employee->id}}" class="btn btn-sm "><i class="fa fa-eye"></i></a>
+    <ul class="nav nav-pills d-flex justify-content-center mb-3 mt-3 " id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-tabular-tab" data-toggle="pill" href="#pills-tabular" role="tab" aria-controls="pills-tabular" aria-selected="false">Tabular</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " id="pills-chart-tab" data-toggle="pill" href="#pills-chart" role="tab" aria-controls="pills-chart" aria-selected="true">Chart</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
+            <table class="table dataTable">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Name</th>
+                        <th>Total Earning</th>
+                        <th>Paid</th>
+                        <th>Due</th>
+                        <th>Status</th>
+                        <th width="160px">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($employees as $key => $employee)
+                    <tr>
+                        <td>{{$key +1}}</td>
+                        <td>{{$employee->fullname}}</td>
+                        <td>&#8377; {{$employee->incentive_amount}} </td>
+                        <td>&#8377; {{$employee->incentive_paid_amount}}</td>
+                        <td>&#8377; {{$employee->incentive_amount - $employee->incentive_paid_amount}}</td>
+                        <td> <span class="badge badge-{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'success' : 'warning'}}">{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'Paid' : 'Pending'}}</span> </td>
+                        <td>
+                            <a href="#incentivePaymentModal{{$key}}" data-toggle="modal" class="btn btn-sm btn-primary {{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'disabled' : ''}}"><i class="fa fa-money"></i> Pay</a>
+                            <a href="/employees/{{$employee->id}}" class="btn btn-sm "><i class="fa fa-eye"></i></a>
 
-                        <div class="modal fade in incentivePaymentModal{{$key}}" id="incentivePaymentModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Record a incentive payment for this employee</h5>
-                                        <button type="button" class="close btn-close-modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form method="post" action="/incentives/{{$employee->id}}/pay">
-                                        @csrf
-                                        <div class="modal-body">
-                                            <div class="row form-group">
-                                                <div class="col-sm-6">
-                                                    <label>Date<sup class="error">*</sup></label>
-                                                    <input type="text" name="transaction_date" class="form-control datepicker" autocomplete="off" value="{{date('d-m-Y')}}" required>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label>Amount<sup class="error">*</sup></label>
-                                                    <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
+                            <div class="modal fade in incentivePaymentModal{{$key}}" id="incentivePaymentModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Record a incentive payment for this employee</h5>
+                                            <button type="button" class="close btn-close-modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form method="post" action="/incentives/{{$employee->id}}/pay">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="row form-group">
+                                                    <div class="col-sm-6">
+                                                        <label>Date<sup class="error">*</sup></label>
+                                                        <input type="text" name="transaction_date" class="form-control datepicker" autocomplete="off" value="{{date('d-m-Y')}}" required>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <label>Amount<sup class="error">*</sup></label>
+                                                        <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                                            <button type="submit" class="btn btn-primary">Pay</button>
-                                        </div>
-                                    </form>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
+                                                <button type="submit" class="btn btn-primary">Pay</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="pills-chart" role="tabpanel" aria-labelledby="pills-chart-tab">
+            Chart
+        </div>
     </div>
-</div>
 
-@endsection
+    @endsection

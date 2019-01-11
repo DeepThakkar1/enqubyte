@@ -14,30 +14,19 @@
         <div class="d-flex align-self-center">
             <div class="py-2">
                 <div>Product</div>
-                <h3><a href="" class="text-primary"> {{$product->name}}</a></h3>
+                <h3><a href="" class="text-primary"> {{str_limit($product->name, 40)}}</a></h3>
             </div>
             <div class="ml-auto p-2">
                 <div class="d-flex">
                     <div class="px-4 text-center">
-                        <div>Total Enquiries</div>
-                        <h3>{{ count($enquiries)}}</h3>
+                        <div>Quantity Sold</div>
+                        <h3>{{$qtySold}}</h3>
                     </div>
                     <div class="px-4 text-center">
-                        <div>Total Invoices</div>
-                        <h3>{{ count($invoices)}}</h3>
+                        <div>Total Sale</div>
+                        <h3>&#8377; {{$productTotal}}</h3>
                     </div>
-                    <div class="px-4 text-center">
-                        <div>Total Earnings</div>
-                        <h3>&#8377; {{$product->total_earnings}}</h3>
-                    </div>
-                    <div class="px-4 text-center">
-                        <div>Total Earn</div>
-                        <h3>&#8377; {{$product->total_earnings - $product->total_remaining}}</h3>
-                    </div>
-                    <div class="px-4 text-center">
-                        <div>Total Remaining</div>
-                        <h3>&#8377; {{$product->total_remaining}}</h3>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -46,7 +35,7 @@
     <div class="container px-5 mt-3">
         <div class="card">
             <div class="card-header">
-                <strong>Enquiries</strong>
+                <strong>Enquiries ( {{ count($enquiries)}} )</strong>
             </div>
             <div class="card-body">
                 <div class="table-responsive-sm">
@@ -85,7 +74,7 @@
         </div>
          <div class="card mt-3">
             <div class="card-header">
-                <strong>Invoices</strong>
+                <strong>Invoices ( {{ count($invoices)}} )</strong>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

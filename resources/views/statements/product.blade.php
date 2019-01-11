@@ -7,7 +7,7 @@
             <a href="/home"> Home  </a>
             <a href="/reports"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Reports</a>
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
-            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Customer
+            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Products
         </h2>
     </div>
     <ul class="nav nav-pills d-flex justify-content-center mb-3 mt-3 " id="pills-tab" role="tablist">
@@ -24,19 +24,21 @@
                 <thead>
                     <tr>
                         <th>Sr.No</th>
-                        <th>Name</th>
-                        <th>Total Earnings</th>
+                        <th>Product</th>
+                        <th>Qty Sold</th>
+                        <th>Total Revenue</th>
                         <th width="160px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($customers as $key => $customer)
+                    @foreach($statement as $key => $entry)
                     <tr>
                         <td>{{$key + 1}}</td>
-                        <td>{{$customer->fullname}} ({{$customer->phone}})</td>
-                        <td>&#8377; {{$customer->total_earnings}}</td>
+                        <td>{{$entry->product->name}}</td>
+                        <td>{{$entry->qty_sold}}</td>
+                        <td>&#8377; {{$entry->revenue}}</td>
                         <td>
-                            <a href="/customers/{{$customer->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
+                            <a href="/products/{{$entry->product_id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -47,6 +49,5 @@
             Chart
         </div>
     </div>
-</div>
 
-@endsection
+    @endsection
