@@ -52,7 +52,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email ID</label>
+                            <label>Email Address</label>
                             <input type="email" name="email" class="form-control" placeholder="Store email" required>
                         </div>
                         <div class="col-sm-6">
@@ -73,8 +73,4 @@
         </div>
     </div>
 </div>
-
-
-
-
 @endsection

@@ -20,7 +20,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datetimepicker.min.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/rowreorder/1.2.5/css/rowReorder.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -102,7 +107,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/parsley.js') }}"></script>
+    <script src="{{ asset('js/datetimepicker.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.5/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
+
     <script>
         $('form').parsley({
             classHandler: function(el) {
@@ -120,18 +132,52 @@
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
 
+            var table = $('.dataTable').DataTable( {
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true
+            });
+
+            $('.descDataTable').DataTable({
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
+                "order": [[ 0, "desc" ]]
+            });
+
             $('.btn-close-modal').on('click', function(){
                 var modal = $(this).parents('.modal');
                 var form = $(this).parents('.modal').find('form');
                 form.trigger('reset');
                 modal.modal('hide');
             });
+
+            jQuery.datetimepicker.setLocale('en');
+            jQuery('.datetimepicker').datetimepicker();
+            jQuery('.datepicker').datetimepicker({timepicker:false, format:'d-m-Y'});
+            jQuery('.birthdatepicker').datetimepicker({timepicker:false, format:'d-m-Y', maxDate:moment('DD/MM/YYYY')});
+
         });
     </script>
 
      <script type="text/javascript">
+         function closeSelect2(selectName){
+                $('.' + selectName).select2('close');
+            };
+
+             function closeMultipleSelect2(element, selectName){
+                $('.' + selectName).select2('close');
+            };
+
+
         $(document).ready(function () {
             $("#sidebars").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $("#sidebar").mCustomScrollbar({
                 theme: "minimal"
             });
 

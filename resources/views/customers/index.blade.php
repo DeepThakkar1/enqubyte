@@ -7,8 +7,8 @@
         <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Customer</a>
         </div>
     <!-- <hr> -->
-    <div class="table-responsive">
-        <table class="table">
+    <div class="">
+        <table class="table dataTable">
             <thead>
                 <tr>
                     <th>Sr.No</th>
@@ -27,9 +27,10 @@
                     <td>{{$customer->phone}}</td>
                     <td>
                         <a href="#editCustomerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                        <a href="/customers/{{$customer->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                         <form method="post" action="/customers/{{$customer->id}}/delete" class="d-inline">
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
+                            <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this customer?');"><i class="fa fa-trash"></i> </button>
                         </form>
 
                         <div class="modal fade in editCustomerModal{{$key}}" id="editCustomerModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -69,7 +70,7 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
-                                                    <label>Email ID<sup class="error">*</sup></label>
+                                                    <label>Email Address<sup class="error">*</sup></label>
                                                     <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Customer email" required>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -96,7 +97,6 @@
             </tbody>
         </table>
     </div>
-    {{ $customers->links() }}
 </div>
 
 
@@ -138,7 +138,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email ID<sup class="error">*</sup></label>
+                            <label>Email Address<sup class="error">*</sup></label>
                             <input type="email" name="email" class="form-control" placeholder="Customer email" required>
                         </div>
                         <div class="col-sm-6">

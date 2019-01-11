@@ -28,7 +28,7 @@ class ProductsController extends Controller
     public function index()
     {
         $stores = Store::all();
-        $products = auth()->user()->products()->paginate(10);
+        $products = auth()->user()->products()->get();
         return view('products.index', compact('stores', 'products'));
     }
 
@@ -52,7 +52,11 @@ class ProductsController extends Controller
     {
         $newData = $request->all();
         $newData['company_id'] = auth()->id();
-        auth()->user()->products()->create($newData);
+        $product = auth()->user()->products()->create($newData);
+        if($request->wantsJson())
+        {
+            return response($product, 200);
+        }
         flash('Product added successfully!');
         return back();
     }
@@ -65,7 +69,30 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        /*$enquiries = \DB::select('enquiries.*','enquiry_items.enquiry_id','enquiry_items.product_id')
+                            ->from('enquiries')
+                            ->innerJoin('enquiry_items' , 'enquiry_items.enquiry_id', '=', 'enquiries.id')
+                            ->where('enquiry_items.product_id', '=', $product->id)
+                            ->get();*/
+        $enquiries = \DB::select('select
+          `enquiries`.*,
+          `enquiry_items`.`enquiry_id`, `enquiry_items`.`product_id`
+        from
+          `enquiries`
+          inner join `enquiry_items` on `enquiry_items`.`enquiry_id` = `enquiries`.`id`
+        where
+          `enquiry_items`.`product_id` = '.$product->id);
+
+        $invoices = \DB::select('select
+          `invoices`.*,
+          `invoice_items`.`invoice_id`, `invoice_items`.`product_id`
+        from
+          `invoices`
+          inner join `invoice_items` on `invoice_items`.`invoice_id` = `invoices`.`id`
+        where
+          `invoice_items`.`product_id` = '.$product->id);
+
+        return view('products.show', compact('product', 'enquiries', 'invoices'));
     }
 
     /**

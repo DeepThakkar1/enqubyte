@@ -1,14 +1,19 @@
 <?php
 
 namespace App;
+use App\Models\Tax;
 use App\Models\Stock;
 use App\Models\Store;
+use App\Models\Vendor;
 use App\Models\Enquiry;
+use App\Models\Invoice;
 use App\Models\Manager;
 use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Customer;
 use App\Models\Employee;
+use App\Models\PurchaseOrder;
+use App\Models\ReportFrequency;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,7 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'email', 'company_name', 'company_username', 'company_type', 'estimated_monthly_sales', 'number_of_employees', 'password', 'mode', 'demo', 'email_verified_at'
+        'fname', 'lname', 'email', 'company_email', 'company_phone', 'company_name', 'company_username', 'company_type', 'estimated_monthly_sales', 'number_of_employees', 'password', 'mode', 'demo', 'email_verified_at', 'company_address', 'footer_line', 'company_logo'
     ];
 
     /**
@@ -61,6 +66,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Customer::class, 'company_id')->latest();
     }
 
+    public function vendors()
+    {
+        return $this->hasMany(Vendor::class, 'company_id')->latest();
+    }
+
     public function products()
     {
         return $this->hasMany(Product::class, 'company_id')->latest();
@@ -75,6 +85,27 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Enquiry::class, 'company_id')->latest();
     }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'company_id')->latest();
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(PurchaseOrder::class, 'company_id')->latest();
+    }
+
+    public function taxes()
+    {
+        return $this->hasMany(Tax::class, 'company_id')->latest();
+    }
+
+    public function reportfrequency()
+    {
+        return $this->hasOne(ReportFrequency::class, 'company_id');
+    }
+
 
     public function getFullnameAttribute()
     {

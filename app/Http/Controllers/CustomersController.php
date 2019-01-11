@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Visitor;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -25,7 +25,7 @@ class CustomersController extends Controller
     public function index()
     {
         $stores = auth()->user()->stores;
-        $customers = auth()->user()->customers()->paginate(10);
+        $customers = auth()->user()->visitors()->where('is_customer', 1)->get();
 
         return view('customers.index', compact('stores', 'customers'));
     }
@@ -50,7 +50,13 @@ class CustomersController extends Controller
     {
         $newData = $request->all();
         $newData['company_id'] = auth()->id();
-        auth()->user()->customers()->create($newData);
+        $newData['is_customer'] = 1;
+        $customer = auth()->user()->visitors()->create($newData);
+
+        if($request->wantsJson())
+        {
+            return response([$customer], 200);
+        }
         flash('Customer added successfully!');
         return back();
     }
@@ -61,9 +67,9 @@ class CustomersController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(Visitor $visitor)
     {
-        //
+        return view('customers.show', compact('visitor'));
     }
 
     /**

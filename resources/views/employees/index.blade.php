@@ -6,9 +6,8 @@
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span>Employees</h2>
         <a href="#addEmployeeModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Employee</a>
     </div>
-    <!-- <hr> -->
-    <div class="table-responsive">
-    <table class="table">
+    <div class="">
+    <table class="table dataTable">
         <thead>
             <tr>
                 <th>Sr.No</th>
@@ -19,6 +18,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Incentive</th>
                 <th width="160px">Action</th>
             </tr>
         </thead>
@@ -28,9 +28,9 @@
                 <td>{{$key + 1}}</td>
                 <td>
                     @if($employee->photo)
-                    <img src="{{Storage::url($employee->photo)}}" height="70px" style="border-radius: 50%;width: 70px;">
+                    <img src="{{Storage::url($employee->photo)}}" style="border-radius: 50%;width: 70px; height: 70px;">
                     @else
-                    <img src="{{asset('img/user.png')}}" height="70px" style="border-radius: 50%;width: 70px;">
+                    <img src="{{asset('img/user.png')}}" style="border-radius: 50%;width: 70px; height: 70px;">
                     @endif
                 </td>
                 @if(auth()->user()->mode)
@@ -39,11 +39,13 @@
                 <td>{{$employee->fullname}}</td>
                 <td>{{$employee->email}}</td>
                 <td>{{$employee->phone}}</td>
+                <td>{{isset($employee->incentive) && $employee->incentive ? $employee->incentive->name : '-'}}</td>
                 <td>
-                    <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                    <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                    <a href="/employees/{{$employee->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
                     <form method="post" action="/employees/{{$employee->id}}/delete" class="d-inline">
                         @csrf
-                        <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
+                        <button type="submit" class="btn btn-sm" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
                     </form>
 
                     <div class="modal fade in editEmployeeModal{{$key}}" id="editEmployeeModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,7 +85,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-sm-6">
-                                                <label>Email ID<sup class="error">*</sup></label>
+                                                <label>Email Address<sup class="error">*</sup></label>
                                                 <input type="email" name="email" value="{{$employee->email}}" class="form-control" placeholder="Store email" required>
                                             </div>
                                             <div class="col-sm-6">
@@ -108,29 +110,37 @@
                                                 @endif
                                             </div>
                                         </div>
-                                                <!-- <div class="row form-group">
-                                                    <div class="col-sm-6">
-                                                        <label>Password<sup class="error">*</sup></label>
-                                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
-                                                    </div>
-                                                </div> -->
+                                        <div class="row form-group">
+                                            <div class="col-sm-6">
+                                                <label>Payout & Incentives<sup class="error">*</sup></label>
+                                                <select name="incentive_id" class="form-control" required>
+                                                    <option disabled selected>-- Select Incentive --</option>
+                                                    @foreach($incentives as $incentive)
+                                                    <option value="{{$incentive->id}}" {{isset($employee->incentive_id) && $employee->incentive_id == $incentive->id ? 'selected' : ''}}>{{$incentive->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                                                <button type="submit" class="btn btn-primary">Update</button>
-                                            </div>
-                                        </form>
+                                            <!-- <div class="col-sm-6">
+                                                <label>Password<sup class="error">*</sup></label>
+                                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                            </div> -->
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
                             </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-            {{ $employees->links() }}
-        </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+</div>
 
 
         <div class="modal fade in addEmployeeModal" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -170,8 +180,8 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col-sm-6">
-                                    <label>Email ID<sup class="error">*</sup></label>
-                                    <input type="email" name="email" class="form-control" placeholder="Store email" required>
+                                    <label>Email Address<sup class="error">*</sup></label>
+                                    <input type="email" name="email" class="form-control" placeholder="Employee email" data-parsley-remote="{{url('/employees/email/{value}/available')}}" data-parsley-remote-message="Email already exist!" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Phone<sup class="error">*</sup></label>
@@ -190,6 +200,15 @@
                                 </div>
                             </div>
                             <div class="row form-group">
+                                <div class="col-sm-6">
+                                    <label>Payout & Incentives<sup class="error">*</sup></label>
+                                    <select name="incentive_id" class="form-control" required>
+                                        <option disabled selected>-- Select Incentive --</option>
+                                        @foreach($incentives as $incentive)
+                                        <option value="{{$incentive->id}}">{{$incentive->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="col-sm-6">
                                     <label>Password<sup class="error">*</sup></label>
                                     <input type="password" name="password" class="form-control" placeholder="Password" required>

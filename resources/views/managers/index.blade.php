@@ -7,7 +7,7 @@
         <a href="#addManagerModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Manager</a>
     </div>
     <!-- <hr> -->
-    <table class="table">
+    <table class="table dataTable">
         <thead>
             <tr>
                 <th>Sr.No</th>
@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-sm-6">
-                                                <label>Email ID</label>
+                                                <label>Email Address</label>
                                                 <input type="email" name="email" value="{{isset($manager->email) ? $manager->email : ''}}" class="form-control" placeholder="Manager email" required>
                                             </div>
                                             <div class="col-sm-6">
@@ -80,7 +80,6 @@
             @endif
         </tbody>
     </table>
-    {{ $managers->links() }}
 </div>
 
 
@@ -108,7 +107,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email ID<sup class="error">*</sup></label>
+                            <label>Email Address<sup class="error">*</sup></label>
                             <input type="email" name="email" class="form-control" placeholder="Manager email" required>
                         </div>
                         <div class="col-sm-6">

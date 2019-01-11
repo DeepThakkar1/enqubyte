@@ -10,8 +10,8 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <a href="/home">
-                <img src="{{ url('img/logo.png') }}">
-            </a>
+                    <img src="{{ url('img/logo.png') }}">
+                </a>
             </div>
 
             <ul class="list-unstyled components">
@@ -22,12 +22,45 @@
                         <span>{{ __('Dashboard') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('enquiries*') ? 'active' : ''}}">
+               <!--  <li class="{{ request()->is('enquiries*') ? 'active' : ''}}">
                     <a href="/enquiries">
                         <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
                         <span>{{ __('Enquiries') }}</span>
                     </a>
+                </li> -->
+                <li class="{{ request()->is('sales*') ? 'active' : ''}}">
+                    <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/sale.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/sale-clr.png') }}" class="active-icon">
+                        <span>{{ __('Sales') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="salesSubmenu">
+                        <li>
+                            <a href="/enquiries">{{ __('Enquiries') }}</a>
+                        </li>
+                        <li>
+                            <a href="/sales/invoices">{{ __('Invoices') }}</a>
+                        </li>
+                         <li>
+                            <a href="/customers">{{ __('Customers') }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="{{ request()->is('purchases*') ? 'active' : ''}}">
+                    <a href="#purchasesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/purchase.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/purchase-clr.png') }}" class="active-icon">
+                        <span>{{ __('Purchases') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="purchasesSubmenu">
+                        <li>
+                            <a href="/purchases">{{ __('Purchase Orders') }}</a>
+                        </li>
+                        <li>
+                            <a href="/vendors">{{ __('Vendors') }}</a>
+                        </li>
+                    </ul>
                 </li>
                 @if(auth()->user()->mode)
                 <li class="{{ request()->is('stores*') ? 'active' : ''}}">
@@ -39,6 +72,39 @@
                 </li>
                 @endif
                 <li class="{{ request()->is('products*') ? 'active' : ''}}">
+                    <a href="#entitiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <span>{{ __('Entities') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="entitiesSubmenu">
+                        <li>
+                            <a href="/products">{{ __('Products') }}</a>
+                        </li>
+                        <li>
+                            <a href="/employees">{{ __('Employees') }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="{{ request()->is('statements*') ? 'active' : ''}}">
+                    <a href="#statementsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/statement.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/statement-clr.png') }}" class="active-icon">
+                        <span>{{ __('Statements') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="statementsSubmenu">
+                        <li>
+                            <a href="/statements/customer">{{ __('Customer') }}</a>
+                        </li>
+                        <li>
+                            <a href="/statements/vendor">{{ __('Vendor') }}</a>
+                        </li>
+                        <li>
+                            <a href="/statements/salesman">{{ __('Salesman Incentives') }}</a>
+                        </li>
+                    </ul>
+                </li>
+              <!--   <li class="{{ request()->is('products*') ? 'active' : ''}}">
                     <a href="/products">
                         <img src="{{ url('img/sidebar/products.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/products-clr.png') }}" class="active-icon">
@@ -51,7 +117,7 @@
                         <img src="{{ url('img/sidebar/employee-clr.png') }}" class="active-icon">
                         <span>{{ __('Employees') }}</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="{{ request()->is('visitors*') ? 'active' : ''}}">
                     <a href="/visitors">
                         <img src="{{ url('img/sidebar/employee.png') }}" class="inactive-icon">
@@ -59,13 +125,13 @@
                         <span>{{ __('Visitors') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('customers*') ? 'active' : ''}}">
+               <!--  <li class="{{ request()->is('customers*') ? 'active' : ''}}">
                     <a href="/customers">
                         <img src="{{ url('img/sidebar/employee.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/employee-clr.png') }}" class="active-icon">
                         <span>{{ __('Customers') }}</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#">
                         <img src="{{ url('img/sidebar/reports.png') }}" class="inactive-icon">
@@ -73,28 +139,32 @@
                         <span>{{ __('Reports') }}</span>
                     </a>
                 </li>
-                <li class="{{ request()->is('settings*') ? 'active' : ''}}">
+                <!-- <li class="{{ request()->is('settings*') ? 'active' : ''}}">
                     <a href="/settings">
                         <img src="{{ url('img/sidebar/settings.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/settings-clr.png') }}" class="active-icon">
                         <span>{{ __('Settings') }}</span>
                     </a>
-                </li>
-
-                <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                </li> -->
+                <li class="{{ request()->is('settings*') ? 'active' : ''}}">
+                    <a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <img src="{{ url('img/sidebar/settings.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/settings-clr.png') }}" class="active-icon">
+                        <span>{{ __('Settings') }}</span>
+                    </a>
+                    <ul class="collapse list-unstyled" id="settingsSubmenu">
                         <li>
-                            <a href="#">Home 1</a>
+                            <a href="/settings">{{ __('General') }}</a>
                         </li>
                         <li>
-                            <a href="#">Home 2</a>
+                            <a href="/taxes">{{ __('Taxes') }}</a>
                         </li>
                         <li>
-                            <a href="#">Home 3</a>
+                            <a href="/incentives">{{ __('Payout & Incentives') }}</a>
                         </li>
                     </ul>
-                </li> -->
+                </li>
+
 
                 <li>
                     <a href="{{ route('logout') }}"

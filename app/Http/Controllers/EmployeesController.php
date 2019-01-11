@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Incentive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\NewEmployee;
 
 class EmployeesController extends Controller
 {
@@ -28,9 +30,9 @@ class EmployeesController extends Controller
     public function index()
     {
         $stores = auth()->user()->stores;
-        $employees = auth()->user()->employees()->paginate(10);
-
-        return view('employees.index', compact('stores', 'employees'));
+        $employees = auth()->user()->employees()->get();
+        $incentives = Incentive::all();
+        return view('employees.index', compact('stores', 'employees', 'incentives'));
     }
 
     /**
@@ -67,7 +69,15 @@ class EmployeesController extends Controller
 
         $newData['company_id'] = auth()->id();
         $newData['password'] = Hash::make($newData['password']);
-        auth()->user()->employees()->create($newData);
+        $employee = auth()->user()->employees()->create($newData);
+
+        if($request->wantsJson())
+        {
+            return response($employee, 200);
+        }
+
+        $employee->notify(new NewEmployee($employee, auth()->user()));
+
         flash('Employee added successfully!');
         return back();
     }
@@ -80,7 +90,7 @@ class EmployeesController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view('employees.show', compact('employee'));
     }
 
     /**
@@ -132,5 +142,15 @@ class EmployeesController extends Controller
         $employee->delete();
         flash('Employee deleted successfully!');
         return back();
+    }
+
+    public function emailIsAvailable($email)
+    {
+        $isAvailable = !Employee::where('email', $email)->exists();
+        if ($isAvailable) {
+            return response(['status'=>true], 200);
+        }else{
+            return response(['status'=>false], 404);
+        }
     }
 }

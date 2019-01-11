@@ -7,8 +7,8 @@
         <a href="#addVisitorModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Visitor</a>
     </div>
     <!-- <hr> -->
-    <div class="table-responsive">
-        <table class="table">
+    <div class="">
+        <table class="table dataTable">
             <thead>
                 <tr>
                     <th>Sr.No</th>
@@ -27,6 +27,8 @@
                     <td>{{$visitor->phone}}</td>
                     <td>
                         <a href="#editVisitorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                        <a href="/visitors/{{$visitor->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
+
                         <form method="post" action="/visitors/{{$visitor->id}}/delete" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this employee?');"><i class="fa fa-trash"></i> </button>
@@ -69,8 +71,8 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
-                                                    <label>Email ID<sup class="error">*</sup></label>
-                                                    <input type="email" name="email" value="{{$visitor->email}}" class="form-control" placeholder="Visitor email" required>
+                                                    <label>Email Address</label>
+                                                    <input type="email" name="email" value="{{$visitor->email}}" class="form-control" placeholder="Visitor email">
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
@@ -96,7 +98,6 @@
             </tbody>
         </table>
     </div>
-    {{ $visitors->links() }}
 </div>
 
 
@@ -138,8 +139,8 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email ID<sup class="error">*</sup></label>
-                            <input type="email" name="email" class="form-control" placeholder="Visitor email" required>
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Visitor email">
                         </div>
                         <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>

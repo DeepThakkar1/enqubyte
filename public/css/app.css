@@ -10735,11 +10735,12 @@ input.parsley-error {
   font-weight: 500;
   font-size: 16px;
   color: #222629;
+  z-index: 9999;
 }
 
 a.btn-addMoreItems {
   position: absolute;
-  bottom: 195px;
+  bottom: 0px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -10752,5 +10753,29 @@ a.btn-addMoreItems {
 
 .select2-container .select2-selection--single {
   height: 47px !important;
+}
+
+a.select2-additem {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 5px;
+  padding: 5px;
+  display: block;
+  color: #166ead;
+  border-top: 1px solid #ccc;
+  width: 97%;
+}
+
+.select2-container {
+  width: 100% !important;
+}
+
+.table .select2-container {
+  max-width: 300px;
+}
+
+tbody.tableBodyItems tr:last-child td {
+  padding-bottom: 30px;
 }
 

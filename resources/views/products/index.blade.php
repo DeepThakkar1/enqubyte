@@ -20,12 +20,13 @@
     </div>
 </div>
 <!-- <hr> -->
-<div class="table-responsive product-add-list">
-    <table class="table">
+<div class=" product-add-list">
+    <table class="table dataTable">
         <thead>
             <tr class="product-list-menu">
                 <th>Sr.No</th>
                 <th>Name</th>
+                <th>Product Code</th>
                 <th>Cost Price</th>
                 <th>Selling Price</th>
                 <th>Stock</th>
@@ -37,11 +38,13 @@
             <tr>
                 <td>{{$key + 1}}</td>
                 <td>{{$product->name}}</td>
+                <td>{{$product->product_code}}</td>
                 <td>&#8377; {{$product->cost_price}}</td>
                 <td>&#8377; {{$product->selling_price}}</td>
                 <td>{{$product->stock}}</td>
                 <td>
                     <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="/products/{{$product->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
                     <form method="post" action="/products/{{$product->id}}/delete" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i></button>
@@ -81,26 +84,33 @@
                                                     <label>Selling Price<sup class="error">*</sup></label>
                                                     <input type="text" name="selling_price" value="{{$product->selling_price}}" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <!-- <div class="col-sm-6">
                                                     <label>Available Stock</label>
                                                     <input type="text" pattern="\d*" name="stock" value="{{$product->stock}}" class="form-control" placeholder="Available Stock">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
+                                                </div> -->
                                                 <div class="col-sm-6">
                                                     <label>Cost Price</label>
                                                     <input type="text" name="cost_price" value="{{$product->cost_price}}" pattern="\d*" class="form-control" placeholder="Cost Price">
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <label>Tax<sup class="error">*</sup></label>
-                                                    <input type="text" pattern="\d*" name="tax" value="{{$product->tax}}" class="form-control" placeholder="Tax" required>
-                                                </div>
                                             </div>
                                             <div class="row form-group">
+                                                <div class="col-sm-6">
+                                                    <label>Tax<sup class="error">*</sup></label>
+                                                    <select class="form-control" name="tax" required>
+                                                        <option selected disabled>-- Choose Tax --</option>
+                                                        <option value="0">None</option>
+                                                        <?php $taxes = getTaxes() ?>
+                                                        @foreach($taxes as $tax )
+                                                            <option value="{{$tax->rate}}" {{isset($product->tax) && $product->tax == $tax->rate ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                                 <div class="col-sm-6">
                                                     <label>HSN Code</label>
                                                     <input type="text" name="hsn_code" value="{{$product->hsn_code}}" class="form-control" placeholder="HSN Code">
                                                 </div>
+                                            </div>
+                                            <div class="row form-group">
                                                 <div class="col-sm-6">
                                                     <label>Product Code</label>
                                                     <input type="text" name="product_code" value="{{$product->product_code}}" class="form-control" placeholder="Product Code">
@@ -121,7 +131,6 @@
             </tbody>
         </table>
     </div>
-    {{ $products->links() }}
 </div>
 
 <div class="modal fade in addProductModal" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -158,26 +167,33 @@
                             <label>Selling Price<sup class="error">*</sup></label>
                             <input type="text" name="selling_price" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <label>Available Stock</label>
                             <input type="text" pattern="\d*" name="stock" class="form-control" placeholder="Available Stock">
-                        </div>
-                    </div>
-                    <div class="row form-group">
+                        </div> -->
                         <div class="col-sm-6">
                             <label>Cost Price</label>
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>
-                        <div class="col-sm-6">
-                            <label>Tax<sup class="error">*</sup></label>
-                            <input type="text" pattern="\d*" name="tax" class="form-control" placeholder="Tax" required>
-                        </div>
                     </div>
                     <div class="row form-group">
+                        <div class="col-sm-6">
+                            <label>Tax<sup class="error">*</sup></label>
+                            <select class="form-control" name="tax" required>
+                                <option selected disabled>-- Choose Tax --</option>
+                                <option value="0">None</option>
+                                <?php $taxes = getTaxes() ?>
+                                @foreach($taxes as $tax )
+                                    <option value="{{$tax->rate}}" >{{$tax->abbreviation}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-sm-6">
                             <label>HSN Code</label>
                             <input type="text" name="hsn_code" class="form-control" placeholder="HSN Code">
                         </div>
+                    </div>
+                    <div class="row form-group">
                         <div class="col-sm-6">
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">

@@ -8,10 +8,14 @@ use App\Models\Manager;
 use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Employee;
+use App\Models\PurchaseOrder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Store extends Model
 {
+    use Notifiable;
+
     protected $fillable = [
         'user_id', 'name', 'address', 'location', 'email', 'phone', 'pincode',
     ];
@@ -49,5 +53,10 @@ class Store extends Model
     public function enquiries()
     {
         return $this->hasMany(Enquiry::class)->latest();
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(PurchaseOrder::class)->latest();
     }
 }
