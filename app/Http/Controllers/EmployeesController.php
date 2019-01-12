@@ -31,7 +31,7 @@ class EmployeesController extends Controller
     {
         $stores = auth()->user()->stores;
         $employees = auth()->user()->employees()->get();
-        $incentives = Incentive::all();
+        $incentives = auth()->user()->incentives;
         return view('employees.index', compact('stores', 'employees', 'incentives'));
     }
 

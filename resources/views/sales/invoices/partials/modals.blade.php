@@ -10,6 +10,7 @@
             <form class="frmCustomer">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorCustomer error" style="display: none;">Fill all required fields.</p>
                     @if(auth()->user()->mode)
                     <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
@@ -70,6 +71,7 @@
             <form class="frmProduct">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorProduct error" style="display: none;">Fill all required fields.</p>
                     @if(auth()->user()->mode)
                     <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
@@ -140,13 +142,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Record a payment for this invoice</h5>
-                <button type="button" class="close btn-close-modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form class="frmRecordPayment">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorRecordPayment error" style="display: none;">Fill all required fields.</p>
                     <p>Record a payment you’ve already received, such as cash, cheque, or bank payment.</p>
                     <div class="row form-group">
                         <div class="col-sm-6">
@@ -155,7 +158,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Amount<sup class="error">*</sup></label>
-                            <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
+                            <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control inputInvoiceAmt" autocomplete="off" placeholder="Amount" required>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -185,7 +188,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="button" id="recordPayment" class="btn btn-primary">Submit</button>
                 </div>
             </form>
@@ -205,6 +208,7 @@
             <form class="frmEmployee" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorEmployee error" style="display: none;">Fill all required fields.</p>
                     @if(auth()->user()->mode)
                     <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
@@ -279,6 +283,9 @@
 @push('js')
     <script>
         $('#addCustomer').on('click', function(){
+            var parsley = $('.frmCustomer').parsley().isValid();
+            if (parsley) {
+                $('.errorCustomer').hide();
             var data = $('.frmCustomer').serialize();
             axios.post('/visitors', data)
             .then(function(response){
@@ -296,10 +303,16 @@
                 $('.frmCustomer').trigger('reset');
                 $('.addCustomerModal').modal('hide');
             })
+        }else{
+            $('.errorCustomer').show();
+        }
         });
 
 
         $('#addProduct').on('click', function(){
+            var parsley = $('.frmProduct').parsley().isValid();
+            if (parsley) {
+                $('.errorProduct').hide();
             var data = $('.frmProduct').serialize();
             axios.post('/products', data)
             .then(function(response){
@@ -332,10 +345,15 @@
                 $('.frmProduct').trigger('reset');
                 $('.addProductModal').modal('hide');
             })
+        }else{
+            $('.errorProduct').show();
+        }
         });
 
         $('#addEmployee').on('click', function(){
-
+            var parsley = $('.frmEmployee').parsley().isValid();
+            if (parsley) {
+                $('.errorEmployee').hide();
         var selectBox = $(this).data('select');
         /*var data = $('.frmEmployee').serialize();
         axios.post('/employees', data)*/
@@ -356,9 +374,15 @@
                 $('.frmEmployee').trigger('reset');
                 $('.addEmployeeModal').modal('hide');
             })
+    }else{
+        $('.errorEmployee').show();
+    }
     });
 
         $('#recordPayment').on('click', function(){
+            var parsley = $('.frmRecordPayment').parsley().isValid();
+            if(parsley){
+            $('.errorRecordPayment').hide();
             var data = $('.frmRecordPayment').serialize();
             axios.post('/sales/invoices/{{isset($invoice) ? $invoice->id : ''}}/recordpayment', data)
             .then(function(response){
@@ -386,15 +410,20 @@
                             <strong>&#8377; ' + response.data.invoice.remaining_amount + '</strong>\
                             </td></tr>';
                 $('.table-invoiceTotal tbody').append(html);
-                $('.invoiceAmt').html(response.data.invoice.remaining_amount);
-                $('.invoiceStatus').html(response.data.invoice.remaining_amount ? 'Pending' : 'Completed');
                 $('.frmRecordPayment').trigger('reset');
+                $('.invoiceAmt').html(response.data.invoice.remaining_amount);
+                $('.inputInvoiceAmt').val(response.data.invoice.remaining_amount);
+
+                $('.invoiceStatus').html(response.data.invoice.remaining_amount ? 'Pending' : 'Completed');
                 $('.btnEditInvoice').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
                 $('.btnRecordPayment').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
                 $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.invoice.remaining_amount ? 'bg-warning' : 'bg-success');
 
                 $('.recordPaymentModal').modal('hide');
             })
+        }else{
+            $('.errorRecordPayment').show();
+        }
         });
     </script>
 @endpush
