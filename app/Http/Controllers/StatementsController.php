@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Vendor;
 use App\Models\Product;
 use App\Models\Visitor;
@@ -88,29 +89,43 @@ class StatementsController extends Controller
 
     public function profitandloss()
     {
-        $totalSale = auth()->user()->invoices->sum('grand_total');
-        $totalPurchase = auth()->user()->purchases->sum('grand_total');
-        $employeeIds =  auth()->user()->employees->pluck('id');
-        $invoiceIds =  auth()->user()->invoices->pluck('id');
-        $incentives = auth()->user()->invoices()->sum('incentive_amt');
-        $expenses = $totalPurchase + $incentives;
-        $profit = $totalSale - $expenses;
+        if (request('start_date') && request('end_date')) {
+            $totalSale = auth()->user()->invoices()->whereBetween('invoice_date', [request('start_date'), request('end_date')])->sum('grand_total');
+            $totalPurchase = auth()->user()->purchases()->whereBetween('purchase_date', [request('start_date'), request('end_date')])->sum('grand_total');
+            $incentives = auth()->user()->invoices()->whereBetween('invoice_date', [request('start_date'), request('end_date')])->sum('incentive_amt');
+            $expenses = $totalPurchase + $incentives;
+            $profit = $totalSale - $expenses;
+        }else{
+            $totalSale = auth()->user()->invoices->sum('grand_total');
+            $totalPurchase = auth()->user()->purchases->sum('grand_total');
+            $incentives = auth()->user()->invoices()->sum('incentive_amt');
+            $expenses = $totalPurchase + $incentives;
+            $profit = $totalSale - $expenses;
+        }
         return view('statements.profit_loss_account', compact('expenses', 'profit', 'totalSale', 'totalPurchase', 'incentives'));
     }
 
     public function cashaccount()
     {
-        $employeeIds =  auth()->user()->employees->pluck('id');
-        $incentives = IncentiveTransaction::whereIn('employee_id', $employeeIds)->sum('amount');
-
-        $purchases = auth()->user()->purchases;
-        $purchaseIds =  collect($purchases)->pluck('id');
-        $totalPurchase = PurchaseOrderRecordPayment::whereIn('purchase_order_id', $purchaseIds)->sum('amount');
-
-        $invoices = auth()->user()->invoices;
-        $invoiceIds =  collect($invoices)->pluck('id');
-        $totalSale = RecordPayment::whereIn('invoice_id', $invoiceIds)->sum('amount');
-
+        if (request('start_date') && request('end_date')) {
+            $employeeIds =  auth()->user()->employees->pluck('id');
+            $incentives = IncentiveTransaction::whereIn('employee_id', $employeeIds)->whereBetween('created_at', [ Carbon::createFromFormat('d-m-Y', request('start_date')), Carbon::createFromFormat('d-m-Y', request('end_date'))])->sum('amount');
+            $purchases = auth()->user()->purchases;
+            $purchaseIds =  collect($purchases)->pluck('id');
+            $totalPurchase = PurchaseOrderRecordPayment::whereIn('purchase_order_id', $purchaseIds)->whereBetween('payment_date', [request('start_date'), request('end_date')])->sum('amount');
+            $invoices = auth()->user()->invoices;
+            $invoiceIds =  collect($invoices)->pluck('id');
+            $totalSale = RecordPayment::whereIn('invoice_id', $invoiceIds)->whereBetween('payment_date', [request('start_date'), request('end_date')])->sum('amount');
+        }else{
+            $employeeIds =  auth()->user()->employees->pluck('id');
+            $incentives = IncentiveTransaction::whereIn('employee_id', $employeeIds)->sum('amount');
+            $purchases = auth()->user()->purchases;
+            $purchaseIds =  collect($purchases)->pluck('id');
+            $totalPurchase = PurchaseOrderRecordPayment::whereIn('purchase_order_id', $purchaseIds)->sum('amount');
+            $invoices = auth()->user()->invoices;
+            $invoiceIds =  collect($invoices)->pluck('id');
+            $totalSale = RecordPayment::whereIn('invoice_id', $invoiceIds)->sum('amount');
+        }
         $expenses = $totalPurchase + $incentives;
         $profit = $totalSale - $expenses;
 
