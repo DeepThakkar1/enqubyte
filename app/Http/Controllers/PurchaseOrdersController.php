@@ -21,7 +21,11 @@ class PurchaseOrdersController extends Controller
      */
     public function index()
     {
-        $purchases = auth()->user()->purchases;
+        if (request('start_date') && request('end_date')) {
+            $purchases = auth()->user()->purchases()->whereBetween('purchase_date', [request('start_date'), request('end_date')])->get();
+        }else{
+            $purchases = auth()->user()->purchases;
+        }
         return view('purchases.index', compact('purchases'));
     }
 

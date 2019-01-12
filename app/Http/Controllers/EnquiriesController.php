@@ -29,7 +29,11 @@ class EnquiriesController extends Controller
      */
     public function index()
     {
-        $enquiries = auth()->user()->enquiries;
+        if (request('start_date') && request('end_date')) {
+            $enquiries = auth()->user()->enquiries()->whereBetween('enquiry_date', [request('start_date'), request('end_date')])->get();
+        }else{
+            $enquiries = auth()->user()->enquiries;
+        }
         return view('enquiries.index', compact('enquiries'));
     }
 
