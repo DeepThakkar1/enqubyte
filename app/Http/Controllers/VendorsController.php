@@ -68,7 +68,13 @@ class VendorsController extends Controller
      */
     public function show(Vendor $vendor)
     {
-        return view('vendors.show', compact('vendor'));
+
+        $purchases = $vendor->purchases;
+        $purchasesCount = $purchases->count();
+        $totalPurchase = $purchases->sum('grand_total');
+        $remaining = $purchases->sum('remaining_amount');
+
+        return view('vendors.show', compact('vendor', 'purchases', 'purchasesCount', 'totalPurchase', 'remaining'));
     }
 
     /**

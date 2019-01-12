@@ -69,7 +69,15 @@ class CustomersController extends Controller
      */
     public function show(Visitor $visitor)
     {
-        return view('customers.show', compact('visitor'));
+
+        $enquiries = $visitor->enquiries;
+        $enquiriesCount = $enquiries->count();
+        $invoices = $visitor->invoices;
+        $invoicesCount = $invoices->count();
+        $totalSale = $invoices->sum('grand_total');
+        $remaining = $invoices->sum('remaining_amount');
+
+        return view('customers.show', compact('visitor', 'enquiries', 'enquiriesCount', 'invoicesCount', 'invoices', 'totalSale', 'remaining'));
     }
 
     /**

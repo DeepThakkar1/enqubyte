@@ -26,7 +26,11 @@ class InvoicesController extends Controller
      */
     public function index()
     {
-        $invoices = auth()->user()->invoices;
+        if (request('start_date') && request('end_date')) {
+            $invoices = auth()->user()->invoices()->whereBetween('invoice_date', [request('start_date'), request('end_date')])->get();
+        }else{
+            $invoices = auth()->user()->invoices;
+        }
         return view('sales.invoices.index', compact('invoices'));
     }
 

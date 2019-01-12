@@ -6,7 +6,8 @@
         <h2 class="d-inline-block headline-content">Invoices</h2>
         <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a>
     </div>
-    <div class="">
+    @include('components.filters.datefilter')
+    <div class="mt-4">
         <table class="table descDataTable">
             <thead>
                 <tr class="product-list-menu">
