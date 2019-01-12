@@ -39,7 +39,7 @@
                 <td>{{$employee->fullname}}</td>
                 <td>{{$employee->email}}</td>
                 <td>{{$employee->phone}}</td>
-                <td>{{isset($employee->incentive) && $employee->incentive ? $employee->incentive->name : '-'}}</td>
+                <td>{{isset($employee->incentive) && $employee->incentive ? $employee->incentive->name : 'None'}}</td>
                 <td>
                     <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
                     <a href="/employees/{{$employee->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
