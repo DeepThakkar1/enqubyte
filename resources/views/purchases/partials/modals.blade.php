@@ -10,6 +10,7 @@
             <form class="frmVendor">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorVendor error" style="display: none;">Fill all required fields.</p>
                     @if(auth()->user()->mode)
                     <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
@@ -70,6 +71,7 @@
             <form class="frmProduct">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorProduct error" style="display: none;">Fill all required fields.</p>
                     @if(auth()->user()->mode)
                     <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
@@ -98,7 +100,6 @@
                             <label>Cost Price</label>
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>
-
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
@@ -118,7 +119,6 @@
                         </div>
                     </div>
                     <div class="row form-group">
-
                         <div class="col-sm-6">
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">
@@ -138,6 +138,9 @@
 @push('js')
     <script>
         $('#addVendor').on('click', function(){
+            var parsley = $('.frmVendor').parsley().isValid();
+            if (parsley) {
+                $('.errorVendor').hide();
             var data = $('.frmVendor').serialize();
             axios.post('/vendors', data)
             .then(function(response){
@@ -155,10 +158,16 @@
                 $('.frmVendor').trigger('reset');
                 $('.addVendorModal').modal('hide');
             })
+        }else{
+            $('.errorVendor').show();
+        }
         });
 
 
         $('#addProduct').on('click', function(){
+            var parsley = $('.frmProduct').parsley().isValid();
+            if (parsley) {
+                $('.errorProduct').hide();
             var data = $('.frmProduct').serialize();
             axios.post('/products', data)
             .then(function(response){
@@ -191,6 +200,9 @@
                 $('.frmProduct').trigger('reset');
                 $('.addProductModal').modal('hide');
             })
+        }else{
+            $('.errorProduct').show();
+        }
         });
     </script>
 @endpush

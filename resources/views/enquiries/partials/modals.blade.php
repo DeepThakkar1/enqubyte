@@ -10,6 +10,7 @@
             <form class="frmCustomer">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorCustomer error" style="display: none;">Fill all required fields.</p>
                     @if(auth()->user()->mode)
                     <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
@@ -70,6 +71,7 @@
             <form class="frmProduct">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorProduct error" style="display: none;">Fill all required fields.</p>
                     @if(auth()->user()->mode)
                     <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
@@ -147,6 +149,7 @@
             <form class="frmEmployee" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorEmployee error" style="display: none;">Fill all required fields.</p>
                     @if(auth()->user()->mode)
                     <div class="form-group">
                         <label>Store<sup class="error">*</sup></label>
@@ -221,7 +224,9 @@
 @push('js')
 <script>
     $('#addCustomer').on('click', function(){
-
+        var parsley = $('.frmCustomer').parsley().isValid();
+            if (parsley) {
+                $('.errorCustomer').hide();
         var selectBox = $(this).data('select');
         var data = $('.frmCustomer').serialize();
         axios.post('/visitors', data)
@@ -240,10 +245,16 @@
                 $('.frmCustomer').trigger('reset');
                 $('.addCustomerModal').modal('hide');
             })
+    }else{
+        $('.errorCustomer').show();
+    }
     });
 
 
     $('#addProduct').on('click', function(){
+        var parsley = $('.frmProduct').parsley().isValid();
+            if (parsley) {
+                $('.errorProduct').hide();
         var data = $('.frmProduct').serialize();
         axios.post('/products', data)
         .then(function(response){
@@ -276,10 +287,15 @@
             $('.frmProduct').trigger('reset');
             $('.addProductModal').modal('hide');
         })
+    }else{
+        $('.errorProduct').show();
+    }
     });
 
     $('#addEmployee').on('click', function(){
-
+        var parsley = $('.frmEmployee').parsley().isValid();
+            if (parsley) {
+                $('.errorEmployee').hide();
         var selectBox = $(this).data('select');
         // var data = $('.frmEmployee').serialize();
         var formData = new FormData($('.frmEmployee')[0]);
@@ -299,6 +315,9 @@
                 $('.frmEmployee').trigger('reset');
                 $('.addEmployeeModal').modal('hide');
             })
+    }else{
+        $('.errorEmployee').show();
+    }
     });
 </script>
 @endpush
