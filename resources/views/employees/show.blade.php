@@ -9,10 +9,7 @@
             <a href="/employees"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Employees</a>
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> {{$employee->fullname}}
         </h2>
-        @include('components.exportbuttons.topbar')
     </div>
-    @include('components.filters.datefilter')
-    @include('components.tabs.tabularChart')
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
             <div class="container px-5">
@@ -25,23 +22,23 @@
                         <div class="d-flex">
                             <div class="px-4 text-center">
                                 <div>Total Enquiries</div>
-                                <h3>{{ count($employee->enquiries)}}</h3>
+                                <h3>{{ $enquiriesCount }}</h3>
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Invoices</div>
-                                <h3>{{ count($employee->invoices)}}</h3>
+                                <h3>{{ $invoicesCount }}</h3>
                             </div>
                             <div class="px-4 text-center">
-                                <div>Total Earnings</div>
-                                <h3>&#8377; {{$employee->total_earnings}}</h3>
+                                <div>Total Sale</div>
+                                <h3>&#8377; {{$totalSale}}</h3>
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Earn</div>
-                                <h3>&#8377; {{$employee->total_earnings - $employee->total_remaining}}</h3>
+                                <h3>&#8377; {{$totalSale - $remaining}}</h3>
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Remaining</div>
-                                <h3>&#8377; {{$employee->total_remaining}}</h3>
+                                <h3>&#8377; {{$remaining}}</h3>
                             </div>
                         </div>
                     </div>
@@ -67,7 +64,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($employee->enquiries as $key => $enquiry)
+                                    @foreach($enquiries as $key => $enquiry)
                                     <tr>
                                         <td><a href="/enquiries/{{$enquiry->sr_no}}" target="_blank" class="text-primary">ENQ-00{{$enquiry->sr_no}}</a></td>
                                         <td>
@@ -108,7 +105,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($employee->invoices as $key => $invoice)
+                                    @foreach($invoices as $key => $invoice)
                                     <tr>
                                         <td><a href="/sales/invoices/{{$invoice->sr_no}}" target="_blank" class="text-primary">INV-00{{$invoice->sr_no}}</a></td>
                                         <td>
@@ -122,7 +119,7 @@
                                         <td>{{$invoice->due_date}}</td>
                                         <td>&#8377; {{$invoice->grand_total}}</td>
                                         <td>&#8377; {{$invoice->remaining_amount}}</td>
-                                        <td>&#8377; {{isset($invoice->incentive) ? $invoice->incentive->incentive_amount : '0'}}</td>
+                                        <td>&#8377; {{$invoice->incentive_amt}}</td>
                                         <td><span class="badge badge-{{$invoice->remaining_amount > 0 ? 'warning' : 'success'}}">{{$invoice->remaining_amount > 0 ? 'Pending' : 'Completed'}}</span></td>
                                     </tr>
                                     @endforeach

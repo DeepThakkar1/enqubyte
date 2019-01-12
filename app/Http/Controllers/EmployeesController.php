@@ -90,7 +90,15 @@ class EmployeesController extends Controller
      */
     public function show(Employee $employee)
     {
-        return view('employees.show', compact('employee'));
+
+        $enquiries = $employee->enquiries;
+        $enquiriesCount = $enquiries->count();
+        $invoices = $employee->invoices;
+        $invoicesCount = $invoices->count();
+        $totalSale = $invoices->sum('grand_total');
+        $remaining = $invoices->sum('remaining_amount');
+
+        return view('employees.show', compact('employee', 'enquiries', 'enquiriesCount', 'invoicesCount', 'invoices', 'totalSale', 'remaining'));
     }
 
     /**

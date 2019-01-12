@@ -9,10 +9,7 @@
             <a href="/vendors"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Vendors</a>
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> {{$vendor->name}}
         </h2>
-        @include('components.exportbuttons.topbar')
     </div>
-    @include('components.filters.datefilter')
-    @include('components.tabs.tabularChart')
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
             <div class="container px-5">
@@ -24,8 +21,16 @@
                     <div class="ml-auto p-2">
                         <div class="d-flex">
                             <div class="px-4 text-center">
+                                <div>Total Purchase Orders</div>
+                                <h3>{{ $purchasesCount }}</h3>
+                            </div>
+                            <div class="px-4 text-center">
                                 <div>Total Purchases</div>
-                                <h3>{{ count($vendor->purchases)}}</h3>
+                                <h3>{{ $totalPurchase }}</h3>
+                            </div>
+                            <div class="px-4 text-center">
+                                <div>Total Remaining</div>
+                                <h3>{{ $remaining }}</h3>
                             </div>
                         </div>
                     </div>
@@ -52,7 +57,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($vendor->purchases as $key => $purchase)
+                                    @foreach($purchases as $key => $purchase)
                                     <tr>
                                         <td><a href="/purchases/{{$purchase->sr_no}}" target="_blank" class="text-primary">P/O 00{{$purchase->sr_no}}</a></td>
                                         <td>{{$purchase->order_id}}</td>

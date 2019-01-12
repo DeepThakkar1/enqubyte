@@ -3,16 +3,13 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"><span>
+        <h2 class="d-inline-block headline-content">
             <a href="/products" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a>
             <a href="/home"> Home  </a>
-            <a href="/products"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Products</a>
-            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> {{$product->name}}
+            <a href="/products"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Products</a>
+            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> {{$product->name}}
         </h2>
-        @include('components.exportbuttons.topbar')
     </div>
-    @include('components.filters.datefilter')
-    @include('components.tabs.tabularChart')
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
             <div class="container px-5">

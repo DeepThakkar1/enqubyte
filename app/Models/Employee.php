@@ -57,8 +57,6 @@ class Employee extends Model
         return $this->hasMany(SalesmanIncentive::class)->latest();
     }
 
-
-
     public function incentivetransactions()
     {
         return $this->hasMany(IncentiveTransaction::class);
