@@ -247,7 +247,7 @@ class EnquiriesController extends Controller
         $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
 
         flash('Invoice created successfully!');
-        return redirect('/sales/invoices/' . $invoice->id);
+        return redirect('/sales/invoices/' . $invoice->sr_no);
     }
 
     /**
