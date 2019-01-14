@@ -33,7 +33,7 @@
                     <td><span class="badge badge-{{$purchase->remaining_amount ? 'warning' : 'success'}}">{{$purchase->remaining_amount ? 'Pending' : 'Completed'}}</span> </td>
                     <td>
                         <a href="/purchases/{{$purchase->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>
-                        <a href="/purchases/{{$purchase->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
+                        <a href="/purchases/{{$purchase->sr_no}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
 
                         <form method="post" action="/purchases/{{$purchase->id}}/delete" class="d-inline">
                             @csrf

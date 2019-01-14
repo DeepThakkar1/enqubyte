@@ -37,13 +37,15 @@ class RecordPaymentsController extends Controller
      */
     public function store(Request $request, Invoice $invoice)
     {
-        $invoice->remaining_amount -= floatval($request->amount);
-        $invoice->save();
-        $payment = $invoice->payments()->create($request->all());
+        if ($request->amount) {
+            $invoice->remaining_amount -= floatval($request->amount);
+            $invoice->save();
+            $payment = $invoice->payments()->create($request->all());
 
-        $invoice->customer->notify(new InvoiceTransaction($invoice, $payment, auth()->user()));
+            $invoice->customer->notify(new InvoiceTransaction($invoice, $payment, auth()->user()));
 
-        return response(['invoice' => $invoice, 'payment' => $payment], 200);
+            return response(['invoice' => $invoice, 'payment' => $payment], 200);
+        }
     }
 
     /**

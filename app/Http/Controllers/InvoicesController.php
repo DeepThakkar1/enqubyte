@@ -135,8 +135,9 @@ class InvoicesController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show($invoice)
     {
+        $invoice = auth()->user()->invoices->where('sr_no', $invoice)->first();
         return view('sales.invoices.show', compact('invoice'));
     }
 

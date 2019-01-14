@@ -136,7 +136,7 @@
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
-                responsive: true,
+                // responsive: true,
                 searching: false,
                 paging: false
             });
@@ -145,7 +145,7 @@
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
-                responsive: true,
+                // responsive: true,
                 "order": [[ 0, "desc" ]],
                 searching: false,
                 paging: false

@@ -25,7 +25,7 @@ class CustomersController extends Controller
     public function index()
     {
         $stores = auth()->user()->stores;
-        $customers = auth()->user()->visitors()->where('is_customer', 1)->get();
+        $customers = auth()->user()->visitors()->where('is_customer', 1)->where('status', '!=', -1)->get();
 
         return view('customers.index', compact('stores', 'customers'));
     }
@@ -113,7 +113,8 @@ class CustomersController extends Controller
      */
     public function destroy(Visitor $visitor)
     {
-        $visitor->delete();
+        $visitor->status = -1;
+        $visitor->save();
         flash('Customer deleted successfully!');
         return back();
     }

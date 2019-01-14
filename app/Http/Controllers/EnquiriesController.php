@@ -101,8 +101,9 @@ class EnquiriesController extends Controller
      * @param  \App\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
-    public function show(Enquiry $enquiry)
+    public function show($enquiry)
     {
+        $enquiry = auth()->user()->enquiries->where('sr_no', $enquiry)->first();
         return view('enquiries.show', compact('enquiry'));
     }
 
