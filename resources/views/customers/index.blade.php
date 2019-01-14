@@ -26,7 +26,7 @@
                     <td>{{$customer->email}}</td>
                     <td>{{$customer->phone}}</td>
                     <td>
-                        <a href="#editCustomerModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                        <a href="#editCustomerModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fas fa-pencil-alt"></i>  </a>
                         <a href="/customers/{{$customer->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                         <form method="post" action="/customers/{{$customer->id}}/delete" class="d-inline">
                             @csrf
@@ -153,7 +153,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="submit" class="btn btn-primary"> Add</button>
                 </div>
             </form>
         </div>

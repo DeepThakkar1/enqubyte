@@ -7,18 +7,18 @@
 
 
         <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
+        <nav id="sidebar" style="background-color: #343536;">
+            <div class="sidebar-header" style="background-color: #343536;">
                 <a href="/home">
-                    <img src="{{ url('img/logo.png') }}">
+                    <img src="{{ url('img/enque bite colours white.png') }}">
                 </a>
             </div>
 
             <ul class="list-unstyled components">
                 <li class="{{ request()->is('home') ? 'active' : ''}}">
                     <a href="/home">
-                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/dashboard.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/dashboard-clr.png') }}" class="active-icon">
                         <span>{{ __('Dashboard') }}</span>
                     </a>
                 </li>
@@ -31,8 +31,8 @@
                 </li> -->
                 <li class="{{ request()->is('sales*') ? 'active' : ''}}">
                     <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <img src="{{ url('img/sidebar/sale.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/sale-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/sale-black.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/sale.png') }}" class="active-icon">
                         <span>{{ __('Sales') }}</span>
                     </a>
                     <ul class="collapse list-unstyled" id="salesSubmenu">
@@ -52,16 +52,16 @@
                 @if(auth()->user()->mode)
                 <li class="{{ request()->is('stores*') ? 'active' : ''}}">
                     <a href="/stores">
-                        <img src="{{ url('img/sidebar/stores.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/stores-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/sale.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/sales.png') }}" class="active-icon">
                         <span>{{ __('Stores') }}</span>
                     </a>
                 </li>
                 @endif
                 <li class="{{ request()->is('products*') ? 'active' : ''}}">
                     <a href="#entitiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <img src="{{ url('img/sidebar/dashboard.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/dashboard-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/dashboard.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/dashboard-clr.png') }}" class="active-icon">
                         <span>{{ __('Entities') }}</span>
                     </a>
                     <ul class="collapse list-unstyled" id="entitiesSubmenu">
@@ -113,8 +113,8 @@
                 </li> -->
                 <li class="{{ request()->is('visitors*') ? 'active' : ''}}">
                     <a href="/visitors">
-                        <img src="{{ url('img/sidebar/employee.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/employee-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/visitor.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/vistors.png') }}" class="active-icon">
                         <span>{{ __('Visitors') }}</span>
                     </a>
                 </li>
@@ -127,8 +127,8 @@
                 </li> -->
                 <li>
                     <a href="/reports">
-                        <img src="{{ url('img/sidebar/reports.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/reports-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/progress-report.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/report.png') }}" class="active-icon">
                         <span>{{ __('Reports') }}</span>
                     </a>
                 </li>
@@ -141,8 +141,8 @@
                 </li> -->
                 <li class="{{ request()->is('settings*') ? 'active' : ''}}">
                     <a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <img src="{{ url('img/sidebar/settings.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/settings-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/settings-gears.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/settings-gears1.png') }}" class="active-icon">
                         <span>{{ __('Settings') }}</span>
                     </a>
                     <ul class="collapse list-unstyled" id="settingsSubmenu">
@@ -163,8 +163,8 @@
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                        <img src="{{ url('img/sidebar/logout.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/logout-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/logout1.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/logout.png') }}" class="active-icon">
                         <span>{{ __('Logout') }}</span>
                     </a>
 
@@ -173,32 +173,32 @@
                     </form>
                 </li>
             </ul>
-            <ul class="social-links">
+            <!-- <ul class="social-links">
                 <li>
                     <a href="javascript:;">
-                        <img src="{{ url('img/sidebar/facebook.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/facebook-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/facebook.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/facebook-white.png') }}" class="active-icon">
                     </a>
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <img src="{{ url('img/sidebar/instagram.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/instagram-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/instagram.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/instagram-white.png') }}" class="active-icon">
                     </a>
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <img src="{{ url('img/sidebar/twitter.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/twitter-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/twitter.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/twitter-white.png') }}" class="active-icon">
                     </a>
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <img src="{{ url('img/sidebar/linkedin.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/linkedin-clr.png') }}" class="active-icon">
+                        <img src="{{ url('img/sidebar/icon/linked.png') }}" class="inactive-icon">
+                        <img src="{{ url('img/sidebar/icon/linked-white.png') }}" class="active-icon">
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </nav>
         <nav id="sidebars">
             <div class="sidebar-header">

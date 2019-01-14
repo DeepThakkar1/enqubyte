@@ -7,7 +7,7 @@
         <a href="/enquiries/add" class="btn btn-primary float-right">Add Enquiry</a>
     </div>
     @include('components.filters.datefilter')
-    <div class="mt-4">
+    <div class="">
         <table class="table descDataTable">
             <thead>
                 <tr class="product-list-menu">

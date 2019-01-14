@@ -26,7 +26,7 @@
                     <td>{{$vendor->email}}</td>
                     <td>{{$vendor->phone}}</td>
                     <td>
-                        <a href="#editVendorModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                        <a href="#editVendorModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fas fa-pencil-alt"></i>  </a>
                         <a href="/vendors/{{$vendor->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
 
                         <form method="post" action="/vendors/{{$vendor->id}}/delete" class="d-inline">
@@ -154,7 +154,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="submit" class="btn btn-primary"> Add</button>
                 </div>
             </form>
         </div>

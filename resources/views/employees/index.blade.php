@@ -28,9 +28,9 @@
                 <td>{{$key + 1}}</td>
                 <td>
                     @if($employee->photo)
-                    <img src="{{Storage::url($employee->photo)}}" style="border-radius: 50%;width: 70px; height: 70px;">
+                    <img src="{{Storage::url($employee->photo)}}" style="border-radius: 50%;width: 50px; height: 50px;">
                     @else
-                    <img src="{{asset('img/user.png')}}" style="border-radius: 50%;width: 70px; height: 70px;">
+                    <img src="{{asset('img/user.png')}}" style="border-radius: 50%;width: 50px; height: 50px;">
                     @endif
                 </td>
                 @if(auth()->user()->mode)
@@ -41,7 +41,7 @@
                 <td>{{$employee->phone}}</td>
                 <td>{{isset($employee->incentive) && $employee->incentive ? $employee->incentive->name : 'None'}}</td>
                 <td>
-                    <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                    <a href="#editEmployeeModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fas fa-pencil-alt"></i>  </a>
                     <a href="/employees/{{$employee->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
                     <form method="post" action="/employees/{{$employee->id}}/delete" class="d-inline">
                         @csrf
@@ -219,7 +219,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                            <button type="submit" class="btn btn-primary"> Add</button>
                         </div>
                     </form>
                 </div>

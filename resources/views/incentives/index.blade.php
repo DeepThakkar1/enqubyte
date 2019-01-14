@@ -120,7 +120,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="submit" class="btn btn-primary"> Add</button>
                 </div>
             </form>
         </div>

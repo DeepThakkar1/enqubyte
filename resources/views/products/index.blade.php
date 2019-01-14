@@ -5,7 +5,7 @@
     <div class="headline-contents responsive-headline-contents">
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Products</h2>
         <div class="float-md-right">
-            <div class="btn-group">
+           <!--  <div class="btn-group">
               <button type="button" class="btn btn-outline-primary custom-primary">Product</button>
               <button type="button" class="btn btn-outline-primary custom-primary custom-dropdwon-toogle-filter dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                 <span class="caret"></span>
@@ -14,8 +14,8 @@
                 <a class="dropdown-item" href="#">Product One</a>
                 <a class="dropdown-item" href="#">Product Two</a>
             </div>
-        </div>
-        <a href="#addProductModal" data-toggle="modal" style="font-size: 14px;" class="btn btn-primary ml-2"><!-- <i class="fa fa-plus-circle"></i> --> Add Product</a>
+        </div> -->
+        <a href="#addProductModal" data-toggle="modal" class="btn btn-primary ml-2"><!-- <i class="fa fa-plus-circle"></i> --> Add Product</a>
         <!-- <a href="#addMaterialModal" data-toggle="modal" style="font-size: 14px;" class="btn btn-primary ml-2"><i class="fa fa-plus-circle"></i></a> -->
     </div>
 </div>
@@ -43,7 +43,7 @@
                 <td>&#8377; {{$product->selling_price}}</td>
                 <td>{{$product->stock}}</td>
                 <td>
-                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fas fa-pencil-alt"></i></a>
                     <a href="/products/{{$product->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
                     <form method="post" action="/products/{{$product->id}}/delete" class="d-inline">
                         @csrf
@@ -202,7 +202,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="submit" class="btn btn-primary"> Add</button>
                 </div>
             </form>
         </div>

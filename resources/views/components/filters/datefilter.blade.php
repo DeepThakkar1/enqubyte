@@ -1,4 +1,4 @@
-<div class="card rounded-0">
+<div class="card rounded-0 border-bottom-0">
     <div class="card-body">
         <form action="">
             <div class="row">

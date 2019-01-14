@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid pl-0 pr-0">
-    <div class="headline-contents" style="border-bottom: 1px solid #ccc;">
+    <div class="headline-contents" style="border-bottom: 1px solid #f0f0f0;">
         <h2 class="d-inline-block headline-content">Dashboard</h2>
     </div>
     <!-- <hr> -->

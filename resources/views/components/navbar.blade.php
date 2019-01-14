@@ -23,7 +23,8 @@
     </div> -->
 
     <form class="form-inline">
-        <i class="fa fa-search" aria-hidden="true" style="color: #d2cccc;padding: 9px;margin-top: -2px;margin-right: -7px;font-size: 12px;"></i> <input class="form-control mr-sm-2 custom-search-input" style="border:none;outline: transparent !important;font-size: 14px;width: 455px;margin-top: 0;padding-top: 3px;padding-left: 5px;" type="search" placeholder="Search by Lead, Contact, Account, Deal, Report " aria-label="Search">
+        <i class="fa fa-search" aria-hidden="true" style="color: #d2cccc;padding: 9px;margin-top: 0px;margin-right: -7px;font-size: 12px;"></i> 
+        <input class="form-control mr-sm-2 custom-search-input" style="border:none !important;outline: transparent !important;font-size: 14px;width: 455px;margin-top: -2px;padding-top: 0px;padding-left: 5px;" type="search" placeholder="Search by Lead, Contact, Account, Deal, Report " aria-label="Search">
         <!-- <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" style="height: 46px;">Search</button> -->
     </form>
 
@@ -63,26 +64,96 @@
                         </div>
                     </div>
                 </div>
-                <div class="drop-content dropdown-menu-right">
+                <div class="drop-content dropdown-menu-right notification-dropdown">
                     <li>
                         <div class="row">
-                            <div class="col-md-3">
-                                
+                            <div class="col-md-2">
+                                <div class="text-center notification-dropdown-icon">
+                                    <a href="">
+                                        <img src="{{ url('img/sidebar/icon/calendar-clr.png') }}" alt="">
+                                        <!-- <i class="fa fa-calendar-check-o" aria-hidden="true" style="display: inline-block;"></i> -->
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-8 notification-reminder pl-0">
+                                <h6>REMINDER</h6>
+                                <p>(Sample) Send the pricing quote</p>
+                                <a data-toggle="modal" href="#addMaterialModal" class="nav-link text-center custom-dashboard-nav-link navbar-cust-icons notification-user-initial" style="background-color: rgb(22, 110, 173) !important;"> <b>J</b> </a>
+                                <!-- <p>j</p> -->
+                            </div>
+                            <div class="col-md-2">
+                                <div class="notification-days">
+                                    <span>2 Days</span>
+                                </div>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="row">
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                <div class="notify-img">
-                                    <img src="http://placehold.it/45x45" alt="">
+                            <div class="col-md-2">
+                                <div class="text-center notification-dropdown-icon">
+                                    <a href="">
+                                        <img src="{{ url('img/sidebar/icon/calendar-clr.png') }}" alt="">
+                                        <!-- <i class="fa fa-calendar-check-o" aria-hidden="true" style="display: inline-block;"></i> -->
+                                    </a>
                                 </div>
                             </div>
-                            <div class="col-md-9 col-sm-9 col-xs-9 pd-l0">
-                                <a href="">Ahmet</a> yorumladı. <a href="">Çicek bahçeleri...</a>
-                                <a href="" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
-                                <p>Lorem ipsum sit dolor amet consilium.</p>
-                                <p class="time">1 Saat önce</p>
+                            <div class="col-md-8 notification-reminder pl-0">
+                                <h6>REMINDER</h6>
+                                <p>(Sample) Send the pricing quote</p>
+                                <a data-toggle="modal" href="#addMaterialModal" class="nav-link text-center custom-dashboard-nav-link navbar-cust-icons notification-user-initial" style="background-color: rgb(22, 110, 173) !important;"> <b>J</b> </a>
+                                <!-- <p>j</p> -->
+                            </div>
+                            <div class="col-md-2">
+                                <div class="notification-days">
+                                    <span>2 Days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="text-center notification-dropdown-icon">
+                                    <a href="">
+                                        <img src="{{ url('img/sidebar/icon/calendar-clr.png') }}" alt="">
+                                        <!-- <i class="fa fa-calendar-check-o" aria-hidden="true" style="display: inline-block;"></i> -->
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-8 notification-reminder pl-0">
+                                <h6>REMINDER</h6>
+                                <p>(Sample) Send the pricing quote</p>
+                                <a data-toggle="modal" href="#addMaterialModal" class="nav-link text-center custom-dashboard-nav-link navbar-cust-icons notification-user-initial" style="background-color: rgb(22, 110, 173) !important;"> <b>J</b> </a>
+                                <!-- <p>j</p> -->
+                            </div>
+                            <div class="col-md-2">
+                                <div class="notification-days">
+                                    <span>2 Days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="text-center notification-dropdown-icon">
+                                    <a href="">
+                                        <img src="{{ url('img/sidebar/icon/calendar-clr.png') }}" alt="">
+                                        <!-- <i class="fa fa-calendar-check-o" aria-hidden="true" style="display: inline-block;"></i> -->
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-8 notification-reminder pl-0">
+                                <h6>REMINDER</h6>
+                                <p>(Sample) Send the pricing quote</p>
+                                <a data-toggle="modal" href="#addMaterialModal" class="nav-link text-center custom-dashboard-nav-link navbar-cust-icons notification-user-initial" style="background-color: rgb(22, 110, 173) !important;"> <b>J</b> </a>
+                                <!-- <p>j</p> -->
+                            </div>
+                            <div class="col-md-2">
+                                <div class="notification-days">
+                                    <span>2 Days</span>
+                                </div>
                             </div>
                         </div>
                     </li>
@@ -134,8 +205,10 @@
 <div class="modal fade in addProductModal" id="addMaterialModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <!-- <div class="modal-header"> <button type="button" aria-label="Close" class="close btn-close-modal"><span aria-hidden="true">×</span></button></div> -->
             <div class="modal-body p-0">
                 <div class="entity-section">
+                    <button type="button" aria-label="Close" class="close btn-close-modal p-1 pr-2"><span aria-hidden="true">×</span></button>
                     <h5 class="bg-light p-2" style="font-size: 15px;text-transform: uppercase;">Entities</h5>
                 </div>
                 <div class="pt-3 pb-3">
@@ -143,25 +216,25 @@
                         <div class="col-md-3">
                             <a href="/products">
                                 <img src="/img/icons/hired.png" alt="icons">
-                                <p>Products</p>
+                                <p>Product</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/employees">
                                 <img src="/img/icons/visitor.png" alt="icons">
-                                <p>Employees</p>
+                                <p>Employee</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/vendors">
                                 <img src="/img/icons/customer.png" alt="icons">
-                                <p>Vendors</p>
+                                <p>Vendor</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/customers">
                                 <img src="/img/icons/reports.png" alt="icons">
-                                <p>Customers</p>
+                                <p>Customer</p>
                             </a>
                         </div>
                     </div>
@@ -175,7 +248,7 @@
                         <div class="col-md-3">
                             <a href="/visitors">
                                 <img src="/img/icons/responsive.png" alt="icons">
-                                <p>Visitors</p>
+                                <p>Visitor</p>
                             </a>
                         </div>
                         <div class="col-md-3">
@@ -187,7 +260,7 @@
                         <div class="col-md-3">
                             <a href="/incentives">
                                 <img src="/img/icons/customer-service.png" alt="icons">
-                                <p>Payout & Incentives</p>
+                                <p>Incentive</p>
                             </a>
                         </div>
                        <!--  <div class="col-md-3">

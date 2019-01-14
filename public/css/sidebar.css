@@ -76,7 +76,7 @@ a:focus {
     text-align: center;
 }
 #sidebar .sidebar-header img{
-    height: 55px;
+    height: 50px;
 }
 #sidebar ul.components {
     padding: 20px 0;
@@ -92,11 +92,12 @@ a:focus {
     padding: 12px 20px;
     font-size: 1.1em;
     display: block;
-    color: #4d6575;
+    color: #999;
+    background-color: #343536;
 }
 
 #sidebar ul li a:hover {
-    color: #166ead;
+    color: #fff;
     /*font-weight: 500;*/
     /*background: #fff;*/
 }
@@ -105,7 +106,8 @@ a:focus {
 a[aria-expanded="true"] {
     /*background: #136acd;*/
     font-weight: 500;
-    color: #166ead;
+    /*color: #166ead;*/
+    color: #fff;
 }
 #sidebar ul li a img {
     width: 25px;
@@ -133,6 +135,7 @@ a[aria-expanded="true"] {
 
 #sidebar ul li a:hover .active-icon, #sidebar ul li.active a .active-icon {
     display: inline-block;
+    color: #fff !important;
 }
 
 #sidebar ul li.active a .sidebar-icon.dashboard{
