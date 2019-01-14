@@ -32,7 +32,7 @@
                     <td class="text-right">&#8377; {{$invoice->remaining_amount}}</td>
                     <td><span class="badge badge-{{$invoice->remaining_amount ? 'warning' : 'success'}}">{{$invoice->remaining_amount ? 'Pending' : 'Completed'}}</span> </td>
                     <td>
-                        <a href="/sales/invoices/{{$invoice->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
+                        <a href="/sales/invoices/{{$invoice->sr_no}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                         <a href="/sales/invoices/{{$invoice->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>
                         <form method="post" action="/sales/invoices/{{$invoice->id}}/delete" class="d-inline">
                             @csrf
