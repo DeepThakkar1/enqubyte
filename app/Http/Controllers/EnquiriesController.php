@@ -103,7 +103,6 @@ class EnquiriesController extends Controller
      */
     public function show($enquiry)
     {
-        dd($enquiry);
         $enquiry = auth()->user()->enquiries->where('sr_no', $enquiry)->first();
         return view('enquiries.show', compact('enquiry'));
     }
