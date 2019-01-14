@@ -136,7 +136,9 @@
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
-                responsive: true
+                responsive: true,
+                searching: false,
+                paging: false
             });
 
             $('.descDataTable').DataTable({
@@ -144,7 +146,9 @@
                     selector: 'td:nth-child(2)'
                 },
                 responsive: true,
-                "order": [[ 0, "desc" ]]
+                "order": [[ 0, "desc" ]],
+                searching: false,
+                paging: false
             });
 
             $('.btn-close-modal').on('click', function(){
