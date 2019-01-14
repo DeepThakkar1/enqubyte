@@ -25,7 +25,7 @@ class VisitorsController extends Controller
     public function index()
     {
         $stores = auth()->user()->stores;
-        $visitors = auth()->user()->visitors()->where('is_customer', 0)->get();
+        $visitors = auth()->user()->visitors()->where('is_customer', 0)->where('status', '!=', -1)->get();
 
         return view('visitors.index', compact('stores', 'visitors'));
     }
@@ -104,8 +104,19 @@ class VisitorsController extends Controller
      */
     public function destroy(Visitor $visitor)
     {
-        $visitor->delete();
+        $visitor->status = -1;
+        $visitor->save();
         flash('Visitor deleted successfully!');
         return back();
+    }
+
+    public function emailIsAvailable($email)
+    {
+        $isAvailable = auth()->user()->visitors()->where('email', $email)->exists();
+        if ($isAvailable) {
+            return response(['status'=>true], 200);
+        }else{
+            return response(['status'=>false], 404);
+        }
     }
 }

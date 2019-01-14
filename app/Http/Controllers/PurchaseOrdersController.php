@@ -99,8 +99,9 @@ class PurchaseOrdersController extends Controller
      * @param  \App\Models\PurchaseOrder  $purchaseOrder
      * @return \Illuminate\Http\Response
      */
-    public function show(PurchaseOrder $purchaseOrder)
+    public function show($purchaseOrder)
     {
+        $purchaseOrder = auth()->user()->purchases->where('sr_no', $purchaseOrder)->first();
         return view('purchases.show', compact(('purchaseOrder')));
     }
 

@@ -22,7 +22,7 @@
                     <div class="px-4">
                         <div>Invoice</div>
                         <h3>
-                        <a href="/sales/invoices/{{$enquiry->invoice->id}}"  class="text-primary">INV-00{{$enquiry->invoice->id}} </a>
+                        <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
                         </h3>
                     </div>
                     @endif
@@ -90,7 +90,7 @@
                     <div class="px-4">
                         <h3 class="">Get Invoice</h3>
                         @if(isset($enquiry->invoice))
-                        <div class=""><a href="/sales/invoices/{{$enquiry->invoice->id}}" class="text-primary" target="_blank">#INV-00{{$enquiry->invoice->id}} </a> </div>
+                        <div class=""><a href="/sales/invoices/{{$enquiry->invoice->sr_no}}" class="text-primary" target="_blank">#INV-00{{$enquiry->invoice->sr_no}} </a> </div>
                         @endif
                     </div>
                     <div class="ml-auto p-2">
@@ -98,10 +98,10 @@
                         <a href="#cancelEnquiryModal" data-toggle="modal" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
                         @endif
                         @if(!$enquiry->status == 1)
-                        <a href="/enquiries/{{$enquiry->id}}/invoice" class="btn btn-outline-primary" title="Convert to Invoice">Convert to Sale</a>
+                        <a href="/enquiries/{{$enquiry->sr_no}}/invoice" class="btn btn-outline-primary" title="Convert to Invoice">Convert to Sale</a>
                         @endif
                         @if($enquiry->status == 1)
-                        <a href="/sales/invoices/{{$enquiry->invoice->id}}"  class="btn btn-outline-primary" title="View Invoice">View Invoice</a>
+                        <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="btn btn-outline-primary" title="View Invoice">View Invoice</a>
                         @endif
                     </div>
                 </div>

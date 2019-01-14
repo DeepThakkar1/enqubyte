@@ -193,7 +193,7 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <label>Photo<sup class="error">*</sup></label>
-                                    <input type="file" name="photo" class="form-control" required>
+                                    <input type="file" name="photo" class="form-control" accept="image/*" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label>ID Proof<sup class="error">*</sup></label>

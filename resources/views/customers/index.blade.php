@@ -70,8 +70,8 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
-                                                    <label>Email Address<sup class="error">*</sup></label>
-                                                    <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Customer email" required>
+                                                    <label>Email Address</label>
+                                                    <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Customer email" >
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
@@ -138,8 +138,8 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email Address<sup class="error">*</sup></label>
-                            <input type="email" name="email" class="form-control" placeholder="Customer email" required>
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Customer email" data-parsley-remote="{{url('/visitors/email/{value}/available')}}" data-parsley-remote-message="Email already exist!">
                         </div>
                         <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>

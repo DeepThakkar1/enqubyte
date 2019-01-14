@@ -381,8 +381,11 @@
 
         $('#recordPayment').on('click', function(){
             var parsley = $('.frmRecordPayment').parsley().isValid();
+            var payment = $('.inputInvoiceAmt').val();
             if(parsley){
+                if (payment != 0 && payment != '') {
             $('.errorRecordPayment').hide();
+            $(this).addClass('disabled');
             var data = $('.frmRecordPayment').serialize();
             axios.post('/sales/invoices/{{isset($invoice) ? $invoice->id : ''}}/recordpayment', data)
             .then(function(response){
@@ -422,6 +425,10 @@
                 $('.recordPaymentModal').modal('hide');
             })
         }else{
+            $('.errorRecordPayment').html('Please enter valid payable amount.');
+            $('.errorRecordPayment').show();
+        } }else{
+            $('.errorRecordPayment').html('Fill all required fields.');
             $('.errorRecordPayment').show();
         }
         });
