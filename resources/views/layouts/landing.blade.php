@@ -3,6 +3,21 @@
 <html class="no-js" lang="zxx">
 	
 <head>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132387534-1"></script>
+		<script>
+		  	window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+		  	gtag('js', new Date());
+
+		  	gtag('config', 'UA-132387534-1');
+
+			gtag('set', {'user_id': 'USER_ID'}); // Set the user ID using signed-in user_id.
+			ga('set', 'userId', 'USER_ID'); // Set the user ID using signed-in user_id.
+		</script>
+
+
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<title>Enqubyte - Your business assistant</title>
@@ -41,7 +56,7 @@
     
 	<body>
         
-		
+
 		<!-- Load Facebook SDK for JavaScript -->
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
@@ -57,7 +72,7 @@
 		  attribution=install_email
 		  page_id="359699814831143">
 		</div>
-		
+
 	   <main id="content">
             @yield('content')
         </main>
