@@ -108,4 +108,14 @@ class VisitorsController extends Controller
         flash('Visitor deleted successfully!');
         return back();
     }
+
+    public function emailIsAvailable($email)
+    {
+        $isAvailable = auth()->user()->visitors()->where('email', $email)->exists();
+        if ($isAvailable) {
+            return response(['status'=>true], 200);
+        }else{
+            return response(['status'=>false], 404);
+        }
+    }
 }

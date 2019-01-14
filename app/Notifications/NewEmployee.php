@@ -46,7 +46,7 @@ class NewEmployee extends Notification
     {
         return (new MailMessage)
                     ->greeting('Hello!')
-                    ->line('You received an login credential as an employee for ' . $this->company->name)
+                    ->line('You received an login credential as an employee for ' . $this->company->company_name)
                     ->line('Email : '.$this->employee->email)
                     ->line('Password : '. $this->employee->password)
                     ->action('Login', url('/login'))

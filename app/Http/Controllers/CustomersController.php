@@ -98,9 +98,9 @@ class CustomersController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Visitor $visitor)
     {
-        $customer->update($request->all());
+        $visitor->update($request->all());
         flash('Customer updated successfully!');
         return back();
     }
@@ -111,10 +111,11 @@ class CustomersController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(Visitor $visitor)
     {
-        $customer->delete();
+        $visitor->delete();
         flash('Customer deleted successfully!');
         return back();
     }
+
 }

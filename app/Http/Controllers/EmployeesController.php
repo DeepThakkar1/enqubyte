@@ -68,6 +68,7 @@ class EmployeesController extends Controller
         }
 
         $newData['company_id'] = auth()->id();
+        $password = $newData['password'];
         $newData['password'] = Hash::make($newData['password']);
         $employee = auth()->user()->employees()->create($newData);
 
@@ -75,7 +76,8 @@ class EmployeesController extends Controller
         {
             return response($employee, 200);
         }
-
+        $employee['password'] = $password;
+        dd(auth()->user());
         $employee->notify(new NewEmployee($employee, auth()->user()));
 
         flash('Employee added successfully!');

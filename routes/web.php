@@ -68,9 +68,10 @@ Route::post('/visitors/{visitor}/update', 'VisitorsController@update');
 
 Route::get('/customers', 'CustomersController@index');
 Route::post('/customers', 'CustomersController@store');
-Route::post('/customers/{customer}/delete', 'CustomersController@destroy');
-Route::post('/customers/{customer}/update', 'CustomersController@update');
+Route::post('/customers/{visitor}/delete', 'CustomersController@destroy');
+Route::post('/customers/{visitor}/update', 'CustomersController@update');
 Route::get('/customers/{visitor}', 'CustomersController@show');
+Route::get('/customers/email/{email}/available', 'CustomersController@emailIsAvailable');
 
 Route::get('/enquiries', 'EnquiriesController@index');
 Route::get('/enquiries/add', 'EnquiriesController@create');
