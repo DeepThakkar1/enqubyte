@@ -224,18 +224,20 @@ class EnquiriesController extends Controller
             $product->save();
         }
 
-        if(isset($enquiry->employee) && $enquiry->employee->incentive_id != 0){
+        if(isset($invoice->employee) && $invoice->employee->incentive_id != 0){
             $incentiveAmt = 0;
-            if ($enquiry->employee->incentive->type == 1) {
-                $incentiveAmt = $enquiry->employee->incentive->rate;
-            }else if ($enquiry->employee->incentive->type == 2) {
-                $incentiveAmt = (($enquiry->grand_total * $enquiry->employee->incentive->rate) / 100);
+            if ($invoice->employee->incentive->type == 1) {
+                $incentiveAmt = $invoice->employee->incentive->rate;
+            }else if ($invoice->employee->incentive->type == 2) {
+                $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
             }
 
-            if ($enquiry->grand_total >= $enquiry->employee->incentive->minimum_invoice_amt) {
+            if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
+                $invoice->incentive_amt = $incentiveAmt;
+                $invoice->save();
                 $incentive = SalesmanIncentive::create([
-                    'employee_id' => $enquiry->employee_id,
-                    'enquiry_id' => $enquiry->id,
+                    'employee_id' => $invoice->employee_id,
+                    'enquiry_id' => isset($invoice->enquiry_id) ? $invoice->enquiry_id : 0,
                     'invoice_id' => $invoice->id,
                     'incentive_amount' => $incentiveAmt,
                 ]);
