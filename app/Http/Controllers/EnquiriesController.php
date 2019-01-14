@@ -65,9 +65,9 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => 'required',
             'grand_total' => 'required'
         ]);
-        $enquiry = auth()->user()->enquiries->create([
+        $enquiry = Enquiry::create([
             'sr_no' => request('sr_no'),
-            // 'company_id' => auth()->id(),
+            'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,
             'customer_id' => request('customer_id'),
@@ -103,7 +103,6 @@ class EnquiriesController extends Controller
      */
     public function show($enquiry)
     {
-        dd(auth()->user()->enquiries);
         $enquiry = auth()->user()->enquiries->where('sr_no', $enquiry)->first();
         return view('enquiries.show', compact('enquiry'));
     }
