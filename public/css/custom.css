@@ -435,6 +435,12 @@ textarea.form-control {
     vertical-align: -webkit-baseline-middle;
 }
 
+.headline-contents:after {
+    content: '';
+    clear: both !important;
+    display: block;
+}
+
 .navbar-nav .custom-dashboard-nav-link i{
   color: rgb(0, 0, 0);
   font-size: 25px;
@@ -615,8 +621,3 @@ a.upgrade-product-nav p{
 
 
 
-.headline-contents:after {
-    content: '';
-    clear: both !important;
-    display: block;
-}
