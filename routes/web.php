@@ -15,9 +15,9 @@
 //     return view('welcome');
 // });
 
-Route::view('/', 'landing.soon');
+// Route::view('/', 'landing.soon');
 
-/*Route::get('/', 'LandingCotroller@index');*/
+Route::get('/', 'LandingCotroller@index');
 Route::get('/features', 'LandingCotroller@feature');
 Route::get('/privacy-policy', 'LandingCotroller@privacy_policy');
 Route::get('/terms-and-services', 'LandingCotroller@terms_services');
@@ -66,6 +66,7 @@ Route::post('/visitors', 'VisitorsController@store');
 Route::get('/visitors/{visitor}', 'VisitorsController@show');
 Route::post('/visitors/{visitor}/delete', 'VisitorsController@destroy');
 Route::post('/visitors/{visitor}/update', 'VisitorsController@update');
+Route::get('/visitors/email/{email}/available', 'VisitorsController@emailIsAvailable');
 Route::get('/visitorsexcel', 'VisitorsController@exportToExcel');
 
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"> <a href="/enquiries" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Edit Enquiry</h2>
+        <h2 class="d-inline-block headline-content"> <a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Edit Enquiry</h2>
         <div class="float-right">
             @if(!$enquiry->status == 1 && !$enquiry->status == -1)
             <a href="/enquiries/{{$enquiry->id}}/cancel" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
@@ -20,8 +20,8 @@
     <div class="card">
         <form method="post" action="/enquiries/{{$enquiry->id}}/update">
             @csrf
-            <div class="card-body">
-                <div class="row">
+            <div class="card-body p-0">
+                <div class="row p-3 m-0">
                     <div class="col-sm-4 form-group">
                         <label>Enquiry Number</label>
                         <input type="text" name="" class="form-control" value="{{$enquiry->sr_no}}" readonly>
@@ -53,7 +53,7 @@
                         <input type="text" class="form-control datepicker" autocomplete="off" name="followup_date" value="{{$enquiry->followup_date}}" placeholder="Enquiry followup date">
                     </div>
                 </div>
-                <hr>
+                <!-- <hr> -->
                 <div class="table-responsive" style="position: relative;">
                     <table class="table table-enquiryItems m-0">
                         <thead>

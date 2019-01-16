@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"><a href="/sales/invoices" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Edit Invoice</h2>
+        <h2 class="d-inline-block headline-content"><a href="/sales/invoices" class="mr-1"><i class="fa fa-arrow-left"></i></a> Edit Invoice</h2>
         <div class="float-right">
             <a href="/sales/invoices/{{$invoice->id}}" class="btn btn-primary">View Invoice</a>
         </div>
