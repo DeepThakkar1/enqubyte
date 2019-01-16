@@ -3,18 +3,21 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents headline-border-bottom">
-        <h2 class="d-inline-block headline-content"><a href="/sales/invoices" class="mr-1"><i class="fa fa-arrow-left"></i></a> Invoice</h2>
+        <h2 class="d-inline-block headline-content pb-2 pt-1">
+            <a href="/sales/invoices" class="mr-1"><i class="fa fa-arrow-left"></i></a> 
+            Invoice
+        </h2>
         <!-- <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a> -->
     </div>
     <div class="container px-5">
     <div class="d-flex align-self-center">
         <div class="py-2">
             <div>Status</div>
-            <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded"><span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+            <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
         </div>
         <div class="px-4 py-2">
             <div>Customer</div>
-            <h3><a href="" class="text-primary"> {{$invoice->visitor->fullname}}</a></h3>
+            <h3><a href="" class="text-primary custom-primary-text"> {{$invoice->visitor->fullname}}</a></h3>
         </div>
         <div class="ml-auto p-2">
             <div class="d-flex">
@@ -28,11 +31,11 @@
                 @endif
                 <div class="pr-4">
                     <div>Amount Due</div>
-                    <h3>&#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}}</span></h3>
+                    <h3 class="mt-2 Due">&#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}}</span></h3>
                 </div>
                 <div>
                     <div>Due</div>
-                    <h3>{{$invoice->due_date}}</h3>
+                    <h3 class="mt-2 Due">{{$invoice->due_date}}</h3>
                 </div>
             </div>
         </div>
@@ -73,7 +76,7 @@
         <div class="card-body">
             <div class="d-flex p-3">
                 <div class="px-4">
-                    <h3 class="">Get Paid</h3>
+                    <h3 class="pt-2">Get Paid</h3>
                 </div>
                 <div class="ml-auto p-2">
                     @if($invoice->remaining_amount)
@@ -93,8 +96,8 @@
                 <strong>INV-00{{$invoice->sr_no}}</strong>
                 <span class="float-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
             </div>
-            <div class="card-body">
-                <div class="row mb-4">
+            <div class="card-body p-0">
+                <div class="row p-3">
                     <!-- <div class="col-sm-6">
                         <h6 class="mb-3">From:</h6>
                         <div>
@@ -122,7 +125,7 @@
                     </div>
                 </div>
                 <div class="table-responsive-sm">
-                    <table class="table table-striped">
+                    <table class="table table-striped invoice-show-tbl">
                         <thead>
                             <tr>
                                 <th class="center">#</th>
@@ -153,13 +156,13 @@
                     <div class="col-lg-4 col-sm-5">
                     </div>
                     <div class="col-lg-5 col-sm-5 ml-auto">
-                        <table class="table table-clear table-invoiceTotal">
+                        <table class="table table-clear table-invoiceTotal total-tbl">
                             <tbody>
                                 <tr>
-                                    <td class="left">
+                                    <td class="left border-top-0">
                                         <strong>Subtotal</strong>
                                     </td>
-                                    <td class="right" width="130">&#8377; {{$invoice->sub_tot_amt}}</td>
+                                    <td class="right border-top-0" width="130">&#8377; {{$invoice->sub_tot_amt}}</td>
                                 </tr>
                                 <tr>
                                     <td class="left">
@@ -168,10 +171,10 @@
                                     <td class="right">{!!isset($invoice->discount_type) && $invoice->discount_type ==0 ? '&#8377;' : ''!!} {{$invoice->discount}} {{isset($invoice->discount_type) && $invoice->discount_type ==1 ? '%' : ''}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="left">
+                                    <td class="left grandTotalAmount">
                                         <strong>Total</strong>
                                     </td>
-                                    <td class="right">
+                                    <td class="right grandTotalAmount">
                                         <strong>&#8377; {{$invoice->grand_total}}</strong>
                                     </td>
                                 </tr>

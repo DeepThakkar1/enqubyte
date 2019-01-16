@@ -12,7 +12,7 @@
         @include('components.exportbuttons.topbar')
     </div>
     @include('components.filters.datefilter')
-    <div class="card mt-4">
+    <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-around align-items-center p-3">
                 <div class="px-4">

@@ -21,7 +21,7 @@
         <form method="post" action="/enquiries/{{$enquiry->id}}/update">
             @csrf
             <div class="card-body p-0">
-                <div class="row p-3 m-0">
+                <div class="row pl-0 pt-4 pb-3 m-0">
                     <div class="col-sm-4 form-group">
                         <label>Enquiry Number</label>
                         <input type="text" name="" class="form-control" value="{{$enquiry->sr_no}}" readonly>
@@ -54,8 +54,8 @@
                     </div>
                 </div>
                 <!-- <hr> -->
-                <div class="table-responsive" style="position: relative;">
-                    <table class="table table-enquiryItems m-0">
+                <div class="table-responsive m-0" style="position: relative;">
+                    <table class="table table-enquiryItems">
                         <thead>
                             <tr class="product-list-menu">
                                 <th>Items</th>
@@ -108,17 +108,17 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <a href="javascript:;" class="text-primary btn-addMoreItems">Add more item</a>
+                    <a href="javascript:;" class="text-primary btn-addMoreItems ml-4 mb-2">Add more item</a>
                 </div>
 
-                <hr>
+                <hr class="mt-0 mb-0">
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
-                    <div class="p-2">
+                    <div class="p-2 subTotalAmount">
                         &#8377; <span class="subTotAmount font-weight-bold"> {{$enquiry->sub_tot_amt}}</span>
                         <input type="hidden" name="sub_tot_amt" value="{{$enquiry->sub_tot_amt}}">
                     </div>
-                    <div class="p-2 text-right font-weight-bold">Subtotal :</div>
+                    <div class="p-2 text-right subTotalAmount font-weight-bold">Subtotal :</div>
                 </div>
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
@@ -133,11 +133,11 @@
                 </div>
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
-                    <div class="p-2">
+                    <div class="p-2 grandTotalAmount">
                         &#8377; <span class="grandTotAmount font-weight-bold"> {{$enquiry->grand_total}}</span>
                         <input type="hidden" name="grand_total" value="{{$enquiry->grand_total}}">
                     </div>
-                    <div class="p-2 text-right font-weight-bold">Total (INR) :</div>
+                    <div class="p-2 text-right grandTotalAmount font-weight-bold">Total (INR) :</div>
                 </div>
 
             </div>

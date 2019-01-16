@@ -3,18 +3,18 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents headline-border-bottom">
-        <h2 class="d-inline-block headline-content"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
+        <h2 class="d-inline-block headline-content pb-2 pt-1"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
         <!-- <a href="/enquiries/add" class="btn btn-primary float-right">Add Enquiry : </a> -->
     </div>
     <div class="container px-5 ">
         <div class="d-flex align-self-center">
             <div class="py-2">
                 <div>Status</div>
-                <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
+                <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded mt-2">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
             </div>
             <div class="px-4 py-2">
                 <div>Customer</div>
-                <h3><a href="" class="text-primary"> {{$enquiry->customer->fullname}}</a></h3>
+                <h3><a href="" class="text-primary custom-primary-text"> {{$enquiry->customer->fullname}}</a></h3>
             </div>
             <div class="ml-auto p-2">
                 <div class="d-flex">
@@ -28,11 +28,11 @@
                     @endif
                     <div class="pr-4">
                         <div>Amount Due</div>
-                        <h3>&#8377; {{$enquiry->grand_total}}</h3>
+                        <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
                     </div>
                     <div>
                         <div>Followup Date</div>
-                        <h3>{{$enquiry->followup_date}}</h3>
+                        <h3 class="mt-2 Due">{{$enquiry->followup_date}}</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
             <div class="card-body">
                 <div class="d-flex p-3">
                     <div class="px-4">
-                        <h3 class="">Get Invoice</h3>
+                        <h3 class="pt-2">Get Invoice</h3>
                         @if(isset($enquiry->invoice))
                         <div class=""><a href="/sales/invoices/{{$enquiry->invoice->sr_no}}" class="text-primary" target="_blank">#INV-00{{$enquiry->invoice->sr_no}} </a> </div>
                         @endif
@@ -115,8 +115,8 @@
                 <strong>ENQ-00{{ $enquiry->sr_no }}</strong>
                 <span class="float-right"> <strong>Status:</strong> {{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span>
             </div>
-            <div class="card-body">
-                <div class="row mb-4">
+            <div class="card-body p-0">
+                <div class="row mb-4 p-3">
                     <div class="col-sm-6">
                         <h6 class="mb-3">From:</h6>
                         <div>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
                 <div class="table-responsive-sm">
-                    <table class="table table-striped">
+                    <table class="table table-striped invoice-show-tbl">
                         <thead>
                             <tr>
                                 <th class="center">#</th>
@@ -166,13 +166,13 @@
                     <div class="col-lg-4 col-sm-5">
                     </div>
                     <div class="col-lg-4 col-sm-5 ml-auto">
-                        <table class="table table-clear">
+                        <table class="table table-clear total-tbl">
                             <tbody>
                                 <tr>
-                                    <td class="left">
+                                    <td class="left border-top-0">
                                         <strong>Subtotal</strong>
                                     </td>
-                                    <td class="right">&#8377; {{$enquiry->sub_tot_amt}}</td>
+                                    <td class="right border-top-0">&#8377; {{$enquiry->sub_tot_amt}}</td>
                                 </tr>
                                 <tr>
                                     <td class="left">
@@ -181,10 +181,10 @@
                                     <td class="right">{!! isset($enquiry->discount_type) && $enquiry->discount_type ==0 ? '&#8377;' : ''!!} {{$enquiry->discount}} {{isset($enquiry->discount_type) && $enquiry->discount_type ==1 ? '%' : ''}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="left">
+                                    <td class="left grandTotalAmount">
                                         <strong>Total</strong>
                                     </td>
-                                    <td class="right">
+                                    <td class="right grandTotalAmount">
                                         <strong>&#8377; {{$enquiry->grand_total}}</strong>
                                     </td>
                                 </tr>
