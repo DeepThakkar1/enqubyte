@@ -260,6 +260,9 @@ table.dataTable thead th{
      opacity: unset !important;
 }
 
+.headline-border-bottom{
+  border-bottom: solid 1px #f0f0f0;
+}
 
 textarea.form-control {
     height: auto !important;

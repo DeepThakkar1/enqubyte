@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
-    <div class="headline-contents">
+    <div class="headline-contents headline-border-bottom">
         <h2 class="d-inline-block headline-content">
-            <a href="/purchases" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Purchase Order
+            <a href="/purchases" class="mr-1"><i class="fa fa-arrow-left"></i></a> Purchase Order
         </h2>
     </div>
     <div class="container px-5">

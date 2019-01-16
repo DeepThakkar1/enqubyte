@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"> <a href="/enquiries" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Add Enquiry</h2>
+        <h2 class="d-inline-block headline-content"> <a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Add Enquiry</h2>
         <!-- <a href="/enquiries" class="btn btn-secondary float-right">Back</a> -->
     </div>
     <div class="card">

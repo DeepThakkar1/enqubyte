@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents">
-        <h2 class="d-inline-block headline-content"> <a href="/enquiries" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a> Edit Enquiry</h2>
+        <h2 class="d-inline-block headline-content"> <a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Edit Enquiry</h2>
         <div class="float-right">
             @if(!$enquiry->status == 1 && !$enquiry->status == -1)
             <a href="/enquiries/{{$enquiry->id}}/cancel" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>

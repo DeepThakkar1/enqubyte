@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
-    <div class="headline-contents">
-        <h2 class="d-inline-block headline-content">
-            <a href="/products" class="btn btn-sm text-primary"><i class="fa fa-arrow-left"></i></a>
+    <div class="headline-contents headline-border-bottom">
+        <h2 class="d-inline-block headline-content ">
+            <a href="/products" class="mr-1"><i class="fa fa-arrow-left"></i></a>
             <a href="/home"> Home  </a>
             <a href="/products"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Products</a>
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> {{$product->name}}

@@ -25,7 +25,7 @@
                     <td>{{$tax->abbreviation}}</td>
                     <td>{{$tax->rate}}</td>
                     <td>
-                        <a href="#editTaxModal{{$key}}" data-toggle="modal" class="btn btn-primary btn-sm product-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
+                        <a href="#editTaxModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fas fa-pencil-alt"></i>  </a>
                         <form method="post" action="/taxes/{{$tax->id}}/delete" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this tax?');"><i class="fa fa-trash"></i> </button>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="submit" class="btn btn-primary"> Add</button>
                 </div>
             </form>
         </div>
