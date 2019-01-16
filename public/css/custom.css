@@ -460,6 +460,11 @@ textarea.form-control {
   border-color: #fff !important;
   color: #000 !important;
 }
+
+.btn-group .btn{
+  padding: 4px 10px !important;
+}
+
 .custom-dropdwon-toogle-filter::after {
   right: 5px !important;
 }
