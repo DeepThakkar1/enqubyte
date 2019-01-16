@@ -63,8 +63,8 @@ body{
     padding: 6px 20px;
 }
 .btn-outline-primary:focus, .btn-outline-primary.focus {
-     -webkit-box-shadow: none !important; 
-     box-shadow:none !important; 
+     -webkit-box-shadow: none !important;
+     box-shadow:none !important;
 }
 .btn-outline-primary:hover {
     color: #fff !important;
@@ -142,8 +142,8 @@ body{
     background-color: #fff;
     border-color: #a1cbef;
     outline: 0;
-     -webkit-box-shadow: unset !important; 
-     box-shadow: none !important; 
+     -webkit-box-shadow: unset !important;
+     box-shadow: none !important;
 }
 .form-control.form-control-sm {
     height: 30px !important;
@@ -183,7 +183,7 @@ body{
   text-transform: uppercase;
 }
 /*.table th {
-     border-top: none !important; 
+     border-top: none !important;
 }*/
 .table tbody > tr > td{
   padding: 30px 20px !important;
@@ -415,10 +415,11 @@ textarea.form-control {
   /*border-bottom: solid 1px #f0f0f0;*/
   box-shadow: none !important;
 }
-.headline-contents h2{
-  font-size: 14px;
-  margin-top: 6px;
-  font-weight: 600;
+.headline-contents h2 {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 600;
+    vertical-align: -webkit-baseline-middle;
 }
 
 .navbar-nav .custom-dashboard-nav-link i{
@@ -601,3 +602,8 @@ a.upgrade-product-nav p{
 
 
 
+.headline-contents:after {
+    content: '';
+    clear: both !important;
+    display: block;
+}

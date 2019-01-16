@@ -14,6 +14,8 @@ use App\Models\SalesmanIncentive;
 use App\Notifications\NewEnquiry;
 use App\Notifications\UpdateEnquiry;
 use App\Notifications\NewInvoice;
+use App\Exports\EnquiriesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EnquiriesController extends Controller
 {
@@ -276,5 +278,10 @@ class EnquiriesController extends Controller
         $enquiry->update(['followup_date' => $request->followup_date]);
         flash('Enquiry followup date updated successfully!');
         return redirect('/enquiries/'.$enquiry->id);
+    }
+
+    public function exportToExcel(Request $request)
+    {
+        return Excel::download(new EnquiriesExport($request->start_date, $request->end_date), 'enquiries.xlsx');
     }
 }

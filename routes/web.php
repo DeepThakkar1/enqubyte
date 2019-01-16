@@ -86,7 +86,7 @@ Route::post('/enquiries/{enquiry}/delete', 'EnquiriesController@destroy');
 Route::post('/enquiries/{enquiry}/update', 'EnquiriesController@update');
 Route::get('/enquiries/{enquiry}/invoice', 'EnquiriesController@createInvoice');
 Route::get('/enquiries/{enquiry}/cancel', 'EnquiriesController@cancel');
-
+Route::get('/enquiriesexcel', 'EnquiriesController@exportToExcel');
 Route::post('/enquiries/{enquiry}/changefollowupdate', 'EnquiriesController@changefollowupdate');
 
 
