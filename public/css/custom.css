@@ -204,6 +204,16 @@ table.dataTable thead th{
   width: 100%;
   font-size: 12px;
 }
+
+/*----------------------[Forms Footer]--------------------------*/
+
+.subTotalAmount{
+  font-size: 16px;
+}
+.grandTotalAmount{
+  font-size: 17px;
+}
+
 .login-btn-section{
   /*margin-bottom: 10px;*/
 }
@@ -488,7 +498,7 @@ a.upgrade-product-nav p{
 }
 .navbar-light .navbar-nav .nav-link.right-navbar-border::after {
     content: '';
-    border:1px solid #ccc;
+    border-right:1px solid #ccc;
 }
 .notification-dropdown-icon a{
     padding-left: 0px !important;

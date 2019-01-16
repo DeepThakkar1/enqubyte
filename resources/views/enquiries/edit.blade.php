@@ -20,8 +20,8 @@
     <div class="card">
         <form method="post" action="/enquiries/{{$enquiry->id}}/update">
             @csrf
-            <div class="card-body">
-                <div class="row">
+            <div class="card-body p-0">
+                <div class="row p-3 m-0">
                     <div class="col-sm-4 form-group">
                         <label>Enquiry Number</label>
                         <input type="text" name="" class="form-control" value="{{$enquiry->sr_no}}" readonly>
@@ -53,7 +53,7 @@
                         <input type="text" class="form-control datepicker" autocomplete="off" name="followup_date" value="{{$enquiry->followup_date}}" placeholder="Enquiry followup date">
                     </div>
                 </div>
-                <hr>
+                <!-- <hr> -->
                 <div class="table-responsive" style="position: relative;">
                     <table class="table table-enquiryItems m-0">
                         <thead>
