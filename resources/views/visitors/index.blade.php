@@ -4,7 +4,8 @@
 <div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Visitors</h2>
-        <a href="#addVisitorModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Visitor</a>
+        @include('components.exportbuttons.topbar')
+        <a href="#addVisitorModal" data-toggle="modal" class="btn btn-primary mr-2 float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Visitor</a>
     </div>
     <!-- <hr> -->
     <div class="">

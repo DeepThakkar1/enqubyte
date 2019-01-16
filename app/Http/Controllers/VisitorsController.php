@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Visitor;
 use Illuminate\Http\Request;
+use App\Exports\VisitorsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class VisitorsController extends Controller
 {
@@ -119,4 +121,15 @@ class VisitorsController extends Controller
             return response(['status'=>false], 404);
         }
     }
+
+    public function export()
+    {
+        dd(auth()->user()->visitors);
+        // return Excel::download(new VisitorsExport, 'visitors.xlsx');
+    }
+
+    /*public function storeExcel()
+    {
+        return Excel::store(new VisitorsExport, 'invoices.xlsx', 's3');
+    }*/
 }
