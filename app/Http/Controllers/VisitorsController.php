@@ -114,7 +114,7 @@ class VisitorsController extends Controller
 
     public function emailIsAvailable($email)
     {
-        $isAvailable = auth()->user()->visitors()->where('email', $email)->exists();
+        $isAvailable = !auth()->user()->visitors()->where('email', $email)->exists();
         if ($isAvailable) {
             return response(['status'=>true], 200);
         }else{

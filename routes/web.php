@@ -66,6 +66,7 @@ Route::post('/visitors', 'VisitorsController@store');
 Route::get('/visitors/{visitor}', 'VisitorsController@show');
 Route::post('/visitors/{visitor}/delete', 'VisitorsController@destroy');
 Route::post('/visitors/{visitor}/update', 'VisitorsController@update');
+Route::get('/visitors/email/{email}/available', 'VisitorsController@emailIsAvailable');
 Route::get('/visitorsexcel', 'VisitorsController@exportToExcel');
 
 
