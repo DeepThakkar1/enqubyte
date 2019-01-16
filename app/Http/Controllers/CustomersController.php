@@ -119,4 +119,14 @@ class CustomersController extends Controller
         return back();
     }
 
+    public function emailIsAvailable($email)
+    {
+        $isAvailable = auth()->user()->customers()->where('email', $email)->exists();
+        if ($isAvailable) {
+            return response(['status'=>true], 200);
+        }else{
+            return response(['status'=>false], 404);
+        }
+    }
+
 }
