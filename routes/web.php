@@ -131,6 +131,7 @@ Route::get('/incentives', 'IncentivesController@index');
 Route::post('/incentives', 'IncentivesController@store');
 Route::post('/incentives/{incentive}/update', 'IncentivesController@update');
 Route::post('/incentives/{incentive}/delete', 'IncentivesController@destroy');
+Route::get('/incentivesexcel', 'IncentivesController@exportToExcel');
 
 Route::post('/incentives/{employee}/pay', 'IncentiveTransactions@store');
 

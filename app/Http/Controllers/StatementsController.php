@@ -61,7 +61,10 @@ class StatementsController extends Controller
     public function employee()
     {
         $employees = auth()->user()->employees;
-        return view('statements.employee', compact('employees'));
+        $employeeIds =  collect($employees)->pluck('id');
+        $totalIncentive = auth()->user()->invoices()->sum('incentive_amt');
+        $totalPaidIncentive = IncentiveTransaction::whereIn('employee_id', $employeeIds)->groupBy('employee_id')->sum('amount');
+        return view('statements.employee', compact('employees', 'totalIncentive', 'totalPaidIncentive'));
     }
 
     public function salesmanShow(Employee $employee)

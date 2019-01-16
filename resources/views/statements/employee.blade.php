@@ -9,7 +9,15 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Salesman Incentives
         </h2>
-    @include('components.exportbuttons.topbar')
+        <div class="float-right">
+            <div class="btn-toolbar d-inline-block" role="toolbar">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a href="/incentivesexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    <button type="button" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></button>
+                    <button type="button" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></button>
+                </div>
+            </div>
+        </div>
     </div>
     @include('components.tabs.tabularChart')
     <div class="tab-content" id="pills-tabContent">
@@ -77,7 +85,7 @@
             </table>
         </div>
         <div class="tab-pane fade" id="pills-chart" role="tabpanel" aria-labelledby="pills-chart-tab">
-            Chart
+            @include('statements.partials.incentiveschart')
         </div>
     </div>
 
