@@ -132,4 +132,12 @@ class StatementsController extends Controller
         return view('statements.cash_account', compact('expenses', 'profit', 'incentives', 'totalPurchase', 'totalSale'));
     }
 
+    public function monthly()
+    {
+
+        // dd(auth()->user()->monthly_revenue_data);
+
+        return view('statements.monthly');
+    }
+
 }

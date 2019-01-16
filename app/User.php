@@ -112,6 +112,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(ReportFrequency::class, 'company_id');
     }
 
+    public function getMonthlyRevenueDataAttribute()
+    {
+       return auth()->user()->invoices()->selectRaw('MONTH(invoice_date) as month, SUM(grand_total) as revenue')->groupBy(\DB::raw('MONTH(invoice_date)'))->pluck('revenue', 'month');
+    }
 
     public function getFullnameAttribute()
     {

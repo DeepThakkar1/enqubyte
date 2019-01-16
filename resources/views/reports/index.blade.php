@@ -23,6 +23,19 @@
             <div class="card-body">
                 <div class="d-flex p-3">
                     <div class="px-4">
+                        <h3 class="">Monthly Report</h3>
+                        <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,</div>
+                    </div>
+                    <div class="ml-auto p-2">
+                        <a href="/statements/monthly" class="btn btn-outline-primary">View Statement</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="d-flex p-3">
+                    <div class="px-4">
                         <h3 class="">Cash Flow</h3>
                         <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,</div>
                     </div>
