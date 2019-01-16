@@ -11,6 +11,8 @@ use App\Models\SalesmanIncentive;
 use Illuminate\Http\Request;
 use App\Notifications\NewInvoice;
 use App\Notifications\UpdateInvoice;
+use App\Exports\InvoicesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InvoicesController extends Controller
 {
@@ -266,5 +268,14 @@ class InvoicesController extends Controller
         $invoice->delete();
         flash('Invoice deleted successfully!');
         return redirect('/sales/invoices');
+    }
+
+    public function exportToExcel(Request $request)
+    {
+        if($request){
+            return Excel::download(new InvoicesExport($request->start_date, $request->end_date), 'invoices.xlsx');
+        }else{
+            return Excel::download(new InvoicesExport(), 'invoices.xlsx');
+        }
     }
 }

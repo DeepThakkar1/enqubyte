@@ -282,6 +282,10 @@ class EnquiriesController extends Controller
 
     public function exportToExcel(Request $request)
     {
-        return Excel::download(new EnquiriesExport($request->start_date, $request->end_date), 'enquiries.xlsx');
+        if($request){
+            return Excel::download(new EnquiriesExport($request->start_date, $request->end_date), 'enquiries.xlsx');
+        }else{
+            return Excel::download(new EnquiriesExport(), 'enquiries.xlsx');
+        }
     }
 }
