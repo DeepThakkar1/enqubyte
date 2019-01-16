@@ -124,13 +124,7 @@ class VisitorsController extends Controller
 
     public function exportToExcel()
     {
-        // dd(auth()->user()->visitors);
-        // return redirect('/');
         return Excel::download(new VisitorsExport, 'visitors.xlsx');
     }
 
-    public function storeExcel()
-    {
-        return Excel::store(new VisitorsExport, 'invoices.xlsx', 's3');
-    }
 }
