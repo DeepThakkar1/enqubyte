@@ -1,5 +1,5 @@
 <div class="tab-pane fade" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
-    <form method="post" action="/settings/general/mode">
+    <!-- <form method="post" action="/settings/general/mode">
         @csrf
         <div class="card">
             <div class="card-header">
@@ -23,7 +23,7 @@
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </div>
-    </form>
+    </form> -->
 
     <form method="post" action="/settings/general/report">
         @csrf

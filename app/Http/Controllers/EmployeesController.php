@@ -77,7 +77,7 @@ class EmployeesController extends Controller
             return response($employee, 200);
         }
         $employee['password'] = $password;
-        dd(auth()->user());
+        // dd(auth()->user());
         $employee->notify(new NewEmployee($employee, auth()->user()));
 
         flash('Employee added successfully!');
