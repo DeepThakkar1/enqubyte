@@ -8,12 +8,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($visitors as $key => $visitor)
+        @foreach($customers as $key => $customer)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{$visitor->fullname}}</td>
-            <td>{{$visitor->email}}</td>
-            <td>{{$visitor->phone}}</td>
+            <td>{{$customer->fullname}}</td>
+            <td>{{$customer->email}}</td>
+            <td>{{$customer->phone}}</td>
         </tr>
         @endforeach
     </tbody>

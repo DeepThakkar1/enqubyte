@@ -4,9 +4,17 @@
 <div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Customers</h2>
-        <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary float-right"><!-- <i class="fa fa-plus-circle"></i> --> Add Customer</a>
+        <div class="float-right">
+            <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary">Add Customer</a>
+            <div class="btn-toolbar d-inline-block" role="toolbar">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a href="/customersexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    <button type="button" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></button>
+                    <button type="button" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></button>
+                </div>
+            </div>
         </div>
-    <!-- <hr> -->
+    </div>
     <div class="">
         <table class="table dataTable">
             <thead>

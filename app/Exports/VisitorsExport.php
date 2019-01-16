@@ -11,7 +11,7 @@ class VisitorsExport implements FromView
     public function view(): View
     {
         return view('exports.visitors', [
-            'visitors' => auth()->user()->visitors
+            'visitors' => auth()->user()->visitors->where('is_customer', 0)->all()
         ]);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Visitor;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Exports\CustomersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CustomersController extends Controller
 {
@@ -127,6 +129,11 @@ class CustomersController extends Controller
         }else{
             return response(['status'=>false], 404);
         }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new CustomersExport, 'customers.xlsx');
     }
 
 }

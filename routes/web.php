@@ -50,7 +50,7 @@ Route::get('/products/{product}', 'ProductsController@show');
 Route::get('/products/{product}/get', 'ProductsController@get');
 Route::post('/products/{product}/delete', 'ProductsController@destroy');
 Route::post('/products/{product}/update', 'ProductsController@update');
-
+Route::get('/productsexcel', 'ProductsController@exportToExcel');
 Route::post('/stores/{store}/products/{product}/assign', 'StocksController@store');
 
 Route::get('/employees', 'EmployeesController@index');
@@ -59,14 +59,14 @@ Route::get('/employees/{employee}', 'EmployeesController@show');
 Route::post('/employees/{employee}/delete', 'EmployeesController@destroy');
 Route::post('/employees/{employee}/update', 'EmployeesController@update');
 Route::get('/employees/email/{email}/available', 'EmployeesController@emailIsAvailable');
-
+Route::get('/employeesexcel', 'EmployeesController@exportToExcel');
 
 Route::get('/visitors', 'VisitorsController@index');
 Route::post('/visitors', 'VisitorsController@store');
 Route::get('/visitors/{visitor}', 'VisitorsController@show');
 Route::post('/visitors/{visitor}/delete', 'VisitorsController@destroy');
 Route::post('/visitors/{visitor}/update', 'VisitorsController@update');
-Route::get('/exporttoexcel', 'VisitorsController@exportToExcel');
+Route::get('/visitorsexcel', 'VisitorsController@exportToExcel');
 
 
 Route::get('/customers', 'CustomersController@index');
@@ -75,6 +75,7 @@ Route::post('/customers/{visitor}/delete', 'CustomersController@destroy');
 Route::post('/customers/{visitor}/update', 'CustomersController@update');
 Route::get('/customers/{visitor}', 'CustomersController@show');
 Route::get('/customers/email/{email}/available', 'CustomersController@emailIsAvailable');
+Route::get('/customersexcel', 'CustomersController@exportToExcel');
 
 Route::get('/enquiries', 'EnquiriesController@index');
 Route::get('/enquiries/add', 'EnquiriesController@create');
@@ -106,6 +107,7 @@ Route::post('/vendors', 'VendorsController@store');
 Route::get('/vendors/{vendor}', 'VendorsController@show');
 Route::post('/vendors/{vendor}/delete', 'VendorsController@destroy');
 Route::post('/vendors/{vendor}/update', 'VendorsController@update');
+Route::get('/vendorsexcel', 'VendorsController@exportToExcel');
 
 Route::get('/purchases', 'PurchaseOrdersController@index');
 Route::get('/purchases/add', 'PurchaseOrdersController@create');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Vendor;
 use Illuminate\Http\Request;
+use App\Exports\VendorsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class VendorsController extends Controller
 {
@@ -113,5 +115,10 @@ class VendorsController extends Controller
         $vendor->delete();
         flash('Vendor deleted successfully!');
         return back();
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new VendorsExport, 'vendors.xlsx');
     }
 }

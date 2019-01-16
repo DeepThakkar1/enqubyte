@@ -7,6 +7,8 @@ use App\Models\Incentive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\NewEmployee;
+use App\Exports\EmployeesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EmployeesController extends Controller
 {
@@ -162,5 +164,10 @@ class EmployeesController extends Controller
         }else{
             return response(['status'=>false], 404);
         }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new EmployeesExport, 'employees.xlsx');
     }
 }

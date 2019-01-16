@@ -6,6 +6,8 @@ use App\Models\Store;
 use App\Models\Product;
 use App\Models\InvoiceItem;
 use Illuminate\Http\Request;
+use App\Exports\ProductsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductsController extends Controller
 {
@@ -148,5 +150,10 @@ class ProductsController extends Controller
         $product->delete();
         flash('Product deleted successfully!');
         return back();
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
     }
 }
