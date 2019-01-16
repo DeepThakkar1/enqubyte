@@ -7,7 +7,7 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <!-- <li data-target="#carouselExampleIndicators" data-slide-to="3"></li> -->
                     </ol>
                     <div class="carousel-inner demo-carousel dashboard-carousel-section">
                         <div class="carousel-item active">
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
+                        <!-- <div class="carousel-item">
                             <div class="container">
                                 <div class="row p-3">
                                     <div class="col-md-12 text-center custom-first-slider">
@@ -151,7 +151,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="modal-footer" style="padding: 36px;background-color:#0e6eae;">
                         <a class="carousel-control-prev carousel-btn-skip custom-carousel-control-prev" href="#carouselExampleIndicators" data-slide-to="3" role="button">
@@ -201,20 +201,25 @@
                 $('.carousel-btn-prev').show();
                 $('.carousel-btn-finish').hide();
             }else if (e.to == 2) {
-                $('.carousel-btn-skip').hide();
+                /*$('.carousel-btn-skip').hide();
                 $('.carousel-btn-next').show();
                 $('.carousel-btn-prev').show();
-                $('.carousel-btn-finish').hide();
-            }else if (e.to == 3) {
+                $('.carousel-btn-finish').hide();*/
+
                 $('.carousel-btn-skip').hide();
                 $('.carousel-btn-next').hide();
                 $('.carousel-btn-prev').show();
                 $('.carousel-btn-finish').show();
-            }
+            }/*else if (e.to == 3) {
+                $('.carousel-btn-skip').hide();
+                $('.carousel-btn-next').hide();
+                $('.carousel-btn-prev').show();
+                $('.carousel-btn-finish').show();
+            }*/
 
         });
         $("#carouselExampleIndicators").on('click', '.carousel-btn-skip', function() {
-            $('#carouselExampleIndicators').carousel(3);
+            $('#carouselExampleIndicators').carousel(2);
         });
         var mode = 0;
         $("#carouselExampleIndicators").on('click', '[type="radio"]', function() {
@@ -222,7 +227,7 @@
         });
         $("#carouselExampleIndicators").on('click', '.carousel-btn-finish', function() {
             axios.post('/users/mode', {
-                mode:mode,
+                mode:0,
             })
             .then(function (response) {
                 $('#demoModal').modal('hide');

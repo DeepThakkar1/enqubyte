@@ -138,6 +138,7 @@ Route::get('/statements/product', 'StatementsController@product');
 Route::get('/statements/product/{product}', 'StatementsController@productShow');
 Route::get('/statements/profitandloss', 'StatementsController@profitandloss');
 Route::get('/statements/cashaccount', 'StatementsController@cashaccount');
+Route::get('/statements/monthly', 'StatementsController@monthly');
 
 
 Route::get('/settings', 'SettingsController@index');

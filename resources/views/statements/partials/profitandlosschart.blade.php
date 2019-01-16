@@ -1,7 +1,7 @@
 <div class="card border-0">
     <div class="card-body dashboard-box">
         <div class="headline">
-            <h3><i class="icon-feather-bar-chart-2 text-success font-weight-bold"></i> Your Monthly Revenue</h3>
+            <!-- <h3><i class="icon-feather-bar-chart-2 text-success font-weight-bold"></i> Your Monthly Revenue</h3> -->
         </div>
         <div class="content">
             <canvas id="chart" width="725" height="326" class="chartjs-render-monitor"></canvas>
