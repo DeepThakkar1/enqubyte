@@ -4,7 +4,20 @@
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content">Invoices</h2>
-        <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a>
+        <div class="float-right">
+            <a href="/sales/invoices/add" class="btn btn-primary">Add Invoice</a>
+            <div class="btn-toolbar d-inline-block" role="toolbar">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    @if(request('start_date'))
+                    <a href="/invoicesexcel?start_date={{request('start_date')}}&end_date={{request('end_date')}}" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    @else
+                    <a href="/invoicesexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    @endif
+                    <button type="button" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></button>
+                    <button type="button" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></button>
+                </div>
+            </div>
+        </div>
     </div>
     @include('components.filters.datefilter')
     <div class="">

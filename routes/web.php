@@ -98,6 +98,7 @@ Route::post('/sales/invoices', 'InvoicesController@store');
 Route::get('/sales/invoices/{invoice}', 'InvoicesController@show');
 Route::post('/sales/invoices/{invoice}/delete', 'InvoicesController@destroy');
 Route::post('/sales/invoices/{invoice}/update', 'InvoicesController@update');
+Route::get('/invoicesexcel', 'InvoicesController@exportToExcel');
 
 
 Route::post('/sales/invoices/{invoice}/recordpayment', 'RecordPaymentsController@store');
@@ -117,6 +118,7 @@ Route::post('/purchases', 'PurchaseOrdersController@store');
 Route::get('/purchases/{purchaseOrder}', 'PurchaseOrdersController@show');
 Route::post('/purchases/{purchaseOrder}/delete', 'PurchaseOrdersController@destroy');
 Route::post('/purchases/{purchaseOrder}/update', 'PurchaseOrdersController@update');
+Route::get('/purchasesexcel', 'PurchaseOrdersController@exportToExcel');
 
 Route::post('/purchases/{purchaseOrder}/recordpayment', 'PurchaseOrderRecordPaymentController@store');
 

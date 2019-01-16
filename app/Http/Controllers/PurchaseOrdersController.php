@@ -6,7 +6,8 @@ use App\Models\Vendor;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\PurchaseOrder;
-
+use App\Exports\PurchasesExport;
+use Maatwebsite\Excel\Facades\Excel;
 class PurchaseOrdersController extends Controller
 {
     public function __construct()
@@ -198,5 +199,14 @@ class PurchaseOrdersController extends Controller
         $purchaseOrder->delete();
         flash('Purchase order deleted successfully!');
         return redirect('/purchases');
+    }
+
+    public function exportToExcel(Request $request)
+    {
+        if($request){
+            return Excel::download(new PurchasesExport($request->start_date, $request->end_date), 'purchases.xlsx');
+        }else{
+            return Excel::download(new PurchasesExport(), 'purchases.xlsx');
+        }
     }
 }
