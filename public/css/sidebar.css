@@ -73,8 +73,7 @@ a:focus {
     /*padding: 5px;*/
     padding-top: 15px;
     padding-bottom: 15px;
-    background: #3f3f3f;
-    background: #d7e0ea;
+    background: #3f3f3f !important;
     color: #000;
     text-align: center;
 }
