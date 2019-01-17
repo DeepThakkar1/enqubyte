@@ -16,31 +16,31 @@
                 <div class="d-flex align-self-center">
                     <div class="py-2">
                         <div>Product</div>
-                        <h3><a href="" class="text-primary"> {{str_limit($product->name, 40)}}</a></h3>
+                        <h3><a href="" class="text-primary custom-primary-text"> {{str_limit($product->name, 40)}}</a></h3>
                     </div>
                     <div class="ml-auto p-2">
                         <div class="d-flex">
                             <div class="px-4 text-center">
                                 <div>Quantity Sold</div>
-                                <h3>{{$qtySold}}</h3>
+                                <h3 class="mt-2 Due">{{$qtySold}}</h3>
                             </div>
-                            <div class="px-4 text-center">
+                            <div class="pl-4 text-center">
                                 <div>Total Sale</div>
-                                <h3>&#8377; {{$productTotal}}</h3>
+                                <h3 class="mt-2 Due">&#8377; {{$productTotal}}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container px-5 mt-3">
+            <div class="container px-5">
                 <div class="card">
                     <div class="card-header">
                         <strong>Enquiries ( {{ count($enquiries)}} )</strong>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <div class="table-responsive-sm">
-                            <table class="table table-striped">
+                            <table class="table table-striped custom-show-table mb-0">
                                 <thead>
                                     <tr>
                                         <th class="center">Enquiry No.</th>
@@ -77,9 +77,9 @@
                     <div class="card-header">
                         <strong>Invoices ( {{ count($invoices)}} )</strong>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table custom-show-table mb-0">
                                 <thead>
                                     <tr class="product-list-menu">
                                         <th>Invoice No.</th>

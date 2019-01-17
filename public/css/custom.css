@@ -118,9 +118,9 @@ body{
     border-radius: 0px
 }
 .form-group label{
-  margin-bottom: 0px !important;
+  margin-bottom: 5px !important;
 }
-input, select {
+/*input, select {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
@@ -134,7 +134,7 @@ input, select {
     border: 1px solid #e5e5e5 !important;
     border-radius: 0px;
     height: 30px;
-}
+}*/
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     line-height: 22px !important;
 }
@@ -183,7 +183,7 @@ input, select {
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #000;
-    border-bottom: 2px solid #cccc;
+    border-bottom: 2px solid #166ead;
     border-radius: 0px;
     background-color: #fff !important;
 }
@@ -250,6 +250,15 @@ table.dataTable thead th{
   margin-bottom: 0px;
   margin-top: 35px;
 }
+
+.custom-show-table tr th{
+  border-top: none !important;
+  padding: 22px 18px;
+}
+
+.reports-show-puroduct-purchaes tr th{
+  padding: 22px 18px;
+}
 /*.table.invoice-show-tbl tr td{
     border-bottom: 1px solid #dee2e6;
 }*/
@@ -262,6 +271,13 @@ table.dataTable thead th{
 }
 .grandTotalAmount{
   font-size: 17px !important;
+}
+.expenses-txt h3{
+  font-size: 18px;
+}
+.expenses-txt h4{
+  font-size: 18px;
+  margin-bottom: 0px;
 }
 
 .login-btn-section{
@@ -472,7 +488,7 @@ textarea.form-control {
   /*border-top: 1px solid #ccc;*/
   /*padding: 11px;*/
   background-color: #fafafa;
-  padding: 10px 15px;
+  padding: 11px 15px;
   align-items: center;
   background: #fafafa !important;
   /*border-bottom: solid 1px #f0f0f0;*/

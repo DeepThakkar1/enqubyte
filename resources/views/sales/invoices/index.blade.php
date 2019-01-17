@@ -31,7 +31,7 @@
                     <th class="text-right">Amount</th>
                     <th class="text-right">Remaining Amt</th>
                     <th>Status</th>
-                    <th width="160px">Action</th>
+                    <th width="160px">Actions</th>
                 </tr>
             </thead>
             <tbody>

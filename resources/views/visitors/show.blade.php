@@ -14,27 +14,27 @@
         <div class="d-flex align-self-center">
             <div class="py-2">
                 <div>Visitor</div>
-                <h3><a href="" class="text-primary"> {{$visitor->fullname}}</a></h3>
+                <h3><a href="" class="text-primary custom-primary-text"> {{$visitor->fullname}}</a></h3>
             </div>
             <div class="ml-auto p-2">
                 <div class="d-flex">
                     <div class="px-4 text-center">
                         <div>Total Enquiries</div>
-                        <h3>{{ count($visitor->enquiries)}}</h3>
+                        <h3 class="mt-2 Due">{{ count($visitor->enquiries)}}</h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container px-5 mt-3">
+    <div class="container px-5">
         <div class="card">
             <div class="card-header">
                 <strong>Enquiries</strong>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive-sm">
-                    <table class="table table-striped">
+                    <table class="table table-striped custom-show-table mb-0">
                         <thead>
                             <tr>
                                 <th class="center">Enquiry No.</th>

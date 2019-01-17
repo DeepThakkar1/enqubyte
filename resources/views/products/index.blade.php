@@ -25,7 +25,7 @@
                     <th>Cost Price</th>
                     <th>Selling Price</th>
                     <th>Stock</th>
-                    <th width="160px">Action</th>
+                    <th width="160px">Actions</th>
                 </tr>
             </thead>
             <tbody>

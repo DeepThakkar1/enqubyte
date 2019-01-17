@@ -13,7 +13,7 @@
         <form method="post" action="/sales/invoices/{{$invoice->id}}/update">
             @csrf
             <div class="card-body p-0">
-                <div class="row pl-0 pt-4 m-0">
+                <div class="row pl-0 py-4 m-0">
                     <div class="col-sm-4 form-group">
                         <label>Invoice Number</label>
                         <input type="text" name="" class="form-control" value="{{$invoice->sr_no}}" readonly>
