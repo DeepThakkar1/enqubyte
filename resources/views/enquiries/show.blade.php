@@ -3,9 +3,16 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents headline-border-bottom">
-        <h2 class="d-inline-block headline-content"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
-        <!-- <a href="/enquiries/add" class="btn btn-primary float-right">Add Enquiry : </a> -->
+        <h2 class="d-inline-block headline-content pb-2 pt-1"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
+        <div class="float-right">
+            <div class="btn-toolbar d-inline-block" role="toolbar">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a href="/enquiries/{{$enquiry->id}}/download" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
+
     <div class="container px-5 ">
         <div class="d-flex align-self-center">
             <div class="py-2">
@@ -22,7 +29,7 @@
                     <div class="px-4">
                         <div>Invoice</div>
                         <h3>
-                        <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
+                            <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
                         </h3>
                     </div>
                     @endif
