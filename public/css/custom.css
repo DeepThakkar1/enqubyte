@@ -79,6 +79,21 @@ body{
     border-radius: unset !important;
 }
 
+/*----------------------[Checkbox]--------------------------*/
+
+.custom-control-label::before {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-color: #f9fafb;
+}
+.custom-control-label::after {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
 /*----------------------[modals]--------------------------*/
 
@@ -490,6 +505,7 @@ textarea.form-control {
   background-color: #fafafa;
   padding: 11px 15px;
   align-items: center;
+  height: 56px;
   background: #fafafa !important;
   /*border-bottom: solid 1px #f0f0f0;*/
   box-shadow: none !important;
