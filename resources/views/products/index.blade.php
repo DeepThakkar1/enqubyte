@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid pl-0 pr-0 ml-0 mr-0">
-    <div class="headline-contents responsive-headline-contents">
+    <div class="headline-contents responsive-headline-contents border-bottom-0">
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Products</h2>
         <div class="float-right">
             <a href="#addProductModal" data-toggle="modal" class="btn btn-primary">Add Product</a>

@@ -17,7 +17,7 @@
         <!-- <a href="/enquiries" class="btn btn-secondary float-right">Back</a> -->
     </div>
     <!-- <hr> -->
-    <div class="card">
+    <div class="card border-top-0">
         <form method="post" action="/enquiries/{{$enquiry->id}}/update">
             @csrf
             <div class="card-body p-0">

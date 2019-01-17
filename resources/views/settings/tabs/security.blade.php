@@ -9,7 +9,7 @@
                             <label>Old Password<sup class="error">*</sup> </label>
                             <input type="password" class="form-control" name="old_password" required placeholder="Enter old password">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-0">
                             <label>New Password<sup class="error">*</sup></label>
                             <input id="password" type="password" pattern="^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$" class="form-control" name="password" required placeholder="Enter new password">
                             <p class="m-0 text-muted"><small>The password must contain at least 8 characters with one uppercase and one number.</small></p>

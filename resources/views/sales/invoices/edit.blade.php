@@ -9,7 +9,7 @@
         </div>
     </div>
     <!-- <hr> -->
-    <div class="card">
+    <div class="card border-top-0">
         <form method="post" action="/sales/invoices/{{$invoice->id}}/update">
             @csrf
             <div class="card-body p-0">
