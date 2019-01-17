@@ -75,7 +75,8 @@ a:focus {
     padding-bottom: 15px;
     background: #3f3f3f !important;
     color: #000;
-    text-align: center;
+    padding-left: 18px;
+    /*text-align: center;*/
 }
 #sidebar .sidebar-header img{
     height: 50px;
