@@ -25,6 +25,28 @@
         </div>
     </form> -->
 
+    <form method="post" action="/settings/general/taxmode">
+        @csrf
+        <div class="card mb-3">
+            <div class="card-header" style="background-color: #fff;">
+                Tax
+            </div>
+            <div class="card-body py-4">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="perProductRadio" name="taxmode" value="0" {{auth()->user()->taxmode ? '' : 'checked'}} class="custom-control-input">
+                    <label class="custom-control-label pt-1 pr-3 pl-1" for="perProductRadio">Tax Per Product</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="perInvoiceRadio" name="taxmode" value="1" {{auth()->user()->taxmode ? 'checked' : ''}} class="custom-control-input">
+                    <label class="custom-control-label pt-1 pr-3 pl-1" for="perInvoiceRadio">Tax on Invoice</label>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+
     <form method="post" action="/settings/general/report">
         @csrf
         <div class="card">
@@ -32,9 +54,6 @@
                 Report Frequency
             </div>
             <div class="card-body py-4">
-                <!-- <label class="mr-4" for="chkWeekly">
-                    <input type="checkbox" name="weekly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->weekly ? 'checked' : ''}} value="1" id="chkWeekly"> Weekly
-                </label> -->
                 <div class="custom-control custom-checkbox d-inline-block">
                   <input type="checkbox" class="custom-control-input"  name="weekly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->weekly ? 'checked' : ''}} value="1" id="chkWeekly">
                   <label class="custom-control-label pt-1 pr-3 pl-1" for="chkWeekly"> Weekly </label>
@@ -55,18 +74,6 @@
                   <input type="checkbox" class="custom-control-input" id="chkYearly"  name="yearly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->yearly ? 'checked' : ''}} value="1" id="chkYearly">
                   <label class="custom-control-label pt-1 pr-3 pl-1" for="chkYearly"> Yearly </label>
                 </div>
-                <!-- <label class="mr-4" for="chkMonthly">
-                    <input type="checkbox" name="monthly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->monthly ? 'checked' : ''}} value="1" id="chkMonthly"> Monthly
-                </label>
-                <label class="mr-4" for="chkQuarterly">
-                    <input type="checkbox" name="quarterly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->quarterly ? 'checked' : ''}} value="1" id="chkQuarterly"> Quarterly
-                </label>
-                <label class="mr-4" for="chkSixMonth">
-                    <input type="checkbox" name="sixmonth" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->sixmonth ? 'checked' : ''}} value="1" id="chkSixMonth"> Six Month
-                </label>
-                <label class="mr-4" for="chkYearly">
-                    <input type="checkbox" name="yearly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->yearly ? 'checked' : ''}} value="1" id="chkYearly"> Yearly
-                </label> -->
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Save</button>

@@ -188,6 +188,6 @@ Route::post('/settings/profile/update', 'SettingsController@updateProfile');
 Route::post('/settings/security/changepassword', 'SettingsController@updatePassword');
 Route::post('/settings/company/update', 'SettingsController@updateCompany');
 Route::post('/settings/general/report', 'SettingsController@reportFrequency');
-
+Route::post('/settings/general/taxmode', 'SettingsController@taxmode');
 
 Route::get('/reports', 'ReportsController@index');

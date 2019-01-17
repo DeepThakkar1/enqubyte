@@ -98,4 +98,10 @@ class SettingsController extends Controller
         return back();
     }
 
+    public function taxmode(Request $request)
+    {
+        auth()->user()->update($request->all());
+        flash('Tax mode has been changed successfully!')->success();
+        return back();
+    }
 }

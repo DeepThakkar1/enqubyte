@@ -81,18 +81,30 @@ body{
 
 /*----------------------[Checkbox]--------------------------*/
 
-.custom-control-label::before {
+.custom-checkbox .custom-control-label::before {
     display: block;
     width: 22px;
     height: 22px;
     background-color: #f9fafb;
 }
-.custom-control-label::after {
+.custom-checkbox .custom-control-label::after {
     display: block;
     width: 22px;
     height: 22px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.custom-radio .custom-control-label::before {
+    width: 22px;
+    height: 22px;
+    background-color: #f9fafb;
+}
+.custom-radio .custom-control-label::after {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
 }
 
 /*----------------------[modals]--------------------------*/

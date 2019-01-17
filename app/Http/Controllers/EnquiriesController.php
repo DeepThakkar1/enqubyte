@@ -290,10 +290,10 @@ class EnquiriesController extends Controller
     }
 
     public function download(Enquiry $enquiry){
-        $enquiryPdf = \PDF::loadView('enquiries.print');
+        $enquiryPdf = \PDF::loadView('enquiries.print', compact('enquiry'));
 
-        return $enquiryPdf->download('enquiry.pdf');
-        // return view('enquiries.print', compact('enquiry'));
+        // return $enquiryPdf->download('enquiry.pdf');
+        return view('enquiries.print', compact('enquiry'));
     }
 
     public function exportToPDF(){
