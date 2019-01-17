@@ -64,7 +64,7 @@
                                         </td>
                                         <td>{{$enquiry->enquiry_date}}</td>
                                         <td>{{$enquiry->followup_date}}</td>
-                                        <td>{{$enquiry->grand_total}}</td>
+                                        <td>&#8377; {{$enquiry->grand_total}}</td>
                                         <td><span class="badge badge-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}}">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</span></td>
                                     </tr>
                                     @endforeach

@@ -127,8 +127,12 @@ class VisitorsController extends Controller
         return Excel::download(new VisitorsExport, 'visitors.xlsx');
     }
 
-    public function downloadPDF(){
+    public function exportToPDF(){
          return Excel::download(new VisitorsExport(), 'visitors.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function exportToCSV(){
+         return Excel::download(new VisitorsExport(), 'visitors.csv',  \Maatwebsite\Excel\Excel::CSV);
     }
 
 }

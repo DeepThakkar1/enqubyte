@@ -171,8 +171,11 @@ class EmployeesController extends Controller
         return Excel::download(new EmployeesExport, 'employees.xlsx');
     }
 
-    public function downloadPDF(){
+    public function exportToPDF(){
          return Excel::download(new EmployeesExport(), 'employees.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
     }
 
+    public function exportToCSV(){
+         return Excel::download(new EmployeesExport(), 'employees.csv',  \Maatwebsite\Excel\Excel::CSV);
+    }
 }

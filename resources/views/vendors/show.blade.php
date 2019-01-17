@@ -26,11 +26,11 @@
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Purchases</div>
-                                <h3>{{ $totalPurchase }}</h3>
+                                <h3>&#8377; {{ $totalPurchase }}</h3>
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Remaining</div>
-                                <h3>{{ $remaining }}</h3>
+                                <h3>&#8377; {{ $remaining }}</h3>
                             </div>
                         </div>
                     </div>
@@ -63,8 +63,8 @@
                                         <td>{{$purchase->order_id}}</td>
                                         <td>{{$purchase->purchase_date}}</td>
                                         <td>{{$purchase->due_date}}</td>
-                                        <td>{{$purchase->grand_total}}</td>
-                                        <td>{{$purchase->remaining_amount}}</td>
+                                        <td>&#8377; {{$purchase->grand_total}}</td>
+                                        <td>&#8377; {{$purchase->remaining_amount}}</td>
                                         <td><span class="badge badge-{{$purchase->remaining_amount ? 'warning' : 'success'}}"> {{$purchase->remaining_amount ? 'Pending' : 'Completed'}}</span></td>
                                     </tr>
                                     @endforeach

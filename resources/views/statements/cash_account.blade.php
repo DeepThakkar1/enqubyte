@@ -9,7 +9,15 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Cash Flow
         </h2>
-        @include('components.exportbuttons.topbar')
+        <div class="float-right">
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a href="/cashflowexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    <a href="/cashflowpdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
+                    <a href="/cashflowcsv" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
     @include('components.filters.datefilter')
 

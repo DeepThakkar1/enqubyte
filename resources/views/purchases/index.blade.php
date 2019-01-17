@@ -14,7 +14,7 @@
                     <a href="/purchasesexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
                     @endif
                     <a href="/purchasespdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
-                    <button type="button" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></button>
+                    <a href="/purchasescsv" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></a>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                     <td>{{$purchase->vendor->name}}</td>
                     <td>{{$purchase->purchase_date}}</td>
                     <td>{{$purchase->due_date}}</td>
-                    <td class="text-right">{{$purchase->grand_total}}</td>
+                    <td class="text-right">&#8377; {{$purchase->grand_total}}</td>
                     <td><span class="badge badge-{{$purchase->remaining_amount ? 'warning' : 'success'}}">{{$purchase->remaining_amount ? 'Pending' : 'Completed'}}</span> </td>
                     <td>
                         <a href="/purchases/{{$purchase->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>

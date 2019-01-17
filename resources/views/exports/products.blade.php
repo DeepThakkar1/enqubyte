@@ -15,8 +15,8 @@
             <td>{{$key + 1}}</td>
             <td>{{$product->name}}</td>
             <td>{{$product->product_code}}</td>
-            <td>&#8377; {{$product->cost_price}}</td>
-            <td>&#8377; {{$product->selling_price}}</td>
+            <td>{{$product->cost_price}}</td>
+            <td>{{$product->selling_price}}</td>
             <td>{{$product->stock}}</td>
         </tr>
         @endforeach

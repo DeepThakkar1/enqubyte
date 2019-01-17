@@ -120,4 +120,12 @@ class IncentivesController extends Controller
             return Excel::download(new IncentivesExport(), 'incentives.xlsx');
         }
     }
+
+    public function exportToPDF(){
+         return Excel::download(new IncentivesExport(), 'incentives.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function exportToCSV(){
+         return Excel::download(new IncentivesExport(), 'incentives.csv',  \Maatwebsite\Excel\Excel::CSV);
+    }
 }

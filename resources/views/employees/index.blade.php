@@ -10,7 +10,7 @@
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     <a href="/employeesexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
                     <a href="/employeespdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
-                    <button type="button" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></button>
+                    <a href="/employeescsv" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></a>
                 </div>
             </div>
         </div>

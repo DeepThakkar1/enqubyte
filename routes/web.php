@@ -51,7 +51,8 @@ Route::get('/products/{product}/get', 'ProductsController@get');
 Route::post('/products/{product}/delete', 'ProductsController@destroy');
 Route::post('/products/{product}/update', 'ProductsController@update');
 Route::get('/productsexcel', 'ProductsController@exportToExcel');
-Route::get('/productspdf', 'ProductsController@downloadPDF');
+Route::get('/productspdf', 'ProductsController@exportToPDF');
+Route::get('/productscsv', 'ProductsController@exportToCSV');
 Route::post('/stores/{store}/products/{product}/assign', 'StocksController@store');
 
 Route::get('/employees', 'EmployeesController@index');
@@ -61,7 +62,8 @@ Route::post('/employees/{employee}/delete', 'EmployeesController@destroy');
 Route::post('/employees/{employee}/update', 'EmployeesController@update');
 Route::get('/employees/email/{email}/available', 'EmployeesController@emailIsAvailable');
 Route::get('/employeesexcel', 'EmployeesController@exportToExcel');
-Route::get('/employeespdf', 'EmployeesController@downloadPDF');
+Route::get('/employeespdf', 'EmployeesController@exportToPDF');
+Route::get('/employeescsv', 'EmployeesController@exportToCSV');
 
 Route::get('/visitors', 'VisitorsController@index');
 Route::post('/visitors', 'VisitorsController@store');
@@ -70,7 +72,8 @@ Route::post('/visitors/{visitor}/delete', 'VisitorsController@destroy');
 Route::post('/visitors/{visitor}/update', 'VisitorsController@update');
 Route::get('/visitors/email/{email}/available', 'VisitorsController@emailIsAvailable');
 Route::get('/visitorsexcel', 'VisitorsController@exportToExcel');
-Route::get('/visitorspdf', 'VisitorsController@downloadPDF');
+Route::get('/visitorspdf', 'VisitorsController@exportToPDF');
+Route::get('/visitorscsv', 'VisitorsController@exportToCSV');
 
 Route::get('/customers', 'CustomersController@index');
 Route::post('/customers', 'CustomersController@store');
@@ -79,7 +82,8 @@ Route::post('/customers/{visitor}/update', 'CustomersController@update');
 Route::get('/customers/{visitor}', 'CustomersController@show');
 Route::get('/customers/email/{email}/available', 'CustomersController@emailIsAvailable');
 Route::get('/customersexcel', 'CustomersController@exportToExcel');
-Route::get('/customerspdf','CustomersController@downloadPDF');
+Route::get('/customerspdf','CustomersController@exportToPDF');
+Route::get('/customerscsv','CustomersController@exportToCSV');
 
 Route::get('/enquiries', 'EnquiriesController@index');
 Route::get('/enquiries/add', 'EnquiriesController@create');
@@ -91,7 +95,8 @@ Route::post('/enquiries/{enquiry}/update', 'EnquiriesController@update');
 Route::get('/enquiries/{enquiry}/invoice', 'EnquiriesController@createInvoice');
 Route::get('/enquiries/{enquiry}/cancel', 'EnquiriesController@cancel');
 Route::get('/enquiriesexcel', 'EnquiriesController@exportToExcel');
-Route::get('/enquiriespdf','EnquiriesController@downloadPDF');
+Route::get('/enquiriespdf','EnquiriesController@exportToPDF');
+Route::get('/enquiriescsv','EnquiriesController@exportToCSV');
 Route::post('/enquiries/{enquiry}/changefollowupdate', 'EnquiriesController@changefollowupdate');
 
 
@@ -103,7 +108,8 @@ Route::get('/sales/invoices/{invoice}', 'InvoicesController@show');
 Route::post('/sales/invoices/{invoice}/delete', 'InvoicesController@destroy');
 Route::post('/sales/invoices/{invoice}/update', 'InvoicesController@update');
 Route::get('/invoicesexcel', 'InvoicesController@exportToExcel');
-Route::get('/invoicespdf', 'InvoicesController@downloadPDF');
+Route::get('/invoicespdf', 'InvoicesController@exportToPDF');
+Route::get('/invoicescsv', 'InvoicesController@exportToCSV');
 
 Route::post('/sales/invoices/{invoice}/recordpayment', 'RecordPaymentsController@store');
 
@@ -114,7 +120,8 @@ Route::get('/vendors/{vendor}', 'VendorsController@show');
 Route::post('/vendors/{vendor}/delete', 'VendorsController@destroy');
 Route::post('/vendors/{vendor}/update', 'VendorsController@update');
 Route::get('/vendorsexcel', 'VendorsController@exportToExcel');
-Route::get('/vendorspdf', 'VendorsController@downloadPDF');
+Route::get('/vendorspdf', 'VendorsController@exportToPDF');
+Route::get('/vendorscsv', 'VendorsController@exportToCSV');
 
 
 Route::get('/purchases', 'PurchaseOrdersController@index');
@@ -125,7 +132,8 @@ Route::get('/purchases/{purchaseOrder}', 'PurchaseOrdersController@show');
 Route::post('/purchases/{purchaseOrder}/delete', 'PurchaseOrdersController@destroy');
 Route::post('/purchases/{purchaseOrder}/update', 'PurchaseOrdersController@update');
 Route::get('/purchasesexcel', 'PurchaseOrdersController@exportToExcel');
-Route::get('/purchasespdf', 'PurchaseOrdersController@downloadPDF');
+Route::get('/purchasespdf', 'PurchaseOrdersController@exportToPDF');
+Route::get('/purchasescsv', 'PurchaseOrdersController@exportToCSV');
 
 Route::post('/purchases/{purchaseOrder}/recordpayment', 'PurchaseOrderRecordPaymentController@store');
 
@@ -139,6 +147,8 @@ Route::post('/incentives', 'IncentivesController@store');
 Route::post('/incentives/{incentive}/update', 'IncentivesController@update');
 Route::post('/incentives/{incentive}/delete', 'IncentivesController@destroy');
 Route::get('/incentivesexcel', 'IncentivesController@exportToExcel');
+Route::get('/incentivespdf', 'IncentivesController@exportToPDF');
+Route::get('/incentivescsv', 'IncentivesController@exportToCSV');
 
 Route::post('/incentives/{employee}/pay', 'IncentiveTransactions@store');
 
@@ -154,6 +164,22 @@ Route::get('/statements/profitandloss', 'StatementsController@profitandloss');
 Route::get('/statements/cashaccount', 'StatementsController@cashaccount');
 Route::get('/statements/monthly', 'StatementsController@monthly');
 
+Route::get('/cashflowexcel', 'StatementsController@cashflowExcel');
+Route::get('/cashflowpdf', 'StatementsController@cashflowPDF');
+Route::get('/cashflowcsv', 'StatementsController@cashflowCSV');
+
+Route::get('/customerstatementexcel', 'StatementsController@customerStatementExcel');
+Route::get('/customerstatementpdf', 'StatementsController@customerStatementPDF');
+Route::get('/customerstatementcsv', 'StatementsController@customerStatementCSV');
+Route::get('/productstatementexcel', 'StatementsController@productStatementExcel');
+Route::get('/productstatementpdf', 'StatementsController@productStatementPDF');
+Route::get('/productstatementcsv', 'StatementsController@productStatementCSV');
+Route::get('/vendorstatementexcel', 'StatementsController@vendorStatementExcel');
+Route::get('/vendorstatementpdf', 'StatementsController@vendorStatementPDF');
+Route::get('/vendorstatementcsv', 'StatementsController@vendorStatementCSV');
+Route::get('/profitandlossexcel', 'StatementsController@profitandlossExcel');
+Route::get('/profitandlosspdf', 'StatementsController@profitandlossPDF');
+Route::get('/profitandlosscsv', 'StatementsController@profitandlossCSV');
 
 Route::get('/settings', 'SettingsController@index');
 Route::post('/settings/general/mode', 'SettingsController@changeMode');

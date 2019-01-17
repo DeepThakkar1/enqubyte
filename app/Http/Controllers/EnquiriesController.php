@@ -289,7 +289,11 @@ class EnquiriesController extends Controller
         }
     }
 
-    public function downloadPDF(){
+    public function exportToPDF(){
          return Excel::download(new EnquiriesExport(), 'enquiries.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function exportToCSV(){
+         return Excel::download(new EnquiriesExport(), 'enquiries.csv',  \Maatwebsite\Excel\Excel::CSV);
     }
 }

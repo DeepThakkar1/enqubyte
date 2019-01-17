@@ -14,6 +14,12 @@ use Illuminate\Http\Request;
 use App\Models\RecordPayment;
 use App\Models\IncentiveTransaction;
 use App\Models\PurchaseOrderRecordPayment;
+use App\Exports\CashFlowExport;
+use App\Exports\ProductStatementExport;
+use App\Exports\CustomersStatementExport;
+use App\Exports\VendorStatementExport;
+use App\Exports\ProfitAndLossExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StatementsController extends Controller
 {
@@ -133,6 +139,71 @@ class StatementsController extends Controller
         $profit = $totalSale - $expenses;
 
         return view('statements.cash_account', compact('expenses', 'profit', 'incentives', 'totalPurchase', 'totalSale'));
+    }
+
+    public function cashflowExcel()
+    {
+        return Excel::download(new CashFlowExport(), 'cashflow.xlsx');
+    }
+
+    public function cashflowPDF(){
+         return Excel::download(new CashFlowExport(), 'cashflow.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function cashflowCSV(){
+         return Excel::download(new CashFlowExport(), 'cashflow.csv',  \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    public function customerStatementExcel()
+    {
+        return Excel::download(new CustomersStatementExport(), 'customerstatement.xlsx');
+    }
+
+    public function customerStatementPDF(){
+         return Excel::download(new CustomersStatementExport(), 'customerstatement.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function customerStatementCSV(){
+         return Excel::download(new CustomersStatementExport(), 'customerstatement.csv',  \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    public function productStatementExcel()
+    {
+        return Excel::download(new ProductStatementExport(), 'productstatement.xlsx');
+    }
+
+    public function productStatementPDF(){
+         return Excel::download(new ProductStatementExport(), 'productstatement.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function productStatementCSV(){
+         return Excel::download(new ProductStatementExport(), 'productstatement.csv',  \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    public function vendorStatementExcel()
+    {
+        return Excel::download(new VendorStatementExport(), 'vendorstatement.xlsx');
+    }
+
+    public function vendorStatementPDF(){
+         return Excel::download(new VendorStatementExport(), 'vendorstatement.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function vendorStatementCSV(){
+         return Excel::download(new VendorStatementExport(), 'vendorstatement.csv',  \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    public function profitandlossExcel()
+    {
+        return Excel::download(new ProfitAndLossExport(), 'profitandloss.xlsx');
+    }
+
+    public function profitandlossPDF(){
+         return Excel::download(new ProfitAndLossExport(), 'profitandloss.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function profitandlossCSV(){
+         return Excel::download(new ProfitAndLossExport(), 'profitandloss.csv',  \Maatwebsite\Excel\Excel::CSV);
     }
 
     public function monthly()

@@ -9,7 +9,15 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Profit & Loss Account
         </h2>
-        @include('components.exportbuttons.topbar')
+        <div class="float-right">
+            <div class="btn-toolbar d-inline-block" role="toolbar">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a href="/profitandlossexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    <a href="/profitandlosspdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
+                    <a href="/profitandlosscsv" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
     @include('components.filters.datefilter')
     <div class="card">

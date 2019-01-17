@@ -122,7 +122,11 @@ class VendorsController extends Controller
         return Excel::download(new VendorsExport, 'vendors.xlsx');
     }
 
-    public function downloadPDF(){
+    public function exportToPDF(){
          return Excel::download(new VendorsExport(), 'vendors.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function exportToCSV(){
+         return Excel::download(new VendorsExport(), 'vendors.csv',  \Maatwebsite\Excel\Excel::CSV);
     }
 }

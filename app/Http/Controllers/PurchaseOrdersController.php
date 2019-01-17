@@ -210,7 +210,11 @@ class PurchaseOrdersController extends Controller
         }
     }
 
-    public function downloadPDF(){
+    public function exportToPDF(){
          return Excel::download(new PurchasesExport(), 'purchases.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function exportToCSV(){
+         return Excel::download(new PurchasesExport(), 'purchases.csv',  \Maatwebsite\Excel\Excel::CSV);
     }
 }

@@ -14,9 +14,9 @@
         <tr>
             <td>{{$key +1}}</td>
             <td>{{$employee->fullname}}</td>
-            <td>&#8377; {{$employee->incentive_amount}} </td>
-            <td>&#8377; {{$employee->incentive_paid_amount}}</td>
-            <td>&#8377; {{$employee->incentive_amount - $employee->incentive_paid_amount}}</td>
+            <td>{{$employee->incentive_amount}} </td>
+            <td>{{$employee->incentive_paid_amount}}</td>
+            <td>{{$employee->incentive_amount - $employee->incentive_paid_amount}}</td>
             <td> <span class="badge badge-{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'success' : 'warning'}}">{{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'Paid' : 'Pending'}}</span> </td>
         </tr>
         @endforeach

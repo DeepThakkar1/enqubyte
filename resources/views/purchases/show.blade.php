@@ -110,10 +110,10 @@
                                 <td class="center">{{$key + 1}}</td>
                                 <td class="left strong">{{$item->product->name}}</td>
                                 <td class="left">{{$item->product->description}}</td>
-                                <td class="right">{{$item->price}}</td>
+                                <td class="right">&#8377; {{$item->price}}</td>
                                 <td class="center">{{$item->qty}}</td>
                                 <td class="center">{{$item->tax}} %</td>
-                                <td class="right">{{$item->product_tot_amt}}</td>
+                                <td class="right">&#8377; {{$item->product_tot_amt}}</td>
                             </tr>
                             @endforeach
                         </tbody>

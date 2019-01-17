@@ -4,7 +4,7 @@
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents headline-border-bottom">
         <h2 class="d-inline-block headline-content pb-2 pt-1">
-            <a href="/sales/invoices" class="mr-1"><i class="fa fa-arrow-left"></i></a> 
+            <a href="/sales/invoices" class="mr-1"><i class="fa fa-arrow-left"></i></a>
             Invoice
         </h2>
         <!-- <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a> -->
@@ -143,7 +143,7 @@
                                 <td class="center">{{$key + 1}}</td>
                                 <td class="left strong">{{$item->product->name}}</td>
                                 <td class="left">{{$item->product->description}}</td>
-                                <td class="right">{{$item->price}}</td>
+                                <td class="right">&#8377; {{$item->price}}</td>
                                 <td class="center">{{$item->qty}}</td>
                                 <td class="center">{{$item->tax}} %</td>
                                 <td class="right">{{$item->product_tot_amt}}</td>
