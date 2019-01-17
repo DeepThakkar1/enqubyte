@@ -8,7 +8,7 @@
 </div>
     <!-- <hr> -->
     <div class="container-fluid">
-        <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills mt-3" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
             </li>

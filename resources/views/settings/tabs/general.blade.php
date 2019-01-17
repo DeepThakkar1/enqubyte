@@ -27,15 +27,35 @@
 
     <form method="post" action="/settings/general/report">
         @csrf
-        <div class="card mt-4">
-            <div class="card-header">
+        <div class="card">
+            <div class="card-header" style="background-color: #fff;">
                 Report Frequency
             </div>
-            <div class="card-body">
-                <label class="mr-4" for="chkWeekly">
+            <div class="card-body py-4">
+                <!-- <label class="mr-4" for="chkWeekly">
                     <input type="checkbox" name="weekly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->weekly ? 'checked' : ''}} value="1" id="chkWeekly"> Weekly
-                </label>
-                <label class="mr-4" for="chkMonthly">
+                </label> -->
+                <div class="custom-control custom-checkbox d-inline-block">
+                  <input type="checkbox" class="custom-control-input" id="chkWeekly">
+                  <label class="custom-control-label pt-1 pr-3 pl-1" for="chkWeekly" name="weekly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->weekly ? 'checked' : ''}} value="1" id="chkWeekly"> Weekly </label>
+                </div>
+                <div class="custom-control custom-checkbox d-inline-block">
+                  <input type="checkbox" class="custom-control-input" id="chkMonthly">
+                  <label class="custom-control-label pt-1 pr-3 pl-1" for="chkMonthly" name="monthly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->monthly ? 'checked' : ''}} value="1" id="chkMonthly"> Monthly </label>
+                </div>
+                <div class="custom-control custom-checkbox d-inline-block">
+                  <input type="checkbox" class="custom-control-input" id="chkQuarterly">
+                  <label class="custom-control-label pt-1 pr-3 pl-1" for="chkQuarterly"  name="quarterly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->quarterly ? 'checked' : ''}} value="1" id="chkQuarterly"> Quarterly </label>
+                </div>
+                <div class="custom-control custom-checkbox d-inline-block">
+                  <input type="checkbox" class="custom-control-input" id="chkSixMonth">
+                  <label class="custom-control-label pt-1 pr-3 pl-1" for="chkSixMonth"  name="sixmonth" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->sixmonth ? 'checked' : ''}} value="1" id="chkSixMonth"> Six Month </label>
+                </div>
+                <div class="custom-control custom-checkbox d-inline-block">
+                  <input type="checkbox" class="custom-control-input" id="chkYearly">
+                  <label class="custom-control-label pt-1 pr-3 pl-1" for="chkYearly"  name="yearly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->yearly ? 'checked' : ''}} value="1" id="chkYearly" > Yearly </label>
+                </div>
+                <!-- <label class="mr-4" for="chkMonthly">
                     <input type="checkbox" name="monthly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->monthly ? 'checked' : ''}} value="1" id="chkMonthly"> Monthly
                 </label>
                 <label class="mr-4" for="chkQuarterly">
@@ -46,7 +66,7 @@
                 </label>
                 <label class="mr-4" for="chkYearly">
                     <input type="checkbox" name="yearly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->yearly ? 'checked' : ''}} value="1" id="chkYearly"> Yearly
-                </label>
+                </label> -->
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Save</button>

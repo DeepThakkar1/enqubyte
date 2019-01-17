@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents headline-border-bottom">
-        <h2 class="d-inline-block headline-content pb-2 pt-1"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
+        <h2 class="d-inline-block headline-content"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
         <!-- <a href="/enquiries/add" class="btn btn-primary float-right">Add Enquiry : </a> -->
     </div>
     <div class="container px-5 ">
