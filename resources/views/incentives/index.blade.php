@@ -16,7 +16,7 @@
                     <th>Type</th>
                     <th>Rate</th>
                     <th>Minimum Invoice Amt.</th>
-                    <th width="160px">Action</th>
+                    <th width="160px">Actions</th>
                 </tr>
             </thead>
             <tbody>

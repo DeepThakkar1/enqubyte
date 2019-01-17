@@ -50,7 +50,7 @@
                     <div class="card-header">
                         <strong>Enquiries</strong>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <div class="table-responsive-sm">
                             <table class="table table-striped">
                                 <thead>
@@ -89,7 +89,7 @@
                     <div class="card-header">
                         <strong>Invoices</strong>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>

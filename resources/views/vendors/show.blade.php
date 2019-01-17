@@ -16,35 +16,35 @@
                 <div class="d-flex align-self-center">
                     <div class="py-2">
                         <div>Vendor</div>
-                        <h3><a href="" class="text-primary"> {{$vendor->name}}</a></h3>
+                        <h3><a href="" class="text-primary custom-primary-text"> {{$vendor->name}}</a></h3>
                     </div>
                     <div class="ml-auto p-2">
                         <div class="d-flex">
                             <div class="px-4 text-center">
                                 <div>Total Purchase Orders</div>
-                                <h3>{{ $purchasesCount }}</h3>
+                                <h3 class="mt-2 Due">{{ $purchasesCount }}</h3>
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Purchases</div>
-                                <h3>{{ $totalPurchase }}</h3>
+                                <h3 class="mt-2 Due">{{ $totalPurchase }}</h3>
                             </div>
-                            <div class="px-4 text-center">
+                            <div class="pl-4 text-center">
                                 <div>Total Remaining</div>
-                                <h3>{{ $remaining }}</h3>
+                                <h3 class="mt-2 Due">{{ $remaining }}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container px-5 mt-3">
+            <div class="container px-5">
                 <div class="card">
                     <div class="card-header">
                         <strong>Orders</strong>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <div class="table-responsive-sm">
-                            <table class="table table-striped">
+                            <table class="table table-striped custom-show-table mb-0">
                                 <thead>
                                     <tr>
                                         <th class="center">PO No.</th>

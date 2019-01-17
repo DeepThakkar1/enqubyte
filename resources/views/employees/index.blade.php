@@ -28,7 +28,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Incentive</th>
-                <th width="160px">Action</th>
+                <th width="160px">Actions</th>
             </tr>
         </thead>
         <tbody>

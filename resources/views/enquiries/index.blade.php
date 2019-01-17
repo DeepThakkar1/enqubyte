@@ -30,7 +30,7 @@
                     <th>Followup Date</th>
                     <th class="text-right">Amount</th>
                     <th>Status</th>
-                    <th width="160px">Action</th>
+                    <th width="160px">Actions</th>
                 </tr>
             </thead>
             <tbody>

@@ -120,7 +120,7 @@ body{
 .form-group label{
   margin-bottom: 0px !important;
 }
-input, select {
+/*input, select {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
@@ -134,7 +134,7 @@ input, select {
     border: 1px solid #e5e5e5 !important;
     border-radius: 0px;
     height: 30px;
-}
+}*/
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     line-height: 22px !important;
 }
@@ -249,6 +249,11 @@ table.dataTable thead th{
 .table.total-tbl{
   margin-bottom: 0px;
   margin-top: 35px;
+}
+
+.custom-show-table tr th{
+  border-top: none !important;
+  padding: 22px 18px;
 }
 /*.table.invoice-show-tbl tr td{
     border-bottom: 1px solid #dee2e6;
@@ -472,7 +477,7 @@ textarea.form-control {
   /*border-top: 1px solid #ccc;*/
   /*padding: 11px;*/
   background-color: #fafafa;
-  padding: 10px 15px;
+  padding: 11px 15px;
   align-items: center;
   background: #fafafa !important;
   /*border-bottom: solid 1px #f0f0f0;*/
