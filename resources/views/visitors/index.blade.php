@@ -9,7 +9,7 @@
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     <a href="/visitorsexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
-                    <button type="button" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></button>
+                    <a href="/visitorspdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
                     <button type="button" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></button>
                 </div>
             </div>

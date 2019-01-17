@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Incentive;
 use Illuminate\Http\Request;
+use App\Exports\IncentivesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class IncentivesController extends Controller
 {
@@ -108,5 +110,14 @@ class IncentivesController extends Controller
         $incentive->delete();
         flash('Incentive deleted successfully!');
         return back();
+    }
+
+    public function exportToExcel(Request $request)
+    {
+        if($request){
+            return Excel::download(new IncentivesExport($request->start_date, $request->end_date), 'incentives.xlsx');
+        }else{
+            return Excel::download(new IncentivesExport(), 'incentives.xlsx');
+        }
     }
 }

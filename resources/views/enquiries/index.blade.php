@@ -13,7 +13,7 @@
                     @else
                     <a href="/enquiriesexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
                     @endif
-                    <button type="button" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></button>
+                    <a href="/enquiriespdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
                     <button type="button" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></button>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <td>{{$enquiry->customer->fullname}}</td>
                     <td>{{$enquiry->enquiry_date}}</td>
                     <td>{{$enquiry->followup_date}}</td>
-                    <td class="text-right">{{$enquiry->grand_total}}</td>
+                    <td class="text-right">&#8377; {{$enquiry->grand_total}}</td>
                     <td><span class="badge badge-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}}">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</span> </td>
                     <td>
                         <a href="/enquiries/{{$enquiry->sr_no}}" class="btn btn-sm" title="Edit"><i class="fa fa-eye"></i></a>

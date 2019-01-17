@@ -278,4 +278,8 @@ class InvoicesController extends Controller
             return Excel::download(new InvoicesExport(), 'invoices.xlsx');
         }
     }
+
+    public function downloadPDF(){
+         return Excel::download(new InvoicesExport(), 'invoices.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
 }

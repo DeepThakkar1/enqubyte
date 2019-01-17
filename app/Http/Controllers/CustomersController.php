@@ -136,4 +136,8 @@ class CustomersController extends Controller
         return Excel::download(new CustomersExport, 'customers.xlsx');
     }
 
+    public function downloadPDF(){
+         return Excel::download(new CustomersExport(), 'customers.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
 }

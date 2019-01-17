@@ -156,4 +156,8 @@ class ProductsController extends Controller
     {
         return Excel::download(new ProductsExport, 'products.xlsx');
     }
+
+    public function downloadPDF(){
+         return Excel::download(new ProductsExport(), 'products.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
 }

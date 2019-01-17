@@ -170,4 +170,9 @@ class EmployeesController extends Controller
     {
         return Excel::download(new EmployeesExport, 'employees.xlsx');
     }
+
+    public function downloadPDF(){
+         return Excel::download(new EmployeesExport(), 'employees.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
 }
