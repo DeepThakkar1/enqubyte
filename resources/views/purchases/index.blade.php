@@ -5,18 +5,18 @@
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content">Purchases</h2>
         <div class="float-right">
-            <a href="/purchases/add" class="btn btn-primary">Add Purchase</a>
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     @if(request('start_date'))
-                    <a href="/purchasesexcel?start_date={{request('start_date')}}&end_date={{request('end_date')}}" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    <a href="/purchasesexcel?start_date={{request('start_date')}}&end_date={{request('end_date')}}" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
                     @else
-                    <a href="/purchasesexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    <a href="/purchasesexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
                     @endif
-                    <a href="/purchasespdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
-                    <a href="/purchasescsv" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></a>
+                    <a href="/purchasespdf" class="btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/purchasescsv" class="btn btn-light"><i class="fas fa-file-csv"></i> CSV</a>
                 </div>
             </div>
+            <a href="/purchases/add" class="btn btn-primary">Add Purchase</a>
         </div>
     </div>
     @include('components.filters.datefilter')
