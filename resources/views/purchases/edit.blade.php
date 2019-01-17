@@ -7,7 +7,7 @@
         <a href="/purchases" class="btn btn-secondary float-right">Back</a>
     </div>
     <!-- <hr> -->
-    <div class="card">
+    <div class="card border-top-0">
         <form method="post" action="/purchases/{{$purchaseOrder->id}}/update" enctype="multipart/form-data">
             @csrf
             <div class="card-body p-0">

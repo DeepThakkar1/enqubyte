@@ -2,21 +2,22 @@
 
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
-    <div class="headline-contents">
+    <div class="headline-contents headline-border-bottom">
         <h2 class="d-inline-block headline-content">Enquiries</h2>
         <div class="float-right">
-            <a href="/enquiries/add" class="btn btn-primary">Add Enquiry</a>
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     @if(request('start_date'))
-                    <a href="/enquiriesexcel?start_date={{request('start_date')}}&end_date={{request('end_date')}}" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    <a href="/enquiriesexcel?start_date={{request('start_date')}}&end_date={{request('end_date')}}" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
                     @else
-                    <a href="/enquiriesexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
+                    <a href="/enquiriesexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
                     @endif
-                    <a href="/enquiriespdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
-                    <a href="/enquiriescsv" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></a>
+                    <a href="/enquiriespdf" class="btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/enquiriescsv" class="btn btn-light"><i class="fas fa-file-csv"></i> CSV</a>
                 </div>
             </div>
+            <a href="/enquiries/add" class="btn btn-primary">Add Enquiry</a>
+            
         </div>
     </div>
     @include('components.filters.datefilter')

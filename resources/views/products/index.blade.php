@@ -2,17 +2,17 @@
 
 @section('content')
 <div class="container-fluid pl-0 pr-0 ml-0 mr-0">
-    <div class="headline-contents responsive-headline-contents">
+    <div class="headline-contents responsive-headline-contents border-bottom-0">
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Products</h2>
         <div class="float-right">
-            <a href="#addProductModal" data-toggle="modal" class="btn btn-primary">Add Product</a>
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/productsexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
-                    <a href="/productspdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
-                    <a href="/productscsv" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></a>
+                    <a href="/productsexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
+                    <a href="/productspdf" class="btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/productscsv" class="btn btn-light"><i class="fas fa-file-csv"></i> CSV</a>
                 </div>
             </div>
+            <a href="#addProductModal" data-toggle="modal" class="btn btn-primary">Add Product</a>
         </div>
     </div>
     <div class=" product-add-list">

@@ -4,6 +4,11 @@ body{
 }
 
 /*----------------------[Buttons]--------------------------*/
+.btn-light {
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  height: 34px;
+}
 
 .btn-primary {
     color: #fff !important;
@@ -201,6 +206,7 @@ input, select {
 
 .card{
   border-radius: 0px !important;
+  /*border:1px solid #f0f0f0 !important;*/
 }
 .card-footer {
     text-align: right;
@@ -248,7 +254,7 @@ h3.Due{
   /*text-align: center;*/
 }
 table.dataTable.no-footer {
-  border-bottom: 1px solid #dee2e6 !important;
+  border-bottom: 1px solid #f0f0f0 !important;
 }
 table.dataTable thead th{
     /*text-align: center;*/
@@ -256,9 +262,13 @@ table.dataTable thead th{
 .dataTables_info{
   padding: 21px !important;
   padding-top: 19px !important;
-  border-bottom: 1px solid #dee2e6 !important;
+  border-bottom: 1px solid #f0f0f0 !important;
   width: 100%;
   font-size: 12px;
+}
+
+.table th, .table td {
+    border-top: 1px solid #f0f0f0;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -519,7 +529,7 @@ textarea.form-control {
   align-items: center;
   height: 56px;
   background: #fafafa !important;
-  /*border-bottom: solid 1px #f0f0f0;*/
+  border-bottom: solid 1px #f0f0f0;
   box-shadow: none !important;
 }
 .headline-contents h2 {

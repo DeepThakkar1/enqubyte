@@ -6,7 +6,7 @@ body {
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+    /*font-family: 'Poppins', sans-serif;*/
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -70,16 +70,18 @@ a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 5px;
-    background: #d7e0ea;
+    /*padding: 5px;*/
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #3f3f3f !important;
     color: #000;
-    text-align: center;
+    padding-left: 18px;
+    /*text-align: center;*/
 }
 #sidebar .sidebar-header img{
     height: 50px;
 }
 #sidebar ul.components {
-    padding: 20px 0;
     /*border-bottom: 1px solid #47748b;*/
 }
 
@@ -94,17 +96,20 @@ a:focus {
     display: block;
     color: #999;
     background-color: #343536;
+    border-bottom: 1px solid #b6b6b62e;
 }
 
 #sidebar ul li a:hover {
     color: #fff;
+    background: #166ead;
     /*font-weight: 500;*/
     /*background: #fff;*/
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    /*background: #136acd;*/
+
+    background: #166ead;
     font-weight: 500;
     /*color: #166ead;*/
     color: #fff;

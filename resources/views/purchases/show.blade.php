@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
-    <div class="headline-contents headline-border-bottom">
+    <div class="headline-contents">
         <h2 class="d-inline-block headline-content">
             <a href="/purchases" class="mr-1"><i class="fa fa-arrow-left"></i></a> Purchase Order
         </h2>
@@ -11,21 +11,21 @@
     <div class="d-flex align-self-center">
         <div class="py-2">
             <div>Status</div>
-            <div class="bg-{{$purchaseOrder->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded"><span class="purchaseOrderStatus"> {{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+            <div class="bg-{{$purchaseOrder->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="purchaseOrderStatus"> {{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
         </div>
         <div class="px-4 py-2">
             <div>Vendor</div>
-            <h3><a href="" class="text-primary"> {{$purchaseOrder->vendor->name}}</a></h3>
+            <h3><a href="" class="text-primary custom-primary-text"> {{$purchaseOrder->vendor->name}}</a></h3>
         </div>
         <div class="ml-auto p-2">
             <div class="d-flex">
                 <div class="px-4">
                     <div>Amount Due</div>
-                    <h3>&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></h3>
+                    <h3 class="mt-2 Due">&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></h3>
                 </div>
                 <div>
                     <div>Due Date</div>
-                    <h3>{{$purchaseOrder->due_date}}</h3>
+                    <h3 class="mt-2 Due">{{$purchaseOrder->due_date}}</h3>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
         </div>
     </div> -->
 
-    <div class="card mt-3">
+    <div class="card">
         <div class="card-body">
             <div class="d-flex p-3">
                 <div class="px-4">

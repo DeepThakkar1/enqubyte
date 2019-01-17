@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
-    <div class="headline-contents headline-border-bottom">
+    <div class="headline-contents">
         <h2 class="d-inline-block headline-content pb-2 pt-1"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
         <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">

@@ -6,7 +6,7 @@
         <h2 class="d-inline-block headline-content">Add Purchase Order</h2>
         <a href="/purchases" class="btn btn-secondary float-right">Back</a>
     </div>
-    <div class="card">
+    <div class="card border-top-0">
         <form method="post" action="/purchases" enctype="multipart/form-data">
             @csrf
             <div class="card-body p-0">

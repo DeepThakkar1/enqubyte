@@ -12,9 +12,9 @@
         <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/incentivesexcel" class="btn btn-outline-dark"><i class="fa fa-file-excel"></i></a>
-                    <a href="/incentivespdf" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
-                    <a href="/incentivescsv" class="btn btn-outline-dark"><i class="fas fa-file-csv"></i></a>
+                    <a href="/profitandlossexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
+                    <a href="/profitandlosspdf" class="btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/profitandlosscsv" class="btn btn-light"><i class="fas fa-file-csv"></i> CSV</a>
                 </div>
             </div>
         </div>

@@ -216,25 +216,25 @@
                         <div class="col-md-3">
                             <a href="/products">
                                 <img src="/img/icons/hired.png" alt="icons">
-                                <p>Product</p>
+                                <p class="mt-2">Product</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/employees">
                                 <img src="/img/icons/visitor.png" alt="icons">
-                                <p>Employee</p>
+                                <p class="mt-2">Employee</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/vendors">
                                 <img src="/img/icons/customer.png" alt="icons">
-                                <p>Vendor</p>
+                                <p class="mt-2">Vendor</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/customers">
                                 <img src="/img/icons/reports.png" alt="icons">
-                                <p>Customer</p>
+                                <p class="mt-2">Customer</p>
                             </a>
                         </div>
                     </div>
@@ -248,19 +248,19 @@
                         <div class="col-md-3">
                             <a href="/visitors">
                                 <img src="/img/icons/responsive.png" alt="icons">
-                                <p>Visitor</p>
+                                <p class="mt-2">Visitor</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/taxes">
                                 <img src="/img/icons/appointment.png" alt="icons">
-                                <p>Taxes</p>
+                                <p class="mt-2">Taxes</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/incentives">
                                 <img src="/img/icons/customer-service.png" alt="icons">
-                                <p>Incentive</p>
+                                <p class="mt-2">Incentive</p>
                             </a>
                         </div>
                        <!--  <div class="col-md-3">
