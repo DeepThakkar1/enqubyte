@@ -4,71 +4,77 @@
 <div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
     <div class="headline-contents headline-border-bottom">
         <h2 class="d-inline-block headline-content pb-2 pt-1"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
-        <!-- <a href="/enquiries/add" class="btn btn-primary float-right">Add Enquiry : </a> -->
+        <div class="float-right">
+            <div class="btn-toolbar d-inline-block" role="toolbar">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <a href="/enquiries/{{$enquiry->id}}/download" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="container px-5 ">
-        <div class="d-flex align-self-center">
-            <div class="py-2">
-                <div>Status</div>
-                <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded mt-2">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
-            </div>
-            <div class="px-4 py-2">
-                <div>Customer</div>
-                <h3><a href="" class="text-primary custom-primary-text"> {{$enquiry->customer->fullname}}</a></h3>
-            </div>
-            <div class="ml-auto p-2">
-                <div class="d-flex">
-                    @if(isset($enquiry->invoice))
-                    <div class="px-4">
-                        <div>Invoice</div>
-                        <h3>
-                        <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
-                        </h3>
-                    </div>
-                    @endif
-                    <div class="pr-4">
-                        <div>Amount Due</div>
-                        <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
-                    </div>
-                    <div>
-                        <div>Followup Date</div>
-                        <h3 class="mt-2 Due">{{$enquiry->followup_date}}</h3>
-                    </div>
+        <div class="container px-5 ">
+            <div class="d-flex align-self-center">
+                <div class="py-2">
+                    <div>Status</div>
+                    <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded mt-2">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
                 </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex p-3">
-                    <div class="px-4">
-                        <h3 class="">ENQ-00{{ $enquiry->sr_no }} </h3>
-                        <div class=""><b>Created:</b> {{$enquiry->created_at->diffForHumans()}}</div>
-                    </div>
-                    <div class="ml-auto p-2">
-                        @if(!$enquiry->status == 1 && !$enquiry->status == -1)
-                        <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-outline-primary">Edit Enquiry </a>
+                <div class="px-4 py-2">
+                    <div>Customer</div>
+                    <h3><a href="" class="text-primary custom-primary-text"> {{$enquiry->customer->fullname}}</a></h3>
+                </div>
+                <div class="ml-auto p-2">
+                    <div class="d-flex">
+                        @if(isset($enquiry->invoice))
+                        <div class="px-4">
+                            <div>Invoice</div>
+                            <h3>
+                                <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
+                            </h3>
+                        </div>
                         @endif
+                        <div class="pr-4">
+                            <div>Amount Due</div>
+                            <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
+                        </div>
+                        <div>
+                            <div>Followup Date</div>
+                            <h3 class="mt-2 Due">{{$enquiry->followup_date}}</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card mt-3">
-            <div class="card-body">
-                <div class="d-flex p-3">
-                    <div class="px-4">
-                        <p class="badge badge-success p-2 mb-2" style="letter-spacing: 1px"> {{$enquiry->followup_date}}</p>
-                        <div class="font-weight-bold"> Next Follow-up</div>
-                    </div>
-                    <div class="ml-auto p-2">
-                        @if(!$enquiry->status == 1 && !$enquiry->status == -1)
-                        <a href="#changeFollowupDateModal" data-toggle="modal" class="btn btn-outline-primary">Change Date </a>
-                        @else
-                        <a href="javascript:;" class="btn btn-outline-primary disabled"  title="Convert to Invoice">Change Date</a>
-                        @endif
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex p-3">
+                        <div class="px-4">
+                            <h3 class="">ENQ-00{{ $enquiry->sr_no }} </h3>
+                            <div class=""><b>Created:</b> {{$enquiry->created_at->diffForHumans()}}</div>
+                        </div>
+                        <div class="ml-auto p-2">
+                            @if(!$enquiry->status == 1 && !$enquiry->status == -1)
+                            <a href="/enquiries/{{$enquiry->id}}/edit" class="btn btn-outline-primary">Edit Enquiry </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="d-flex p-3">
+                        <div class="px-4">
+                            <p class="badge badge-success p-2 mb-2" style="letter-spacing: 1px"> {{$enquiry->followup_date}}</p>
+                            <div class="font-weight-bold"> Next Follow-up</div>
+                        </div>
+                        <div class="ml-auto p-2">
+                            @if(!$enquiry->status == 1 && !$enquiry->status == -1)
+                            <a href="#changeFollowupDateModal" data-toggle="modal" class="btn btn-outline-primary">Change Date </a>
+                            @else
+                            <a href="javascript:;" class="btn btn-outline-primary disabled"  title="Convert to Invoice">Change Date</a>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
         <!-- <div class="card mt-3">
             <div class="card-body">
                 <div class="d-flex p-3">

@@ -289,8 +289,19 @@ class EnquiriesController extends Controller
         }
     }
 
+    public function download(Enquiry $enquiry){
+        $enquiryPdf = \PDF::loadView('enquiries.print');
+
+        return $enquiryPdf->download('enquiry.pdf');
+        // return view('enquiries.print', compact('enquiry'));
+    }
+
     public function exportToPDF(){
          return Excel::download(new EnquiriesExport(), 'enquiries.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+    }
+
+    public function enquiryExportToPDF(Enquiry $enquiry){
+         return Excel::download(new EnquiryExport($enquiry), 'ENV-00'.$enquiry->sr_no.'.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
     }
 
     public function exportToCSV(){
