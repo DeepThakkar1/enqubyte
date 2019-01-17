@@ -10,7 +10,7 @@
         <form method="post" action="/enquiries">
             @csrf
             <div class="card-body p-0">
-                <div class="row pl-0 pt-4 m-0">
+                <div class="row pl-0 py-4 m-0">
                     <div class="col-sm-4 form-group">
                         <label>Enquiry Number</label>
                         <input type="text" name="sr_no" class="form-control" value="{{$enquirySrno}}" readonly>

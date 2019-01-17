@@ -10,7 +10,7 @@
         <form method="post" action="/sales/invoices">
             @csrf
             <div class="card-body p-0">
-                <div class="row pl-0 pt-4 m-0">
+                <div class="row pl-0 py-4 m-0">
                     <div class="col-sm-4 form-group">
                         <label>Invoice Number</label>
                         <input name="sr_no" type="text" class="form-control" value="{{$invoiceSrno}}" readonly>
@@ -42,7 +42,7 @@
                         <input type="text" class="form-control datepicker" autocomplete="off" name="due_date" placeholder="Due date">
                     </div>
                 </div>
-                <hr>
+              <!--   <hr> -->
                 <div class="table-responsive m-0" style="position: relative;">
                     <table class="table table-invoiceItems">
                         <thead>

@@ -13,23 +13,23 @@
     </div>
     @include('components.filters.datefilter')
     <div class="card">
-        <div class="card-body">
-            <div class="d-flex justify-content-around align-items-center p-3">
-                <div class="px-4">
+        <div class="card-body p-0">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <div class="px-4 expenses-txt">
                     <h3 class="">Net Profit </h3>
                     <h4 class="">&#8377; {{$profit}}</h4>
                 </div>
-                <div class="px-4">
+                <div class="px-4 expenses-txt">
                     <h4 class="">=</h4>
                 </div>
-                <div class="px-4">
+                <div class="px-4 expenses-txt">
                     <h3 class="">Total sale</h3>
                     <h4 class="">&#8377; {{$totalSale}}</h4>
                 </div>
-                <div class="px-4">
+                <div class="px-4 expenses-txt">
                     <h4 class="">-</h4>
                 </div>
-                <div class="px-4">
+                <div class="px-4 expenses-txt">
                     <h3 class="">Expenses</h3>
                     <h4 class="">&#8377; {{$expenses}}</h4>
                 </div>
@@ -39,29 +39,29 @@
     @include('components.tabs.tabularChart')
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
-            <table class="table">
+            <table class="table reports-show-puroduct-purchaes mb-0">
                 <tbody>
                     <tr class="bg-light">
                         <th colspan="2">Expenses</th>
                     </tr>
                     <tr>
                         <td>Total Purchase Made</td>
-                        <td>&#8377; {{$totalPurchase}}</td>
+                        <td style="text-align: right;">&#8377; {{$totalPurchase}}</td>
                     </tr>
                     <tr>
-                        <td>Incentives Paid</td>
-                        <td>&#8377; {{$incentives}}</td>
+                        <td class="border-top-0">Incentives Paid</td>
+                        <td class="border-top-0" style="text-align: right;">&#8377; {{$incentives}}</td>
                     </tr>
                     <tr class="bg-light">
                         <th colspan="2">Income</th>
                     </tr>
                     <tr>
                         <td>Total Sale</td>
-                        <td>&#8377; {{$totalSale}}</td>
+                        <td style="text-align: right;">&#8377; {{$totalSale}}</td>
                     </tr>
                     <tr class="bg-light">
-                        <th>Net Profit</th>
-                        <th>&#8377; {{$profit}}</th>
+                        <th class="border-top-0" style="font-size: 15px;">Net Profit</th>
+                        <th class="border-top-0" style="text-align: right;font-size: 15px;">&#8377; {{$profit}}</th>
                     </tr>
                 </tbody>
             </table>

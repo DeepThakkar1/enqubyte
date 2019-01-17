@@ -118,7 +118,7 @@ body{
     border-radius: 0px
 }
 .form-group label{
-  margin-bottom: 0px !important;
+  margin-bottom: 5px !important;
 }
 /*input, select {
     margin: 0;
@@ -183,7 +183,7 @@ body{
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #000;
-    border-bottom: 2px solid #cccc;
+    border-bottom: 2px solid #166ead;
     border-radius: 0px;
     background-color: #fff !important;
 }
@@ -255,6 +255,10 @@ table.dataTable thead th{
   border-top: none !important;
   padding: 22px 18px;
 }
+
+.reports-show-puroduct-purchaes tr th{
+  padding: 22px 18px;
+}
 /*.table.invoice-show-tbl tr td{
     border-bottom: 1px solid #dee2e6;
 }*/
@@ -267,6 +271,13 @@ table.dataTable thead th{
 }
 .grandTotalAmount{
   font-size: 17px !important;
+}
+.expenses-txt h3{
+  font-size: 18px;
+}
+.expenses-txt h4{
+  font-size: 18px;
+  margin-bottom: 0px;
 }
 
 .login-btn-section{
