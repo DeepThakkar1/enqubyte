@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('css/datetimepicker.min.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
@@ -97,7 +98,7 @@
             @endauth
 
 
-            <div class="pt-0 pb-4">
+            <div class="pt-0 pb-md-4">
                 @include('flash::message')
                 @yield('content')
             </div>

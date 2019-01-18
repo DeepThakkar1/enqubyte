@@ -9,7 +9,7 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Profit & Loss Account
         </h2>
-        <div class="float-right">
+        <div class="float-md-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     <a href="/profitandlossexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
@@ -27,14 +27,14 @@
                     <h3 class="">Net Profit </h3>
                     <h4 class="">&#8377; {{$profit}}</h4>
                 </div>
-                <div class="px-4 expenses-txt">
+                <div class="px-md-4 expenses-txt">
                     <h4 class="">=</h4>
                 </div>
                 <div class="px-4 expenses-txt">
                     <h3 class="">Total sale</h3>
                     <h4 class="">&#8377; {{$totalSale}}</h4>
                 </div>
-                <div class="px-4 expenses-txt">
+                <div class="px-md-4 expenses-txt">
                     <h4 class="">-</h4>
                 </div>
                 <div class="px-4 expenses-txt">

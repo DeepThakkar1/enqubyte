@@ -4,7 +4,7 @@
 <div class="container-fluid pl-0 pr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Incentives</h2>
-        <a href="#addIncentiveModal" data-toggle="modal" class="btn btn-primary float-right">Add Incentives</a>
+        <a href="#addIncentiveModal" data-toggle="modal" class="btn custom-back-btn btn-primary float-right">Add Incentives</a>
     </div>
     <!-- <hr> -->
     <div class="">

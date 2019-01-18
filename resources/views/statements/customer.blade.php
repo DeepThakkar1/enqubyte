@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container-fluid pl-0 pr-0">
-    <div class="headline-contents">
+    <div class="headline-contents headline-contents-height">
         <h2 class="d-inline-block headline-content">
             <a href="/home"> Home  </a>
             <a href="/reports"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Reports</a>
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Customer
         </h2>
-        <div class="float-right">
+        <div class="float-md-right">
             <div class="btn-toolbar" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     <a href="/customerstatementexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>

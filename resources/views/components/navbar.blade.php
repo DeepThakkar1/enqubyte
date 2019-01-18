@@ -23,8 +23,8 @@
     </div> -->
 
     <form class="form-inline">
-        <i class="fa fa-search" aria-hidden="true" style="color: #d2cccc;padding: 9px;margin-top: 0px;margin-right: -7px;font-size: 12px;"></i> 
-        <input class="form-control mr-sm-2 custom-search-input" style="border:none !important;outline: transparent !important;font-size: 14px;width: 455px;margin-top: -2px;padding-top: 0px;padding-left: 5px;" type="search" placeholder="Search by Enquiries, Invoices, Purchase Orders, Reports " aria-label="Search">
+        <i class="fa fa-search navbar-search-icon" aria-hidden="true"></i> 
+        <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Search by Enquiries, Invoices, Purchase Orders, Reports " aria-label="Search">
         <!-- <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" style="height: 46px;">Search</button> -->
     </form>
 
