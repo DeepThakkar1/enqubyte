@@ -307,8 +307,8 @@
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                        <img src="{{ url('img/sidebar/logout.png') }}" class="inactive-icon">
-                        <img src="{{ url('img/sidebar/logout-clr.png') }}" class="active-icon">
+                        <img src="{{ url('/img/sidebar/icon/logout1.png') }}" class="inactive-icon">
+                        <img src="{{ url('/img/sidebar/icon/logout.png') }}" class="active-icon">
                         <span>{{ __('Logout') }}</span>
                     </a>
 

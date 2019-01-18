@@ -80,18 +80,57 @@
 
   /****************** Buttons***********************/
   .btn-primary {
-    padding: 6px 12px;
+    padding: 6px 10px;
   }
-  .responsive-btn-outline-danger{
+ /* .responsive-btn-outline-danger{
     margin-bottom: 10px;
+  }
+*/
+/****************** Modal***********************/
+
+  .modal.show .modal-dialog {
+    margin-right: none;
+  }
+  .modal {
+    width: 100%;
+  }
+
+  /****************** Nvbar***********************/
+
+  .navbar-search-icon{
+    position: absolute;
+    font-size: 12px;
+  }
+  .custom-search-input{
+    font-size: 12px;
+    padding-left: 26px;
+  }
+
+/****************** Forms***********************/
+  .filter-form-section input{
+    margin-bottom: 10px;
+  }
+
+/****************** Tabs***********************/
+  .nav-link {
+    padding: 14px;
   }
 
   /****************** Header***********************/
   .headline-contents {
-    height: 90px;
+    height: 50px;
   }
+
+  .headline-contents-height{
+    height: 95px !important;
+  }
+
+  .custom-back-btn{
+    margin-top: -3px;
+  }
+
   .headline-contents h2 {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   h3.Due {
     font-size: 13px !important;
@@ -105,5 +144,19 @@
   }
   .text-size-heading{
     font-size: 14px;
+  }
+  .invoice-box {
+    padding: 25px;
+  }
+  .expenses-txt h4 {
+    font-size: 11px;
+  }
+  .expenses-txt h3 {
+    font-size: 15px;
+  }
+  .purchaes-order-record-payment{
+    font-size: 12px;
+    margin-bottom: 0px;
+    color: #212529;
   }
 }

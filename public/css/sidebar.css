@@ -379,6 +379,9 @@ a[aria-expanded="true"] {
 #sidebars.active {
     left: 0;
 }
+#sidebars ul li a:hover {
+    color: #999 !important;
+}
 
 }
 

@@ -286,4 +286,11 @@ class InvoicesController extends Controller
     public function exportToCSV(){
          return Excel::download(new InvoicesExport(), 'invoices.csv',  \Maatwebsite\Excel\Excel::CSV);
     }
+
+    public function download(Invoice $invoice){
+        $invoicePdf = \PDF::loadView('sales.invoices.print', compact('invoice'));
+
+        // return $invoicePdf->download('invoice.pdf');
+        return view('sales.invoices.print', compact('invoice'));
+    }
 }

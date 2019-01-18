@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container-fluid pl-0 pr-0">
-    <div class="headline-contents border-bottom-0">
+    <div class="headline-contents border-bottom-0 headline-contents-height">
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Customers</h2>
-        <div class="float-right">
+        <div class="float-md-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     <a href="/customersexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>

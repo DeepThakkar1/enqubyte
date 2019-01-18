@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
+<div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content ">
             <a href="/products" class="mr-1"><i class="fa fa-arrow-left"></i></a>
@@ -12,7 +12,7 @@
     </div>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
-            <div class="container px-5">
+            <div class="container px-md-5">
                 <div class="d-flex align-self-center">
                     <div class="py-2">
                         <div>Product</div>
@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="container px-5">
+            <div class="container px-md-5">
                 <div class="card">
                     <div class="card-header">
                         <strong>Enquiries ( {{ count($enquiries)}} )</strong>

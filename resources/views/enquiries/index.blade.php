@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid pl-0 pr-0 ml-0 mr-0">
-    <div class="headline-contents headline-border-bottom">
+    <div class="headline-contents headline-contents-height">
         <h2 class="d-inline-block headline-content">Enquiries</h2>
         <div class="float-md-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
