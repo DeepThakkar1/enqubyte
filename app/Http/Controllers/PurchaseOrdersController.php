@@ -217,4 +217,11 @@ class PurchaseOrdersController extends Controller
     public function exportToCSV(){
          return Excel::download(new PurchasesExport(), 'purchases.csv',  \Maatwebsite\Excel\Excel::CSV);
     }
+
+    public function download(PurchaseOrder $purchaseOrder){
+        $purchaseOrderPdf = \PDF::loadView('purchases.print', compact('purchaseOrder'));
+
+        // return $purchaseOrderPdf->download('purchaseOrder.pdf');
+        return view('purchases.print', compact('purchaseOrder'));
+    }
 }
