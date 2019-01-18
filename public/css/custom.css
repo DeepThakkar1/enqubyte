@@ -12,14 +12,15 @@ body{
 
 .btn-primary {
     color: #fff !important;
-    background-color: #166ead !important;
-    border-color: #166ead !important;
+    background-color: #1B6DAB  !important;
+    border-color: #1B6DAB !important;
     border-radius: 2px;
     font-size: 12px;
     height: 34px;
     padding: 6px 20px;
     transition: all .3s;
 }
+
 .btn-outline-danger {
     font-size: 12px;
     height: 34px;
@@ -641,6 +642,7 @@ a.upgrade-product-nav p{
     color: #fff !important;
 }
 
+
 @media(max-width: 768px){
   .login-btn-section{
     margin-bottom: 10px;
@@ -720,13 +722,6 @@ a.upgrade-product-nav p{
   #sidebar{
     display: none;
   }
-
-
-
-
-
 }
-
-
 
 

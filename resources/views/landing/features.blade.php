@@ -10,9 +10,9 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 align-self-center text-center features-section">
                     <div class="agency-banner-content banner-style3">
-                        <h1 class="banner-title">Our Features</h1>
-                        <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which </p> -->
-                        <a href="{{ route('register') }}" class="btn btn-primary btn-gradient4">Get Started Now</a>
+                        <h1 class="banner-title">Explore all features</h1>
+                        
+                       
                     </div><!-- .agency-banner-content END -->
                 </div>
                 <!-- <div class="col-md-6 col-sm-12 col-xs-12">
@@ -22,9 +22,7 @@
                 </div> -->
             </div><!-- .row END -->
         </div><!-- .container END -->
-        <div class="scrollto-button-wraper">
-            <a href="#masureofbusiness" class="scrollto-button round-btn"><i class="icon icon-download-arrow"></i></a>
-        </div>
+       
 </div>
 <!--breadcumb end here--><!-- End welcome section -->
 
