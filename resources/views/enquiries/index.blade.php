@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
+<div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents headline-border-bottom">
         <h2 class="d-inline-block headline-content">Enquiries</h2>
-        <div class="float-right">
+        <div class="float-md-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     @if(request('start_date'))

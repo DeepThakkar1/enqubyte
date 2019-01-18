@@ -265,6 +265,7 @@ ul.social-links li {
 
 
 #dismiss {
+    color: #999;
     width: 15px;
     height: 35px;
     line-height: 35px;
@@ -296,6 +297,7 @@ ul.social-links li {
     background: #ebeff4;
     color: #fff;
     transition: all 0.3s;
+    background: #343536;
 }
 
 ul.social-links {
@@ -303,7 +305,7 @@ ul.social-links {
 }
 #sidebars .sidebar-header {
     padding: 5px;
-    background: #d7e0ea;
+    background: #3f3f3f !important;
     color: #000;
     text-align: center;
     margin-left: -30px;
@@ -312,7 +314,8 @@ ul.social-links {
     height: 48px;
 }
 #sidebars ul.components {
-    padding: 20px 0;
+    /*padding: 20px 0;*/
+    background-color: #3f3f3f !important;
     /*border-bottom: 1px solid #47748b;*/
 }
 
@@ -325,7 +328,9 @@ ul.social-links {
     padding: 12px 20px;
     font-size: 1.1em;
     display: block;
-    color: #4d6575;
+    color: #999;
+    background-color: #343536;
+    border-bottom: 1px solid #b6b6b62e;
 }
 
 #sidebars ul li a:hover {
@@ -336,9 +341,9 @@ ul.social-links {
 
 #sidebars ul li.active>a,
 a[aria-expanded="true"] {
-    /*background: #136acd;*/
     font-weight: 500;
-    color: #166ead;
+    color: #fff;
+    background-color: #166ead;
 }
 #sidebars ul li a img {
     width: 25px;
