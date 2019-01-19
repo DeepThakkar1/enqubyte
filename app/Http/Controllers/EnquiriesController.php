@@ -196,6 +196,7 @@ class EnquiriesController extends Controller
 
     public function createInvoice(Enquiry $enquiry)
     {
+        $enquiry = auth()->user()->enquiries()->where('sr_no', $enquiry)->first();
         foreach ($enquiry->enquiryitems as $key => $item) {
             $product = Product::where('id', $item->product_id)->first();
             if ($product->stock < $item->qty) {
