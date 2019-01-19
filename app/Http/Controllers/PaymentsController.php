@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Lubusin\Mojo\Mojo;
 use Illuminate\Http\Request;
 use Rennokki\Plans\Models\PlanModel;
+use Lubusin\Mojo\Models\MojoRefundDetails;
+use Lubusin\Mojo\Models\MojoPaymentDetails;
 
 class PaymentsController extends Controller
 {
@@ -31,6 +33,13 @@ class PaymentsController extends Controller
 		
     	return redirect('subscribed');
 
+    }
+
+    public function invoice($transactionId)
+    {
+    	$transaction = MojoPaymentDetails::where('id', $transactionId)->first();
+    	dd($transaction);
+    	return view('payments.invoice', compact('transaction'));
     }
 
     public function subscribed()

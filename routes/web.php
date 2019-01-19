@@ -198,6 +198,7 @@ Route::get('/billing', 'PaymentsController@index');
 Route::get('/subscription/cancel', 'PaymentsController@cancel');
 Route::get('/subscription/renew', 'PaymentsController@renew');
 Route::get('/subscription/terminate', 'PaymentsController@terminate');
+Route::get('/billing/invoice/{transactionId}', 'PaymentsController@invoice');
 
 Route::get('/reports', 'ReportsController@index');
 
