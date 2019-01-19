@@ -101,7 +101,11 @@ class SettingsController extends Controller
     public function taxmode(Request $request)
     {
         $newData = $request->all();
-        $newData['invoicetaxes'] = implode(',', $newData['invoicetaxes']);
+        if($newData['taxmode'] == 0){
+            $newData['invoicetaxes'] = null;
+        }else{
+            $newData['invoicetaxes'] = implode(',', $newData['invoicetaxes']);
+        }
         auth()->user()->update($newData);
         flash('Tax mode has been changed successfully!')->success();
         return back();

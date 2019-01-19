@@ -290,7 +290,7 @@ class EnquiriesController extends Controller
     {
         $enquiry->update(['followup_date' => $request->followup_date]);
         flash('Enquiry followup date updated successfully!');
-        return redirect('/enquiries/'.$enquiry->id);
+        return redirect('/enquiries/'.$enquiry->sr_no);
     }
 
     public function exportToExcel(Request $request)

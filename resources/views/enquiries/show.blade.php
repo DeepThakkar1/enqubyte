@@ -221,7 +221,7 @@
                                 @endif
                             </td>
                             <td class="text-right">
-                                <h3 style="margin: 5px 0px;">Enquiry : ENV-00{{$enquiry->sr_no}}</h3>
+                                <h3 style="margin: 5px 0px;">Enquiry : ENQ-00{{$enquiry->sr_no}}</h3>
                                 {{auth()->user()->company_name}}<br>
                                 {{auth()->user()->company_address ? auth()->user()->company_address : '--'}}<br>
                                 {{auth()->user()->company_phone ? auth()->user()->company_phone : '--'}}
@@ -245,7 +245,7 @@
                             </td>
 
                             <td class="text-right">
-                                <b>Enquiry Number:</b> ENV-00{{$enquiry->sr_no}}<br>
+                                <b>Enquiry Number:</b> ENQ-00{{$enquiry->sr_no}}<br>
                                 <b>Created Date:</b> {{$enquiry->enquiry_date}}<br>
                                 <b>Followup Date:</b> {{$enquiry->followup_date}}
                             </td>
