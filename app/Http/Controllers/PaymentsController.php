@@ -21,7 +21,6 @@ class PaymentsController extends Controller
 	public function index()
 	{
 		$transactions = Mojo::allPaymentsFor(auth()->user());
-		dd($transactions);
 		return view('settings.billing', compact('transactions'));
 	}
     public function success($paymentId = null, $requestId = null)
