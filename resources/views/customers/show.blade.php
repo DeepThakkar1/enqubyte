@@ -99,7 +99,7 @@
                                 <tbody>
                                     @foreach($enquiries as $key => $enquiry)
                                     <tr>
-                                        <td><a href="/enquiries/{{$enquiry->sr_no}}" target="_blank" class="text-primary">ENV-00{{$enquiry->sr_no}}</a></td>
+                                        <td><a href="/enquiries/{{$enquiry->sr_no}}" target="_blank" class="text-primary">ENQ-00{{$enquiry->sr_no}}</a></td>
                                         <td>
                                             @if(isset($enquiry->invoice))
                                             <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}" target="_blank" class="text-primary">INV-00{{$enquiry->invoice->sr_no}}</a>

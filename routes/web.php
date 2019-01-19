@@ -144,6 +144,7 @@ Route::get('/taxes', 'TaxesController@index');
 Route::post('/taxes', 'TaxesController@store');
 Route::post('/taxes/{tax}/update', 'TaxesController@update');
 Route::post('/taxes/{tax}/delete', 'TaxesController@destroy');
+Route::post('/taxes/{tax}/get', 'TaxesController@get');
 
 Route::get('/incentives', 'IncentivesController@index');
 Route::post('/incentives', 'IncentivesController@store');
@@ -192,4 +193,42 @@ Route::post('/settings/company/update', 'SettingsController@updateCompany');
 Route::post('/settings/general/report', 'SettingsController@reportFrequency');
 Route::post('/settings/general/taxmode', 'SettingsController@taxmode');
 
+
+Route::get('/billing', 'PaymentsController@index');
+Route::get('/subscription/cancel', 'PaymentsController@cancel');
+Route::get('/subscription/renew', 'PaymentsController@renew');
+Route::get('/subscription/terminate', 'PaymentsController@terminate');
+Route::get('/billing/invoice/{transactionId}', 'PaymentsController@invoice');
+
 Route::get('/reports', 'ReportsController@index');
+
+Route::get('/payment/success/{payment_id?}/{request_id?}','PaymentsController@success');
+
+Route::post(
+    'instamojo/webhook',
+    '\Lubusin\Mojo\Controllers\WebhookController@handleWebhook'
+);
+
+Route::get('subscribed', 'PaymentsController@subscribed');
+
+use Rennokki\Plans\Models\PlanModel;
+
+Route::get('/plans/create/all', function(){
+
+	$monthly = PlanModel::create([
+	    'name' => 'All-in-one monthly',
+	    'description' => 'Includes all services and modules for a month',
+	    'price' => 1750,
+	    'currency' => 'INR',
+	    'duration' => 30, // in days
+	]);
+
+	$yearly = PlanModel::create([
+	    'name' => 'All-in-one yearly',
+	    'description' => 'Includes all services and modules for a year',
+	    'price' => 19200,
+	    'currency' => 'INR',
+	    'duration' => 365, // in days
+	]);
+
+});

@@ -10,7 +10,7 @@ class TaxesController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'subscribed']);
     }
     /**
      * Display a listing of the resource.
@@ -57,9 +57,10 @@ class TaxesController extends Controller
      * @param  \App\Models\Tax  $tax
      * @return \Illuminate\Http\Response
      */
-    public function show(Tax $tax)
+    public function get($tax)
     {
-        //
+        $tax = auth()->user()->taxes()->where('rate', $tax)->first();
+        return response($tax, 200);
     }
 
     /**

@@ -102,6 +102,7 @@
                         </div>
                     </div>
                     <div class="row form-group">
+                        @if(!auth()->user()->invoicetaxes)
                         <div class="col-sm-6">
                             <label>Tax<sup class="error">*</sup></label>
                             <select class="form-control" name="tax" required>
@@ -113,6 +114,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        @endif
                         <div class="col-sm-6">
                             <label>HSN Code</label>
                             <input type="text" name="hsn_code" class="form-control" placeholder="HSN Code">

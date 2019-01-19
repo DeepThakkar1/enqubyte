@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tax;
 use App\Models\Vendor;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class PurchaseOrdersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'subscribed']);
     }
 
     /**
@@ -40,7 +41,15 @@ class PurchaseOrdersController extends Controller
         $vendors = auth()->user()->vendors;
         $products = auth()->user()->products;
         $purchaseSrno =PurchaseOrder::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
-        return view('purchases.create', compact('vendors', 'products', 'purchaseSrno'));
+
+        if(isset(auth()->user()->invoicetaxes)){
+            $taxIds = explode(',', auth()->user()->invoicetaxes);
+            $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+            return view('purchases.create', compact('vendors', 'products', 'purchaseSrno', 'invoicetaxes'));
+        }else{
+            return view('purchases.create', compact('vendors', 'products', 'purchaseSrno'));
+        }
+
     }
 
     /**
@@ -117,7 +126,15 @@ class PurchaseOrdersController extends Controller
         $vendors = auth()->user()->vendors;
         $products = auth()->user()->products;
         $purchaseitems = $purchaseOrder->purchaseitems;
-        return view('purchases.edit', compact('purchaseOrder', 'vendors', 'products', 'purchaseitems'));
+
+        if(isset(auth()->user()->invoicetaxes)){
+            $taxIds = explode(',', auth()->user()->invoicetaxes);
+            $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+            return view('purchases.edit', compact('purchaseOrder', 'vendors', 'products', 'purchaseitems', 'invoicetaxes'));
+        }else{
+            return view('purchases.edit', compact('purchaseOrder', 'vendors', 'products', 'purchaseitems'));
+        }
+
     }
 
     /**

@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'subscribed']);
     }
 
     /**
@@ -24,6 +24,32 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(!auth()->user()->hasActiveSubscription())
+        {
+            if(env('APP_ENV') != 'local'){
+                $instamojoFormUrl =
+                    Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');
+                 return redirect($instamojoFormUrl);
+            } else {
+                $plan = PlanModel::where('name', 'All-in-one monthly')->first();
+                $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+                return redirect('subscribed');
+            }
+
+        }
+
+        $followups = auth()->user()->enquiries()->where('followup_date', date('d-m-Y'))->get();
+        $enquiriesCnt = auth()->user()->enquiries()->count();
+        $totalSale = auth()->user()->invoices()->sum('grand_total');
+        $totalRemains = auth()->user()->invoices()->sum('remaining_amount');
+        $totalEarned = $totalSale - $totalRemains;
+
+        $totalPurchase = auth()->user()->purchases->sum('grand_total');
+        $incentives = auth()->user()->invoices()->sum('incentive_amt');
+        $expenses = $totalPurchase + $incentives;
+        $profit = $totalSale - $expenses;
+
+        return view('home', compact('followups', 'enquiriesCnt', 'totalSale', 'totalPurchase', 'totalEarned', 'expenses', 'profit'));
+
     }
 }

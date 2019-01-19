@@ -9,7 +9,7 @@ class SettingsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'subscribed']);
     }
     /**
      * Display a listing of the resource.
@@ -100,7 +100,13 @@ class SettingsController extends Controller
 
     public function taxmode(Request $request)
     {
-        auth()->user()->update($request->all());
+        $newData = $request->all();
+        if($newData['taxmode'] == 0){
+            $newData['invoicetaxes'] = null;
+        }else{
+            $newData['invoicetaxes'] = implode(',', $newData['invoicetaxes']);
+        }
+        auth()->user()->update($newData);
         flash('Tax mode has been changed successfully!')->success();
         return back();
     }
