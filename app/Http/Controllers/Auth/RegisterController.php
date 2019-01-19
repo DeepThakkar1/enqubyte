@@ -84,7 +84,7 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        $instamojoFormUrl = Mojo::giveMeFormUrl($user, 1750, 'Monthly Subscription', '9922367414');
+        $instamojoFormUrl = Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');
 
         return redirect($instamojoFormUrl);
     }

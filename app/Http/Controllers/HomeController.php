@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use Lubusin\Mojo\Mojo;
 use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -24,6 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(!auth()->user()->hasActiveSubscription())
+        {
+            $instamojoFormUrl = Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');
+            return redirect($instamojoFormUrl);
+        }
+       
         return view('home');
     }
 }
