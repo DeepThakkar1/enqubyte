@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c94fd2e65926fa0258c404782764f82b",
+    "content-hash": "513346f4c1fd02fe7db0310ff41f0157",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1397,6 +1397,60 @@
             "time": "2018-11-23T23:41:29+00:00"
         },
         {
+            "name": "lubusin/laravel-mojo",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lubusIN/laravel-mojo.git",
+                "reference": "59491dff0fa6914f37a87c6d3c8c28146b2288a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lubusIN/laravel-mojo/zipball/59491dff0fa6914f37a87c6d3c8c28146b2288a9",
+                "reference": "59491dff0fa6914f37a87c6d3c8c28146b2288a9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.3",
+                "illuminate/support": "~5.3",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "illuminate/http": "~5.3",
+                "illuminate/routing": "~5.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lubusin\\Mojo\\MojoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lubusin\\Mojo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Harish Toshniwal",
+                    "email": "harish@lubus.in"
+                }
+            ],
+            "description": "Laravel Mojo provides an expressive, fluent interface to Instamojo's payment and refund services.",
+            "keywords": [
+                "instamojo",
+                "laravel",
+                "package"
+            ],
+            "time": "2018-02-13T12:41:05+00:00"
+        },
+        {
             "name": "maatwebsite/excel",
             "version": "3.1.3",
             "source": {
@@ -2491,6 +2545,68 @@
             "time": "2018-07-19T23:38:55+00:00"
         },
         {
+            "name": "rennokki/plans",
+            "version": "1.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rennokki/plans.git",
+                "reference": "7075e0fb5df922f9ed6734f55e2ee799a16d43b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rennokki/plans/zipball/7075e0fb5df922f9ed6734f55e2ee799a16d43b1",
+                "reference": "7075e0fb5df922f9ed6734f55e2ee799a16d43b1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.8.0",
+                "laravel/framework": "~5.5.0|~5.6.0|~5.7.0",
+                "stripe/stripe-php": "^6.11.0"
+            },
+            "require-dev": {
+                "orchestra/database": "~3.5.0|~3.6.0",
+                "orchestra/testbench": "~3.5.0|~3.6.0",
+                "phpunit/phpunit": "^6.2|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rennokki\\Plans\\PlansServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rennokki\\Plans\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Renoki",
+                    "email": "rennokki@gmail.com",
+                    "homepage": "https://twitter.com/rennokki",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Plans is a package for SaaS apps that need management over plans, features, subscriptions, events for plans or limited, countable features.",
+            "homepage": "https://github.com/rennokki/plans",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "model",
+                "plan",
+                "plans",
+                "saas",
+                "subscription"
+            ],
+            "time": "2018-11-26T06:14:32+00:00"
+        },
+        {
             "name": "sabberworm/php-css-parser",
             "version": "8.1.0",
             "source": {
@@ -2533,6 +2649,61 @@
                 "stylesheet"
             ],
             "time": "2016-07-19T19:14:21+00:00"
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "v6.28.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "e15127f0f56a0bf2d4ef454df75ea08265e9b2c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/e15127f0f56a0bf2d4ef454df75ea08265e9b2c7",
+                "reference": "e15127f0f56a0bf2d4ef454df75ea08265e9b2c7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "1.*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "time": "2019-01-03T18:40:20+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
