@@ -15,6 +15,7 @@ use App\Models\Incentive;
 use App\Models\Employee;
 use App\Models\PurchaseOrder;
 use App\Models\ReportFrequency;
+use Rennokki\Plans\Traits\HasPlans;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,6 +23,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
+    use HasPlans;
 
     /**
      * The attributes that are mass assignable.

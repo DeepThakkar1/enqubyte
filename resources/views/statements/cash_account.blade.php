@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container-fluid pl-0 pr-0">
-    <div class="headline-contents">
+    <div class="headline-contents headline-contents-height">
         <h2 class="d-inline-block headline-content">
             <a href="/home"> Home  </a>
             <a href="/reports"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Reports</a>
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Cash Flow
         </h2>
-        <div class="float-right">
+        <div class="float-md-right">
             <div class="btn-toolbar" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     <a href="/cashflowexcel" class="btn btn-light"><i class="fa fa-file-excel"> Excel</i></a>
@@ -21,21 +21,21 @@
     </div>
     @include('components.filters.datefilter')
 
-    <div class="card mt-4">
+    <div class="card mt-md-4">
         <div class="card-body p-0">
             <div class="d-flex justify-content-between align-items-center py-3">
                 <div class="px-4 expenses-txt">
                     <h3 class="">Net Cash Change </h3>
                     <h4 class="">&#8377; {{$profit}}</h4>
                 </div>
-                <div class="px-4 expenses-txt">
+                <div class="px-md-4 expenses-txt">
                     <h4 class="">=</h4>
                 </div>
                 <div class="px-4 expenses-txt">
                     <h3 class="">Cash Inflow</h3>
                     <h4 class="">&#8377; {{$totalSale}}</h4>
                 </div>
-                <div class="px-4 expenses-txt">
+                <div class="px-md-4 expenses-txt">
                     <h4 class="">-</h4>
                 </div>
                 <div class="px-4 expenses-txt">

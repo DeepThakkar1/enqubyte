@@ -1,199 +1,49 @@
 @extends('layouts.landing')
 
 @section('content')
-    <!-- END prelaoder -->
-<!-- header section -->
-{{-- <header class="xs-header header-transparent header-style2">
-    <div class="container">
-        <nav class="xs-menus clearfix">
-            <div class="nav-header">
-                <a class="nav-brand" href="/">
-                    <img src="/img/logo.png" alt="">
-                </a>
-                <div class="nav-toggle"></div>
-            </div>
-            <div class="nav-menus-wrapper align-to-right">
-                <!-- menu list -->
-                <!-- <ul class="nav-menu">
-                    <li>
-                        <a href="/index">Home</a>
-                    </li>
-                    <li>
-                        <a href="/feature">Features</a>
-                    </li>
-                </ul>  -->               
-                <!-- End menu list -->
-                <ul class="xs-menu-tools">
-                    <!-- <li>
-                        <a href="#modal-popup-2" class="navsearch-button xs-modal-popup"><i class="icon icon-search"></i></a>
-                    </li> -->
-                    <li>
-                        <a href="#" class="navSidebar-button"><i class="icon icon-burger-menu" style="font-size: 30px;"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div><!-- .container END -->
-</header><!-- End header section --> --}}
-
 
 @include('landing.navbar')
 
-
 <!-- agency banner section -->
-<section class="xs-banner agency-banner6 mt-4" id="homes" data-scrollax-parent="true">
+<section class="xs-banner agency-banner6 mt-4" id="homes" data-scrollax-parent="false">
     <div class="container">
         <div class="row home-banner-section">
-            <div class="col-lg-7 align-self-center">
+            <div class="col-lg-7 align-self-center" style="padding-right: 30px;">
                 <div class="agency-banner-content banner-style6">
-                    <h2 class="banner-title"><span class="title-underline">Business</span> is the <span class="title-underline">salt of</span> life</h2>
-                    <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli.</p>
-                    <div class="banner-video-popups">
-                        <a href="https://www.youtube.com/watch?v=BJq4d1-lHq8" class="xs-video-popup">
-                            <i class="icon icon-play"></i>
-                        </a>
-                        <span>Take a Video Tour</span>
+                    <h2 class="banner-title">The perfect business assistant.</h2>
+                    <p>Enqubyte is an all-in-one solution for managing a retail business at an ease providing features to handle enquiries, sales, purchases and employees as well as provide various reports that let's you analyse your business.</p>
+                    <br>
+                    <div class="get-started-section">
+                        <form method="GET" action="{{ route('register') }}">
+                            <input type="text" class="get-started" name="email" placeholder="E-mail Address">
+                            <button type="submit" class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;">Get Started</button>
+                        </form>    
                     </div>
                 </div><!-- .agency-banner-content END -->
             </div>
             <div class="col-lg-5">
                 <div class="agency-banner-img responsive-agency-banner-img">
-                    <img src="/img/homepage-01.svg" style="width: 100%;" data-scrollax="properties: { translateY: '50%' }" alt="">
+                    <img src="/img/homepage-01.svg" style="width: 95%;" alt="">
                 </div><!-- .agency-banner-img END -->
             </div>
         </div>
     </div><!-- .container END -->
-    <div class="banner-icon-bg">
-        <img src="/assets/images/welcome/welcome-icon-bg-3.png" alt="">
-    </div>
+   
 </section><!-- end agency banner section -->
 
-<!-- growth grid section -->
-<section class="growth-card-section xs-section-padding custom-xs-section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <div class="agency-section-title text-center style5">
-                    <h2 class="main-title medium custom-main-title-heading">Forward into Growth</h2>
-                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarks grove the headline of Alphabet Village</p>
-                </div><!-- .agency-section-title .style3 END -->
-            </div>
-        </div><!-- .row END -->        
-        <div class="row xs-mb-6">
-            <div class="col-md-6 col-lg-3">
-                <div class="info-card text-center">
-                    <div class="info-card-header">
-                        <img src="/assets/images/growth-icon-1.png" alt="">
-                    </div>
-                    <div class="info-card-body">
-                        <h3 class="card-title">Business Relation</h3>
-                        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas</p>
-                    </div>
-                </div><!-- .info-card END -->
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="info-card text-center">
-                    <div class="info-card-header">
-                        <img src="/assets/images/growth-icon-2.png" alt="">
-                    </div>
-                    <div class="info-card-body">
-                        <h3 class="card-title">Business Relation</h3>
-                        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas</p>
-                    </div>
-                </div><!-- .info-card END -->
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="info-card text-center">
-                    <div class="info-card-header">
-                        <img src="/assets/images/growth-icon-3.png" alt="">
-                    </div>
-                    <div class="info-card-body">
-                        <h3 class="card-title">Business Relation</h3>
-                        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas</p>
-                    </div>
-                </div><!-- .info-card END -->
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="info-card text-center">
-                    <div class="info-card-header">
-                        <img src="/assets/images/growth-icon-4.png" alt="">
-                    </div>
-                    <div class="info-card-body">
-                        <h3 class="card-title">Business Relation</h3>
-                        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas</p>
-                    </div>
-                </div><!-- .info-card END -->
-            </div>
-        </div><!-- .row END -->
-        <!-- <div class="btn-wraper text-center">
-            <a href="#" class="simple-btn icon-right style2">View All Services <i class="icon icon-arrow-right"></i></a>
-        </div> -->
-    </div><!-- .container END -->
-    <div class="growth-card-bg">
-        <img src="/assets/images/growth-bg.png" alt="">
-    </div>
-</section><!-- end growth grid section -->
-
-<!-- sucess history section -->
-    <section class="waypoint-tigger success-history2-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 align-self-center">
-                <div class="success-summary">
-                    <div class="success-summary-content">
-                        <!-- <i class="icon icon-coins-2 gradient-icon"></i> -->
-                        <h3 class="content-title">A Satisfied Customer is best for business</h3>
-                        <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
-                    <div class="piechats-wraper clearfix responsive-piechats-wraper">
-                        <div class="single-piechart">
-                            <div class="chart" data-percent="75">
-                                <div class="chart-content"></div>
-                            </div>
-                            <p>WordPress</p>
-                        </div><!-- .single-piechart END -->
-                        <div class="single-piechart">
-                            <div class="chart" data-percent="85">
-                                <div class="chart-content "></div>
-                            </div>
-                            <p>iOS Apps</p>
-                        </div><!-- .single-piechart END -->
-                        <div class="single-piechart">
-                            <div class="chart" data-percent="88">
-                                <div class="chart-content"></div>
-                            </div>
-                            <p>Android</p>
-                        </div><!-- .single-piechart END -->
-                    </div>
-                </div><!-- .success-summary END -->
-            </div>
-            <div class="col-lg-6">
-                <div class="success-summary-image">
-                    <img src="assets/images/relax-vector-img1.png" alt="">
-                </div>
-            </div>
-        </div><!-- .row END -->
-    </div><!-- .container END -->
-</section>    <!-- end sucess history section -->
-
 <!-- deserve it section -->
-<section class="deserve-it-area gradient-bg-area">
+<section class="deserve-it-area" style="background: #1B6DAB;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="deserve-summary-content text-center">
-                    <h2 class="section-title">Really, You Deserve it</h2>
-                    <p>We work systematically to integrate corporate responsibility in our core business We work systematically to integrate corporate responsibility in our core business</p>
+                    <h2 class="section-title">What Enqubyte does?</h2>
+                    <p style="font-size: 19px;">Enqubyte works systematically to integrate corporate responsibility in your business. Using Enqubyte for your business enhances the following two factors.</p>
                 </div>
             </div>
         </div><!-- .row END -->
     </div><!-- .container END -->
-    <div class="background-wave-shape">
-        <img src="assets/images/wave-shape-img.png" alt="">
-    </div>
-    <div class="pillow-image">
-        <img src="assets/images/pillo-vector-image.png" alt="">
-    </div>
+ 
 </section><!-- end deserve it section -->
 
 <!-- we offer section -->
@@ -202,27 +52,27 @@
         <div class="we-offer-wraper">
             <div class="row no-gutters">
                 <div class="col-md-6">
-                    <div class="single-we-offer wow fadeInLeft">
+                    <div class="single-we-offer">
                         <div class="media">
                             <div class="we-offer-icon-wraper">
                                 <i class="icon icon-payment we-offer-icon"></i>
                             </div>
                             <div class="media-body">
-                                <h2 class="xs-title">Affordable Price Plans</h2>
-                                <p>We work systematically to integrate corporate responsibility in our core business</p>
+                                <h2 class="xs-title">Business Analysis &amp; Planning</h2>
+                                <p style="color: #000;">A birds-eye view of your business to monthly, quaterly and yearly reports enhances the capability of better business decisions.</p>
                             </div>
                         </div>
                     </div><!-- .single-we-offer END -->
                 </div>
                 <div class="col-md-6">
-                    <div class="single-we-offer wow fadeInRight">
+                    <div class="single-we-offer">
                         <div class="media">
                             <div class="we-offer-icon-wraper">
                                 <i class="icon icon-rating we-offer-icon"></i>
                             </div>
                             <div class="media-body">
                                 <h2 class="xs-title">Customer Satisfaction</h2>
-                                <p>We work systematically to integrate corporate responsibility in our core business</p>
+                                <p style="color: #000;">Email & SMS notifications to customers about their activity in your business makes them feel more connected and valued.</p>
                             </div>
                         </div>
                     </div><!-- .single-we-offer END -->
@@ -230,174 +80,137 @@
             </div><!-- .row END -->
         </div><!-- ."we-offer-wraper END -->
     </div><!-- .container END -->
-</section><!-- end we offer section -->
+</section><!-- end we offer section --> 
 
 <!-- more features area section -->
-<section class="xs-section-padding-bottom gray-bg more-features-area">
+<section class="xs-section-padding-bottom more-features-area">
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 mx-auto">
+            <div class="col-lg-12 mx-auto">
                 <div class="agency-section-title text-center section-title-style2">                    
-                    <h2 class="main-title">More Features</h2>
-                    <p>We work systematically to integrate corporate responsibility in our core business We work systematically to integrate corporate responsibility in our core business</p>
+                    <h2 class="main-title">Central hub for your business</h2>
+                    <p style="color:#000;font-size: 19px;">Forget the heck of maintaining your business records into multiple softwares for different purposes, Enqubyte covers everything your business needs all in one platform.</p>
                 </div>
             </div>
         </div><!-- .row end -->        
         <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="single-more-feauture text-center wow fadeIn">
+            <div class="col-md-6 col-lg-3">
+                <div class="single-more-feauture">
                     <div class="more-feature-header">
-                        <img src="/img/icon/enquiry.png" alt="">
+                        <img src="/img/icon/customers.png" alt="">
                     </div>
-                    <h3 class="feature-title">Enquiries</h3>
-                    <p>We work systematically to integrate corporate responsibility in our core business</p>
+                    <h3 class="feature-title">Visitors</h3>
+                    <p>Keep a record of your daily walk-ins to the store and use those for marketing campaigns.</p>
                 </div><!-- .single-more-feauture END -->
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".2s">
+            <div class="col-md-6 col-lg-3">
+                <div class="single-more-feauture">
                     <div class="more-feature-header">
                         <img src="/img/icon/products.png" alt="">
                     </div>
                     <h3 class="feature-title">Products & Stock</h3>
-                    <p>We work systematically to integrate corporate responsibility in our core business</p>
+                    <p>Easily manage &amp; store your vendors, purchase orders, products and stock.</p>
                 </div><!-- .single-more-feauture END -->
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".4s">
+            <div class="col-md-6 col-lg-3">
+                <div class="single-more-feauture">
+                    <div class="more-feature-header">
+                        <img src="/img/icon/enquiry.png" alt="">
+                    </div>
+                    <h3 class="feature-title">Enquiries</h3>
+                    <p>Create Estimates & Enquiry sheets to keep a track of each lead or potential sale you can have.</p>
+                </div><!-- .single-more-feauture END -->
+            </div>
+             <div class="col-md-6 col-lg-3">
+                <div class="single-more-feauture">
+                    <div class="more-feature-header">
+                        <img src="/img/icon/enquiry.png" alt="">
+                    </div>
+                    <h3 class="feature-title">Follow-ups</h3>
+                    <p>Never loose a Enquiry/Lead with our follow-up management system.</p>
+                </div><!-- .single-more-feauture END -->
+            </div>
+           
+            <div class="col-md-6 col-lg-3">
+                <div class="single-more-feauture">
                     <div class="more-feature-header">
                         <img src="/img/icon/customers.png" alt="">
                     </div>
                     <h3 class="feature-title">Customers</h3>
-                    <p>We work systematically to integrate corporate responsibility in our core business</p>
+                    <p>Maintain a seperate record of each customer that makes a purchase at your business.</p>
                 </div><!-- .single-more-feauture END -->
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".6s">
+            <div class="col-md-6 col-lg-3">
+                <div class="single-more-feauture" >
                     <div class="more-feature-header">
                         <img src="/img/icon/sales.png" alt="">
                     </div>
-                    <h3 class="feature-title">Sales</h3>
-                    <p>We work systematically to integrate corporate responsibility in our core business</p>
+                    <h3 class="feature-title">Sales & Invoicing</h3>
+                    <p>Create invoices with a click and record payments from customer in a systematic manner.</p>
                 </div><!-- .single-more-feauture END -->
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="single-more-feauture text-center wow fadeIn" data-wow-delay=".8s">
+            <div class="col-md-6 col-lg-3">
+                <div class="single-more-feauture">
                     <div class="more-feature-header">
                         <img src="/img/icon/payout.png" alt="">
                     </div>
-                    <h3 class="feature-title">Payouts & Incentives</h3>
-                    <p>We work systematically to integrate corporate responsibility in our core business</p>
+                    <h3 class="feature-title">Salesmen & Incentives</h3>
+                    <p>Track progress of your employees with Salesmen linked enquiries and manage their incentives.</p>
                 </div><!-- .single-more-feauture END -->
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="single-more-feauture text-center wow fadeIn" data-wow-delay="1s">
+            <div class="col-md-6 col-lg-3">
+                <div class="single-more-feauture">
                     <div class="more-feature-header">
                         <img src="/img/icon/campign.png" alt="">
                     </div>
-                    <h3 class="feature-title">Campaigns</h3>
-                    <p>We work systematically to integrate corporate responsibility in our core business</p>
+                    <h3 class="feature-title">Reports & Graphs</h3>
+                    <p>Analysis is a key to enhancement in business. Analyse like a pro with our detailed reports.</p>
                 </div><!-- .single-more-feauture END -->
             </div>
         </div><!-- .row END -->
-        <div class="btn-wraper text-center">
-            <a href="/features" class="btn btn-primary btn-gradient4 icon-right">View all features <i class="icon icon-arrow-right"></i></a>
+        <div class="btn-wraper text-center" style="margin-top: 40px;">
+            <a href="/features" class="btn btn-primary">Explore all features </a>
         </div>
     </div><!-- .container END -->
 </section><!-- more features area section end -->
 
-<!-- call to action section -->
-<section class="calltoaction-area-2 version-gradient" data-delighter="start:0.80" style="background-image: url(assets/images/call-to-action-2.jpg);">
-    <div class="container">
-        <div class="call-to-action-wraper">
-            <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <div class="call-to-action text-center action-style2">
-                        <h2 class="content-title">Wanna Get New Test of Modern Web Design Trend?</h2>
-                        <a href="/register" class="btn btn-primary btn-gradient4 icon-right">Get Started Now</a>
-                        <!-- <a href="{{ route('register') }}" class="btn btn-primary style5 icon-right">Get Started Now<i class="icon icon-arrow-right"></i></a> -->
+<hr>
+<section class="section-padding-medium desktop-enquiries section-padding-medium1">
+        <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                <div class="agency-section-title section-title-style2">                    
+                    <h2 class="main-title">Single &amp; Simple Pricing</h2>
+                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%">Enqubyte offers all its services and modules all in one single pricing. No plans, packages and upgrades. A semantic pricing is our key.</p>
+                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%;">This plan allows you to create unlimited enquiries, invoices and orders. We provide <b>100 free SMS and 1000 free Email notifications / month</b> for customers. You can buy credits for extra SMS & Emails from dashboard.</p>
+
+                    <div style="margin-top: 55px;">    
+                        <a href="/register" class="btn btn-primary">Get Started Now </a>
                     </div>
                 </div>
-            </div><!-- .row END -->
-            <div class="content-over-img-wraper">
-                <img src="assets/images/call-to-action-over-img-1.png" class="content-over-img img-1" alt="">
-                <img src="assets/images/call-to-action-over-img-2.png" class="content-over-img img-2" alt="">
             </div>
-        </div><!-- .call-to-action-wraper END -->
-    </div><!-- .container END -->
-    <div class="xs-overlay"></div>
-</section><!-- call to action section end -->
+                    <div class="col-lg-4 col-md-6">
+                <div class="pricing-table text-center" style="border-radius: 20px;padding-top: 0;" id="svg-icon-2">
+                    <div class="pricing-header"> 
+                        <div class="xs-svg" data-svg="assets/images/pricing/pricing-2.svg" data-hover="#svg-icon-2"></div>
+                        <div style="border-top-left-radius: 20px;border-top-right-radius: 20px;background: #1B6DAB; padding-top: 10px;padding-bottom: 10px;margin-bottom: 40px;">
+                        <h3 style="font-size: 34px; color: #fff;font-weight: 500;margin-bottom: 0;">All-in-one</h3>
+                        </div>
+                        <div class="pricing-price" style="padding-bottom: 0;">
+                            <h2>&#8377; 1,600</h2>
+                            <span style="margin-top: 10px;font-size: 19px;display: inline-block;">per month billed annualy.</span>
 
-<!-- footer section start -->
-        <footer class="xs-footer-section footer-style5" data-delighter="start:0.80">
-            <div class="footer-top-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="footer-widget">
-                                <div class="footer-logo-wraper">
-                                    <a href="index-2.html" class="footer-logo responsive-footer-logo">
-                                        <img src="/img/logo.png" alt="">
-                                    </a>
-                                </div>
-                            </div><!-- .footer-widget END -->
+                            <span style="margin-top: 30px;width: 80%;font-size: 16px;display: inline-block;"><b>&#8377; 1,750</b> per month billed monthly.</span>
                         </div>
-                        <div class="col-md-6 col-lg-2">
-                            <div class="footer-widget">
-                                <h4 class="widget-title">Features</h4>
-                                <ul class="xs-list">
-                                    <li><a href="/features#Sales">Sales</a></li>
-                                    <li><a href="/features#Enquirers">Enquiry</a></li>
-                                    <li><a href="/features#Reports & Graphs">Reports & Graphs</a></li>
-                                    <li><a href="/features#Campaigns">Campaigns</a></li>
-                                    <li><a href="/features#Payouts & Incentives">Payouts & Incentives</a></li>
-                                </ul><!-- .xs-list END -->
-                            </div><!-- .footer-widget END -->
-                        </div>
-                        <div class="col-md-6 col-lg-2">
-                            <div class="footer-widget">
-                                <h4 class="widget-title">Company</h4>
-                                <ul class="xs-list">
-                                    <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                    <li><a href="/terms-and-services">Terms of Service</a></li>
-                                    <li><a href="#">About Trumpets</a></li>
-                                    <!-- <li><a href="#">Knowledge Base</a></li>
-                                    <li><a href="#">GDPR Update</a></li> -->
-                                </ul><!-- .xs-list END -->
-                            </div><!-- .footer-widget END -->
-                        </div>
-                        <div class="col-md-6 col-lg-2">
-                            <div class="footer-widget">
-                                <h4 class="widget-title">Social Media</h4>
-                                <ul class="xs-list">
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Google Plus</a></li>
-                                    <li><a href="#">Linkedin</a></li>
-                                </ul><!-- .xs-list END -->
-                            </div><!-- .footer-widget END -->
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="footer-widget">
-                                <h4 class="widget-title">Get Updates</h4>
-                                <form action="#" method="POST" class="subscribe-form subscribe-from-style3">
-                                    <label for="sub-input2"></label>
-                                    <div class="form-group">
-                                        <input type="email" name="email" id="sub-input2" placeholder="Enter your mail here..." class="form-control">
-                                        <button class="sub-btn" type="submit"><i class="icon icon-right-arrow"></i></button>
-                                    </div>
-                                </form>
-                                <div class="copyright-text">
-                                    <p>Copyright 2018, Powered By<a href="https://trumpets.co.in/" target="_blank"> Trumpets</a>.</p>
-                                </div>
-                            </div><!-- .footer-widget END -->
-                        </div>
-                    </div><!-- .row END -->
-                </div><!-- .container END -->
-            </div><!-- .footer-top-area END -->
-            <div class="wave-shape">
-                <img src="assets/images/footer-wave-shape.png" alt="">
+                    </div><!-- .pricing-header END -->
+                </div><!-- .pricing-table END #svg-icon-1 end -->    
             </div>
-        </footer>
-        <!-- footer section end -->
+                </div>    
+        </div>    
+</section>    
+
+@include('landing.footer')
+
+
 
         @endsection

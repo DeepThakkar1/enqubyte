@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-group">
-        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" data-parsley-remote="{{url('/users/email/{value}/available')}}" data-parsley-remote-message="Email already exist!" placeholder="Email address" required>
+        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') ?: request('email') }}" data-parsley-remote="{{url('/users/email/{value}/available')}}" data-parsley-remote-message="Email already exist!" placeholder="Email address" required>
         @if ($errors->has('email'))
         <span class="invalid-feedback" role="alert">
             <strong>{{ $errors->first('email') }}</strong>

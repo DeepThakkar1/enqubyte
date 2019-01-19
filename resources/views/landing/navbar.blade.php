@@ -34,7 +34,7 @@
             <div class="offset-menu-wraper clearfix">
                 <div class="float-left">
                     <a href="/" class="offcanvas-nav-brand">
-                        <img src="/img/logo.png" alt="" style="height: 30px;margin-top: 5px;">
+                        <img src="/img/logo.png" alt="" style="height: 40px;">
                     </a>
                 </div>
                <!--  <div class="float-right">
@@ -49,16 +49,17 @@
                 <div class="nav-menus-wrapper align-to-right custom-nav-content">
                     <ul class="nav-menu " style="padding-right: 0px;">
                         <li>
-                            <a href="/" class="nav-link">HOME</a>
+                            <a href="/" class="nav-link">Home</a>
                         </li>
                         <li>
-                            <a href="/features" class="nav-link">FEATURES</a>
+                            <a href="/features" class="nav-link">Features</a>
                         </li>
                         <li>
-                            <a href="/login" class="nav-link btn btn-outline-primary custom-login-button px-4 ml-4">Login</a>
+                            <a href="/login" class="nav-link">Login</a>
                         </li>
+                      
                         <li>
-                            <a href="/register" class="nav-link btn btn-primary custom-register-btn text-white px-4 ml-2">Sign Up</a>
+                            <a href="/register" class="nav-link btn btn-primary custom-register-btn text-white px-4 ml-2">Get Started</a>
                         </li>
                     </ul>                
                 </div>

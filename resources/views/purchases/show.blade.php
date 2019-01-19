@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/print.css')}}">
 @endpush
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
+<div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content">
             <a href="/purchases" class="mr-1"><i class="fa fa-arrow-left"></i></a> Purchase Order
@@ -11,12 +11,12 @@
         <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/purchases/{{$purchaseOrder->id}}/download" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/purchases/{{$purchaseOrder->id}}/download" class="btn btn-light custom-back-btn"><i class="fa fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container px-5">
+    <div class="container px-md-5">
     <div class="d-flex align-self-center">
         <div class="py-2">
             <div>Status</div>
@@ -55,10 +55,10 @@
 
     <div class="card">
         <div class="card-body">
-            <div class="d-flex p-3">
+            <div class="d-flex p-md-3">
                 <div class="px-4">
-                    <h3 class="">P/O-00{{$purchaseOrder->sr_no}}</h3>
-                    <p>Created : {{ $purchaseOrder->created_at->diffForHumans() }}
+                    <h3 class="text-size-heading">P/O-00{{$purchaseOrder->sr_no}}</h3>
+                    <p class="purchaes-order-record-payment">Created : {{ $purchaseOrder->created_at->diffForHumans() }}</p>
                 </div>
                 <div class="ml-auto p-2">
                     @if($purchaseOrder->remaining_amount)

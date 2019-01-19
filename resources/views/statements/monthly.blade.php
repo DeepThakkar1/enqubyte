@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid pl-0 pr-0">
-    <div class="headline-contents">
+    <div class="headline-contents ">
         <h2 class="d-inline-block headline-content">
             <a href="/home"> Home  </a>
             <a href="/reports"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Reports</a>

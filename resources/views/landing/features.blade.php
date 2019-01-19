@@ -4,30 +4,30 @@
 
 @include('landing.navbar')
 
-<!--breadcumb start here-->
-<div class="xs-inner-banner inner-banner2" style=" margin-top: 63px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 align-self-center text-center features-section">
-                    <div class="agency-banner-content banner-style3">
-                        <h1 class="banner-title">Our Features</h1>
-                        <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which </p> -->
-                        <a href="{{ route('register') }}" class="btn btn-primary btn-gradient4">Get Started Now</a>
-                    </div><!-- .agency-banner-content END -->
-                </div>
-                <!-- <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="agency-banner-img">
-                        <img src="assets/images/welcome/agency_welcome_2.png" data-scrollax="properties: { translateY: '25%' }" alt="agency banner image" draggable="false" style="transform: translateZ(0px) translateY(0%);">
+<!-- agency banner section -->
+<section class="xs-banner agency-banner6 mt-4" id="homes" data-scrollax-parent="false">
+    <div class="container">
+        <div class="row home-banner-section">
+            <div class="col-lg-5 align-self-center" style="padding-right: 30px;">
+                <div class="agency-banner-content banner-style6">
+                    <h2 class="banner-title">The centralised hub for all your business needs.</h2>
+                    <br>
+                    <div class="get-started-section">
+                        <a href="/register" class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;">Get Started</a>    
                     </div>
-                </div> -->
-            </div><!-- .row END -->
-        </div><!-- .container END -->
-        <div class="scrollto-button-wraper">
-            <a href="#masureofbusiness" class="scrollto-button round-btn"><i class="icon icon-download-arrow"></i></a>
+                </div><!-- .agency-banner-content END -->
+            </div>
+            <div class="col-lg-7" style="padding-left: 55px;">
+                <div class="agency-banner-img responsive-agency-banner-img">
+                    <img src="/img/devices.png" style="width: 100%;" alt="">
+                </div><!-- .agency-banner-img END -->
+            </div>
         </div>
-</div>
-<!--breadcumb end here--><!-- End welcome section -->
+    </div><!-- .container END -->
+   
+</section><!-- end agency banner section -->
 
+<hr>
 <!-- business care area section -->
 <section class="section-padding-medium desktop-enquiries section-padding-medium1">
     <div class="container">

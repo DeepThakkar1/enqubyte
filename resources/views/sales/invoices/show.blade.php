@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/print.css')}}">
 @endpush
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
+<div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content">
             <a href="/sales/invoices" class="mr-1"><i class="fa fa-arrow-left"></i></a>
@@ -12,13 +12,13 @@
         <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/sales/invoices/{{$invoice->id}}/download" class="btn btn-outline-dark"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/sales/invoices/{{$invoice->id}}/download" class="btn btn-light custom-back-btn"><i class="fa fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
         </div>
         <!-- <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a> -->
     </div>
-    <div class="container px-5">
+    <div class="container px-md-5">
     <div class="d-flex align-self-center">
         <div class="py-2">
             <div>Status</div>
@@ -51,9 +51,9 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <div class="d-flex p-3">
+            <div class="d-flex p-md-3">
                 <div class="px-4">
-                    <h3 class="">INV-00{{$invoice->sr_no}}</h3>
+                    <h3 class="text-size-heading">INV-00{{$invoice->sr_no}}</h3>
                     <div class=""><b>Created:</b> {{$invoice->created_at->diffForHumans()}}</div>
                 </div>
                 <div class="ml-auto p-2">
@@ -83,9 +83,9 @@
 
     <div class="card mt-3">
         <div class="card-body">
-            <div class="d-flex p-3">
+            <div class="d-flex p-md-3">
                 <div class="px-4">
-                    <h3 class="pt-2">Get Paid</h3>
+                    <h3 class="pt-2 text-size-heading">Get Paid</h3>
                 </div>
                 <div class="ml-auto p-2">
                     @if($invoice->remaining_amount)
