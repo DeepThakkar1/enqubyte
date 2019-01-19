@@ -57,9 +57,10 @@ class TaxesController extends Controller
      * @param  \App\Models\Tax  $tax
      * @return \Illuminate\Http\Response
      */
-    public function show(Tax $tax)
+    public function get($tax)
     {
-        //
+        $tax = auth()->user()->taxes()->where('rate', $tax)->first();
+        return response($tax, 200);
     }
 
     /**

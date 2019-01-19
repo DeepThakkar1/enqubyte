@@ -188,6 +188,9 @@
             });
 
             $('.selectWithSearch').select2();
+            $('.selectMultipleTax').select2({
+                placeholder: 'Select Tax'
+            });
 
             $('#sidebars #dismiss, .overlay').on('click', function () {
                 console.log('jshjkhk');

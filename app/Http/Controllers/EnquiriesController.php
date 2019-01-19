@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tax;
 use App\Models\Enquiry;
 use App\Models\Invoice;
 use App\Models\Product;
@@ -50,7 +51,13 @@ class EnquiriesController extends Controller
         $salesmans = auth()->user()->employees;
         $products = auth()->user()->products;
         $enquirySrno = Enquiry::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
-        return view('enquiries.create', compact('salesmans', 'customers', 'products', 'enquirySrno'));
+        if(isset(auth()->user()->invoicetaxes)){
+            $taxIds = explode(',', auth()->user()->invoicetaxes);
+            $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+            return view('enquiries.create', compact('salesmans', 'customers', 'products', 'enquirySrno', 'invoicetaxes'));
+        }else{
+            return view('enquiries.create', compact('salesmans', 'customers', 'products', 'enquirySrno'));
+        }
     }
 
     /**
@@ -128,7 +135,13 @@ class EnquiriesController extends Controller
             $salesmans = auth()->user()->employees;
             $products = auth()->user()->products;
             $enquiryitems = $enquiry->enquiryitems;
-            return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems'));
+            if(isset(auth()->user()->invoicetaxes)){
+                $taxIds = explode(',', auth()->user()->invoicetaxes);
+                $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+                return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems', 'invoicetaxes'));
+            }else{
+                return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems'));
+            }
         }
     }
 

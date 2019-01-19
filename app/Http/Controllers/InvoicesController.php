@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tax;
 use App\Models\Enquiry;
 use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Employee;
-use App\Models\SalesmanIncentive;
 use Illuminate\Http\Request;
+use App\Exports\InvoicesExport;
+use App\Models\SalesmanIncentive;
 use App\Notifications\NewInvoice;
 use App\Notifications\UpdateInvoice;
-use App\Exports\InvoicesExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class InvoicesController extends Controller
@@ -47,7 +48,15 @@ class InvoicesController extends Controller
         $customers = auth()->user()->visitors;
         $products = auth()->user()->products;
         $invoiceSrno = Invoice::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
-        return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoiceSrno'));
+
+        if(isset(auth()->user()->invoicetaxes)){
+            $taxIds = explode(',', auth()->user()->invoicetaxes);
+            $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+            return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoiceSrno', 'invoicetaxes'));
+        }else{
+            return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoiceSrno'));
+        }
+
     }
 
     /**
@@ -160,7 +169,14 @@ class InvoicesController extends Controller
             $customers = auth()->user()->visitors;
             $products = auth()->user()->products;
             $invoiceitems = $invoice->invoiceitems;
-            return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems'));
+
+            if(isset(auth()->user()->invoicetaxes)){
+                $taxIds = explode(',', auth()->user()->invoicetaxes);
+                $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+                return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems', 'invoicetaxes'));
+            }else{
+                return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems'));
+            }
         }
     }
 
@@ -219,10 +235,12 @@ class InvoicesController extends Controller
 
         if(isset($invoice->employee)){
             $incentiveAmt = 0;
-            if ($invoice->employee->incentive->type == 1) {
-                $incentiveAmt = $invoice->employee->incentive->rate;
-            }else if ($invoice->employee->incentive->type == 2) {
-                $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
+            if(isset($invoice->employee->incentive)){
+                if ($invoice->employee->incentive->type == 1) {
+                    $incentiveAmt = $invoice->employee->incentive->rate;
+                }else if ($invoice->employee->incentive->type == 2) {
+                    $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
+                }
             }
 
             if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
