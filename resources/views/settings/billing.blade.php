@@ -52,8 +52,8 @@
 		        <div class="card-body">
 		            <div class="d-flex">
 		                <div class="px-md-4">
-		                	<h3 class="text-size-heading font-weight-bold">{{ $transaction->created_at->toFormattedDateString() }}</h3>
-		                	<div style="font-size: 20px;">For the month of {{ $transaction->created_at->englishMonthName }}</div>
+		                	<h3 class="text-size-heading font-weight-bold">INV-00{{ $transaction->id }}</h3>
+		                	<div style="font-size: 20px;">For the month of {{ $transaction->created_at->locale('en')->monthName }}</div>
 		                </div>	
 			            <div class="ml-auto p-2">
 	                        <a href="/payments/invoice/{{$transaction->id}}" style="font-size: 20px;" class="btn btn-outline-success">Download Invoice</a>
