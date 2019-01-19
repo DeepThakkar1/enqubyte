@@ -194,7 +194,7 @@ class EnquiriesController extends Controller
 
 
 
-    public function createInvoice(Enquiry $enquiry)
+    public function createInvoice($enquiry)
     {
         $enquiry = auth()->user()->enquiries()->where('sr_no', $enquiry)->first();
         foreach ($enquiry->enquiryitems as $key => $item) {
