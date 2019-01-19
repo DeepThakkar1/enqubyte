@@ -265,7 +265,7 @@
                 <td class="right">Price</td>
                 <td class="center">Qty</td>
                 <td class="center">Tax</td>
-                <td class="right">Total</td>
+                <td class="right text-right">Total</td>
             </tr>
             @foreach($purchaseOrder->purchaseitems as $key => $item)
             <tr class="item {{$key == count($purchaseOrder->purchaseitems) - 1 ? 'last' : ''}}">
@@ -274,27 +274,27 @@
                 <td class="right">&#8377; {{$item->price}}</td>
                 <td class="center">{{$item->qty}}</td>
                 <td class="center">{{$item->tax}} %</td>
-                <td class="right">&#8377; {{$item->product_tot_amt}}</td>
+                <td class="right text-right">&#8377; {{$item->product_tot_amt}}</td>
             </tr>
             @endforeach
             <tr class="total">
                     <td colspan="5"></td>
-                    <td class="right border-top-0"><strong>Subtotal : </strong> &#8377; {{$purchaseOrder->sub_tot_amt}}</td>
+                    <td class="right text-md-right border-top-0"><strong>Subtotal : </strong> &#8377; {{$purchaseOrder->sub_tot_amt}}</td>
                 </tr>
                 <tr>
                     <td colspan="5"></td>
-                    <td class="right"><strong>Discount : </strong> {!! isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==0 ? '&#8377;' : ''!!} {{$purchaseOrder->discount}} {{isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==1 ? '%' : ''}}</td>
+                    <td class="right text-md-right"><strong>Discount : </strong> {!! isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==0 ? '&#8377;' : ''!!} {{$purchaseOrder->discount}} {{isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==1 ? '%' : ''}}</td>
                 </tr>
                 <tr>
                     <td colspan="5"></td>
-                    <td class="right grandTotalAmount">
+                    <td class="right text-md-right grandTotalAmount">
                         <strong>Total : &#8377; {{$purchaseOrder->grand_total}}</strong>
                     </td>
                 </tr>
                 @if(count($purchaseOrder->payments))
                     @foreach($purchaseOrder->payments as $payment)
                     <tr>
-                        <td colspan="5" class="left">
+                        <td colspan="5" class="left text-md-right">
                             Payment on {{ $payment->payment_date}} using
                             @if($payment->payment_method == 1)
                             Bank Payment :
@@ -308,16 +308,16 @@
                             Other :
                             @endif
                         </td>
-                        <td class="right">
+                        <td class="right text-md-right">
                             <strong>&#8377; {{$payment->amount}}</strong>
                         </td>
                     </tr>
                     @endforeach
                     <tr class="rowAmountDue">
-                        <td colspan="5" class="left">
+                        <td colspan="5" class="left text-md-right">
                             <strong>Amount Due (INR):</strong>
                         </td>
-                        <td class="right">
+                        <td class="right text-md-right">
                             <strong>&#8377; {{$purchaseOrder->remaining_amount}}</strong>
                         </td>
                     </tr>
