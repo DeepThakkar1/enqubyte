@@ -29,6 +29,9 @@
         </span>
         @endif
     </div>
+
+     
+
     <div class="form-group mt-3">
         <a href="#next" class="btn btn-primary mb-4 btn-lg btn-block wizard-control" data-parsley-group="block-1">
             {{ __('Continue') }}

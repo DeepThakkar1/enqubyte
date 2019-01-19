@@ -126,6 +126,7 @@
     @stack('js')
     <script>
         $('div.alert-flash.alert-dismissable').not('.alert-important').delay(3000).fadeOut(350);
+        $('#flash-overlay-modal').modal();
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar, #content').toggleClass('active');

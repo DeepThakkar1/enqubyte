@@ -123,4 +123,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->fname . ' ' . $this->lname;
     }
+
+    public function getNameAttribute()
+    {
+        return $this->fname . ' ' . $this->lname;
+    }
 }
