@@ -131,7 +131,7 @@ class EnquiriesController extends Controller
         }
         else
         {
-            $customers = auth()->user()->visitors->where('status', '!=', -1)->get();
+            $customers = auth()->user()->visitors()->where('status', '!=', -1)->get();
             $salesmans = auth()->user()->employees;
             $products = auth()->user()->products;
             $enquiryitems = $enquiry->enquiryitems;
