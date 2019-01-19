@@ -53,7 +53,7 @@
 		            <div class="d-flex">
 		                <div class="px-md-4">
 		                	<h3 class="text-size-heading font-weight-bold">{{ $transaction->created_at->toFormattedDateString() }}</h3>
-		                	<div style="font-size: 20px;">For the month of {{ $transaction->created_at->monthName }}</div>
+		                	<div style="font-size: 20px;">For the month of {{ $transaction->created_at->englishMonthName }}</div>
 		                </div>	
 			            <div class="ml-auto p-2">
 	                        <a href="/payments/invoice/{{$transaction->id}}" style="font-size: 20px;" class="btn btn-outline-success">Download Invoice</a>
