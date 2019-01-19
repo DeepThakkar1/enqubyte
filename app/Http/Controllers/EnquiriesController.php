@@ -23,7 +23,7 @@ class EnquiriesController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'subscribed']);
     }
     /**
      * Display a listing of the resource.
