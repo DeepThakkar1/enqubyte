@@ -47,7 +47,7 @@ class EnquiriesController extends Controller
      */
     public function create()
     {
-        $customers = auth()->user()->visitors;
+        $customers = auth()->user()->visitors()->where('status', '!=', -1)->get();
         $salesmans = auth()->user()->employees;
         $products = auth()->user()->products;
         $enquirySrno = Enquiry::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
@@ -131,7 +131,7 @@ class EnquiriesController extends Controller
         }
         else
         {
-            $customers = auth()->user()->visitors;
+            $customers = auth()->user()->visitors()->where('status', '!=', -1)->get();
             $salesmans = auth()->user()->employees;
             $products = auth()->user()->products;
             $enquiryitems = $enquiry->enquiryitems;
@@ -191,8 +191,6 @@ class EnquiriesController extends Controller
         flash('Enquiry updated successfully!');
         return redirect('/enquiries');
     }
-
-
 
     public function createInvoice($enquiry)
     {

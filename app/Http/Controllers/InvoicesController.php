@@ -45,7 +45,7 @@ class InvoicesController extends Controller
     public function create()
     {
         $salesmans = auth()->user()->employees;
-        $customers = auth()->user()->visitors;
+        $customers = auth()->user()->visitors()->where('status', '!=', -1)->get();
         $products = auth()->user()->products;
         $invoiceSrno = Invoice::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
 
@@ -166,7 +166,7 @@ class InvoicesController extends Controller
         }
         else{
             $salesmans = auth()->user()->employees;
-            $customers = auth()->user()->visitors;
+            $customers = auth()->user()->visitors()->where('status', '!=', -1)->get();
             $products = auth()->user()->products;
             $invoiceitems = $invoice->invoiceitems;
 
