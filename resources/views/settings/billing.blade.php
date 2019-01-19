@@ -56,7 +56,7 @@
 		                	<div style="font-size: 20px;">For the month of {{ $transaction->created_at->toFormattedDateString() }}</div>
 		                </div>	
 			            <div class="ml-auto p-2">
-	                        <a href="/payments/invoice/{{$transaction->id}}" style="font-size: 20px;" class="btn btn-outline-success">Download Invoice</a>
+	                        <a href="/payments/invoice/{{$transaction->id}}" style="font-size: 20px;" class="btn btn-primary">Download Invoice</a>
 	                    </div> 
                     </div>  	
 		        </div>
