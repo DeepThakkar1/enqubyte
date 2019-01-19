@@ -43,7 +43,7 @@
 	        </div>
 	    </div>	
 
-	    <h2>Invoices</h2>
+	    <h2 style="margin-top: 40px;">Invoices</h2>
 
 	    <hr/>
 	    
@@ -53,12 +53,12 @@
 		            <div class="d-flex">
 		                <div class="px-md-4">
 		                	<h3 class="text-size-heading font-weight-bold">{{ $transaction->created_at->toFormattedDateString() }}</h3>
-		                	<div style="font-size: 20px;">For the month of {{ $transaction->created_at->month }}</div>
+		                	<div style="font-size: 20px;">For the month of {{ $transaction->created_at->monthName }}</div>
 		                </div>	
-		            </div> 
-		            <div class="ml-auto p-2">
-                        <a href="/payments/invoice/{{$transaction->id}}" style="font-size: 20px;" class="btn btn-outline-success">Download Invoice</a>
-                    </div>   	
+			            <div class="ml-auto p-2">
+	                        <a href="/payments/invoice/{{$transaction->id}}" style="font-size: 20px;" class="btn btn-outline-success">Download Invoice</a>
+	                    </div> 
+                    </div>  	
 		        </div>
 		    </div>  
 	    @endforeach      
