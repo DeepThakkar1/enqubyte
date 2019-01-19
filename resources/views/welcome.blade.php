@@ -14,8 +14,10 @@
                     <p>Enqubyte is an all-in-one solution for managing a retail business at an ease providing features to handle enquiries, sales, purchases and employees as well as provide various reports that let's you analyse your business.</p>
                     <br>
                     <div class="get-started-section">
-                        <input type="text" class="get-started" name="email" placeholder="E-mail Address">
-                        <button class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;">Get Started</button>    
+                        <form method="GET" action="{{ route('register') }}">
+                            <input type="text" class="get-started" name="email" placeholder="E-mail Address">
+                            <button type="submit" class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;">Get Started</button>
+                        </form>    
                     </div>
                 </div><!-- .agency-banner-content END -->
             </div>
@@ -171,6 +173,41 @@
         </div>
     </div><!-- .container END -->
 </section><!-- more features area section end -->
+
+<hr>
+<section class="section-padding-medium desktop-enquiries section-padding-medium1">
+        <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                <div class="agency-section-title section-title-style2">                    
+                    <h2 class="main-title">Single &amp; Simple Pricing</h2>
+                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%">Forget the heck of maintaining your business records into multiple softwares for different purposes, Enqubyte covers everything your business needs all in one platform.</p>
+                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%;">Forget the heck of maintaining your business records into multiple softwares for different purposes, Enqubyte covers everything your business needs all in one platform.</p>
+
+                    <div style="margin-top: 55px;">    
+                        <a href="/register" class="btn btn-primary">Get Started Now </a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-lg-4 col-md-6">
+                <div class="pricing-table text-center" style="border-radius: 20px;padding-top: 0;" id="svg-icon-2">
+                    <div class="pricing-header"> 
+                        <div class="xs-svg" data-svg="assets/images/pricing/pricing-2.svg" data-hover="#svg-icon-2"></div>
+                        <div style="border-top-left-radius: 20px;border-top-right-radius: 20px;background: #1B6DAB; padding-top: 10px;padding-bottom: 10px;margin-bottom: 40px;">
+                        <h3 style="font-size: 34px; color: #fff;font-weight: 500;margin-bottom: 0;">All-in-one</h3>
+                        </div>
+                        <div class="pricing-price" style="padding-bottom: 0;">
+                            <h2>&#8377; 1,600</h2>
+                            <span style="margin-top: 10px;font-size: 19px;display: inline-block;">per month billed annualy.</span>
+
+                            <span style="margin-top: 30px;width: 80%;font-size: 16px;display: inline-block;"><b>&#8377; 1,750</b> per month billed monthly.</span>
+                        </div>
+                    </div><!-- .pricing-header END -->
+                </div><!-- .pricing-table END #svg-icon-1 end -->    
+            </div>
+                </div>    
+        </div>    
+</section>    
 
 @include('landing.footer')
 

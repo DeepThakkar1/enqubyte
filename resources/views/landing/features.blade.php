@@ -13,7 +13,7 @@
                     <h2 class="banner-title">The centralised hub for all your business needs.</h2>
                     <br>
                     <div class="get-started-section">
-                        <button class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;">Get Started</button>    
+                        <a href="/register" class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;">Get Started</a>    
                     </div>
                 </div><!-- .agency-banner-content END -->
             </div>
