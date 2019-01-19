@@ -9,7 +9,7 @@
             <a href="/enquiries/{{$enquiry->id}}/cancel" class="btn btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
             @endif
             @if(!$enquiry->status == 1)
-            <a href="/enquiries/{{$enquiry->id}}/invoice" class="btn btn-primary" title="Convert to Invoice">Convert to Invoice</a>
+            <a href="/enquiries/{{$enquiry->sr_no}}/invoice" class="btn btn-primary" title="Convert to Sale">Convert to Sale</a>
             @else
             <a href="javascript:;" class="btn btn-primary disabled"  title="Convert to Invoice">Convert to Invoice</a>
             @endif

@@ -46,7 +46,11 @@
                     <td><span class="badge badge-{{$invoice->remaining_amount ? 'warning' : 'success'}}">{{$invoice->remaining_amount ? 'Pending' : 'Completed'}}</span> </td>
                     <td>
                         <a href="/sales/invoices/{{$invoice->sr_no}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
+                        @if($invoice->remaining_amount)
                         <a href="/sales/invoices/{{$invoice->id}}/edit" class="btn btn-sm"><i class="fa fa-pencil"></i></a>
+                        @else
+                        <a href="#" class="btn btn-sm disabled"><i class="fa fa-pencil"></i></a>
+                        @endif
                         <form method="post" action="/sales/invoices/{{$invoice->id}}/delete" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm" onclick="return confirm('Are you sure, You want to delete this invoice?');"><i class="fa fa-trash"></i></button>

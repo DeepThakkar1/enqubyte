@@ -49,7 +49,11 @@ class HomeController extends Controller
         $expenses = $totalPurchase + $incentives;
         $profit = $totalSale - $expenses;
 
-        return view('home', compact('followups', 'enquiriesCnt', 'totalSale', 'totalPurchase', 'totalEarned', 'expenses', 'profit'));
+        $pendingEnqCnt = auth()->user()->enquiries()->where('status', 0)->count();
+        $convertedEnqCnt = auth()->user()->enquiries()->where('status', 1)->count();
+        $cancelledEnqCnt = auth()->user()->enquiries()->where('status', -1)->count();
+
+        return view('home', compact('followups', 'enquiriesCnt', 'totalSale', 'totalPurchase', 'totalEarned', 'expenses', 'profit', 'pendingEnqCnt', 'convertedEnqCnt', 'cancelledEnqCnt'));
 
     }
 }
