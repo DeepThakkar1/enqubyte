@@ -192,6 +192,12 @@ Route::post('/settings/company/update', 'SettingsController@updateCompany');
 Route::post('/settings/general/report', 'SettingsController@reportFrequency');
 Route::post('/settings/general/taxmode', 'SettingsController@taxmode');
 
+
+Route::get('/billing', 'PaymentsController@index');
+Route::get('/subscription/cancel', 'PaymentsController@cancel');
+Route::get('/subscription/renew', 'PaymentsController@renew');
+Route::get('/subscription/terminate', 'PaymentsController@terminate');
+
 Route::get('/reports', 'ReportsController@index');
 
 Route::get('/payment/success/{payment_id?}/{request_id?}','PaymentsController@success');

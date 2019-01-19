@@ -147,13 +147,16 @@
                     </a>
                     <ul class="collapse list-unstyled" id="settingsSubmenu">
                         <li>
-                            <a href="/settings">{{ __('General') }}</a>
+                            <a href="/settings">{{ __('App') }}</a>
                         </li>
                         <li>
                             <a href="/taxes">{{ __('Taxes') }}</a>
                         </li>
                         <li>
-                            <a href="/incentives">{{ __('Payout & Incentives') }}</a>
+                            <a href="/incentives">{{ __('Incentives') }}</a>
+                        </li>
+                         <li>
+                            <a href="/billing">{{ __('Billing') }}</a>
                         </li>
                     </ul>
                 </li>
