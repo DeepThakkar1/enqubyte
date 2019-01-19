@@ -154,9 +154,14 @@
             row.find('.totAmount').html(response.data.cost_price);
             row.find('[name="product_tot_amt[]"]').val(response.data.cost_price);
 
+            @if(!auth()->user()->taxmode)
             row.find('.select-tax').val(response.data.tax);
-
             var tax = response.data.tax;
+            @else
+            row.find('.select-tax').val(0);
+            var tax = 0;
+            @endif
+
             var qty = row.find('.input-qty').val();
             var price = response.data.cost_price;
             var noTaxAmt = price * qty;
