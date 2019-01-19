@@ -100,7 +100,6 @@
                             <label>Cost Price</label>
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>
-
                     </div>
                     <div class="row">
                         @if(!auth()->user()->invoicetaxes)

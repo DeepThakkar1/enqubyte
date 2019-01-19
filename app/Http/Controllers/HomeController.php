@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
-use Lubusin\Mojo\Mojo;
 use Illuminate\Http\Request;
-use Rennokki\Plans\Models\PlanModel;
 
 class HomeController extends Controller
 {
@@ -16,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'subscribed']);
     }
 
     /**
@@ -37,7 +35,7 @@ class HomeController extends Controller
                 $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
                 return redirect('subscribed');
             }
-            
+
         }
 
         $followups = auth()->user()->enquiries()->where('followup_date', date('d-m-Y'))->get();
@@ -52,5 +50,6 @@ class HomeController extends Controller
         $profit = $totalSale - $expenses;
 
         return view('home', compact('followups', 'enquiriesCnt', 'totalSale', 'totalPurchase', 'totalEarned', 'expenses', 'profit'));
+
     }
 }
