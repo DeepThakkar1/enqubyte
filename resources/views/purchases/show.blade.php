@@ -17,28 +17,54 @@
         </div>
     </div>
     <div class="container px-md-5">
-    <div class="d-flex align-self-center">
-        <div class="py-2">
-            <div>Status</div>
-            <div class="bg-{{$purchaseOrder->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="purchaseOrderStatus"> {{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+        <div class="status-user-amount-desktop">
+            <div class="d-flex align-self-center">
+                <div class="py-2">
+                    <div>Status</div>
+                    <div class="bg-{{$purchaseOrder->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="purchaseOrderStatus"> {{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+                </div>
+                <div class="px-4 py-2">
+                    <div>Vendor</div>
+                    <h3><a href="" class="text-primary custom-primary-text"> {{$purchaseOrder->vendor->name}}</a></h3>
+                </div>
+                <div class="ml-auto p-2">
+                    <div class="d-flex">
+                        <div class="px-4">
+                            <div>Amount Due</div>
+                            <h3 class="mt-2 Due">&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></h3>
+                        </div>
+                        <div>
+                            <div>Due Date</div>
+                            <h3 class="mt-2 Due">{{$purchaseOrder->due_date}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="px-4 py-2">
-            <div>Vendor</div>
-            <h3><a href="" class="text-primary custom-primary-text"> {{$purchaseOrder->vendor->name}}</a></h3>
-        </div>
-        <div class="ml-auto p-2">
-            <div class="d-flex">
-                <div class="px-4">
+
+        <div class="px-md-5 status-user-amount-responsive">
+            <div class="d-flex justify-content-between">
+                <div class="py-2 text-left">
+                    <div>Status</div>
+                    <div class="bg-{{$purchaseOrder->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="purchaseOrderStatus"> {{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+                </div>
+                <div class="py-2 text-right">
+                    <div>Vendor</div>
+                    <h3><a href="" class="text-primary custom-primary-text"> {{$purchaseOrder->vendor->name}}</a></h3>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="py-2 text-left">
                     <div>Amount Due</div>
                     <h3 class="mt-2 Due">&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></h3>
                 </div>
-                <div>
+                <div class="py-2 text-right">
                     <div>Due Date</div>
                     <h3 class="mt-2 Due">{{$purchaseOrder->due_date}}</h3>
                 </div>
             </div>
         </div>
-    </div>
+
     <!-- <div class="card">
         <div class="card-body">
             <div class="d-flex p-3">
@@ -193,7 +219,7 @@
                 <td colspan="6">
                     <table>
                         <tr>
-                            <td class="title">
+                            <td class="title print-company-logo">
                                 @if(auth()->user()->company_logo)
                                     <img src="{{Storage::url(auth()->user()->company_logo)}}" style="height: 50px;">
                                     @else
@@ -201,7 +227,7 @@
                                 @endif
                             </td>
                             <td class="text-right">
-                                <h3 style="margin: 5px 0px;">Purchase Order : P/O-00{{$purchaseOrder->sr_no}}</h3>
+                                <h3 class="invoice-print-heading" style="margin: 5px 0px;">Purchase Order : P/O-00{{$purchaseOrder->sr_no}}</h3>
                                 {{auth()->user()->company_name}}<br>
                                 {{auth()->user()->company_address ? auth()->user()->company_address : '--'}}<br>
                                 {{auth()->user()->company_phone ? auth()->user()->company_phone : '--'}}
@@ -216,7 +242,7 @@
                     <table>
                         <tr>
                             <td>
-                                <h5 style="margin: 0">Purchase Order to</h5>
+                                <h5 class="invoice-print-heading" style="margin: 0">Purchase Order to</h5>
                                 {{$purchaseOrder->vendor->name}}<br>
                                 {{$purchaseOrder->vendor->address ? $purchaseOrder->vendor->address : '--'}}<br>
                                 {{$purchaseOrder->vendor->phone ? $purchaseOrder->vendor->phone : '--'}}<br>

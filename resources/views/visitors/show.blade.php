@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid pl-md-0 pr-md-0 ml-md-0 mr-md-0">
+<div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content"><span>
             <a href="/visitors" class="mr-1"><i class="fa fa-arrow-left"></i></a>
@@ -10,7 +10,7 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> {{$visitor->fullname}}
         </h2>
     </div>
-    <div class="container px-5">
+    <div class="container px-md-5 status-user-amount-desktop">
         <div class="d-flex align-self-center">
             <div class="py-2">
                 <div>Visitor</div>
@@ -27,7 +27,20 @@
         </div>
     </div>
 
-    <div class="container px-5">
+    <div class="container px-md-5 status-user-amount-responsive">
+        <div class="d-flex justify-content-between">
+            <div class="py-2 text-left">
+                <div>Visitor</div>
+                <h3><a href="" class="text-primary custom-primary-text"> {{$visitor->fullname}}</a></h3>
+            </div>
+            <div class="py-2 text-right">
+                <div>Total Enquiries</div>
+                <h3 class="mt-2 Due">{{ count($visitor->enquiries)}}</h3>
+            </div>
+        </div>
+    </div>   
+
+    <div class="container px-md-5">
         <div class="card">
             <div class="card-header">
                 <strong>Enquiries</strong>

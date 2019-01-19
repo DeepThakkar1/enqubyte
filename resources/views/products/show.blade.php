@@ -13,25 +13,46 @@
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
             <div class="container px-md-5">
-                <div class="d-flex align-self-center">
-                    <div class="py-2">
-                        <div>Product</div>
-                        <h3><a href="" class="text-primary custom-primary-text"> {{str_limit($product->name, 40)}}</a></h3>
-                    </div>
-                    <div class="ml-auto p-2">
-                        <div class="d-flex">
-                            <div class="px-4 text-center">
-                                <div>Quantity Sold</div>
-                                <h3 class="mt-2 Due">{{$qtySold}}</h3>
-                            </div>
-                            <div class="pl-4 text-center">
-                                <div>Total Sale</div>
-                                <h3 class="mt-2 Due">&#8377; {{$productTotal}}</h3>
+                <div class="status-user-amount-desktop">
+                    <div class="d-flex align-self-center">
+                        <div class="py-2">
+                            <div>Product</div>
+                            <h3><a href="" class="text-primary custom-primary-text"> {{str_limit($product->name, 40)}}</a></h3>
+                        </div>
+                        <div class="ml-auto p-2">
+                            <div class="d-flex">
+                                <div class="px-4 text-center">
+                                    <div>Quantity Sold</div>
+                                    <h3 class="mt-2 Due">{{$qtySold}}</h3>
+                                </div>
+                                <div class="pl-4 text-center">
+                                    <div>Total Sale</div>
+                                    <h3 class="mt-2 Due">&#8377; {{$productTotal}}</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="container px-md-5 status-user-amount-responsive">
+               <div class="d-flex justify-content-between">
+                    <div class="py-2 text-left">
+                        <div>Product</div>
+                        <h3><a href="" class="text-primary custom-primary-text"> {{str_limit($product->name, 40)}}</a></h3>
+                    </div>
+                    <div class="py-2 text-right">
+                        <div>Quantity Sold</div>
+                        <h3 class="mt-2 Due">{{$qtySold}}</h3>
+                    </div>
+               </div>
+               <div class="d-flex justify-content-between">
+                    <div class="py-2 text-left">
+                        <div>Total Sale</div>
+                        <h3 class="mt-2 Due">&#8377; {{$productTotal}}</h3>
+                    </div>
+                </div>
+           </div>
 
             <div class="container px-md-5">
                 <div class="card">

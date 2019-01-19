@@ -1,4 +1,4 @@
-<div id="demoModal" class="modal fade" role="dialog">
+<div id="demoModal" class="modal fade welcome-enqubyte-modal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content custom-modal-content">
             <div class="modal-body p-0">
@@ -9,6 +9,7 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         <!-- <li data-target="#carouselExampleIndicators" data-slide-to="3"></li> -->
                     </ol>
+                    <button type="button" aria-label="Close" class="close p-3 btn-close-modal"><span aria-hidden="true">×</span></button>
                     <div class="carousel-inner demo-carousel dashboard-carousel-section">
                         <div class="carousel-item active">
                             <div class="container">

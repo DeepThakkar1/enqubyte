@@ -12,7 +12,7 @@
     </div>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
-            <div class="container px-md-5">
+            <div class="container px-md-5 status-user-amount-desktop">
                 <div class="d-flex align-self-center">
                     <div class="py-2">
                         <div>Salesman</div>
@@ -41,6 +41,39 @@
                                 <h3 class="mt-2 Due">&#8377; {{$remaining}}</h3>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container px-md-5 status-user-amount-responsive">
+                <div class="d-flex justify-content-between">
+                    <div class="py-2 text-left">
+                        <div>Salesman</div>
+                        <h3><a href="" class="text-primary custom-primary-text"> {{$employee->fullname}}</a></h3>
+                    </div>
+                    <div class="py-2 text-right">
+                        <div>Total Enquiries</div>
+                        <h3 class="mt-2 Due">{{ $enquiriesCount }}</h3>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="py-2 text-left">
+                        <div>Total Invoices</div>
+                        <h3 class="mt-2 Due">{{ $invoicesCount }}</h3>
+                    </div>
+                    <div class="py-2 text-right">
+                        <div>Total Sale</div>
+                        <h3 class="mt-2 Due">&#8377; {{$totalSale}}</h3>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="py-2 text-left">
+                        <div>Total Earn</div>
+                            <h3 class="mt-2 Due">&#8377; {{$totalSale - $remaining}}</h3>
+                    </div>
+                    <div class="py-2 text-right">
+                        <div>Total Remaining</div>
+                        <h3 class="mt-2 Due">&#8377; {{$remaining}}</h3>
                     </div>
                 </div>
             </div>

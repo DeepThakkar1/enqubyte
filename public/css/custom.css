@@ -135,6 +135,21 @@ body{
     margin-right: 0px !important;
 }
 
+.modal.welcome-enqubyte-modal  {
+    width: 100% !important;
+}
+
+.modal.welcome-enqubyte-modal.show .modal-dialog {
+    margin-right: auto !important;
+    max-width: fit-content !important;
+}
+
+.welcome-enqubyte-modal.show .custom-modal-content {
+     height: unset !important; 
+}
+.welcome-enqubyte-modal.show .modal-content {
+     height: 80vh !important; 
+}
 /*----------------------[Forms]--------------------------*/
 
 .form-group .input-group-append {
@@ -660,6 +675,12 @@ a.upgrade-product-nav p{
     background-color: rgb(22, 110, 173) !important;
     padding: 5px !important;
     color: #fff !important;
+}
+.status-user-amount-desktop{
+  display: block;
+}
+.status-user-amount-responsive{
+  display: none !important;
 }
 
 
