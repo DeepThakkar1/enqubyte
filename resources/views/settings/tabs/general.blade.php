@@ -34,11 +34,11 @@
             <div class="card-body py-4">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="perProductRadio" name="taxmode" value="0" {{auth()->user()->taxmode ? '' : 'checked'}} class="custom-control-input">
-                    <label class="custom-control-label pt-1 pr-3 pl-1" for="perProductRadio">Tax Per Product</label>
+                    <label class="custom-control-label pt-1 pr-3 pl-1" for="perProductRadio">Tax on Product</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="perInvoiceRadio" name="taxmode" value="1" {{auth()->user()->taxmode ? 'checked' : ''}} class="custom-control-input">
-                    <label class="custom-control-label pt-1 pr-3 pl-1" for="perInvoiceRadio">Tax on Invoice</label>
+                    <label class="custom-control-label pt-1 pr-3 pl-1" for="perInvoiceRadio">Tax on Sub Total</label>
                 </div>
                 <div class="row mt-3" style="display: none;">
                     <div class="col-sm-4">
