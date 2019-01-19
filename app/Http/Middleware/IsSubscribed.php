@@ -17,7 +17,7 @@ class IsSubscribed
      */
     public function handle($request, Closure $next)
     {
-        if(!auth()->user()->hasActiveSubscription() && !auth()->user()->lastSubscription()->isPendingCancellation())
+        if(!$request->user()->hasActiveSubscription())
         {
             if(env('APP_ENV') != 'local'){
                 $instamojoFormUrl = 
