@@ -130,9 +130,9 @@
                             </td>
                             
                             <td>
+                                {{ auth()->user()->company_name }}<br>
                                 {{ $transaction->buyer_name }}<br>
-                               {{ auth()->user()->company_name }}<br>
-                               {{ $transaction->buyer_email }}
+                                {{ $transaction->buyer_email }}
                             </td>
                         </tr>
                     </table>
