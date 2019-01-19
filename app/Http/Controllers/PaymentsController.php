@@ -38,7 +38,6 @@ class PaymentsController extends Controller
     public function invoice($transactionId)
     {
     	$transaction = MojoPaymentDetails::where('id', $transactionId)->first();
-    	dd($transaction);
     	return view('payments.invoice', compact('transaction'));
     }
 
