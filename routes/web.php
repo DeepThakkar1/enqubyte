@@ -144,6 +144,7 @@ Route::get('/taxes', 'TaxesController@index');
 Route::post('/taxes', 'TaxesController@store');
 Route::post('/taxes/{tax}/update', 'TaxesController@update');
 Route::post('/taxes/{tax}/delete', 'TaxesController@destroy');
+Route::post('/taxes/{tax}/get', 'TaxesController@get');
 
 Route::get('/incentives', 'IncentivesController@index');
 Route::post('/incentives', 'IncentivesController@store');

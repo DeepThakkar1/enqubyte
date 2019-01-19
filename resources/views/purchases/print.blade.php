@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>P/O-00{{$purchaseOrder->sr_no}}</title>
+    <title>Purchase Order P/O-00{{$purchaseOrder->sr_no}}</title>
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/print.css')}}">
 </head>

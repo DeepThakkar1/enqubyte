@@ -40,6 +40,19 @@
                     <input type="radio" id="perInvoiceRadio" name="taxmode" value="1" {{auth()->user()->taxmode ? 'checked' : ''}} class="custom-control-input">
                     <label class="custom-control-label pt-1 pr-3 pl-1" for="perInvoiceRadio">Tax on Invoice</label>
                 </div>
+                <div class="row mt-3" style="display: none;">
+                    <div class="col-sm-4">
+                        <select class="form-control form-control-sm selectMultipleTax" multiple name="invoicetaxes[]"  style="width: 150px;">
+                            <option value="" disabled>-- Choose Tax --</option>
+                            <?php $invoicetaxes = explode(',', auth()->user()->invoicetaxes); ?>
+                            <option value="0" {{in_array(0, $invoicetaxes) ? 'selected' : ''}}>None</option>
+                            <?php $taxes = getTaxes() ?>
+                            @foreach($taxes as $key => $tax)
+                            <option value="{{$tax->rate}}" {{in_array($tax->rate , $invoicetaxes) ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -57,27 +70,46 @@
                 <div class="custom-control custom-checkbox d-inline-block">
                   <input type="checkbox" class="custom-control-input"  name="weekly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->weekly ? 'checked' : ''}} value="1" id="chkWeekly">
                   <label class="custom-control-label pt-1 pr-3 pl-1" for="chkWeekly"> Weekly </label>
-                </div>
-                <div class="custom-control custom-checkbox d-inline-block">
+              </div>
+              <div class="custom-control custom-checkbox d-inline-block">
                   <input type="checkbox" class="custom-control-input" name="monthly" id="chkMonthly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->monthly ? 'checked' : ''}} value="1">
                   <label class="custom-control-label pt-1 pr-3 pl-1" for="chkMonthly" > Monthly </label>
-                </div>
-                <div class="custom-control custom-checkbox d-inline-block">
+              </div>
+              <div class="custom-control custom-checkbox d-inline-block">
                   <input type="checkbox" class="custom-control-input"  name="quarterly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->quarterly ? 'checked' : ''}} value="1" id="chkQuarterly">
                   <label class="custom-control-label pt-1 pr-3 pl-1" for="chkQuarterly"> Quarterly </label>
-                </div>
-                <div class="custom-control custom-checkbox d-inline-block">
+              </div>
+              <div class="custom-control custom-checkbox d-inline-block">
                   <input type="checkbox" class="custom-control-input"  name="sixmonth" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->sixmonth ? 'checked' : ''}} value="1" id="chkSixMonth">
                   <label class="custom-control-label pt-1 pr-3 pl-1" for="chkSixMonth"> Six Month </label>
-                </div>
-                <div class="custom-control custom-checkbox d-inline-block">
+              </div>
+              <div class="custom-control custom-checkbox d-inline-block">
                   <input type="checkbox" class="custom-control-input" id="chkYearly"  name="yearly" {{isset(auth()->user()->reportfrequency) && auth()->user()->reportfrequency->yearly ? 'checked' : ''}} value="1" id="chkYearly">
                   <label class="custom-control-label pt-1 pr-3 pl-1" for="chkYearly"> Yearly </label>
-                </div>
-            </div>
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
+              </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
         </div>
-    </form>
+    </div>
+</form>
 </div>
+
+@push('js')
+<script>
+    $('[name="taxmode"]').on('click', function(){
+        var taxmode = $(this).val();
+        console.log(taxmode);
+        if(taxmode == 1){
+            $('.selectMultipleTax').parents('.row').show();
+        }else{
+            $('.selectMultipleTax').parents('.row').hide();
+        }
+    });
+    if($("#perInvoiceRadio").is(':checked'))
+        $('.selectMultipleTax').parents('.row').show();
+    else
+        $('.selectMultipleTax').parents('.row').hide();
+
+</script>
+@endpush

@@ -1,5 +1,5 @@
 @extends('layouts.app')
- 
+
 @section('content')
 <div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents">
@@ -51,7 +51,9 @@
                                 <th>Description</th>
                                 <th>Qty</th>
                                 <th>Price</th>
+                                @if(!auth()->user()->taxmode)
                                 <th>Tax</th>
+                                @endif
                                 <th class="text-right">Amount</th>
                                 <th></th>
                             </tr>
@@ -75,6 +77,7 @@
                                 <td>
                                     <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">
                                 </td>
+                                @if(!auth()->user()->taxmode)
                                 <td>
                                     <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">
                                         <option selected disabled>-- Choose Tax --</option>
@@ -85,6 +88,7 @@
                                         @endforeach
                                     </select>
                                 </td>
+                                @endif
                                 <td class="text-right">
                                     &#8377; <span class="totAmount"> 0.00</span>
                                     <input type="hidden" name="product_tot_amt[]" value="0">
@@ -107,7 +111,18 @@
                     </div>
                     <div class="p-2 text-right subTotalAmount font-weight-bold">Subtotal :</div>
                 </div>
-                <!-- <hr class="mt-0 mb-0"> -->
+                @if(auth()->user()->taxmode)
+                @foreach($invoicetaxes as $tax)
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2 px-3"></div>
+                    <!-- <input type="hidden" name="" class="inputTaxAmount{{$tax->id}}"> -->
+                    <div class="p-2 taxAmount{{$tax->id}}">
+                        0
+                    </div>
+                    <div class="p-2 text-right font-weight-bold">{{$tax->abbreviation}} :</div>
+                </div>
+                @endforeach
+                @endif
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
                     <div class="p-2">
@@ -124,6 +139,7 @@
                     <div class="p-2 grandTotalAmount">
                         &#8377; <span class="grandTotAmount font-weight-bold"> 0.00</span>
                         <input type="hidden" name="grand_total" value="0">
+                        <input type="hidden" name="temp_grand_total" value="0">
                     </div>
                     <div class="p-2 text-right font-weight-bold grandTotalAmount">Total (INR) :</div>
                 </div>
@@ -155,8 +171,8 @@
             row.find('.input-price').val(response.data.selling_price);
             row.find('.totAmount').html(response.data.selling_price);
             row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
-            row.find('.select-tax').val(response.data.tax);
 
+            row.find('.select-tax').val(response.data.tax);
             var tax = response.data.tax;
             var qty = row.find('.input-qty').val();
             var price = response.data.selling_price;
@@ -175,11 +191,15 @@
 
     $('.table-enquiryItems').on('keyup', '.input-qty', function(){
         var row = $(this).parents('tr');
-        var qty = $(this).val();
-        var price = row.find('.input-price').val();
+        var qty = parseFloat($(this).val());
+        var price = parseFloat(row.find('.input-price').val());
         var tax = row.find('.select-tax').val();
         var noTaxAmt = price * qty;
+        if (!tax) {
+            tax = 0;
+        }
         var taxAmt = ((noTaxAmt * tax) / 100);
+
         row.find('.totAmount').html(noTaxAmt + taxAmt);
         row.find('[name="product_tot_amt[]"]').val(noTaxAmt + taxAmt);
         total();
@@ -187,9 +207,9 @@
 
     $('.table-enquiryItems').on('keyup', '.input-price', function(){
         var row = $(this).parents('tr');
-        var price = $(this).val();
-        var qty = row.find('.input-qty').val();
-        var tax = row.find('.select-tax').val();
+        var price = parseFloat($(this).val());
+        var qty = parseFloat(row.find('.input-qty').val());
+        var tax = parseFloat(row.find('.select-tax').val());
         var noTaxAmt = price * qty;
         var taxAmt = ((noTaxAmt * tax) / 100);
         row.find('.totAmount').html(noTaxAmt + taxAmt);
@@ -200,8 +220,8 @@
     $('.table-enquiryItems').on('change', '.select-tax', function(){
         var row = $(this).parents('tr');
         var tax = $(this).val();
-        var qty = row.find('.input-qty').val();
-        var price = row.find('.input-price').val();
+        var qty = parseFloat(row.find('.input-qty').val());
+        var price = parseFloat(row.find('.input-price').val());
         var noTaxAmt = price * qty;
         var taxAmt = ((noTaxAmt * tax) / 100);
         row.find('.totAmount').html(noTaxAmt + taxAmt);
@@ -212,38 +232,42 @@
     var grandTotal = 0;
 
     $('[name="discount"]').on('keyup', function(){
-        var subTotal = $('[name="sub_tot_amt"]').val();
+        var subTotal = parseFloat($('[name="sub_tot_amt"]').val());
+        var tempGrandTotal = parseFloat($('[name="temp_grand_total"]').val());
         var discountType = $('[name="discount_type"]').val();
         var discount = $(this).val();
         totamt = 0;
         if(discountType == 1){
             discountVal = (subTotal * discount) / 100;
-            totamt = subTotal - discountVal;
-            $("input[name='grand_total']").val(totamt);
-            $(".grandTotAmount").html(totamt);
+            discountTotal = tempGrandTotal - discountVal;
+            $("input[name='grand_total']").val(discountTotal);
+            $(".grandTotAmount").html(discountTotal);
         }else{
-            totamt = subTotal - discount;
+            totamt = tempGrandTotal - discount;
             $("input[name='grand_total']").val(totamt);
             $(".grandTotAmount").html(totamt);
         }
+
     });
 
     $('[name="discount_type"]').on('change', function(){
         $('[name="discount"]').val(0);
-        var subTotal = $('[name="sub_tot_amt"]').val();
+        var subTotal = parseFloat($('[name="sub_tot_amt"]').val());
+        var tempGrandTotal = parseFloat($('[name="temp_grand_total"]').val());
         var discountType = $(this).val();
         var discount = 0;
         totamt = 0;
         if(discountType == 1){
             discountVal = (subTotal * discount) / 100;
-            totamt = subTotal - discountVal;
-            $("input[name='grand_total']").val(totamt);
-            $(".grandTotAmount").html(totamt);
+            discountTotal = tempGrandTotal - discountVal;
+            $("input[name='grand_total']").val(discountTotal);
+            $(".grandTotAmount").html(discountTotal);
         }else{
-            totamt = subTotal - discount;
+            totamt = tempGrandTotal - discount;
             $("input[name='grand_total']").val(totamt);
             $(".grandTotAmount").html(totamt);
         }
+
     });
 
     $('.table-enquiryItems').on('click', '.btn-removeItem', function(){
@@ -304,24 +328,41 @@
             $(".subTotAmount").html(totamt+=parseFloat(trs[i].value));
             $("input[name='sub_tot_amt']").val(totamt);
             $("input[name='grand_total']").val(totamt);
+            $("input[name='temp_grand_total']").val(totamt);
             $(".grandTotAmount").html(totamt);
         }
         grandTotal = totamt;
 
-        var subTotal = $('[name="sub_tot_amt"]').val();
+        var subTotal = parseFloat($('[name="sub_tot_amt"]').val());
+        var tempGrandTotal = parseFloat($('[name="temp_grand_total"]').val());
         var discountType = $('[name="discount_type"]').val();
         var discount = $('[name="discount"]').val();
 
+
+
         if(discountType == 1){
             discountVal = (subTotal * discount) / 100;
-            totamt = grandTotal - discountVal;
+            subTotal = grandTotal - discountVal;
             $("input[name='grand_total']").val(totamt);
+            $("input[name='temp_grand_total']").val(totamt);
             $(".grandTotAmount").html(totamt);
         }else{
             totamt = grandTotal - discount;
             $("input[name='grand_total']").val(totamt);
+            $("input[name='temp_grand_total']").val(totamt);
             $(".grandTotAmount").html(totamt);
         }
+        var invoiceTaxAmt = 0;
+        @if(auth()->user()->taxmode)
+        @foreach($invoicetaxes as $tax)
+            invoiceTaxAmt += ((subTotal * {{$tax->rate}}) / 100);
+            console.log('invoiceTaxAmt : ', invoiceTaxAmt);
+            $('.taxAmount{{$tax->id}}').html(invoiceTaxAmt);
+            $("input[name='grand_total']").val(subTotal + invoiceTaxAmt);
+            $("input[name='temp_grand_total']").val(subTotal + invoiceTaxAmt);
+            $(".grandTotAmount").html(subTotal + invoiceTaxAmt);
+        @endforeach
+        @endif
 
     }
 

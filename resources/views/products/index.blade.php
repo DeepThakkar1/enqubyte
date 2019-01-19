@@ -88,25 +88,25 @@
                                                     <input type="text" name="cost_price" value="{{$product->cost_price}}" pattern="\d*" class="form-control" placeholder="Cost Price">
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col-sm-6">
+                                            <div class="row">
+                                                @if(!auth()->user()->taxmode)
+                                                <div class="col-sm-6 form-group">
                                                     <label>Tax<sup class="error">*</sup></label>
                                                     <select class="form-control" name="tax" required>
                                                         <option selected disabled>-- Choose Tax --</option>
-                                                        <option value="0">None</option>
+                                                        <option value="0" {{isset($product->tax) && $product->tax == 0 ? 'selected' : ''}}>None</option>
                                                         <?php $taxes = getTaxes() ?>
                                                         @foreach($taxes as $tax )
                                                         <option value="{{$tax->rate}}" {{isset($product->tax) && $product->tax == $tax->rate ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                @endif
+                                                <div class="col-sm-6 form-group">
                                                     <label>HSN Code</label>
                                                     <input type="text" name="hsn_code" value="{{$product->hsn_code}}" class="form-control" placeholder="HSN Code">
                                                 </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 form-group">
                                                     <label>Product Code</label>
                                                     <input type="text" name="product_code" value="{{$product->product_code}}" class="form-control" placeholder="Product Code">
                                                 </div>
@@ -171,8 +171,9 @@
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        @if(!auth()->user()->taxmode)
+                        <div class="col-sm-6 form-group">
                             <label>Tax<sup class="error">*</sup></label>
                             <select class="form-control" name="tax" required>
                                 <option selected disabled>-- Choose Tax --</option>
@@ -183,13 +184,12 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-sm-6">
+                        @endif
+                        <div class="col-sm-6 form-group">
                             <label>HSN Code</label>
                             <input type="text" name="hsn_code" class="form-control" placeholder="HSN Code">
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">
                         </div>
