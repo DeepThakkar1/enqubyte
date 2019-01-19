@@ -758,13 +758,6 @@ a.upgrade-product-nav p{
   font-weight: bold;
 }
 
-.card-body-icon {
-    position: absolute;
-    z-index: 0;
-    top: -1.25rem;
-    right: -1rem;
-    opacity: 0.4;
-    font-size: 5rem;
-    -webkit-transform: rotate(15deg);
-    transform: rotate(15deg);
+.bg-primary {
+    background-color: #166ead !important;
 }
