@@ -32,7 +32,7 @@
                         <div class="px-4">
                             <div>Invoice</div>
                             <h3>
-                                <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
+                                <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary custom-primary-text">INV-00{{$enquiry->invoice->sr_no}} </a>
                             </h3>
                         </div>
                         @endif
@@ -64,8 +64,8 @@
                 @if(isset($enquiry->invoice))
                 <div class="py-2 text-left">
                     <div>Invoice</div>
-                    <h3>
-                        <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
+                    <h3 class="mt-0">
+                        <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary custom-primary-text">INV-00{{$enquiry->invoice->sr_no}} </a>
                     </h3>
                 </div>
                 @endif

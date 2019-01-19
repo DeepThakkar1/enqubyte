@@ -35,7 +35,7 @@
                         <div class="px-4">
                             <div>Enquiry</div>
                             <h3>
-                            <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary">ENQ-00{{$invoice->enquiry->sr_no}} </a>
+                            <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary custom-primary-text">ENQ-00{{$invoice->enquiry->sr_no}} </a>
                             </h3>
                         </div>
                         @endif
@@ -68,7 +68,7 @@
                 <div class="py-2 text-left">
                     <div>Enquiry</div>
                     <h3>
-                        <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary">ENQ-00{{$invoice->enquiry->sr_no}} </a>
+                        <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary custom-primary-text">ENQ-00{{$invoice->enquiry->sr_no}} </a>
                     </h3>
                 </div>
                 @endif
