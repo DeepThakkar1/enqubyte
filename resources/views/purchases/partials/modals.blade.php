@@ -101,9 +101,9 @@
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>
                     </div>
-                    <div class="row form-group">
+                    <div class="row">
                         @if(!auth()->user()->invoicetaxes)
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Tax<sup class="error">*</sup></label>
                             <select class="form-control" name="tax" required>
                                 <option selected disabled>-- Choose Tax --</option>
@@ -115,15 +115,20 @@
                             </select>
                         </div>
                         @endif
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>HSN Code</label>
                             <input type="text" name="hsn_code" class="form-control" placeholder="HSN Code">
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="w-100">&nbsp;</label>
+                            <div class="custom-control custom-checkbox d-block">
+                                <input type="checkbox" class="custom-control-input" name="has_stock" id="chkHasStock" checked value="1">
+                                <label class="custom-control-label pt-1 pr-3 pl-1" for="chkHasStock" > Has Stock </label>
+                            </div>
                         </div>
                     </div>
                 </div>

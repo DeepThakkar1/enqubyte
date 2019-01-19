@@ -39,7 +39,7 @@ class PurchaseOrdersController extends Controller
     public function create()
     {
         $vendors = auth()->user()->vendors;
-        $products = auth()->user()->products;
+        $products = auth()->user()->products()->where('has_stock', 1)->get();
         $purchaseSrno =PurchaseOrder::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
 
         if(isset(auth()->user()->invoicetaxes)){
@@ -124,7 +124,7 @@ class PurchaseOrdersController extends Controller
     public function edit(PurchaseOrder $purchaseOrder)
     {
         $vendors = auth()->user()->vendors;
-        $products = auth()->user()->products;
+        $products = auth()->user()->products()->where('has_stock', 1)->get();;
         $purchaseitems = $purchaseOrder->purchaseitems;
 
         if(isset(auth()->user()->invoicetaxes)){

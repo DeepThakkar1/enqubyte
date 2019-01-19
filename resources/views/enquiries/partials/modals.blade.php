@@ -124,6 +124,13 @@
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">
                         </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="w-100">&nbsp;</label>
+                            <div class="custom-control custom-checkbox d-block">
+                                <input type="checkbox" class="custom-control-input" name="has_stock" id="chkHasStock" checked value="1">
+                                <label class="custom-control-label pt-1 pr-3 pl-1" for="chkHasStock" > Has Stock </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
