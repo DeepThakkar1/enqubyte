@@ -34,9 +34,10 @@ class HomeController extends Controller
                  return redirect($instamojoFormUrl);
             } else {
                 $plan = PlanModel::where('name', 'All-in-one monthly')->first();
-                 $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+                $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+                return redirect('subscribed');
             }
-            return redirect('subscribed');
+            
         }
 
         $followups = auth()->user()->enquiries()->where('followup_date', date('d-m-Y'))->get();
