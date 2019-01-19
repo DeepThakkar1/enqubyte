@@ -29,7 +29,7 @@ class HomeController extends Controller
         if(!auth()->user()->hasActiveSubscription())
         {
             if(env('APP_ENV') != 'local'){
-                $instamojoFormUrl = 
+                $instamojoFormUrl =
                     Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');
                  return redirect($instamojoFormUrl);
             } else {
@@ -39,6 +39,17 @@ class HomeController extends Controller
             return redirect('subscribed');
         }
 
-        return view('home');
+        $followups = auth()->user()->enquiries()->where('followup_date', date('d-m-Y'))->get();
+        $enquiriesCnt = auth()->user()->enquiries()->count();
+        $totalSale = auth()->user()->invoices()->sum('grand_total');
+        $totalRemains = auth()->user()->invoices()->sum('remaining_amount');
+        $totalEarned = $totalSale - $totalRemains;
+
+        $totalPurchase = auth()->user()->purchases->sum('grand_total');
+        $incentives = auth()->user()->invoices()->sum('incentive_amt');
+        $expenses = $totalPurchase + $incentives;
+        $profit = $totalSale - $expenses;
+
+        return view('home', compact('followups', 'enquiriesCnt', 'totalSale', 'totalPurchase', 'totalEarned', 'expenses', 'profit'));
     }
 }

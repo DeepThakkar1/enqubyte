@@ -103,7 +103,7 @@
 
                     </div>
                     <div class="row">
-                        @if(auth()->user()->invoicetaxes)
+                        @if(!auth()->user()->invoicetaxes)
                         <div class="col-sm-6 form-group">
                             <label>Tax<sup class="error">*</sup></label>
                             <select class="form-control" name="tax" required>
