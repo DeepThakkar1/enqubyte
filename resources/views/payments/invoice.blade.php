@@ -131,6 +131,7 @@
                             
                             <td>
                                 {{ $transaction->buyer_name }}<br>
+                               {{ auth()->user()->company_name }}<br>
                                {{ $transaction->buyer_email }}
                             </td>
                         </tr>
