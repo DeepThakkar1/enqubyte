@@ -161,8 +161,8 @@ class InvoicesController extends Controller
     public function edit(Invoice $invoice)
     {
         if(count($invoice->payments)){
-            flash("You didn't edit this invoice!");
-            return redirect('/sales/invoices/'.$invoice->id);
+            flash("You can't edit this invoice!");
+            return redirect('/sales/invoices/'.$invoice->sr_no);
         }
         else{
             $salesmans = auth()->user()->employees;
