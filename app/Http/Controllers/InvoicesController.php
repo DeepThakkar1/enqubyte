@@ -76,7 +76,7 @@ class InvoicesController extends Controller
 
         for ($i=0; $i < count(request('product_id')); $i++) {
             $product = Product::where('id', request('product_id')[$i])->first();
-            if ($product->stock < request('qty')[$i]) {
+            if ($product->has_stock && $product->stock < request('qty')[$i]) {
                 flash('Stock not available for '. $product->name .'!');
                 return back();
             }
@@ -199,7 +199,7 @@ class InvoicesController extends Controller
 
         for ($i=0; $i < count(request('product_id')); $i++) {
             $product = Product::where('id', request('product_id')[$i])->first();
-            if ($product->stock < request('qty')[$i]) {
+            if ($product->has_stock && $product->stock < request('qty')[$i]) {
                 flash('Stock not available for '. $product->name .'!');
                 return back();
             }

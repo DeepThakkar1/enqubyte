@@ -86,7 +86,7 @@
         <div class="col-xl-7 col-sm-7 mb-3">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="m-0">Today's Followups</h5>
+                    <h5 class="m-0">Statistics</h5>
                 </div>
                 <div class="card-body">
                     <canvas id="dashboardBarChart" width="100%"></canvas>

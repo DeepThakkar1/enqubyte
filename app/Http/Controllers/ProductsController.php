@@ -134,7 +134,11 @@ class ProductsController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $product->update($request->all());
+        $newData = $request->all();
+        if (!$newData['has_stock']) {
+            $newData['has_stock'] = 0;
+        }
+        $product->update($newData);
         flash('Product updated successfully!');
         return back();
     }
