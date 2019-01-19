@@ -6,9 +6,11 @@ use App\User;
 use Lubusin\Mojo\Mojo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Rennokki\Plans\Models\PlanModel;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
 
 class RegisterController extends Controller
 {
@@ -84,8 +86,13 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        $instamojoFormUrl = Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');
-
-        return redirect($instamojoFormUrl);
+         if(env('APP_ENV') != 'local'){
+            $instamojoFormUrl = Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');
+            return redirect($instamojoFormUrl);
+        } else {
+            $plan = PlanModel::where('name', 'All-in-one monthly')->first();
+            $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+            flash()->overlay('Your payment was successfull! You are subscribed to all-in-one monthly plan and your subscription expires in ' . $subscription->remainingDays() . ' days', 'Account subscription activated');
+        }
     }
 }

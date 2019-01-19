@@ -201,6 +201,8 @@ Route::post(
     '\Lubusin\Mojo\Controllers\WebhookController@handleWebhook'
 );
 
+Route::get('subscribed', 'PaymentsController@subscribed');
+
 use Rennokki\Plans\Models\PlanModel;
 
 Route::get('/plans/create/all', function(){
