@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Lubusin\Mojo\Mojo;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -71,5 +73,19 @@ class RegisterController extends Controller
         $newData['company_email'] = $data['email'];
         $newData['password'] = Hash::make($data['password']);
         return User::create($newData);
+    }
+
+     /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        $instamojoFormUrl = Mojo::giveMeFormUrl($user, 1750, 'Monthly Subscription', '9922367414');
+
+        return redirect($instamojoFormUrl);
     }
 }
