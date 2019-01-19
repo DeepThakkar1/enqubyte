@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>INV-001</title>
+    <title>INV-00{{ $transaction->id }}</title>
     
     <style>
     .invoice-box {
@@ -111,8 +111,8 @@
                             </td>
                             
                             <td style="padding-top: 13px;">
-                                Invoice: INV-001<br>
-                                Created: January 1, 2015<br>
+                                Invoice: INV-00{{$transaction->id}}<br>
+                                Created: {{ $transaction->created_at->toFormattedDateString() }}<br>
                             </td>
                         </tr>
                     </table>
@@ -130,9 +130,8 @@
                             </td>
                             
                             <td>
-                                Acme Corp.<br>
-                                John Doe<br>
-                                john@example.com
+                                {{ $transaction->buyer_name }}<br>
+                               {{ $transaction->buyer_email }}
                             </td>
                         </tr>
                     </table>
@@ -153,11 +152,11 @@
             
             <tr class="last item" >
                 <td style="min-height: 250px;">
-                    Subscription for January month
+                    {{ $transaction->purpose }}
                 </td>
                 
                 <td>
-                    &#8377; 1,750
+                    &#8377; {{ $transaction->amount }}
                 </td>
             </tr>
             
@@ -167,7 +166,7 @@
                 <td></td>
                 
                 <td>
-                   Total: &#8377; 1,750
+                   Total: &#8377; {{ $transaction->amount }}
                 </td>
             </tr>
         </table>
