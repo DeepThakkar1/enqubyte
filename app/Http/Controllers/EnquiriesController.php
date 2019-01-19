@@ -135,7 +135,13 @@ class EnquiriesController extends Controller
             $salesmans = auth()->user()->employees;
             $products = auth()->user()->products;
             $enquiryitems = $enquiry->enquiryitems;
-            return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems'));
+            if(isset(auth()->user()->invoicetaxes)){
+                $taxIds = explode(',', auth()->user()->invoicetaxes);
+                $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+                return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems', 'invoicetaxes'));
+            }else{
+                return view('enquiries.edit', compact('salesmans', 'enquiry', 'customers', 'products', 'enquiryitems'));
+            }
         }
     }
 

@@ -50,7 +50,9 @@
                                 <th>Items</th>
                                 <th>Qty</th>
                                 <th>Price</th>
+                                @if(!auth()->user()->taxmode)
                                 <th>Tax</th>
+                                @endif
                                 <th class="text-right">Amount</th>
                                 <th></th>
                             </tr>
@@ -71,6 +73,7 @@
                                 <td>
                                     <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">
                                 </td>
+                                @if(!auth()->user()->taxmode)
                                 <td>
                                     <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">
                                         <option selected disabled>-- Choose Tax --</option>
@@ -81,6 +84,7 @@
                                         @endforeach
                                     </select>
                                 </td>
+                                @endif
                                 <td class="text-right">
                                     &#8377; <span class="totAmount"> 0.00</span>
                                     <input type="hidden" name="product_tot_amt[]" value="0">
@@ -89,7 +93,6 @@
                                 </td>
                             </tr>
                         </tbody>
-
                     </table>
                     <a href="javascript:;" class="text-primary btn-addMoreItems ml-4 mb-2">Add more item</a>
                 </div>
@@ -103,12 +106,23 @@
                     </div>
                     <div class="p-2 text-right subTotalAmount font-weight-bold">Subtotal :</div>
                 </div>
-                <hr class="mt-0 mb-0">
+                @if(auth()->user()->taxmode)
+                @foreach($invoicetaxes as $tax)
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2 px-3"></div>
+                    <div class="p-2 taxAmount{{$tax->id}}">
+                        0
+                    </div>
+                    <div class="p-2 text-right font-weight-bold">{{$tax->abbreviation}} :</div>
+                </div>
+                @endforeach
+                @endif
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
                     <div class="p-2 grandTotalAmount">
                         &#8377; <span class="grandTotAmount font-weight-bold"> 0.00</span>
                         <input type="hidden" name="grand_total" value="0">
+                        <input type="hidden" name="temp_grand_total" value="0">
                     </div>
                     <div class="p-2 text-right grandTotalAmount font-weight-bold">Total (INR) :</div>
                 </div>
@@ -155,10 +169,14 @@
 
     $('.table-purchaseItems').on('keyup', '.input-qty', function(){
         var row = $(this).parents('tr');
-        var qty = $(this).val();
-        var price = row.find('.input-price').val();
+        var qty = parseFloat($(this).val());
+        var price = parseFloat(row.find('.input-price').val());
         var tax = row.find('.select-tax').val();
+        $('[name="discount"]').val(0);
         var noTaxAmt = price * qty;
+        if (!tax) {
+            tax = 0;
+        }
         var taxAmt = ((noTaxAmt * tax) / 100);
         row.find('.totAmount').html(noTaxAmt + taxAmt);
         row.find('[name="product_tot_amt[]"]').val(noTaxAmt + taxAmt);
@@ -167,9 +185,13 @@
 
     $('.table-purchaseItems').on('keyup', '.input-price', function(){
         var row = $(this).parents('tr');
-        var price = $(this).val();
-        var qty = row.find('.input-qty').val();
-        var tax = row.find('.select-tax').val();
+        var price = parseFloat($(this).val());
+        var qty = parseFloat(row.find('.input-qty').val());
+        var tax = parseFloat(row.find('.select-tax').val());
+        $('[name="discount"]').val(0);
+        if(!tax){
+            tax = 0;
+        }
         var noTaxAmt = price * qty;
         var taxAmt = ((noTaxAmt * tax) / 100);
         row.find('.totAmount').html(noTaxAmt + taxAmt);
@@ -180,8 +202,8 @@
     $('.table-purchaseItems').on('change', '.select-tax', function(){
         var row = $(this).parents('tr');
         var tax = $(this).val();
-        var qty = row.find('.input-qty').val();
-        var price = row.find('.input-price').val();
+        var qty = parseFloat(row.find('.input-qty').val());
+        var price = parseFloat(row.find('.input-price').val());
         var noTaxAmt = price * qty;
         var taxAmt = ((noTaxAmt * tax) / 100);
         row.find('.totAmount').html(noTaxAmt + taxAmt);
@@ -209,6 +231,7 @@
             <td>\
             <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">\
             </td>\
+            @if(!auth()->user()->taxmode)\
             <td>\
             <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">\
             <option selected disabled>-- Choose Tax --</option>\
@@ -219,6 +242,7 @@
             @endforeach\
             </select>\
             </td>\
+            @endif\
             <td class="text-right">\
             &#8377; <span class="totAmount"> 0.00</span>\
             <input type="hidden" name="product_tot_amt[]" value="0">\
@@ -235,30 +259,44 @@
         });
     });
 
-function total(){
-    var totamt = 0 ;
-    var theTbl = $('.table-purchaseItems');
-    var trs = theTbl.find("input[name='product_tot_amt[]']");
-    for(var i=0;i<trs.length;i++)
-    {
-        $(".subTotAmount").html(totamt+=parseFloat(trs[i].value));
-        $("input[name='sub_tot_amt']").val(totamt);
-        $("input[name='grand_total']").val(totamt);
-        $(".grandTotAmount").html(totamt);
+    function total(){
+        var totamt = 0 ;
+        var theTbl = $('.table-purchaseItems');
+        var trs = theTbl.find("input[name='product_tot_amt[]']");
+        for(var i=0;i<trs.length;i++)
+        {
+            $(".subTotAmount").html(totamt+=parseFloat(trs[i].value));
+            $("input[name='sub_tot_amt']").val(totamt);
+            $("input[name='grand_total']").val(totamt);
+            $("input[name='temp_grand_total']").val(totamt);
+            $(".grandTotAmount").html(totamt);
+        }
+
+        var subTotal = parseFloat($('[name="sub_tot_amt"]').val());
+        var invoiceTotTaxAmt = 0;
+        @if(auth()->user()->taxmode)
+        @foreach($invoicetaxes as $tax)
+            var invoiceTaxAmt = ((subTotal * {{$tax->rate}}) / 100);
+            invoiceTotTaxAmt += invoiceTaxAmt;
+
+            $('.taxAmount{{$tax->id}}').html(invoiceTaxAmt);
+            $("input[name='grand_total']").val(subTotal + invoiceTotTaxAmt);
+            $("input[name='temp_grand_total']").val(subTotal + invoiceTotTaxAmt);
+            $(".grandTotAmount").html(subTotal + invoiceTotTaxAmt);
+        @endforeach
+        @endif
     }
-}
 
-$('.selectVendor').select2()
-.on('select2:open', () => {
-    $(".select2-results:not(:has(a))").append('<a href="#addVendorModal" data-toggle="modal" onclick="closeSelect2(\'selectVendor\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new vendor</a>');
-});
+    $('.selectVendor').select2()
+    .on('select2:open', () => {
+        $(".select2-results:not(:has(a))").append('<a href="#addVendorModal" data-toggle="modal" onclick="closeSelect2(\'selectVendor\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new vendor</a>');
+    });
 
-$('.table-purchaseItems .select-product').select2()
-    .on('select2:open', (e) => {
-        window.selectedBox = $(e.currentTarget);
-        $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
-});
+    $('.table-purchaseItems .select-product').select2()
+        .on('select2:open', (e) => {
+            window.selectedBox = $(e.currentTarget);
+            $(".select2-results:not(:has(a))").append('<a href="#addProductModal" data-toggle="modal" onclick="closeMultipleSelect2(this, \'select-product\')" class="select2-additem"><i class="fa fa-plus-circle"></i> Add new product</a>');
+    });
 
-
-    </script>
+</script>
 @endpush
