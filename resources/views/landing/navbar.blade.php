@@ -34,7 +34,7 @@
             <div class="offset-menu-wraper clearfix">
                 <div class="float-left">
                     <a href="/" class="offcanvas-nav-brand">
-                        <img src="/img/logo.png" alt="" style="height: 30px;margin-top: 5px;">
+                        <img src="/img/logo.png" alt="" style="height: 40px;">
                     </a>
                 </div>
                <!--  <div class="float-right">

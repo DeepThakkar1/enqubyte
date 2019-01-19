@@ -181,8 +181,8 @@
                     <div class="col-lg-8 col-md-6">
                 <div class="agency-section-title section-title-style2">                    
                     <h2 class="main-title">Single &amp; Simple Pricing</h2>
-                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%">Forget the heck of maintaining your business records into multiple softwares for different purposes, Enqubyte covers everything your business needs all in one platform.</p>
-                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%;">Forget the heck of maintaining your business records into multiple softwares for different purposes, Enqubyte covers everything your business needs all in one platform.</p>
+                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%">Enqubyte offers all its services and modules all in one single pricing. No plans, packages and upgrades. A semantic pricing is our key.</p>
+                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%;">This plan allows you to create unlimited enquiries, invoices and orders. We provide <b>100 free SMS and 1000 free Email notifications / month</b> for customers. You can buy credits for extra SMS & Emails from dashboard.</p>
 
                     <div style="margin-top: 55px;">    
                         <a href="/register" class="btn btn-primary">Get Started Now </a>
