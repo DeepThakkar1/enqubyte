@@ -4,48 +4,82 @@
 @endpush
 @section('content')
 <div class="container-fluid pl-0 pr-0 ml-0 mr-0">
-    <div class="headline-contents headline-contents-height">
-        <h2 class="d-inline-block headline-content pb-2 pt-1"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
-        <div class="float-md-right">
+    <div class="headline-contents">
+        <h2 class="d-inline-block headline-content  pb-2 pt-1"><a href="/enquiries" class="mr-1"><i class="fa fa-arrow-left"></i></a> Enquiry</h2>
+        <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/enquiries/{{$enquiry->id}}/download" class="btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/enquiries/{{$enquiry->id}}/download" class="btn custom-back-btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="container px-md-5 ">
-        <div class="d-flex align-self-center">
-            <div class="py-md-2 pr-3">
-                <div>Status</div>
-                <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded mt-2">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
-            </div>
-            <div class="pr-4 pl-md-1 py-md-2">
-                <div>Customer</div>
-                <h3 class="custom-primary-text"><a href="" class="text-primary "> {{$enquiry->customer->fullname}}</a></h3>
-            </div>
-            <div class="ml-auto p-md-2">
-                <div class="d-flex">
-                    @if(isset($enquiry->invoice))
-                    <div class="px-4">
-                        <div>Invoice</div>
-                        <h3>
-                            <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
-                        </h3>
-                    </div>
-                    @endif
-                    <div class="pr-3">
-                        <div>Amount Due</div>
-                        <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
-                    </div>
-                    <div class="pl-md-1">
-                        <div>Followup Date</div>
-                        <h3 class="mt-2 Due">{{$enquiry->followup_date}}</h3>
+        <div class="status-user-amount-desktop">
+            <div class="d-flex align-self-center">
+                <div class="py-md-2 pr-4">
+                    <div>Status</div>
+                    <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded mt-2">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
+                </div>
+                <div class="px-4 py-md-2">
+                    <div>Customer</div>
+                    <h3 class="custom-primary-text mt-1"><a href="" class="text-primary "> {{$enquiry->customer->fullname}}</a></h3>
+                </div>
+                <div class="ml-auto p-md-2">
+                    <div class="d-flex">
+                        @if(isset($enquiry->invoice))
+                        <div class="px-4">
+                            <div>Invoice</div>
+                            <h3>
+                                <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
+                            </h3>
+                        </div>
+                        @endif
+                        <div class="px-4">
+                            <div>Amount Due</div>
+                            <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
+                        </div>
+                        <div class="">
+                            <div>Followup Date</div>
+                            <h3 class="mt-2 Due">{{$enquiry->followup_date}}</h3>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="px-md-5 status-user-amount-responsive">
+            <div class="d-flex justify-content-between">
+                <div class="py-2 text-left">
+                    <div>Status</div>
+                    <div class="bg-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}} text-white px-2 rounded mt-2">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</div>
+                </div>
+                <div class="py-2 text-right">
+                    <div>Customer</div>
+                    <h3 class="custom-primary-text mt-1"><a href="" class="text-primary "> {{$enquiry->customer->fullname}}</a></h3>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                @if(isset($enquiry->invoice))
+                <div class="py-2 text-left">
+                    <div>Invoice</div>
+                    <h3>
+                        <a href="/sales/invoices/{{$enquiry->invoice->sr_no}}"  class="text-primary">INV-00{{$enquiry->invoice->sr_no}} </a>
+                    </h3>
+                </div>
+                @endif
+                <div class="py-2 text-left">
+                    <div>Amount Due</div>
+                    <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
+                </div>
+                <div class="py-2 text-right">
+                    <div>Followup Date</div>
+                    <h3 class="mt-2 Due">{{$enquiry->followup_date}}</h3>
+                </div>
+            </div>
+        </div>
+
         <div class="card">
             <div class="card-body">
                 <div class="d-flex p-md-3">
@@ -213,7 +247,7 @@
                 <td colspan="6">
                     <table>
                         <tr>
-                            <td class="title">
+                            <td class="title print-company-logo">
                                 @if(auth()->user()->company_logo)
                                     <img src="{{Storage::url(auth()->user()->company_logo)}}" style="height: 50px;">
                                     @else
@@ -221,7 +255,8 @@
                                 @endif
                             </td>
                             <td class="text-right">
-                                <h3 style="margin: 5px 0px;">Enquiry : ENQ-00{{$enquiry->sr_no}}</h3>
+                                <h3 class="invoice-print-heading" style="margin: 5px 0px;">Enquiry : ENQ-00{{$enquiry->sr_no}}</h3>
+
                                 {{auth()->user()->company_name}}<br>
                                 {{auth()->user()->company_address ? auth()->user()->company_address : '--'}}<br>
                                 {{auth()->user()->company_phone ? auth()->user()->company_phone : '--'}}
@@ -237,7 +272,7 @@
                     <table>
                         <tr>
                             <td>
-                                <h5 style="margin: 0">Enquiry to</h5>
+                                <h5 class="invoice-print-heading" style="margin: 0">Enquiry to</h5>
                                 {{$enquiry->customer->fullname}}<br>
                                 {{$enquiry->customer->address ? $enquiry->customer->address : '--'}}<br>
                                 {{$enquiry->customer->phone ? $enquiry->customer->phone : '--'}}<br>

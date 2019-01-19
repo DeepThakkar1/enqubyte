@@ -1,4 +1,4 @@
-<div class="modal fade in addCustomerModal" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in addCustomerModal pr-md-0" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="button" id="addCustomer" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="button" id="addCustomer" class="btn btn-primary"> Add</button>
                 </div>
             </form>
         </div>
@@ -59,7 +59,7 @@
 </div>
 
 
-<div class="modal fade in addProductModal" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in addProductModal pr-md-0" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -127,7 +127,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="button" id="addProduct" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="button" id="addProduct" class="btn btn-primary"> Add</button>
                 </div>
             </form>
         </div>
@@ -135,7 +135,7 @@
 </div>
 
 
-<div class="modal fade in recordPaymentModal" id="recordPaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in recordPaymentModal pr-md-0" id="recordPaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -194,7 +194,7 @@
     </div>
 </div>
 
-<div class="modal fade in addEmployeeModal" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in addEmployeeModal pr-md-0" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -270,7 +270,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
-                    <button type="button" id="addEmployee" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add</button>
+                    <button type="button" id="addEmployee" class="btn btn-primary"> Add</button>
                 </div>
             </form>
         </div>

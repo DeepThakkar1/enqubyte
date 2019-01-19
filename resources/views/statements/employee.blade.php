@@ -47,7 +47,7 @@
                             <a href="#incentivePaymentModal{{$key}}" data-toggle="modal" class="btn btn-sm btn-primary {{$employee->incentive_amount - $employee->incentive_paid_amount == 0 ? 'disabled' : ''}}"><i class="fa fa-money"></i> Pay</a>
                             <a href="/employees/{{$employee->id}}" class="btn btn-sm "><i class="fa fa-eye"></i></a>
 
-                            <div class="modal fade in incentivePaymentModal{{$key}}" id="incentivePaymentModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade in incentivePaymentModal{{$key}} pr-md-0" id="incentivePaymentModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">

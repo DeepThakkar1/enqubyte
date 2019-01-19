@@ -12,7 +12,7 @@
     </div>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
-            <div class="container px-md-5">
+            <div class="container px-md-5 status-user-amount-desktop">
                 <div class="d-flex align-self-center">
                     <div class="py-2">
                         <div>Vendor</div>
@@ -36,6 +36,31 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container px-md-5 status-user-amount-responsive">
+               <div class="d-flex justify-content-between">
+                    <div class="py-2 text-left">
+                        <div>Vendor</div>
+                        <h3><a href="" class="text-primary custom-primary-text"> {{$vendor->name}}</a></h3>
+                    </div>
+                    <div class="py-2 text-right">
+                        <div>Total Purchase Orders</div>
+                        <h3 class="mt-2 Due">{{ $purchasesCount }}</h3>
+                    </div>
+               </div>
+               <div class="d-flex justify-content-between">
+                    <div class="py-2 text-left">
+                        <div>Total Purchases</div>
+                        <h3 class="mt-2 Due">&#8377; {{ $totalPurchase }}</h3>
+                    </div>
+                    <div class="py-2 text-right">
+                        <div>Total Remaining</div>
+                        <h3 class="mt-2 Due">&#8377; {{ $remaining }}</h3>
+                    </div>
+               </div>
+           </div>
+
+
 
             <div class="container px-md-5">
                 <div class="card">

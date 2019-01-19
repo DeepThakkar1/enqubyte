@@ -5,7 +5,7 @@
     <div class="row justify-content-center mt-md-5 pt-md-5">
         <div class="col-md-9">
             <div class="info-box text-center">
-                <div class="info-icon">
+                <div class="info-icon custom-dashboard-info-icon">
                     <img src="/img/mail.png">
                 </div>
                 <div class="info-header">{{ __('Verify Your Email Address') }}</div>

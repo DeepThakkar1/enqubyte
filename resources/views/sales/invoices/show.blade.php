@@ -19,36 +19,70 @@
         <!-- <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a> -->
     </div>
     <div class="container px-md-5">
-    <div class="d-flex align-self-center">
-        <div class="py-2">
-            <div>Status</div>
-            <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+        <div class="status-user-amount-desktop">
+            <div class="d-flex align-self-center">
+                <div class="py-2">
+                    <div>Status</div>
+                    <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+                </div>
+                <div class="px-4 py-2">
+                    <div>Customer</div>
+                    <h3><a href="" class="text-primary custom-primary-text"> {{$invoice->visitor->fullname}}</a></h3>
+                </div>
+                <div class="ml-auto p-2">
+                    <div class="d-flex">
+                        @if(isset($invoice->enquiry))
+                        <div class="px-4">
+                            <div>Enquiry</div>
+                            <h3>
+                            <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary">ENQ-00{{$invoice->enquiry->sr_no}} </a>
+                            </h3>
+                        </div>
+                        @endif
+                        <div class="pr-4">
+                            <div>Amount Due</div>
+                            <h3 class="mt-2 Due">&#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}}</span></h3>
+                        </div>
+                        <div>
+                            <div>Due</div>
+                            <h3 class="mt-2 Due">{{$invoice->due_date}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="px-4 py-2">
-            <div>Customer</div>
-            <h3><a href="" class="text-primary custom-primary-text"> {{$invoice->visitor->fullname}}</a></h3>
-        </div>
-        <div class="ml-auto p-2">
-            <div class="d-flex">
+
+        <div class="px-md-5 status-user-amount-responsive">
+            <div class="d-flex justify-content-between">
+                <div class="py-2 text-left">
+                    <div>Status</div>
+                    <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+                </div>
+                <div class="py-2 text-right">
+                    <div>Customer</div>
+                    <h3><a href="" class="text-primary custom-primary-text"> {{$invoice->visitor->fullname}}</a></h3>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
                 @if(isset($invoice->enquiry))
-                <div class="px-4">
+                <div class="py-2 text-left">
                     <div>Enquiry</div>
                     <h3>
-                    <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary">ENQ-00{{$invoice->enquiry->sr_no}} </a>
+                        <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary">ENQ-00{{$invoice->enquiry->sr_no}} </a>
                     </h3>
                 </div>
                 @endif
-                <div class="pr-4">
+                <div class="py-2 text-left">
                     <div>Amount Due</div>
                     <h3 class="mt-2 Due">&#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}}</span></h3>
                 </div>
-                <div>
+                <div class="py-2 text-right">
                     <div>Due</div>
                     <h3 class="mt-2 Due">{{$invoice->due_date}}</h3>
                 </div>
             </div>
         </div>
-    </div>
+
     <div class="card">
         <div class="card-body">
             <div class="d-flex p-md-3">
@@ -233,7 +267,7 @@
                 <td colspan="6">
                     <table>
                         <tr>
-                            <td class="title">
+                            <td class="title print-company-logo">
                                 @if(auth()->user()->company_logo)
                                     <img src="{{Storage::url(auth()->user()->company_logo)}}" style="height: 50px;">
                                     @else
@@ -241,7 +275,7 @@
                                 @endif
                             </td>
                             <td class="text-right">
-                                <h3 style="margin: 5px 0px;">Invoice : INV-00{{$invoice->sr_no}}</h3>
+                                <h3 class="invoice-print-heading" style="margin: 5px 0px;">Invoice : INV-00{{$invoice->sr_no}}</h3>
                                 {{auth()->user()->company_name}}<br>
                                 {{auth()->user()->company_address ? auth()->user()->company_address : '--'}}<br>
                                 {{auth()->user()->company_phone ? auth()->user()->company_phone : '--'}}
@@ -257,7 +291,7 @@
                     <table>
                         <tr>
                             <td>
-                                <h5 style="margin: 0">Invoice to</h5>
+                                <h5 class="invoice-print-heading" style="margin: 0">Invoice to</h5>
                                 {{$invoice->customer->fullname}}<br>
                                 {{$invoice->customer->address ? $invoice->customer->address : '--'}}<br>
                                 {{$invoice->customer->phone ? $invoice->customer->phone : '--'}}<br>
