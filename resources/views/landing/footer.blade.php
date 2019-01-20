@@ -54,8 +54,8 @@
                                 <h4 class="widget-title">Company</h4>
                                 <ul class="xs-list">
                                     <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                    <li><a href="/terms-and-services">Terms of Service</a></li>
-                                    <li><a href="#">About Trumpets</a></li>
+                                    <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+                                    <li><a target="_blank" href="https://trumpets.co.in">About Trumpets</a></li>
                                     <!-- <li><a href="#">Knowledge Base</a></li>
                                     <li><a href="#">GDPR Update</a></li> -->
                                 </ul><!-- .xs-list END -->
