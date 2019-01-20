@@ -37,7 +37,9 @@
                     <div class="mt-3">
                         <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();" style="color: blue;" href="{{ route('verification.resend') }}"><i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}</a>
+                                     document.getElementById('logout-form').submit();" style="color: blue;" href="{{ route('verification.resend') }}">
+                                     <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                                 </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
