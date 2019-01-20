@@ -32,7 +32,7 @@
         <li class="nav-item">
             <a class="nav-link text-center">
                 <p class="mb-0" style="margin-top: 2px;">
-                    <span style="font-size: 12px;">{{ auth()->user()->hasActiveSubscription() ? auth()->user()->activeSubscription()->remainingDays() : (empty(auth()->user()->lastActiveSubscription()) ? auth()->user()->lastActiveSubscription()->remainingDays() : '0') }} days remaining</span>
+                    <span style="font-size: 12px;">{{ auth()->user()->hasActiveSubscription() ? auth()->user()->activeSubscription()->remainingDays() : (auth()->user()->lastActiveSubscription() != null ? auth()->user()->lastActiveSubscription()->remainingDays() : '0') }} days remaining</span>
                 </p>
             </a>
         </li>

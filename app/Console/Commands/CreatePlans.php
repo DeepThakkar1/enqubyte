@@ -58,6 +58,6 @@ class CreatePlans extends Command
             'duration' => 365, // in days
         ]);
 
-        $this->info('Plans added to the database');
+        $this->info('Plans added to the database.');
     }
 }
