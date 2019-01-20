@@ -43,6 +43,11 @@ class Truncate extends Command
             if ($name == 'migrations') {
                 continue;
             }
+
+            if(substr($string, 0, strlen('telescope')) === 'telescope'){
+                continue;
+            }
+            
             \DB::table($name)->truncate();
         }   
 
