@@ -54,10 +54,10 @@ class PaymentsController extends Controller
             'expires_on' => \Carbon\Carbon::now(),
         ]);
 
-        $transaction = MojoPaymentDetails::where('user_id', auth()->id())->latest()->first();
-
-        Mojo::refund($transaction->payment_id, 'PTH','Subscription terminated');
-
+    	if(env('APP_ENV') != 'local') {
+	        $transaction = MojoPaymentDetails::where('user_id', auth()->id())->latest()->first();
+    	    Mojo::refund($transaction->payment_id, 'PTH','Subscription terminated');
+    	}    
     	flash('Your subscription was terminated and your amount will be refunded to you in 3 working days.')->success();
 
     	return redirect('/billing');

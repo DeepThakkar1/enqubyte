@@ -36,7 +36,7 @@
                     <td>{{$product->product_code}}</td>
                     <td>&#8377; {{$product->cost_price}}</td>
                     <td>&#8377; {{$product->selling_price}}</td>
-                    <td>{{$product->stock}}</td>
+                    <td>{{$product->has_stock ? $product->stock : '--'}}</td>
                     <td>
                         <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fas fa-pencil-alt"></i></a>
                         <a href="/products/{{$product->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
