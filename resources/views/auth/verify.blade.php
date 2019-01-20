@@ -3,12 +3,13 @@
 @push('css')
     
     <style type="text/css">
-        #sidebar {
+        #sidebar, .custom-dashboard-navbar {
             display: none;
         }
         #content {
             width: 100% !important;
         }
+         
     </style>
 
 @endpush
