@@ -46,12 +46,12 @@
                 <i class="fa fa-plus custom-font-icons" style="color: #fff;" aria-hidden="true"></i>
             </a>
         </li>
-         <li class="nav-item dropdown">
+         {{-- <li class="nav-item dropdown">
             <a class="nav-link text-center right-navbar-border"  style="margin-top: 5px;margin-left: -9px;">
                 <!-- <i class="fa fa-plus custom-font-icons" style="color: #fff;" aria-hidden="true"></i> -->
             </a>
-        </li>
-        <li class="nav-item active dropdown">
+        </li> --}}
+        {{-- <li class="nav-item active dropdown">
             <a href="#" class="nav-link text-center dropdown-toggl navbar-cust-icons custom-dashboard-nav-link" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false" style="">
                 <i class="fa fa-bell-o custom-font-icons" aria-hidden="true"></i>
             </a>
@@ -162,17 +162,17 @@
                     <a href=""><i class="fa fa-eye"></i> Tümünü Göster</a>
                 </div> -->
             </ul>
-        </li>
+        </li> --}}
        <!--  <li class="nav-item dropdown">
             <a class="nav-link text-center custom-dashboard-nav-link navbar-cust-icons" style="">
                 <i class=" custom-font-icons" aria-hidden="true">2</i>
             </a>
         </li> -->
-        <li class="nav-item dropdown">
+      {{--   <li class="nav-item dropdown">
             <a class="nav-link text-center custom-dashboard-nav-link navbar-cust-icons" style="">
                 <i class="fa fa-question custom-font-icons" aria-hidden="true"></i>
             </a>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown">
             <a class="nav-link text-center right-navbar-border"  style="margin-top: 5px;margin-left: -9px;margin-right: -6px;">
                 <!-- <i class="fa fa-plus custom-font-icons" style="color: #fff;" aria-hidden="true"></i> -->
@@ -183,10 +183,10 @@
                 <img src="/assets/images/team/team-1.jpg" class="rounded-circle" alt="user" style="width: 32px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Demo Link</a>
-                <a class="dropdown-item" href="#">Demo Link</a>
+                <a class="dropdown-item" href="/settings">Edit Profile</a>
+                <a class="dropdown-item" href="/billing">Manage Subscription</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/settings">Settings</a>
+                <a class="dropdown-item" href="/settings#advance">App Settings</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">

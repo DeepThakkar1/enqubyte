@@ -18,7 +18,7 @@
         </div>
         <!-- <a href="/sales/invoices/add" class="btn btn-primary float-right">Add Invoice</a> -->
     </div>
-    <div class="container px-md-5">
+    <div class="container px-md-5 mt-4">
         <div class="status-user-amount-desktop">
             <div class="d-flex align-self-center">
                 <div class="py-2">
@@ -133,7 +133,7 @@
     </div>
 </div>
 
-    {{--<div class="container px-5 mt-3">
+    <div class="container px-5 mt-3 mb-5">
         <div class="card">
             <div class="card-header">
                 <strong>INV-00{{$invoice->sr_no}}</strong>
@@ -157,7 +157,7 @@
                         <div>{{$invoice->visitor->phone}}</div>
                         <div>{{$invoice->visitor->email}}</div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 text-right">
                         <!-- <h6 class="mb-3">Bill To:</h6> -->
                         <div>
                             <strong>Invoice Number : </strong> INV-00{{$invoice->sr_no}}
@@ -259,9 +259,9 @@
                 </div>
             </div>
         </div>
-    </div>--}}
+    </div>
 
-    <div class="invoice-box mt-4">
+    {{-- <div class="invoice-box mt-4">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="6">
@@ -373,7 +373,7 @@
                 @endif
             </tr>
         </table>
-    </div>
+    </div> --}}
 </div>
 
 @include('sales.invoices.partials.modals')

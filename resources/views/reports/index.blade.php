@@ -5,12 +5,12 @@
     <div class="headline-contents headline-border-bottom">
         <h2 class="d-inline-block headline-content"><a href="/" class="mr-2"><i class="fa fa-arrow-left"></i></a> Reports</h2>
     </div>
-    <div class="container mt-4">
+    <div class="container my-4">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex p-md-3">
                     <div class="px-md-4">
-                        <h3 class="text-size-heading">Profit & Loss Account</h3>
+                        <h3 class="text-size-heading">Profit & Loss Report</h3>
                         <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,</div>
                     </div>
                     <div class="ml-auto p-2">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="card mt-3">
+        {{-- <div class="card mt-3">
             <div class="card-body">
                 <div class="d-flex p-md-3">
                     <div class="px-md-4">
@@ -31,12 +31,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="card mt-3">
             <div class="card-body">
                 <div class="d-flex p-md-3">
                     <div class="px-md-4">
-                        <h3 class="text-size-heading">Cash Flow</h3>
+                        <h3 class="text-size-heading">Cash Flow Statement</h3>
                         <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,</div>
                     </div>
                     <div class="ml-auto p-2">

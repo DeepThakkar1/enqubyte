@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="container px-md-5 ">
+    <div class="container px-md-5 mt-4">
         <div class="status-user-amount-desktop">
             <div class="d-flex align-self-center">
                 <div class="py-md-2 pr-4">
@@ -154,7 +154,7 @@
 
 
 
-    {{-- <div class="container px-5 mt-3">
+    <div class="container px-5 mt-3 mb-5">
         <div class="card">
             <div class="card-header">
                 <strong>ENQ-00{{ $enquiry->sr_no }}</strong>
@@ -169,7 +169,7 @@
                         </div>
                         <div>Email: {{auth()->user()->email}}</div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 text-right">
                         <h6 class="mb-3">To:</h6>
                         <div>
                             <strong>{{$enquiry->customer->fullname}}</strong>
@@ -239,9 +239,9 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    <div class="invoice-box mt-4">
+    {{-- <div class="invoice-box mt-4">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="6">
@@ -323,7 +323,7 @@
                 </tr>
             </tr>
         </table>
-    </div>
+    </div> --}}
 </div>
 
 

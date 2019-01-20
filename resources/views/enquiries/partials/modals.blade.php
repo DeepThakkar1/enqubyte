@@ -116,10 +116,10 @@
                             </select>
                         </div>
                         @endif
-                        <div class="col-sm-6 form-group">
+                        {{-- <div class="col-sm-6 form-group">
                             <label>HSN Code</label>
                             <input type="text" name="hsn_code" class="form-control" placeholder="HSN Code">
-                        </div>
+                        </div> --}}
                         <div class="col-sm-6 form-group">
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">

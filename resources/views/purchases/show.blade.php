@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <div class="container px-md-5">
+    <div class="container px-md-5 mt-4">
         <div class="status-user-amount-desktop">
             <div class="d-flex align-self-center">
                 <div class="py-2">
@@ -98,7 +98,7 @@
     </div>
 </div>
 
-    {{--<div class="container px-5 mt-3">
+    <div class="container px-5 mt-3 mb-5">
         <div class="card">
             <div class="card-header">
                 P/O
@@ -116,7 +116,7 @@
                         <div>{{$purchaseOrder->vendor->phone}}</div>
                         <div>{{$purchaseOrder->vendor->email}}</div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 text-right">
                         <!-- <h6 class="mb-3">Bill To:</h6> -->
                         <div>
                             <strong>P/O Number : </strong> {{$purchaseOrder->sr_no}}
@@ -131,8 +131,8 @@
                         <thead>
                             <tr>
                                 <th class="center">#</th>
-                                <th>Item</th>
-                                <th>Description</th>
+                                <th class="left">Item</th>
+                                <th class="left">Description</th>
                                 <th class="right">Price</th>
                                 <th class="center">Qty</th>
                                 <th class="center">Tax</th>
@@ -212,9 +212,9 @@
                 </div>
             </div>
         </div>
-    </div>--}}
-    <div class="invoice-box mt-4">
-        <table cellpadding="0" cellspacing="0">
+    </div>
+    {{-- <div class="invoice-box mt-4">
+        <table class="table-purchaseOrderTotal" cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="6">
                     <table>
@@ -318,13 +318,13 @@
                             <strong>Amount Due (INR):</strong>
                         </td>
                         <td class="right text-md-right">
-                            <strong>&#8377; {{$purchaseOrder->remaining_amount}}</strong>
+                            <strong>&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></strong>
                         </td>
                     </tr>
                 @endif
             </tr>
         </table>
-    </div>
+    </div> --}}
 </div>
 
 
