@@ -15,7 +15,7 @@
 	                <div class="px-md-4">
 	                	@if(auth()->user()->hasActiveSubscription())
 		                    <h3 class="text-size-heading font-weight-bold">Subscription Active</h3>
-		                    <div style="font-size: 20px;">Plan : &#8377; 1,750/month | Days Remaining : {{ auth()->user()->activeSubscription()->remainingDays() }} </div>
+		                    <div style="font-size: 20px;">Plan : &#8377;{{ auth()->user()->activeSubscription()->plan->price}}/month | Days Remaining : {{ auth()->user()->activeSubscription()->remainingDays() }} </div>
 		                @else
 		                	@if(auth()->user()->lastSubscription() != null && auth()->user()->lastSubscription()->isPendingCancellation())
 		                		<h3 class="text-size-heading font-weight-bold">Pending Cancellation</h3>
