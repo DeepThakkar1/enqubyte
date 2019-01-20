@@ -29,7 +29,7 @@ Route::get('/users/email/{email}/available', 'UsersController@emailIsAvailable')
 Route::get('/users/username/{username}/available', 'UsersController@usernameIsAvailable');
 Route::post('/users/mode', 'UsersController@mode');
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*Route::get('/home', 'HomeController@index')->name('home');*/
 Route::get('/stores', 'StoresController@index');
 Route::post('/stores', 'StoresController@store');
 Route::get('/stores/{store}', 'StoresController@show');
@@ -212,7 +212,7 @@ Route::post(
 Route::get('subscribed', 'PaymentsController@subscribed');
 
 Route::domain('{username}.enqubyte.com')->group(function () {
-    Route::get('/', function ($username) {
+    Route::get('/home', function ($username) {
         return $username;
     });
 });
