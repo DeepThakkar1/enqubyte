@@ -21,7 +21,7 @@
         <div class="plan">
             <div class="monthly">
                 <h6>Your Plan</h6>
-                <h2>&#8377; 1750 / month</h2>
+                <h2><s>&#8377; 1750</s> &nbsp; 850 / month</h2>
                 <p>You can cancel and get full refund anytime in 30-days</p>
             </div>
         </div>   

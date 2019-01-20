@@ -218,7 +218,7 @@ Route::get('/plans/create/all', function(){
 	$monthly = PlanModel::create([
 	    'name' => 'All-in-one monthly',
 	    'description' => 'Includes all services and modules for a month',
-	    'price' => 1750,
+	    'price' => 850,
 	    'currency' => 'INR',
 	    'duration' => 30, // in days
 	]);
