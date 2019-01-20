@@ -1,5 +1,18 @@
 @extends('layouts.app')
 
+@push('css')
+    
+    <style type="text/css">
+        #sidebar {
+            display: none;
+        }
+        #content {
+            width: 100% !important;
+        }
+    </style>
+
+@endpush
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-md-5 pt-md-5">
