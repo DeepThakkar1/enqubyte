@@ -17,8 +17,11 @@ class IsSubscribed
      */
     public function handle($request, Closure $next)
     {
-        if(!$request->user()->hasActiveSubscription() &&  (auth()->user()->lastSubscription() != null && !auth()->user()->lastSubscription()->isPendingCancellation()))
+        if(!$request->user()->hasActiveSubscription())
         {
+            if(auth()->user()->lastSubscription() != null && auth()->user()->lastSubscription()->isPendingCancellation()) {
+                 return $next($request);
+            }
             $plan = PlanModel::where('name', 'All-in-one monthly')->first();
             if(env('APP_ENV') != 'local'){
                 $instamojoFormUrl = 
