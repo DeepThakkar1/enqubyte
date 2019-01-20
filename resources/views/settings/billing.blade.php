@@ -31,7 +31,7 @@
 	                	@if(auth()->user()->hasActiveSubscription())
 	                    	<a href="/subscription/cancel" style="font-size: 20px;padding-bottom: 40px;" class="btn btn-outline-danger">Cancel Subscription</a>
 	                    @else
-		                    @if(auth()->user()->lastSubscription()->isPendingCancellation())
+		                    @if(auth()->user()->lastSubscription() != null && auth()->user()->lastSubscription()->isPendingCancellation())
 		                    <a href="/subscription/terminate" style="font-size: 20px;padding-bottom: 40px;" class="btn btn-outline-danger">Terminate Subscription</a>
 		                    	<a href="/subscription/renew" style="font-size: 20px;" class="btn btn-outline-success">Revoke Subscription</a>	
 		                    @else
