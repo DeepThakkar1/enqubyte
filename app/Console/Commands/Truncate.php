@@ -44,7 +44,7 @@ class Truncate extends Command
                 continue;
             }
 
-            if(substr($string, 0, strlen('telescope')) === 'telescope'){
+            if(substr($name, 0, strlen('telescope')) === 'telescope'){
                 continue;
             }
             
