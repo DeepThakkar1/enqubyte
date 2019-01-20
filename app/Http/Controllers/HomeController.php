@@ -24,20 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(!auth()->user()->hasActiveSubscription())
-        {
-            if(env('APP_ENV') != 'local'){
-                $instamojoFormUrl =
-                    Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');
-                 return redirect($instamojoFormUrl);
-            } else {
-                $plan = PlanModel::where('name', 'All-in-one monthly')->first();
-                $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
-                return redirect('subscribed');
-            }
-
-        }
-
         $followups = auth()->user()->enquiries()->where('followup_date', date('d-m-Y'))->get();
         $enquiriesCnt = auth()->user()->enquiries()->count();
         $totalSale = auth()->user()->invoices()->sum('grand_total');

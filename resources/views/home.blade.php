@@ -42,7 +42,7 @@
                     <h5 class="mr-5 my-2">Total Expenses</h5>
                     <h5 class="mr-5">&#8377; {{$expenses}}</h5>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="/statements/profitandloss">
+                <a class="card-footer text-white clearfix small z-1" href="/purchases">
                     <span class="float-left">View Details</span>
                     <span class="float-right">
                         <i class="fas fa-angle-right"></i>
