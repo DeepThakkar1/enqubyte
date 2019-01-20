@@ -211,24 +211,5 @@ Route::post(
 
 Route::get('subscribed', 'PaymentsController@subscribed');
 
-use Rennokki\Plans\Models\PlanModel;
 
-Route::get('/plans/create/all', function(){
 
-	$monthly = PlanModel::create([
-	    'name' => 'All-in-one monthly',
-	    'description' => 'Includes all services and modules for a month',
-	    'price' => 850,
-	    'currency' => 'INR',
-	    'duration' => 30, // in days
-	]);
-
-	$yearly = PlanModel::create([
-	    'name' => 'All-in-one yearly',
-	    'description' => 'Includes all services and modules for a year',
-	    'price' => 19200,
-	    'currency' => 'INR',
-	    'duration' => 365, // in days
-	]);
-
-});

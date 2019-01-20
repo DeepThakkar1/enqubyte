@@ -44,13 +44,6 @@ class Truncate extends Command
                 continue;
             }
 
-          /*  if(substr($name, 0, strlen('telescope')) === 'telescope'){
-                continue;
-            }
-
-              if(substr($name, 0, strlen('mojo')) === 'mojo'){
-                continue;
-            }*/
             \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             \DB::table($name)->truncate();
             \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
