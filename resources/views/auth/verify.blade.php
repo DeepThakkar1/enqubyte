@@ -33,6 +33,16 @@
 
                     {!! __('Before proceeding, please check your  <b>'. auth()->user()->email .'</b> email for a verification link.') !!}
                     {{ __('If you did not receive the email') }}, <a style="color: blue;" href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
+                    
+                    <div class="mt-3">
+                        <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();" style="color: blue;" href="{{ route('verification.resend') }}"><i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}</a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    </div>
                 </div>
             </div>
         </div>
