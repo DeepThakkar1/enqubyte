@@ -19,10 +19,10 @@
 		                @else
 		                	@if(auth()->user()->lastSubscription() != null && auth()->user()->lastSubscription()->isPendingCancellation())
 		                		<h3 class="text-size-heading font-weight-bold">Pending Cancellation</h3>
-		                		<div style="font-size: 20px;">Plan : &#8377; 1,750/month | Days Remaining : {{ auth()->user()->lastSubscription()->remainingDays() }} </div>
+		                		<div style="font-size: 20px;">Plan : &#8377; {{ auth()->user()->lastSubscription()->plan->price}}/month | Days Remaining : {{ auth()->user()->lastSubscription()->remainingDays() }} </div>
 		                	@else
 		                		<h3 class="text-size-heading font-weight-bold">Subscription Cancelled</h3>
-		                		<div style="font-size: 20px;">Plan : &#8377; 1,750/month   </div>
+		                		<div style="font-size: 20px;">Plan : &#8377; 850/month   </div>
 		                    @endif
 		                    
 	                    @endif
