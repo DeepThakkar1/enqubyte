@@ -23,7 +23,7 @@
                 </div>
                 <div class="info-header">{{ __('Verify Your Email Address') }}</div>
 
-                <div class="info-body">
+                <div class="info-body" style="font-size: 19px;">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
                             {{ __('A new verification link has been sent to your email address.') }}
