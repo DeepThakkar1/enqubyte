@@ -95,7 +95,7 @@
         </div>
     </div>
 </div>
-@include('components.demo.demomodal')
+{{-- @include('components.demo.demomodal') --}}
 @endsection
 
 @push('js')

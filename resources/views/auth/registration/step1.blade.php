@@ -75,7 +75,7 @@
             </a>
 
              <div class="loginSignUpSeparator"><span class="textInSeparator">or</span></div>
-            <p class="text-center">
+            <p class="text-center" style="font-size: 17px;">
                 Already have an account?
                 <a class="btn-link" href="{{ route('login') }}">
                     {{ __('Sign In') }}
