@@ -29,18 +29,18 @@
     </form>
 
     <ul class="navbar-nav ml-auto dashboard-nav-list">
-       <!--  <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link text-center">
                 <p class="mb-0" style="margin-top: 2px;">
-                    <span style="font-size: 12px;">30 days free trial</span>
+                    <span style="font-size: 12px;">{{ auth()->user()->hasActiveSubscription() ? auth()->user()->activeSubscription()->remainingDays() : (empty(auth()->user()->lastActiveSubscription()) ? auth()->user()->lastActiveSubscription()->remainingDays() : '0') }} days remaining</span>
                 </p>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-center upgrade-product-nav">
-               <p class="mb-0">Upgrade</p>
+            <a href="#" class="nav-link text-center upgrade-product-nav">
+               <p class="mb-0" style="font-weight: 500 !important;">View Demo</p>
             </a>
-        </li> -->
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link text-center custom-dashboard-nav-link navbar-cust-icons" data-toggle="modal" style="background-color: rgb(22, 110, 173) !important;" href="#addMaterialModal" >
                 <i class="fa fa-plus custom-font-icons" style="color: #fff;" aria-hidden="true"></i>

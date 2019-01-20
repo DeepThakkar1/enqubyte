@@ -72,15 +72,21 @@
                 <li class="list-group-item bg-light d-flex justify-content-between align-items-center">
                     <h5 class="m-0">Today's Followups</h5>
                 </li>
-                @foreach($followups as $followup)
+                @if(count($followups))
+                    @foreach($followups as $followup)
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                        <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
+                        <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
+                        </div>
+                        <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right">{{$followup->customer->phone}}</a>
+                    </li>
+                    @endforeach
+                @else
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                    <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
-                    <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
-                    </div>
-                    <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right">{{$followup->customer->phone}}</a>
-                </li>
-                @endforeach
+                    <h4>No Follow-ups Today!</h4>
+                </li>    
+                @endif
             </ul>
         </div>
         <div class="col-xl-7 col-sm-7 mb-3">
