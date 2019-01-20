@@ -211,5 +211,9 @@ Route::post(
 
 Route::get('subscribed', 'PaymentsController@subscribed');
 
-
+Route::domain('{username}.enqubyte.com')->group(function () {
+    Route::get('/test', function ($account) {
+        return $account;
+    });
+});
 
