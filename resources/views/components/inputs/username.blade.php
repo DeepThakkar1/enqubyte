@@ -16,7 +16,7 @@
         $(document).ready(function () {
             $('#{{$inputName}}').alphanum({
               allowSpace: false, // Allow the space character
-              allowUpper: false  // Allow Upper Case characters
+              forceLower: true  // Convert to lower Case characters
             });
             /*$("#{{$inputName}}").on({
               keydown: function(e) {
