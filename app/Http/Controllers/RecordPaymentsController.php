@@ -37,7 +37,7 @@ class RecordPaymentsController extends Controller
      */
     public function store(Request $request, Invoice $invoice)
     {
-        if ($request->amount) {
+        if ($request->amount && $invoice->remaining_amount >= floatval($request->amount)) {
             $invoice->remaining_amount -= floatval($request->amount);
             $invoice->save();
             $payment = $invoice->payments()->create($request->all());

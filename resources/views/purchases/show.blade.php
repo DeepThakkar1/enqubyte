@@ -25,7 +25,7 @@
                 </div>
                 <div class="px-4 py-2">
                     <div>Vendor</div>
-                    <h3><a href="" class="text-primary custom-primary-text"> {{$purchaseOrder->vendor->name}}</a></h3>
+                    <h3 class="text-primary custom-primary-text">{{$purchaseOrder->vendor->name}}</h3>
                 </div>
                 <div class="ml-auto p-2">
                     <div class="d-flex">
@@ -126,205 +126,206 @@
                         <div><strong>Amount Due (INR) : </strong> &#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}} </span></div>
                     </div>
                 </div>
-                <div class="table-responsive-sm">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th class="center">#</th>
-                                <th class="left">Item</th>
-                                <th class="left">Description</th>
-                                <th class="right">Price</th>
-                                <th class="center">Qty</th>
-                                <th class="center">Tax</th>
-                                <th class="right">Total</th>
-                            </tr>
-                        </thead>
+            </div>
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="center">#</th>
+                            <th class="left">Item</th>
+                            <th class="left">Description</th>
+                            <th class="right">Price</th>
+                            <th class="center">Qty</th>
+                            <th class="center">Tax</th>
+                            <th class="right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($purchaseOrder->purchaseitems as $key => $item)
+                        <tr>
+                            <td class="center">{{$key + 1}}</td>
+                            <td class="left strong">{{$item->product->name}}</td>
+                            <td class="left">{{$item->product->description}}</td>
+                            <td class="right">&#8377; {{$item->price}}</td>
+                            <td class="center">{{$item->qty}}</td>
+                            <td class="center">{{$item->tax}} %</td>
+                            <td class="right">&#8377; {{$item->product_tot_amt}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-5">
+                </div>
+                <div class="col-lg-5 col-sm-5 ml-auto">
+                    <table class="table table-clear table-purchaseOrderTotal">
                         <tbody>
-                            @foreach($purchaseOrder->purchaseitems as $key => $item)
                             <tr>
-                                <td class="center">{{$key + 1}}</td>
-                                <td class="left strong">{{$item->product->name}}</td>
-                                <td class="left">{{$item->product->description}}</td>
-                                <td class="right">&#8377; {{$item->price}}</td>
-                                <td class="center">{{$item->qty}}</td>
-                                <td class="center">{{$item->tax}} %</td>
-                                <td class="right">&#8377; {{$item->product_tot_amt}}</td>
+                                <td class="left">
+                                    <strong>Subtotal</strong>
+                                </td>
+                                <td class="right" width="130">&#8377; {{$purchaseOrder->sub_tot_amt}}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <strong>Total</strong>
+                                </td>
+                                <td class="right">
+                                    <strong>&#8377; {{$purchaseOrder->grand_total}}</strong>
+                                </td>
+                            </tr>
+                            @if(count($purchaseOrder->payments))
+                            @foreach($purchaseOrder->payments as $payment)
+                            <tr>
+                                <td class="left">
+                                    Payment on {{ $payment->payment_date}} using
+                                    @if($payment->payment_method == 1)
+                                    Bank Payment :
+                                    @elseif($payment->payment_method == 2)
+                                    Cash :
+                                    @elseif($payment->payment_method == 3)
+                                    Cheque :
+                                    @elseif($payment->payment_method == 4)
+                                    Credit Card :
+                                    @else
+                                    Other :
+                                    @endif
+                                </td>
+                                <td class="right">
+                                    <strong>&#8377; {{$payment->amount}}</strong>
+                                </td>
                             </tr>
                             @endforeach
+                            <tr class="rowAmountDue">
+                                <td class="left">
+                                    <strong>Amount Due (INR):</strong>
+                                </td>
+                                <td class="right">
+                                    <strong>&#8377; {{$purchaseOrder->remaining_amount}}</strong>
+                                </td>
+                            </tr>
+
+                            @endif
                         </tbody>
                     </table>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-5">
-                    </div>
-                    <div class="col-lg-5 col-sm-5 ml-auto">
-                        <table class="table table-clear table-purchaseOrderTotal">
-                            <tbody>
-                                <tr>
-                                    <td class="left">
-                                        <strong>Subtotal</strong>
-                                    </td>
-                                    <td class="right" width="130">&#8377; {{$purchaseOrder->sub_tot_amt}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="left">
-                                        <strong>Total</strong>
-                                    </td>
-                                    <td class="right">
-                                        <strong>&#8377; {{$purchaseOrder->grand_total}}</strong>
-                                    </td>
-                                </tr>
-                                @if(count($purchaseOrder->payments))
-                                    @foreach($purchaseOrder->payments as $payment)
-                                    <tr>
-                                        <td class="left">
-                                            Payment on {{ $payment->payment_date}} using
-                                            @if($payment->payment_method == 1)
-                                            Bank Payment :
-                                            @elseif($payment->payment_method == 2)
-                                            Cash :
-                                            @elseif($payment->payment_method == 3)
-                                            Cheque :
-                                            @elseif($payment->payment_method == 4)
-                                            Credit Card :
-                                            @else
-                                            Other :
-                                            @endif
-                                        </td>
-                                        <td class="right">
-                                            <strong>&#8377; {{$payment->amount}}</strong>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    <tr class="rowAmountDue">
-                                        <td class="left">
-                                            <strong>Amount Due (INR):</strong>
-                                        </td>
-                                        <td class="right">
-                                            <strong>&#8377; {{$purchaseOrder->remaining_amount}}</strong>
-                                        </td>
-                                    </tr>
-
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    {{-- <div class="invoice-box mt-4">
-        <table class="table-purchaseOrderTotal" cellpadding="0" cellspacing="0">
-            <tr class="top">
-                <td colspan="6">
-                    <table>
-                        <tr>
-                            <td class="title print-company-logo">
-                                @if(auth()->user()->company_logo)
-                                    <img src="{{Storage::url(auth()->user()->company_logo)}}" style="height: 50px;">
-                                    @else
-                                    <img src="{{asset('img/logo.png')}}" style="height: 50px;">
-                                @endif
-                            </td>
-                            <td class="text-md-right">
-                                <h3 class="invoice-print-heading" style="margin: 5px 0px;">Purchase Order : P/O-00{{$purchaseOrder->sr_no}}</h3>
-                                {{auth()->user()->company_name}}<br>
-                                {{auth()->user()->company_address ? auth()->user()->company_address : '--'}}<br>
-                                {{auth()->user()->company_phone ? auth()->user()->company_phone : '--'}}
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-            <tr class="information">
-                <td colspan="6">
-                    <table>
-                        <tr>
-                            <td>
-                                <h5 class="invoice-print-heading" style="margin: 0">Purchase Order to</h5>
-                                {{$purchaseOrder->vendor->name}}<br>
-                                {{$purchaseOrder->vendor->address ? $purchaseOrder->vendor->address : '--'}}<br>
-                                {{$purchaseOrder->vendor->phone ? $purchaseOrder->vendor->phone : '--'}}<br>
-                                {{$purchaseOrder->vendor->email ? $purchaseOrder->vendor->email : '--'}}
-                            </td>
-                            <td class="text-md-right">
-                                <b>P/O Number:</b> P/O-00{{$purchaseOrder->sr_no}}<br>
-                                <b>Purchase Date:</b> {{$purchaseOrder->purchase_date}}<br>
-                                <b>Payment Due Date:</b> {{$purchaseOrder->due_date}}<br>
-                                <h5 class="dueAmount"><b>Amount Due (INR) : </b> &#8377; {{$purchaseOrder->remaining_amount}}</h5>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-            <tr class="heading">
-                <td class="center">#</td>
-                <td width="350px">Item</td>
-                <td class="right">Price</td>
-                <td class="center">Qty</td>
-                <td class="center">Tax</td>
-                <td class="right text-right">Total</td>
-            </tr>
-            @foreach($purchaseOrder->purchaseitems as $key => $item)
-            <tr class="item {{$key == count($purchaseOrder->purchaseitems) - 1 ? 'last' : ''}}">
-                <td class="center">{{$key + 1}}</td>
-                <td class="">{{$item->product->name}} <br> <small>{{$item->product->description}}</small></td>
-                <td class="right">&#8377; {{$item->price}}</td>
-                <td class="center">{{$item->qty}}</td>
-                <td class="center">{{$item->tax}} %</td>
-                <td class="right text-right">&#8377; {{$item->product_tot_amt}}</td>
-            </tr>
-            @endforeach
-            <tr class="total">
-                    <td colspan="5"></td>
-                    <td class="right text-md-right border-top-0"><strong>Subtotal : </strong> &#8377; {{$purchaseOrder->sub_tot_amt}}</td>
-                </tr>
-                <tr>
-                    <td colspan="5"></td>
-                    <td class="right text-md-right"><strong>Discount : </strong> {!! isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==0 ? '&#8377;' : ''!!} {{$purchaseOrder->discount}} {{isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==1 ? '%' : ''}}</td>
-                </tr>
-                <tr>
-                    <td colspan="5"></td>
-                    <td class="right text-md-right grandTotalAmount">
-                        <strong>Total : &#8377; {{$purchaseOrder->grand_total}}</strong>
-                    </td>
-                </tr>
-                @if(count($purchaseOrder->payments))
-                    @foreach($purchaseOrder->payments as $payment)
+</div>
+{{-- <div class="invoice-box mt-4">
+    <table class="table-purchaseOrderTotal" cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="6">
+                <table>
                     <tr>
-                        <td colspan="5" class="left text-md-right">
-                            Payment on {{ $payment->payment_date}} using
-                            @if($payment->payment_method == 1)
-                            Bank Payment :
-                            @elseif($payment->payment_method == 2)
-                            Cash :
-                            @elseif($payment->payment_method == 3)
-                            Cheque :
-                            @elseif($payment->payment_method == 4)
-                            Credit Card :
+                        <td class="title print-company-logo">
+                            @if(auth()->user()->company_logo)
+                            <img src="{{Storage::url(auth()->user()->company_logo)}}" style="height: 50px;">
                             @else
-                            Other :
+                            <img src="{{asset('img/logo.png')}}" style="height: 50px;">
                             @endif
                         </td>
-                        <td class="right text-md-right">
-                            <strong>&#8377; {{$payment->amount}}</strong>
+                        <td class="text-md-right">
+                            <h3 class="invoice-print-heading" style="margin: 5px 0px;">Purchase Order : P/O-00{{$purchaseOrder->sr_no}}</h3>
+                            {{auth()->user()->company_name}}<br>
+                            {{auth()->user()->company_address ? auth()->user()->company_address : '--'}}<br>
+                            {{auth()->user()->company_phone ? auth()->user()->company_phone : '--'}}
                         </td>
                     </tr>
-                    @endforeach
-                    <tr class="rowAmountDue">
-                        <td colspan="5" class="left text-md-right">
-                            <strong>Amount Due (INR):</strong>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="information">
+            <td colspan="6">
+                <table>
+                    <tr>
+                        <td>
+                            <h5 class="invoice-print-heading" style="margin: 0">Purchase Order to</h5>
+                            {{$purchaseOrder->vendor->name}}<br>
+                            {{$purchaseOrder->vendor->address ? $purchaseOrder->vendor->address : '--'}}<br>
+                            {{$purchaseOrder->vendor->phone ? $purchaseOrder->vendor->phone : '--'}}<br>
+                            {{$purchaseOrder->vendor->email ? $purchaseOrder->vendor->email : '--'}}
                         </td>
-                        <td class="right text-md-right">
-                            <strong>&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></strong>
+                        <td class="text-md-right">
+                            <b>P/O Number:</b> P/O-00{{$purchaseOrder->sr_no}}<br>
+                            <b>Purchase Date:</b> {{$purchaseOrder->purchase_date}}<br>
+                            <b>Payment Due Date:</b> {{$purchaseOrder->due_date}}<br>
+                            <h5 class="dueAmount"><b>Amount Due (INR) : </b> &#8377; {{$purchaseOrder->remaining_amount}}</h5>
                         </td>
                     </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="heading">
+            <td class="center">#</td>
+            <td width="350px">Item</td>
+            <td class="right">Price</td>
+            <td class="center">Qty</td>
+            <td class="center">Tax</td>
+            <td class="right text-right">Total</td>
+        </tr>
+        @foreach($purchaseOrder->purchaseitems as $key => $item)
+        <tr class="item {{$key == count($purchaseOrder->purchaseitems) - 1 ? 'last' : ''}}">
+            <td class="center">{{$key + 1}}</td>
+            <td class="">{{$item->product->name}} <br> <small>{{$item->product->description}}</small></td>
+            <td class="right">&#8377; {{$item->price}}</td>
+            <td class="center">{{$item->qty}}</td>
+            <td class="center">{{$item->tax}} %</td>
+            <td class="right text-right">&#8377; {{$item->product_tot_amt}}</td>
+        </tr>
+        @endforeach
+        <tr class="total">
+            <td colspan="5"></td>
+            <td class="right text-md-right border-top-0"><strong>Subtotal : </strong> &#8377; {{$purchaseOrder->sub_tot_amt}}</td>
+        </tr>
+        <tr>
+            <td colspan="5"></td>
+            <td class="right text-md-right"><strong>Discount : </strong> {!! isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==0 ? '&#8377;' : ''!!} {{$purchaseOrder->discount}} {{isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==1 ? '%' : ''}}</td>
+        </tr>
+        <tr>
+            <td colspan="5"></td>
+            <td class="right text-md-right grandTotalAmount">
+                <strong>Total : &#8377; {{$purchaseOrder->grand_total}}</strong>
+            </td>
+        </tr>
+        @if(count($purchaseOrder->payments))
+        @foreach($purchaseOrder->payments as $payment)
+        <tr>
+            <td colspan="5" class="left text-md-right">
+                Payment on {{ $payment->payment_date}} using
+                @if($payment->payment_method == 1)
+                Bank Payment :
+                @elseif($payment->payment_method == 2)
+                Cash :
+                @elseif($payment->payment_method == 3)
+                Cheque :
+                @elseif($payment->payment_method == 4)
+                Credit Card :
+                @else
+                Other :
                 @endif
-            </tr>
-        </table>
-    </div> --}}
+            </td>
+            <td class="right text-md-right">
+                <strong>&#8377; {{$payment->amount}}</strong>
+            </td>
+        </tr>
+        @endforeach
+        <tr class="rowAmountDue">
+            <td colspan="5" class="left text-md-right">
+                <strong>Amount Due (INR):</strong>
+            </td>
+            <td class="right text-md-right">
+                <strong>&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></strong>
+            </td>
+        </tr>
+        @endif
+    </tr>
+</table>
+</div> --}}
 </div>
 
 
@@ -340,6 +341,7 @@
             <form class="frmRecordPayment">
                 @csrf
                 <div class="modal-body">
+                    <p class="errorRecordPayment error" style="display: none;">Fill all required fields.</p>
                     <p>Record a payment you’ve already made, such as cash, cheque, or bank payment.</p>
                     <div class="row form-group">
                         <div class="col-sm-6">
@@ -348,7 +350,8 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Amount<sup class="error">*</sup></label>
-                            <input type="text" id="amountInput" name="amount" value="{{isset($purchaseOrder->remaining_amount) ? $purchaseOrder->remaining_amount : ''}}" class="form-control" autocomplete="off" placeholder="Amount" required>
+                            <input type="text" id="amountInput" name="amount" value="{{isset($purchaseOrder->remaining_amount) ? $purchaseOrder->remaining_amount : ''}}" maxPay="{{isset($purchaseOrder->remaining_amount) ? $purchaseOrder->remaining_amount : 0}}" class="form-control inputPusrchaseAmt" autocomplete="off" placeholder="Amount" required>
+                            <p class="errorMaxPayment error" style="display: none;">Please pay amount less than or equal to invoice amount.</p>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -381,44 +384,67 @@
 @endsection
 
 @push('js')
-    <script>
-        $('#recordPayment').on('click', function(){
-            var data = $('.frmRecordPayment').serialize();
-            axios.post('/purchases/{{isset($purchaseOrder) ? $purchaseOrder->id : ''}}/recordpayment', data)
-            .then(function(response){
-                $('.rowAmountDue').hide();
-                // $('.purchaseOrderAmt').html(response.data.)
-                var paymentType;
-                if (response.data.payment.payment_method ==1) {
-                    paymentType= 'Bank Payment';
-                }else if(response.data.payment.payment_method ==2){
-                    paymentType= 'Cash';
-                }else if(response.data.payment.payment_method ==3){
-                    paymentType= 'Cheque';
-                }else if(response.data.payment.payment_method ==4){
-                    paymentType= 'Credit Card';
-                }else{
-                    paymentType= 'Other';
-                }
-                var html = '<tr><td class="left">\
-                            Payment on ' + response.data.payment.payment_date + ' using ' + paymentType + ' :</td>\
-                            <td class="right">\
-                            <strong>&#8377; ' + response.data.payment.amount + '</strong>\
-                            </td></tr><tr class="border-top"><td class="left">\
-                            <strong>Amount Due (INR):</strong></td>\
-                            <td class="right">\
-                            <strong>&#8377; ' + response.data.purchaseOrder.remaining_amount + '</strong>\
-                            </td></tr>';
-                $('.table-purchaseOrderTotal tbody').append(html);
-                $('.purchaseOrderAmt').html(response.data.purchaseOrder.remaining_amount);
-                $('.frmRecordPayment').trigger('reset');
-                $("#amountInput").val(response.data.purchaseOrder.remaining_amount);
-                $('.btnRecordPayment').addClass(response.data.purchaseOrder.remaining_amount ? '' : 'disabled');
-                $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.purchaseOrder.remaining_amount ? 'bg-warning' : 'bg-success');
+<script>
+    $('#recordPayment').on('click', function(){
+        var parsley = $('.frmRecordPayment').parsley().isValid();
+        var payment = $('.inputPusrchaseAmt').val();
+        var maxPayment = $('.inputPusrchaseAmt').attr('maxPay');
+        if(parsley){
+            if (parseFloat(maxPayment)  >= parseFloat(payment)) {
+                if (payment != 0 && payment != '') {
+                    $('.errorMaxPayment').hide();
+                    $('.errorRecordPayment').hide();
+                    $(this).addClass('disabled');
+                    var data = $('.frmRecordPayment').serialize();
 
-                $('.purchaseOrderStatus').html(response.data.purchaseOrder.remaining_amount ? 'Pending' : 'Completed');
-                $('.recordPaymentModal').modal('hide');
-            })
-        });
-    </script>
+                    axios.post('/purchases/{{isset($purchaseOrder) ? $purchaseOrder->id : ''}}/recordpayment', data)
+                    .then(function(response){
+                        $('.rowAmountDue').hide();
+                        // $('.purchaseOrderAmt').html(response.data.)
+                        var paymentType;
+                        if (response.data.payment.payment_method ==1) {
+                            paymentType= 'Bank Payment';
+                        }else if(response.data.payment.payment_method ==2){
+                            paymentType= 'Cash';
+                        }else if(response.data.payment.payment_method ==3){
+                            paymentType= 'Cheque';
+                        }else if(response.data.payment.payment_method ==4){
+                            paymentType= 'Credit Card';
+                        }else{
+                            paymentType= 'Other';
+                        }
+                        var html = '<tr><td class="left">\
+                        Payment on ' + response.data.payment.payment_date + ' using ' + paymentType + ' :</td>\
+                        <td class="right">\
+                        <strong>&#8377; ' + response.data.payment.amount + '</strong>\
+                        </td></tr><tr class="border-top"><td class="left">\
+                        <strong>Amount Due (INR):</strong></td>\
+                        <td class="right">\
+                        <strong>&#8377; ' + response.data.purchaseOrder.remaining_amount + '</strong>\
+                        </td></tr>';
+                        $('.table-purchaseOrderTotal tbody').append(html);
+                        $('.purchaseOrderAmt').html(response.data.purchaseOrder.remaining_amount);
+                        $('.frmRecordPayment').trigger('reset');
+                        $("#amountInput").val(response.data.purchaseOrder.remaining_amount);
+                        $('.btnRecordPayment').addClass(response.data.purchaseOrder.remaining_amount ? '' : 'disabled');
+                        $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.purchaseOrder.remaining_amount ? 'bg-warning' : 'bg-success');
+
+                        $('.purchaseOrderStatus').html(response.data.purchaseOrder.remaining_amount ? 'Pending' : 'Completed');
+                        $('.recordPaymentModal').modal('hide');
+                    })
+                }else{
+                    $('.errorRecordPayment').html('Please enter valid payable amount.');
+                    $('.errorRecordPayment').show();
+                }
+            }else{
+                $('.errorMaxPayment').html('Please pay amount less than or equal to purchase pending amount.');
+                $('.errorMaxPayment').show();
+                $('.errorRecordPayment').hide();
+            }
+        }else{
+            $('.errorRecordPayment').html('Fill all required fields.');
+            $('.errorRecordPayment').show();
+        }
+    });
+</script>
 @endpush

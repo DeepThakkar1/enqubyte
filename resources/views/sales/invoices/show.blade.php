@@ -27,7 +27,7 @@
                 </div>
                 <div class="px-4 py-2">
                     <div>Customer</div>
-                    <h3><a href="" class="text-primary custom-primary-text"> {{$invoice->visitor->fullname}}</a></h3>
+                    <h3 class="text-primary custom-primary-text">{{$invoice->visitor->fullname}}</h3>
                 </div>
                 <div class="ml-auto p-2">
                     <div class="d-flex">
