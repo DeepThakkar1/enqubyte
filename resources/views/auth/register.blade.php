@@ -5,6 +5,12 @@
     .navbar-laravel{
         display: none;
     }
+    body {
+        overflow: hidden;
+    }
+    .auth-container {
+        overflow-y: auto;
+    }
 </style>
 @endpush
 
@@ -18,7 +24,7 @@
                         <img src="{{ url('img/logo.png') }}" height="60px" class="mb-3">
                     </a>
                 </div>
-                <div class="" style="width: 90%; margin-top: 20%;">
+                <div class="" style="width: 90%; margin-top: 130px;">
                     <form id="wizard" method="POST" class="frmRegistration" action="{{ route('register') }}">
                         @csrf
                         @include('auth.registration.step1')

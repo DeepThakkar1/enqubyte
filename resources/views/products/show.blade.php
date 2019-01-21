@@ -16,9 +16,10 @@
                 <div class="status-user-amount-desktop">
                     <div class="d-flex align-self-center">
                         <div class="py-2">
-                            <div><b>Product</b></div>
                             <h3 class="mb-0"><a href="" class="text-primary custom-primary-text"> {{str_limit($product->name, 40)}}</a></h3>
-                            <p style="font-weight: 400;">{{ $product->product_code }}</p>
+                              <p style="font-weight: 400;font-size: 17px;color:#000;">
+                               <b style="font-weight: 500;">{{ $product->product_code }}</b>
+                            </p>
                         </div>
                         <div class="ml-auto p-2">
                             <div class="d-flex">

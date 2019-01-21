@@ -31,7 +31,7 @@
     <ul class="navbar-nav ml-auto dashboard-nav-list">
         <li class="nav-item">
             <a class="nav-link text-center">
-                <p class="mb-0" style="margin-top: 2px;">
+                <p class="mb-0" style="margin-top: 2px;color: #000;font-weight: 400;">
                     <span style="font-size: 12px;">{{ auth()->user()->hasActiveSubscription() ? auth()->user()->activeSubscription()->remainingDays() : (auth()->user()->lastSubscription() != null ? auth()->user()->lastSubscription()->remainingDays() : '0') }} days remaining</span>
                 </p>
             </a>
