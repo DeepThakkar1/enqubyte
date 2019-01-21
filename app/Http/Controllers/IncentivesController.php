@@ -42,6 +42,12 @@ class IncentivesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'type' => 'required',
+            'rate' => 'required',
+        ]);
+
         $newData = $request->all();
 
         if (!$newData['minimum_invoice_amt']) {

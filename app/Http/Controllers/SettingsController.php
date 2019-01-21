@@ -36,8 +36,9 @@ class SettingsController extends Controller
         }else{
             // $newData['email_verified_at'] = null;
             auth()->user()->update($newData);
+            // flash()->overlay('Your email has been updated successfully. Please verify your email address.', 'Verify email address!');
         }
-        flash('Your profile information was updated successfully.')->success();
+        flash('Your profile information has been updated successfully.')->success();
         return redirect('/settings#pills-profile');
     }
 

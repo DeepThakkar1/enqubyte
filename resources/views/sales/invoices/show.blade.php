@@ -23,7 +23,7 @@
             <div class="d-flex align-self-center">
                 <div class="py-2">
                     <div>Status</div>
-                    <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+                    <div class="bg-{{$invoice->status == -1 ? 'danger' : ($invoice->remaining_amount ? 'warning' : 'success')}} text-white px-2 rounded mt-2"> <span class="invoiceStatus"> {{$invoice->status == -1 ? 'Cancelled' : ($invoice->remaining_amount ? 'Pending' : 'Completed')}}</span></div>
                 </div>
                 <div class="px-4 py-2">
                     <div>Customer</div>
@@ -35,7 +35,7 @@
                         <div class="px-4">
                             <div>Enquiry</div>
                             <h3>
-                            <a href="/enquiries/{{$invoice->enquiry->id}}"  class="text-primary custom-primary-text">ENQ-00{{$invoice->enquiry->sr_no}} </a>
+                            <a href="/enquiries/{{$invoice->enquiry->sr_no}}"  class="text-primary custom-primary-text">ENQ-00{{$invoice->enquiry->sr_no}} </a>
                             </h3>
                         </div>
                         @endif
@@ -91,9 +91,11 @@
                     <div class=""><b>Created:</b> {{$invoice->created_at->diffForHumans()}}</div>
                 </div>
                 <div class="ml-auto p-2">
-                    @if(count($invoice->payments))
+                    @if(count($invoice->payments) || $invoice->status == -1 || $invoice->status == 1)
+                    <a href="javascript:;" class="btn btn-outline-danger disabled">Cancel Invoice</a>
                     <a href="javascript:;" class="btn btn-outline-primary disabled">Edit Invoice</a>
                     @else
+                    <a href="/sales/invoices/{{$invoice->id}}/cancel" class="btn btn-outline-danger btnCancelInvoice">Cancel Invoice</a>
                     <a href="/sales/invoices/{{$invoice->id}}/edit" class="btn btn-outline-primary btnEditInvoice">Edit Invoice</a>
                     @endif
                 </div>
@@ -122,10 +124,10 @@
                     <h3 class="pt-2 text-size-heading">Get Paid</h3>
                 </div>
                 <div class="ml-auto p-2">
-                    @if($invoice->remaining_amount)
-                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary btnRecordPayment">Record a Payment</a>
-                    @else
+                    @if(!$invoice->remaining_amount || $invoice->status == -1 || $invoice->status == 1)
                     <a href="#" class="btn btn-outline-primary disabled">Record a Payment</a>
+                    @else
+                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary btnRecordPayment">Record a Payment</a>
                     @endif
                 </div>
             </div>

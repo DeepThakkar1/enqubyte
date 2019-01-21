@@ -137,7 +137,7 @@ class InvoicesController extends Controller
         $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
 
         flash('Invoice added successfully!');
-        return redirect('/sales/invoices');
+        return redirect('/sales/invoices/'.$invoice->sr_no);
     }
 
     /**
@@ -160,7 +160,7 @@ class InvoicesController extends Controller
      */
     public function edit(Invoice $invoice)
     {
-        if(count($invoice->payments)){
+        if(count($invoice->payments) || $invoice->status == -1 || $invoice->status == 1){
             flash("You can't edit this invoice!");
             return redirect('/sales/invoices/'.$invoice->sr_no);
         }
@@ -271,6 +271,17 @@ class InvoicesController extends Controller
         $invoice->customer->notify(new UpdateInvoice($invoice, auth()->user()));
 
         flash('Invoice updated successfully!');
+        return redirect('/sales/invoices');
+    }
+
+    public function cancel(Invoice $invoice)
+    {
+        if (isset($invoice->enquiry)) {
+            $invoice->enquiry->status = 0;
+            $invoice->enquiry->save();
+        }
+        $invoice->update(['status' => -1]);
+        flash('Invoice cancelled successfully!');
         return redirect('/sales/invoices');
     }
 

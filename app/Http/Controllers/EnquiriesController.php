@@ -127,8 +127,8 @@ class EnquiriesController extends Controller
     {
         if($enquiry->status == 1 || $enquiry->status == -1)
         {
-            flash("You didn't edit this enquiry!");
-            return redirect('/enquiries/'.$enquiry->id);
+            flash("You can't edit this enquiry!");
+            return redirect('/enquiries/'.$enquiry->sr_no);
         }
         else
         {
@@ -197,73 +197,78 @@ class EnquiriesController extends Controller
     public function createInvoice($enquiry)
     {
         $enquiry = auth()->user()->enquiries()->where('sr_no', $enquiry)->first();
-        foreach ($enquiry->enquiryitems as $key => $item) {
-            $product = Product::where('id', $item->product_id)->first();
-            if ($product->has_stock && $product->stock < $item->qty) {
-                flash('Only '. $product->stock . ' '.$product->name. ' available!');
-                return back();
+        if (isset($enquiry->invoice)) {
+            flash("Enquiry already converted to sale!");
+            return redirect('/enquiries/'.$enquiry->sr_no);
+        }else{
+            foreach ($enquiry->enquiryitems as $key => $item) {
+                $product = Product::where('id', $item->product_id)->first();
+                if ($product->has_stock && $product->stock < $item->qty) {
+                    flash('Only '. $product->stock . ' '.$product->name. ' available!');
+                    return back();
+                }
             }
-        }
 
-        $enquiry->update(['status' => 1]);
-        $invoiceSrno = Invoice::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
-        $invoice = Invoice::create([
-            'sr_no' => $invoiceSrno,
-            'company_id' => auth()->id(),
-            'employee_id' => !empty($enquiry->employee_id) ? $enquiry->employee_id : 0,
+            $enquiry->update(['status' => 1]);
+            $invoiceSrno = Invoice::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
+            $invoice = Invoice::create([
+                'sr_no' => $invoiceSrno,
+                'company_id' => auth()->id(),
+                'employee_id' => !empty($enquiry->employee_id) ? $enquiry->employee_id : 0,
             // 'store_id' => 0,
-            'customer_id' => $enquiry->customer_id,
-            'enquiry_id' => $enquiry->id,
-            'invoice_date' => date('d-m-Y'),
-            'due_date' => date('d-m-Y'),
-            'sub_tot_amt' => $enquiry->sub_tot_amt,
-            'discount_type' => $enquiry->discount_type,
-            'discount' => !empty($enquiry->discount) ? $enquiry->discount : 0,
-            'grand_total' => $enquiry->grand_total,
-            'remaining_amount' => $enquiry->grand_total
-        ]);
-
-        $enquiry->customer->update(['is_customer' => 1]);
-
-        foreach ($enquiry->enquiryitems as $key => $item) {
-            $invoice->invoiceitems()->create([
-                'product_id' => $item->product_id,
-                'description' => $item->description,
-                'qty' => $item->qty,
-                'price' => $item->price,
-                'tax' => isset($item->tax) ? $item->tax : 0,
-                'product_tot_amt' => $item->product_tot_amt
+                'customer_id' => $enquiry->customer_id,
+                'enquiry_id' => $enquiry->id,
+                'invoice_date' => date('d-m-Y'),
+                'due_date' => date('d-m-Y'),
+                'sub_tot_amt' => $enquiry->sub_tot_amt,
+                'discount_type' => $enquiry->discount_type,
+                'discount' => !empty($enquiry->discount) ? $enquiry->discount : 0,
+                'grand_total' => $enquiry->grand_total,
+                'remaining_amount' => $enquiry->grand_total
             ]);
 
-            $product = Product::where('id', $item->product_id)->first();
-            $product->stock -= $item->qty;
-            $product->save();
-        }
+            $enquiry->customer->update(['is_customer' => 1]);
 
-        if(isset($invoice->employee) && $invoice->employee->incentive_id != 0){
-            $incentiveAmt = 0;
-            if ($invoice->employee->incentive->type == 1) {
-                $incentiveAmt = $invoice->employee->incentive->rate;
-            }else if ($invoice->employee->incentive->type == 2) {
-                $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
-            }
-
-            if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
-                $invoice->incentive_amt = $incentiveAmt;
-                $invoice->save();
-                $incentive = SalesmanIncentive::create([
-                    'employee_id' => $invoice->employee_id,
-                    'enquiry_id' => isset($invoice->enquiry_id) ? $invoice->enquiry_id : 0,
-                    'invoice_id' => $invoice->id,
-                    'incentive_amount' => $incentiveAmt,
+            foreach ($enquiry->enquiryitems as $key => $item) {
+                $invoice->invoiceitems()->create([
+                    'product_id' => $item->product_id,
+                    'description' => $item->description,
+                    'qty' => $item->qty,
+                    'price' => $item->price,
+                    'tax' => isset($item->tax) ? $item->tax : 0,
+                    'product_tot_amt' => $item->product_tot_amt
                 ]);
+
+                $product = Product::where('id', $item->product_id)->first();
+                $product->stock -= $item->qty;
+                $product->save();
             }
+
+            if(isset($invoice->employee) && $invoice->employee->incentive_id != 0){
+                $incentiveAmt = 0;
+                if ($invoice->employee->incentive->type == 1) {
+                    $incentiveAmt = $invoice->employee->incentive->rate;
+                }else if ($invoice->employee->incentive->type == 2) {
+                    $incentiveAmt = (($invoice->grand_total * $invoice->employee->incentive->rate) / 100);
+                }
+
+                if ($invoice->grand_total >= $invoice->employee->incentive->minimum_invoice_amt) {
+                    $invoice->incentive_amt = $incentiveAmt;
+                    $invoice->save();
+                    $incentive = SalesmanIncentive::create([
+                        'employee_id' => $invoice->employee_id,
+                        'enquiry_id' => isset($invoice->enquiry_id) ? $invoice->enquiry_id : 0,
+                        'invoice_id' => $invoice->id,
+                        'incentive_amount' => $incentiveAmt,
+                    ]);
+                }
+            }
+
+            $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
+
+            flash('Invoice created successfully!');
+            return redirect('/sales/invoices/' . $invoice->sr_no);
         }
-
-        $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
-
-        flash('Invoice created successfully!');
-        return redirect('/sales/invoices/' . $invoice->sr_no);
     }
 
     /**
@@ -311,14 +316,14 @@ class EnquiriesController extends Controller
     }
 
     public function exportToPDF(){
-         return Excel::download(new EnquiriesExport(), 'enquiries.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
-    }
+       return Excel::download(new EnquiriesExport(), 'enquiries.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+   }
 
-    public function enquiryExportToPDF(Enquiry $enquiry){
-         return Excel::download(new EnquiryExport($enquiry), 'ENV-00'.$enquiry->sr_no.'.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
-    }
+   public function enquiryExportToPDF(Enquiry $enquiry){
+       return Excel::download(new EnquiryExport($enquiry), 'ENV-00'.$enquiry->sr_no.'.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+   }
 
-    public function exportToCSV(){
-         return Excel::download(new EnquiriesExport(), 'enquiries.csv',  \Maatwebsite\Excel\Excel::CSV);
-    }
+   public function exportToCSV(){
+       return Excel::download(new EnquiriesExport(), 'enquiries.csv',  \Maatwebsite\Excel\Excel::CSV);
+   }
 }
