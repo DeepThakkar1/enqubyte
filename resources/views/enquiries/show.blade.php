@@ -254,7 +254,7 @@
                                     <img src="{{asset('img/logo.png')}}" style="height: 50px;">
                                 @endif
                             </td>
-                            <td class="text-right">
+                            <td class="text-md-right">
                                 <h3 class="invoice-print-heading" style="margin: 5px 0px;">Enquiry : ENQ-00{{$enquiry->sr_no}}</h3>
 
                                 {{auth()->user()->company_name}}<br>
@@ -279,7 +279,7 @@
                                 {{$enquiry->customer->email ? $enquiry->customer->email : '--'}}
                             </td>
 
-                            <td class="text-right">
+                            <td class="text-md-right">
                                 <b>Enquiry Number:</b> ENQ-00{{$enquiry->sr_no}}<br>
                                 <b>Created Date:</b> {{$enquiry->enquiry_date}}<br>
                                 <b>Followup Date:</b> {{$enquiry->followup_date}}

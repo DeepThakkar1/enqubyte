@@ -154,10 +154,10 @@
     padding: 0px !important;
   }
   .print-company-logo{
-    text-align: right !important;
+    text-align: center !important;
   }
   .invoice-box table tr.information table td {
-    text-align: right !important;
+    text-align: center !important;
     padding-bottom: 15px !important;
     padding-top: 15px !important;
   }
