@@ -65,10 +65,10 @@
                             <div class="footer-widget">
                                 <h4 class="widget-title">Social Media</h4>
                                 <ul class="xs-list">
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Google Plus</a></li>
-                                    <li><a href="#">Linkedin</a></li>
+                                    <li><a href="https://www.facebook.com/Enqubyte-359699814831143/">Facebook</a></li>
+                                    <li><a href="https://twitter.com/?lang=en">Twitter</a></li>
+                                    <li><a href="https://plus.google.com/114335970567634050032">Google Plus</a></li>
+                                    <li><a href="https://www.linkedin.com/company/14527862/admin/">Linkedin</a></li>
                                 </ul><!-- .xs-list END -->
                             </div><!-- .footer-widget END -->
                         </div>
@@ -88,11 +88,11 @@
                 Powered by <a target="_blank" href="https://trumpets.co.in"><img style="" src="/img/trumpetslogo.png"/></a>
             </div>
             <div class="socials" style="font-size: 22px;">
-                <span class="mr-3"><a href="#"><i class="fa fa-facebook-official"></i></a></span>
-                <span class="mr-3"><a href="#"><i class="fa fa-instagram"></i></a></span>
-                <span class="mr-3"><a href="#"><i class="fa fa-youtube-play"></i></a></span>
-                <span class="mr-3"><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
-                <span><a href="#"><i class="fa fa-twitter"></i></a></span>
+                <span class="mr-3"><a href="https://www.facebook.com/Enqubyte-359699814831143/"><i class="fa fa-facebook-official"></i></a></span>
+                <span class="mr-3"><a href="https://instagram.com/enqubyte/"><i class="fa fa-instagram"></i></a></span>
+                <span class="mr-3"><a href="https://www.youtube.com/channel/UCNflBXWI9r6huLrmWIwT6mQ?view_as=subscriber"><i class="fa fa-youtube-play"></i></a></span>
+                <span class="mr-3"><a href="https://www.linkedin.com/company/14527862/admin/"><i class="fa fa-linkedin-square"></i></a></span>
+                <span><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter"></i></a></span>
             </div>    
         </div>
     </div>   
