@@ -80,7 +80,7 @@
             </div>
             </div>
         </div>
-        <div class="col-md-6 d-flex align-items-center" style="background: #1b6dab9c !important;height: 100vh;">
+        <div class="col-md-6 d-flex align-items-center user-login-image-section">
             <img src="/img/PNG/Reports And Graphs 2-01.png" style="width: 100%">
         </div>       
     </div>

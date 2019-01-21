@@ -22,6 +22,12 @@ class IsSubscribed
             if(auth()->user()->lastSubscription() != null && auth()->user()->lastSubscription()->isPendingCancellation()) {
                  return $next($request);
             }
+
+            if(auth()->user()->lastSubscription() != null)
+            {
+                return redirect('billing');
+            }
+            
             $plan = PlanModel::where('name', 'All-in-one monthly')->first();
             if(env('APP_ENV') != 'local'){
                 $instamojoFormUrl = 
