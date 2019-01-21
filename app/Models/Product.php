@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'company_id', 'store_id', 'name', 'description', 'selling_price', 'stock', 'cost_price', 'tax', 'hsn_code', 'product_code',
+        'company_id', 'store_id', 'name', 'description', 'selling_price', 'stock', 'cost_price', 'tax', 'hsn_code', 'product_code', 'has_stock'
     ];
 
     public function company()

@@ -39,11 +39,12 @@
                             <div class="footer-widget">
                                 <h4 class="widget-title">Features</h4>
                                 <ul class="xs-list">
-                                    <li><a href="/features#Sales">Invoicing</a></li>
-                                    <li><a href="/features#Enquirers">Enquiries</a></li>
-                                    <li><a href="/features#Campaigns">Products & Stocks</a></li>
-                                    <li><a href="/features#Payouts & Incentives">Payouts & Incentives</a></li>
-                                    <li><a href="/features#Reports & Graphs">Reports & Graphs</a></li>    
+                                    <li><a href="/features#enquiries">Manage Enquiries</a></li>
+                                    <li><a href="/features#stocks">Products & Stocks</a></li>
+                                    <li><a href="/features#sales">Sales & Invoicing</a></li>
+                                    <li><a href="/features#payouts">Payouts & Incentives</a></li>
+                                    <li><a href="/features#reports">Reports & Graphs</a></li>    
+                                    <li><a href="/features">And More</a></li> 
                                 </ul><!-- .xs-list END -->
                             </div><!-- .footer-widget END -->
                         </div>
@@ -53,8 +54,8 @@
                                 <h4 class="widget-title">Company</h4>
                                 <ul class="xs-list">
                                     <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                    <li><a href="/terms-and-services">Terms of Service</a></li>
-                                    <li><a href="#">About Trumpets</a></li>
+                                    <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+                                    <li><a target="_blank" href="https://trumpets.co.in">About Trumpets</a></li>
                                     <!-- <li><a href="#">Knowledge Base</a></li>
                                     <li><a href="#">GDPR Update</a></li> -->
                                 </ul><!-- .xs-list END -->
@@ -79,3 +80,19 @@
           
         </footer>
         <!-- footer section end -->
+
+
+    <div class="copyright py-3">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="parent font-weight-bold text-dark">
+                Powered by <a target="_blank" href="https://trumpets.co.in"><img style="width: 120px;margin: 0 6px;margin-top: -2px;" src="/img/trumpetslogo.png"/></a>
+            </div>
+            <div class="socials" style="font-size: 22px;">
+                <span class="mr-3"><a href="#"><i class="fa fa-facebook-official"></i></a></span>
+                <span class="mr-3"><a href="#"><i class="fa fa-instagram"></i></a></span>
+                <span class="mr-3"><a href="#"><i class="fa fa-youtube-play"></i></a></span>
+                <span class="mr-3"><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
+                <span><a href="#"><i class="fa fa-twitter"></i></a></span>
+            </div>    
+        </div>
+    </div>   

@@ -19,12 +19,15 @@ class IsSubscribed
     {
         if(!$request->user()->hasActiveSubscription())
         {
+            if(auth()->user()->lastSubscription() != null && auth()->user()->lastSubscription()->isPendingCancellation()) {
+                 return $next($request);
+            }
+            $plan = PlanModel::where('name', 'All-in-one monthly')->first();
             if(env('APP_ENV') != 'local'){
                 $instamojoFormUrl = 
-                    Mojo::giveMeFormUrl($request->user(), 1750, 'Monthly Subscription', '9922367414');
+                    Mojo::giveMeFormUrl($request->user(), $plan->price, 'Monthly Subscription', '9922367414');
                  return redirect($instamojoFormUrl);
             } else {
-                $plan = PlanModel::where('name', 'All-in-one monthly')->first();
                 $subscription = $request->user()->subscribeTo($plan, 30); // 30 days
                 return redirect('subscribed');
             }

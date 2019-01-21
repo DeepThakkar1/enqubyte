@@ -10,16 +10,18 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> {{$visitor->fullname}}
         </h2>
     </div>
-    <div class="container px-md-5 status-user-amount-desktop">
+    <div class="container-fluid px-md-5 status-user-amount-desktop mt-4">
         <div class="d-flex align-self-center">
             <div class="py-2">
-                <div>Visitor</div>
-                <h3><a href="" class="text-primary custom-primary-text"> {{$visitor->fullname}}</a></h3>
+                <h3 class="mb-1"><a href="" class="text-primary custom-primary-text"> {{$visitor->fullname}}</a></h3>
+                <p style="font-weight: 400;font-size: 17px;color:#000;">
+                   <b style="font-weight: 500;">{{ $visitor->phone }}</b>
+                </p>
             </div>
             <div class="ml-auto p-2">
                 <div class="d-flex">
                     <div class="px-4 text-center">
-                        <div>Total Enquiries</div>
+                        <div><b>Total Enquiries</b></div>
                         <h3 class="mt-2 Due">{{ count($visitor->enquiries)}}</h3>
                     </div>
                 </div>
@@ -27,7 +29,7 @@
         </div>
     </div>
 
-    <div class="container px-md-5 status-user-amount-responsive">
+    <div class="container-fluid px-md-5 status-user-amount-responsive">
         <div class="d-flex justify-content-between">
             <div class="py-2 text-left">
                 <div>Visitor</div>
@@ -40,7 +42,7 @@
         </div>
     </div>   
 
-    <div class="container px-md-5">
+    <div class="container-fluid px-md-5 mt-3">
         <div class="card">
             <div class="card-header">
                 <strong>Enquiries</strong>

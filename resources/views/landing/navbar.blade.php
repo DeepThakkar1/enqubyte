@@ -54,6 +54,9 @@
                         <li>
                             <a href="/features" class="nav-link">Features</a>
                         </li>
+                         <li>
+                            <a href="/#pricing" class="nav-link">Pricing</a>
+                        </li>
                         <li>
                             <a href="/login" class="nav-link">Login</a>
                         </li>

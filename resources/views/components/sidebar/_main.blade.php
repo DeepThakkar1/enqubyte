@@ -155,9 +155,6 @@
                         <li>
                             <a href="/incentives">{{ __('Incentives') }}</a>
                         </li>
-                         <li>
-                            <a href="/billing">{{ __('Billing') }}</a>
-                        </li>
                     </ul>
                 </li>
 

@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    @include('components.tabs.tabularChart')
+   {{--  @include('components.tabs.tabularChart') --}}
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
             <table class="table dataTable">

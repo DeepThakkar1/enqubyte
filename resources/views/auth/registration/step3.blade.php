@@ -1,10 +1,11 @@
 <h2></h2>
 <section class="form-section">
     <div class="mt-3 mb-4">
-        <div class="alert alert-info">
-            <i class="fas fa-info-circle"></i> <strong> Let's secure your account.</strong><br>
-            {{ __('The password must contain at least 8 characters with one uppercase and one number.') }}
-        </div>
+        <h2 class="mb-4 pb-3">Create your account password</h2>
+   {{--  <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i> <strong> Let's secure your account.</strong><br>
+        {{ __('The password must contain at least 8 characters with one uppercase and one number.') }}
+    </div> --}}
         <div class="form-group">
             <input id="password" type="password" pattern="^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
             @if ($errors->has('password'))
@@ -21,7 +22,7 @@
         <div class="plan">
             <div class="monthly">
                 <h6>Your Plan</h6>
-                <h2>&#8377; 1750 / month</h2>
+                <h2 style="color: #1B6DAB !important;"><s style="color: red;">&#8377; 1750</s> &nbsp; &#8377; 850 / month</h2>
                 <p>You can cancel and get full refund anytime in 30-days</p>
             </div>
         </div>   

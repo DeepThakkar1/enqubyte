@@ -20,7 +20,7 @@
 Route::get('/', 'LandingCotroller@index');
 Route::get('/features', 'LandingCotroller@feature');
 Route::get('/privacy-policy', 'LandingCotroller@privacy_policy');
-Route::get('/terms-and-services', 'LandingCotroller@terms_services');
+Route::get('/terms-and-conditions', 'LandingCotroller@terms_services');
 Route::get('/demo', 'LandingCotroller@demo');
 
 Auth::routes(['verify' => true]);
@@ -211,24 +211,7 @@ Route::post(
 
 Route::get('subscribed', 'PaymentsController@subscribed');
 
-use Rennokki\Plans\Models\PlanModel;
+/*Route::domain('{username}.enqubyte.com')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});*/
 
-Route::get('/plans/create/all', function(){
-
-	$monthly = PlanModel::create([
-	    'name' => 'All-in-one monthly',
-	    'description' => 'Includes all services and modules for a month',
-	    'price' => 1750,
-	    'currency' => 'INR',
-	    'duration' => 30, // in days
-	]);
-
-	$yearly = PlanModel::create([
-	    'name' => 'All-in-one yearly',
-	    'description' => 'Includes all services and modules for a year',
-	    'price' => 19200,
-	    'currency' => 'INR',
-	    'duration' => 365, // in days
-	]);
-
-});

@@ -175,7 +175,7 @@
 </section><!-- more features area section end -->
 
 <hr>
-<section class="section-padding-medium desktop-enquiries section-padding-medium1">
+<section id="pricing" class="section-padding-medium desktop-enquiries section-padding-medium1">
         <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
@@ -196,11 +196,11 @@
                         <div style="border-top-left-radius: 20px;border-top-right-radius: 20px;background: #1B6DAB; padding-top: 10px;padding-bottom: 10px;margin-bottom: 40px;">
                         <h3 style="font-size: 34px; color: #fff;font-weight: 500;margin-bottom: 0;">All-in-one</h3>
                         </div>
-                        <div class="pricing-price" style="padding-bottom: 0;">
-                            <h2>&#8377; 1,600</h2>
-                            <span style="margin-top: 10px;font-size: 19px;display: inline-block;">per month billed annualy.</span>
+                        <div class="pricing-price" style="padding-bottom: 0;color: #000;">
+                            <h2><s>&#8377; 1,750</s> / month</h2>
+                            <span style="margin-top: 10px;font-size: 19px;display: inline-block;color: green;font-weight: 500;">Avail the early release offer</span>
 
-                            <span style="margin-top: 30px;width: 80%;font-size: 16px;display: inline-block;"><b>&#8377; 1,750</b> per month billed monthly.</span>
+                            <span style="margin-top: 20px;width: 80%;font-size: 16px;display: inline-block;">Pay only <span style="font-size: 20px;color: #000;"><b>&#8377; 850 / month</b></span></span>
                         </div>
                     </div><!-- .pricing-header END -->
                 </div><!-- .pricing-table END #svg-icon-1 end -->    

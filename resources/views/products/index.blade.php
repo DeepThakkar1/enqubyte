@@ -36,7 +36,7 @@
                     <td>{{$product->product_code}}</td>
                     <td>&#8377; {{$product->cost_price}}</td>
                     <td>&#8377; {{$product->selling_price}}</td>
-                    <td>{{$product->stock}}</td>
+                    <td>{{$product->has_stock ? $product->stock : '--'}}</td>
                     <td>
                         <a href="#editProductModal{{$key}}" data-toggle="modal" class="btn btn-sm"><i class="fas fa-pencil-alt"></i></a>
                         <a href="/products/{{$product->id}}" class="btn btn-sm"><i class="fa fa-eye"></i>  </a>
@@ -102,13 +102,20 @@
                                                     </select>
                                                 </div>
                                                 @endif
-                                                <div class="col-sm-6 form-group">
+                                             {{--    <div class="col-sm-6 form-group">
                                                     <label>HSN Code</label>
                                                     <input type="text" name="hsn_code" value="{{$product->hsn_code}}" class="form-control" placeholder="HSN Code">
-                                                </div>
+                                                </div> --}}
                                                 <div class="col-sm-6 form-group">
                                                     <label>Product Code</label>
                                                     <input type="text" name="product_code" value="{{$product->product_code}}" class="form-control" placeholder="Product Code">
+                                                </div>
+                                                <div class="col-sm-6 form-group">
+                                                    <label class="w-100">&nbsp;</label>
+                                                    <div class="custom-control custom-checkbox d-block">
+                                                        <input type="checkbox" class="custom-control-input" name="has_stock" id="editChkHasStock" {{$product->has_stock ? 'checked' : ''}} value="1">
+                                                        <label class="custom-control-label pt-1 pr-3 pl-1" for="editChkHasStock" > Has Stock </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -185,13 +192,20 @@
                             </select>
                         </div>
                         @endif
-                        <div class="col-sm-6 form-group">
+                      {{--   <div class="col-sm-6 form-group">
                             <label>HSN Code</label>
                             <input type="text" name="hsn_code" class="form-control" placeholder="HSN Code">
-                        </div>
+                        </div> --}}
                         <div class="col-sm-6 form-group">
                             <label>Product Code</label>
                             <input type="text" name="product_code" class="form-control" placeholder="Product Code">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="w-100">&nbsp;</label>
+                            <div class="custom-control custom-checkbox d-block">
+                                <input type="checkbox" class="custom-control-input" name="has_stock" id="chkHasStock" checked value="1">
+                                <label class="custom-control-label pt-1 pr-3 pl-1" for="chkHasStock" > Has Stock </label>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -57,7 +57,6 @@ class RegisterController extends Controller
             'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'company_name' => ['required', 'string'],
-            'company_type' => ['required'],
             'company_username' => ['required', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'strong_password', 'confirmed'],
         ]);
@@ -73,6 +72,7 @@ class RegisterController extends Controller
     {
         $newData = $data;
         $newData['company_email'] = $data['email'];
+        $newData['company_type'] = 3;
         $newData['password'] = Hash::make($data['password']);
         return User::create($newData);
     }

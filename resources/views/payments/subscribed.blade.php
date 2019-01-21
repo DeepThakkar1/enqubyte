@@ -3,7 +3,7 @@
 @push('css')
     
     <style type="text/css">
-        #sidebar {
+        #sidebar, .custom-dashboard-navbar {
             display: none;
         }
         #content {

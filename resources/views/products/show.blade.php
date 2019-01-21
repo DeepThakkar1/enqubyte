@@ -10,23 +10,25 @@
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> {{$product->name}}
         </h2>
     </div>
-    <div class="tab-content" id="pills-tabContent">
+    <div class="tab-content mt-4" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
-            <div class="container px-md-5">
+            <div class="container-fluid px-md-5 mb-3">
                 <div class="status-user-amount-desktop">
                     <div class="d-flex align-self-center">
                         <div class="py-2">
-                            <div>Product</div>
-                            <h3><a href="" class="text-primary custom-primary-text"> {{str_limit($product->name, 40)}}</a></h3>
+                            <h3 class="mb-0"><a href="" class="text-primary custom-primary-text"> {{str_limit($product->name, 40)}}</a></h3>
+                              <p style="font-weight: 400;font-size: 17px;color:#000;">
+                               <b style="font-weight: 500;">{{ $product->product_code }}</b>
+                            </p>
                         </div>
                         <div class="ml-auto p-2">
                             <div class="d-flex">
                                 <div class="px-4 text-center">
-                                    <div>Quantity Sold</div>
+                                    <div><b>Quantity Sold</b></div>
                                     <h3 class="mt-2 Due">{{$qtySold}}</h3>
                                 </div>
                                 <div class="pl-4 text-center">
-                                    <div>Total Sale</div>
+                                    <div><b>Total Sale</b></div>
                                     <h3 class="mt-2 Due">&#8377; {{$productTotal}}</h3>
                                 </div>
                             </div>
@@ -35,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="container px-md-5 status-user-amount-responsive">
+            <div class="container-fluid px-md-5 status-user-amount-responsive">
                <div class="d-flex justify-content-between">
                     <div class="py-2 text-left">
                         <div>Product</div>
@@ -54,7 +56,7 @@
                 </div>
            </div>
 
-            <div class="container px-md-5">
+            <div class="container-fluid px-md-5">
                 <div class="card">
                     <div class="card-header">
                         <strong>Enquiries ( {{ count($enquiries)}} )</strong>

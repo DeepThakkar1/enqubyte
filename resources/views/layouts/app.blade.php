@@ -98,7 +98,7 @@
             @endauth
 
 
-            <div class="pt-0 pb-md-4">
+            <div class="pt-0">
                 @include('flash::message')
                 @yield('content')
             </div>

@@ -197,7 +197,7 @@ class EnquiriesController extends Controller
         $enquiry = auth()->user()->enquiries()->where('sr_no', $enquiry)->first();
         foreach ($enquiry->enquiryitems as $key => $item) {
             $product = Product::where('id', $item->product_id)->first();
-            if ($product->stock < $item->qty) {
+            if ($product->has_stock && $product->stock < $item->qty) {
                 flash('Only '. $product->stock . ' '.$product->name. ' available!');
                 return back();
             }
