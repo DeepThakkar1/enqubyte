@@ -79,12 +79,12 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
-                                                    <label>Email Address</label>
-                                                    <input type="email" name="email" value="{{$vendor->email}}" class="form-control" placeholder="Vendor email">
-                                                </div>
-                                                <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
                                                     <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$vendor->phone}}" class="form-control" placeholder="Phone" required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label>Email Address</label>
+                                                    <input type="email" name="email" value="{{$vendor->email}}" class="form-control" placeholder="Vendor email">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -147,12 +147,12 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email Address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Vendor email" >
-                        </div>
-                        <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>
                             <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Vendor email" >
                         </div>
                     </div>
                     <div class="form-group">

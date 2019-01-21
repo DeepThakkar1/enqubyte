@@ -52,6 +52,10 @@
                         <label>Follow Up Date</label>
                         <input type="text" class="form-control datepicker" autocomplete="off" name="followup_date" value="{{$enquiry->followup_date}}" placeholder="Enquiry followup date">
                     </div>
+                    <div class="col-sm-4 form-group">
+                        <label>Follow Up Time</label>
+                        <input type="text" class="form-control timepicker" name="followup_time" value="{{$enquiry->followup_time}}" autocomplete="off" placeholder="Enquiry followup time">
+                    </div>
                 </div>
                 <!-- <hr> -->
                 <div class="table-responsive m-0" style="position: relative;">
@@ -62,7 +66,7 @@
                                 <th>Description</th>
                                 <th>Qty</th>
                                 <th>Price</th>
-                                @if(!auth()->user()->taxmode)
+                                @if(auth()->user()->taxmode)
                                 <th>Tax</th>
                                 @endif
                                 <th class="text-right">Amount</th>
@@ -89,7 +93,7 @@
                                 <td>
                                     <input type="text" name="price[]" style="width: 120px" value="{{$item->price}}" class="form-control form-control-sm input-price">
                                 </td>
-                                @if(!auth()->user()->taxmode)
+                                @if(auth()->user()->taxmode)
                                 <td>
                                     <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">
                                         <option selected disabled>-- Choose Tax --</option>
@@ -124,7 +128,7 @@
                     </div>
                     <div class="p-2 text-right subTotalAmount font-weight-bold">Subtotal :</div>
                 </div>
-                @if(auth()->user()->taxmode)
+                @if(!auth()->user()->taxmode)
                 @foreach($invoicetaxes as $tax)
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
@@ -164,7 +168,7 @@
     </div>
 </div>
 
-@include('enquiries.partials.modals')
+@include('components.modals.comman')
 
 @endsection
 
@@ -184,7 +188,7 @@
             row.find('.totAmount').html(response.data.selling_price);
             row.find('[name="product_tot_amt[]"]').val(response.data.selling_price);
 
-            @if(!auth()->user()->taxmode)
+            @if(auth()->user()->taxmode)
             row.find('.select-tax').val(response.data.tax);
             var tax = response.data.tax;
             @else
@@ -330,7 +334,7 @@
         <td>\
         <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">\
         </td>\
-        @if(!auth()->user()->taxmode)\
+        @if(auth()->user()->taxmode)\
         <td>\
         <select class="form-control form-control-sm select-tax" name="tax[]"  style="width: 150px">\
         <option selected disabled>-- Choose Tax --</option>\
@@ -389,7 +393,7 @@
             $(".grandTotAmount").html(tempGrandTotal - discount);
         }
         var invoiceTotTaxAmt = 0;
-        @if(auth()->user()->taxmode)
+        @if(!auth()->user()->taxmode)
         @foreach($invoicetaxes as $tax)
             var invoiceTaxAmt = ((subTotal * {{$tax->rate}}) / 100);
             invoiceTotTaxAmt += invoiceTaxAmt;

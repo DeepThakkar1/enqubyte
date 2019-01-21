@@ -162,6 +162,7 @@
 
             jQuery.datetimepicker.setLocale('en');
             jQuery('.datetimepicker').datetimepicker();
+            jQuery('.timepicker').datetimepicker({datepicker:false, format:'h:i A'});
             jQuery('.datepicker').datetimepicker({timepicker:false, format:'d-m-Y'});
             jQuery('.birthdatepicker').datetimepicker({timepicker:false, format:'d-m-Y', maxDate:moment('DD/MM/YYYY')});
 

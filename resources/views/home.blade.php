@@ -79,13 +79,13 @@
                         <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
                         <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
                         </div>
-                        <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right">{{$followup->customer->phone}}</a>
+                        <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-phone"></i> {{$followup->customer->phone}}</a>
                     </li>
                     @endforeach
                 @else
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <h4>No Follow-ups Today!</h4>
-                </li>    
+                </li>
                 @endif
             </ul>
         </div>

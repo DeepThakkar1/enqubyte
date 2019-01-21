@@ -89,7 +89,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                @if(!auth()->user()->taxmode)
+                                                @if(auth()->user()->taxmode)
                                                 <div class="col-sm-6 form-group">
                                                     <label>Tax<sup class="error">*</sup></label>
                                                     <select class="form-control" name="tax" required>
@@ -179,7 +179,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        @if(!auth()->user()->taxmode)
+                        @if(auth()->user()->taxmode)
                         <div class="col-sm-6 form-group">
                             <label>Tax<sup class="error">*</sup></label>
                             <select class="form-control" name="tax" required>

@@ -42,7 +42,7 @@
                         </div>
                         <div class="">
                             <div>Followup Date</div>
-                            <h3 class="mt-2 Due">{{$enquiry->followup_date}}</h3>
+                            <h3 class="mt-2 Due">{{$enquiry->followup_date}} {{$enquiry->followup_time}}</h3>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="py-2 text-right">
                     <div>Followup Date</div>
-                    <h3 class="mt-2 Due">{{$enquiry->followup_date}}</h3>
+                    <h3 class="mt-2 Due">{{$enquiry->followup_date}} {{$enquiry->followup_time}}</h3>
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
             <div class="card-body">
                 <div class="d-flex p-md-3">
                     <div class="px-4">
-                        <p class="badge badge-success p-2 mb-2" style="letter-spacing: 1px"> {{$enquiry->followup_date}}</p>
+                        <p class="badge badge-success p-2 mb-2" style="letter-spacing: 1px"> {{$enquiry->followup_date}} {{$enquiry->followup_time}}</p>
                         <div class="font-weight-bold"> Next Follow-up</div>
                     </div>
                     <div class="ml-auto p-2">
@@ -282,7 +282,7 @@
                             <td class="text-right">
                                 <b>Enquiry Number:</b> ENQ-00{{$enquiry->sr_no}}<br>
                                 <b>Created Date:</b> {{$enquiry->enquiry_date}}<br>
-                                <b>Followup Date:</b> {{$enquiry->followup_date}}
+                                <b>Followup Date:</b> {{$enquiry->followup_date}} {{$enquiry->followup_time}}
                             </td>
                         </tr>
                     </table>
@@ -360,9 +360,14 @@
             <form action="/enquiries/{{$enquiry->id}}/changefollowupdate" method="post">
                 @csrf
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="row form-group">
+                    <div class="col-sm-6">
                         <label>Follow Up Date</label>
                         <input type="text" class="form-control datepicker" name="followup_date" autocomplete="off" value="{{ $enquiry->followup_date }}" placeholder="Enquiry followup date">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Follow Up Time</label>
+                        <input type="text" class="form-control timepicker" name="followup_time" autocomplete="off" value="{{ $enquiry->followup_time }}" placeholder="Enquiry followup time">
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -57,12 +57,12 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-sm-6">
-                                                <label>Email Address</label>
-                                                <input type="email" name="email" value="{{isset($manager->email) ? $manager->email : ''}}" class="form-control" placeholder="Manager email" required>
-                                            </div>
-                                            <div class="col-sm-6">
                                                 <label>Phone<sup class="error">*</sup></label>
                                                 <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{isset($manager->phone) ? $manager->phone : ''}}" class="form-control" placeholder="Phone" required>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Email Address</label>
+                                                <input type="email" name="email" value="{{isset($manager->email) ? $manager->email : ''}}" class="form-control" placeholder="Manager email" required>
                                             </div>
                                         </div>
                                     </div>

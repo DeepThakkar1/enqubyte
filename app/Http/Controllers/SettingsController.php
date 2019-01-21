@@ -25,7 +25,7 @@ class SettingsController extends Controller
     {
         auth()->user()->update($request->all());
         flash('Your have activeated multistore store mode.');
-        return back();
+        return redirect('/settings#pills-advance');
     }
 
     public function updateProfile(Request $request)
@@ -38,7 +38,7 @@ class SettingsController extends Controller
             auth()->user()->update($newData);
         }
         flash('Your profile information was updated successfully.')->success();
-        return back();
+        return redirect('/settings#pills-profile');
     }
 
     public function updatePassword(Request $request)
@@ -54,7 +54,7 @@ class SettingsController extends Controller
         if(!\Hash::check($old_password, auth()->user()->password))
         {
             flash('Your old password is incorrect!')->error();
-            return back();
+            return redirect('/settings#pills-security');
         }
 
         auth()->user()->password = bcrypt($password);
@@ -62,7 +62,7 @@ class SettingsController extends Controller
 
         flash('Your password was successfully updated!')->success();
 
-        return back();
+        return redirect('/settings#pills-security');
     }
 
     public function updateCompany(Request $request)
@@ -76,7 +76,7 @@ class SettingsController extends Controller
         }
         auth()->user()->update($newData);
         flash('Company information has been updated successfully!')->success();
-        return back();
+        return redirect('/settings#pills-company');
     }
 
     public function reportFrequency(Request $request)
@@ -95,7 +95,7 @@ class SettingsController extends Controller
             auth()->user()->reportfrequency()->create($newData);
             flash('Report frequency has been added successfully!')->success();
         }
-        return back();
+        return redirect('/settings#pills-advance');
     }
 
     public function taxmode(Request $request)
@@ -108,6 +108,6 @@ class SettingsController extends Controller
         }
         auth()->user()->update($newData);
         flash('Tax mode has been changed successfully!')->success();
-        return back();
+        return redirect('/settings#pills-advance');
     }
 }

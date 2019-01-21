@@ -80,12 +80,12 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
-                                                    <label>Email Address</label>
-                                                    <input type="email" name="email" value="{{$visitor->email}}" class="form-control" placeholder="Visitor email">
-                                                </div>
-                                                <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
                                                     <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$visitor->phone}}" class="form-control" placeholder="Phone" required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label>Email Address</label>
+                                                    <input type="email" name="email" value="{{$visitor->email}}" class="form-control" placeholder="Visitor email">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -148,12 +148,12 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email Address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Visitor email" data-parsley-remote="{{url('/visitors/email/{value}/available')}}" data-parsley-remote-message="Email already exist!">
-                        </div>
-                        <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>
                             <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Visitor email" data-parsley-remote="{{url('/visitors/email/{value}/available')}}" data-parsley-remote-message="Email already exist!">
                         </div>
                     </div>
                     <div class="form-group">

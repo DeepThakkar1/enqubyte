@@ -17,7 +17,7 @@
                 </div>
             </div>
             <a href="/enquiries/add" class="btn btn-primary">Add Enquiry</a>
-            
+
         </div>
     </div>
     @include('components.filters.datefilter')
@@ -40,7 +40,7 @@
                     <td>{{$enquiry->sr_no}}</td>
                     <td>{{$enquiry->customer->fullname}}</td>
                     <td>{{$enquiry->enquiry_date}}</td>
-                    <td>{{$enquiry->followup_date}}</td>
+                    <td>{{$enquiry->followup_date}} {{$enquiry->followup_time}}</td>
                     <td class="text-right">&#8377; {{$enquiry->grand_total}}</td>
                     <td><span class="badge badge-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}}">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</span> </td>
                     <td>
