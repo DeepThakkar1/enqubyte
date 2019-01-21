@@ -16,7 +16,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row justify-content-left ml-3">
+    <div class="row justify-content-left ml-md-3">
         <div class="col-md-6">
             <div class="auth-container mt-3">
                 <a href="/">

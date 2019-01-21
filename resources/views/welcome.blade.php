@@ -8,15 +8,15 @@
 <section class="xs-banner agency-banner6 mt-4" id="homes" data-scrollax-parent="false">
     <div class="container">
         <div class="row home-banner-section">
-            <div class="col-lg-7 align-self-center" style="padding-right: 30px;">
+            <div class="col-lg-7 align-self-center home-banner-headings">
                 <div class="agency-banner-content banner-style6">
                     <h2 class="banner-title">The perfect business assistant.</h2>
                     <p>Enqubyte is an all-in-one solution for managing a retail business at an ease providing features to handle enquiries, sales, purchases and employees as well as provide various reports that let's you analyse your business.</p>
                     <br>
                     <div class="get-started-section">
                         <form method="GET" action="{{ route('register') }}">
-                            <input type="text" class="get-started" name="email" placeholder="E-mail Address">
-                            <button type="submit" class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;">Get Started</button>
+                            <input type="text" class="get-started get-started-input" name="email" placeholder="E-mail Address">
+                            <button type="submit" class="btn btn-primary custom-get-started-button" style="">Get Started</button>
                         </form>    
                     </div>
                 </div><!-- .agency-banner-content END -->
@@ -54,10 +54,10 @@
                 <div class="col-md-6">
                     <div class="single-we-offer">
                         <div class="media">
-                            <div class="we-offer-icon-wraper">
+                            <div class="we-offer-icon-wraper responsive-icons-features">
                                 <i class="icon icon-payment we-offer-icon"></i>
                             </div>
-                            <div class="media-body">
+                            <div class="media-body custom-res-media-body">
                                 <h2 class="xs-title">Business Analysis &amp; Planning</h2>
                                 <p style="color: #000;">A birds-eye view of your business to monthly, quaterly and yearly reports enhances the capability of better business decisions.</p>
                             </div>
@@ -67,10 +67,10 @@
                 <div class="col-md-6">
                     <div class="single-we-offer">
                         <div class="media">
-                            <div class="we-offer-icon-wraper">
+                            <div class="we-offer-icon-wraper responsive-icons-features">
                                 <i class="icon icon-rating we-offer-icon"></i>
                             </div>
-                            <div class="media-body">
+                            <div class="media-body custom-res-media-body">
                                 <h2 class="xs-title">Customer Satisfaction</h2>
                                 <p style="color: #000;">Email & SMS notifications to customers about their activity in your business makes them feel more connected and valued.</p>
                             </div>
@@ -168,7 +168,7 @@
                 </div><!-- .single-more-feauture END -->
             </div>
         </div><!-- .row END -->
-        <div class="btn-wraper text-center" style="margin-top: 40px;">
+        <div class="btn-wraper text-center explore-all-features">
             <a href="/features" class="btn btn-primary">Explore all features </a>
         </div>
     </div><!-- .container END -->
@@ -181,10 +181,10 @@
                     <div class="col-lg-8 col-md-6">
                 <div class="agency-section-title section-title-style2">                    
                     <h2 class="main-title">Single &amp; Simple Pricing</h2>
-                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%">Enqubyte offers all its services and modules all in one single pricing. No plans, packages and upgrades. A semantic pricing is our key.</p>
-                    <p style="color:#000;font-size: 19px;margin-top: 20px;width: 80%;">This plan allows you to create unlimited enquiries, invoices and orders. We provide <b>100 free SMS and 1000 free Email notifications / month</b> for customers. You can buy credits for extra SMS & Emails from dashboard.</p>
+                    <p class="simple-pricing-text">Enqubyte offers all its services and modules all in one single pricing. No plans, packages and upgrades. A semantic pricing is our key.</p>
+                    <p class="simple-pricing-text">This plan allows you to create unlimited enquiries, invoices and orders. We provide <b>100 free SMS and 1000 free Email notifications / month</b> for customers. You can buy credits for extra SMS & Emails from dashboard.</p>
 
-                    <div style="margin-top: 55px;">    
+                    <div class=" get-started-now-button">    
                         <a href="/register" class="btn btn-primary">Get Started Now </a>
                     </div>
                 </div>

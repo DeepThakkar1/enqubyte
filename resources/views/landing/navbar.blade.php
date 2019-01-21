@@ -85,16 +85,22 @@
                 <!-- menu list -->
                 <ul class="nav-menu">
                     <li>
-                        <a href="/">home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
                         <a href="/features">Features</a>
                     </li>
-                    <li style="padding: 10px;">
-                        <a href="/login" class="btn btn-outline-primary custom-login-button" style="padding: 10px;">Login</a>
+                    <li>
+                        <a href="/#pricing">Pricing</a>
                     </li>
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                   <!--  <li style="padding: 10px;">
+                        <a href="/login" class="btn btn-outline-primary custom-login-button" style="padding: 10px;">Login</a>
+                    </li> -->
                     <li style="padding: 10px;">
-                        <a href="/register" class="btn-primary custom-register-btn text-white" style="padding: 10px;">Sign Up</a>
+                        <a href="/register" class="btn-primary custom-register-btn text-white" style="padding: 10px;">Get Started</a>
                     </li>
                 </ul>                
             </div>
