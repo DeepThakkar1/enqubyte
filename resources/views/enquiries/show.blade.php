@@ -24,7 +24,7 @@
                 </div>
                 <div class="px-4 py-md-2">
                     <div>Customer</div>
-                    <h3 class="custom-primary-text mt-1"><a href="" class="text-primary "> {{$enquiry->customer->fullname}}</a></h3>
+                    <h3 class="custom-primary-text text-primary mt-1">{{$enquiry->customer->fullname}}</h3>
                 </div>
                 <div class="ml-auto p-md-2">
                     <div class="d-flex">

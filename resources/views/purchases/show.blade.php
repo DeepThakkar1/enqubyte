@@ -25,7 +25,7 @@
                 </div>
                 <div class="px-4 py-2">
                     <div>Vendor</div>
-                    <h3><a href="" class="text-primary custom-primary-text"> {{$purchaseOrder->vendor->name}}</a></h3>
+                    <h3 class="text-primary custom-primary-text">{{$purchaseOrder->vendor->name}}</h3>
                 </div>
                 <div class="ml-auto p-2">
                     <div class="d-flex">
