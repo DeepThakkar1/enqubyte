@@ -797,6 +797,10 @@ a.upgrade-product-nav p{
     background-color: #166ead !important;
 }
 
+.auth-container {
+      height: 100vh;
+}
+
 .auth-container .form-group .input-group-append {
     height: 52.5px;
 }
