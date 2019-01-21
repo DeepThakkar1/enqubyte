@@ -123,6 +123,7 @@ Route::post('/vendors', 'VendorsController@store');
 Route::get('/vendors/{vendor}', 'VendorsController@show');
 Route::post('/vendors/{vendor}/delete', 'VendorsController@destroy');
 Route::post('/vendors/{vendor}/update', 'VendorsController@update');
+Route::get('/vendors/email/{email}/available', 'VendorsController@emailIsAvailable');
 Route::get('/vendorsexcel', 'VendorsController@exportToExcel');
 Route::get('/vendorspdf', 'VendorsController@exportToPDF');
 Route::get('/vendorscsv', 'VendorsController@exportToCSV');

@@ -30,8 +30,8 @@
                 @foreach($vendors as $key => $vendor)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td> 
-                        <img src="{{ Avatar::create($vendor->name)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;"> 
+                    <td>
+                        <img src="{{ Avatar::create($vendor->name)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;">
                         {{$vendor->name}}
                     </td>
                     <td>{{$vendor->email}}</td>
@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Email Address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Vendor email" >
+                            <input type="email" name="email" class="form-control" placeholder="Vendor email" data-parsley-remote="{{url('/vendors/email/{value}/available')}}" data-parsley-remote-message="Email already exist!">
                         </div>
                     </div>
                     <div class="form-group">

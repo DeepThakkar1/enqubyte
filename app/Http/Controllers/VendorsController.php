@@ -117,6 +117,16 @@ class VendorsController extends Controller
         return back();
     }
 
+    public function emailIsAvailable($email)
+    {
+        $isAvailable = !auth()->user()->vendors()->where('email', $email)->exists();
+        if ($isAvailable) {
+            return response(['status'=>true], 200);
+        }else{
+            return response(['status'=>false], 404);
+        }
+    }
+
     public function exportToExcel()
     {
         return Excel::download(new VendorsExport, 'vendors.xlsx');
