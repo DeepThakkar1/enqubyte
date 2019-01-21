@@ -11,6 +11,9 @@
   .user-login-image-section{
     display: none !important;
   }
+  .input-group-append-button span {
+    height: 51px;
+  }
   .user-signin-account {
     width: 100%;
     margin-top: 3vh;
