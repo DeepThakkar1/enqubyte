@@ -124,7 +124,7 @@
                                                 <label>Payout & Incentives<sup class="error">*</sup></label>
                                                 <select name="incentive_id" class="form-control" required>
                                                     <option disabled selected>-- Select Incentive --</option>
-                                                    <option value="0">None</option>
+                                                    <option value="0" {{isset($employee->incentive_id) && $employee->incentive_id == 0 ? 'selected' : ''}}>None</option>
                                                     @foreach($incentives as $incentive)
                                                     <option value="{{$incentive->id}}" {{isset($employee->incentive_id) && $employee->incentive_id == $incentive->id ? 'selected' : ''}}>{{$incentive->name}}</option>
                                                     @endforeach

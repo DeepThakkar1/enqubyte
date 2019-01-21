@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-sm-4 form-group">
                     <label>Phone Number</label>
-                    <input type="text" pattern="\d*" class="form-control" name="company_phone" value="{{ auth()->user()->company_phone }}" placeholder="Phone Number">
+                    <input type="text" pattern="\d*" maxlength="10" minlength="10" class="form-control" name="company_phone" value="{{ auth()->user()->company_phone }}" placeholder="Phone Number">
                 </div>
                 <div class="col-sm-4 form-group">
                     <label>Logo</label>

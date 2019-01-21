@@ -28,6 +28,7 @@
                         <label>Salesman</label>
                         <select class="form-control selectWithSearch selectEmployee" name="employee_id">
                             <option selected disabled>-- Choose Salesman --</option>
+                            <option value="0">None</option>
                             @foreach($salesmans as $salesman)
                             <option value="{{$salesman->id}}">{{$salesman->fullname}} ({{$salesman->phone}})</option>
                             @endforeach
@@ -76,10 +77,10 @@
                                     <textarea class="form-control" name="description[]" style="width: 150px"></textarea>
                                 </td>
                                 <td>
-                                    <input type="text" name="qty[]" style="width: 80px" value="1" class="form-control form-control-sm input-qty">
+                                    <input type="text" name="qty[]" style="width: 80px" value="1" class="form-control form-control-sm input-qty" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">
+                                    <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price" required>
                                 </td>
                                 @if(auth()->user()->taxmode)
                                 <td>
@@ -241,7 +242,7 @@
     });
 
     var grandTotal = 0;
-    $('[name="discount"]').on('keyup', function(){
+    $('[name="discount"]').on('keyup change', function(){
         var subTotal = parseFloat($('[name="sub_tot_amt"]').val());
         var tempGrandTotal = parseFloat($('[name="temp_grand_total"]').val());
         var discountType = $('[name="discount_type"]').val();
@@ -300,10 +301,10 @@
         <textarea class="form-control" name="description[]" style="width: 150px"></textarea>\
         </td>\
         <td>\
-        <input type="text" name="qty[]" style="width: 80px" value="1" class="form-control form-control-sm input-qty">\
+        <input type="text" name="qty[]" style="width: 80px" value="1" class="form-control form-control-sm input-qty" required>\
         </td>\
         <td>\
-        <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price">\
+        <input type="text" name="price[]" style="width: 120px" value="0" class="form-control form-control-sm input-price" required>\
         </td>\
         @if(auth()->user()->taxmode)\
         <td>\
