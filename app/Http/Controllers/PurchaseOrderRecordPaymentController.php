@@ -35,10 +35,12 @@ class PurchaseOrderRecordPaymentController extends Controller
      */
     public function store(Request $request, PurchaseOrder $purchaseOrder)
     {
-        $purchaseOrder->remaining_amount -= floatval($request->amount);
-        $purchaseOrder->save();
-        $payment = $purchaseOrder->payments()->create($request->all());
-        return response(['purchaseOrder' => $purchaseOrder, 'payment' => $payment], 200);
+        if ($request->amount  && $purchaseOrder->remaining_amount >= floatval($request->amount)) {
+            $purchaseOrder->remaining_amount -= floatval($request->amount);
+            $purchaseOrder->save();
+            $payment = $purchaseOrder->payments()->create($request->all());
+            return response(['purchaseOrder' => $purchaseOrder, 'payment' => $payment], 200);
+        }
     }
 
     /**

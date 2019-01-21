@@ -27,7 +27,7 @@
                 </div>
                 <div class="px-4 py-2">
                     <div>Customer</div>
-                    <h3><a href="" class="text-primary custom-primary-text"> {{$invoice->visitor->fullname}}</a></h3>
+                    <h3 class="text-primary custom-primary-text">{{$invoice->visitor->fullname}}</h3>
                 </div>
                 <div class="ml-auto p-2">
                     <div class="d-flex">
@@ -91,7 +91,7 @@
                     <div class=""><b>Created:</b> {{$invoice->created_at->diffForHumans()}}</div>
                 </div>
                 <div class="ml-auto p-2">
-                    @if(count($invoice->payments))
+                    @if(count($invoice->payments) || $invoice->status == -1 || $invoice->status == 1)
                     <a href="javascript:;" class="btn btn-outline-danger disabled">Cancel Invoice</a>
                     <a href="javascript:;" class="btn btn-outline-primary disabled">Edit Invoice</a>
                     @else
@@ -124,10 +124,10 @@
                     <h3 class="pt-2 text-size-heading">Get Paid</h3>
                 </div>
                 <div class="ml-auto p-2">
-                    @if($invoice->remaining_amount)
-                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary btnRecordPayment">Record a Payment</a>
-                    @else
+                    @if(!$invoice->remaining_amount || $invoice->status == -1 || $invoice->status == 1)
                     <a href="#" class="btn btn-outline-primary disabled">Record a Payment</a>
+                    @else
+                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary btnRecordPayment">Record a Payment</a>
                     @endif
                 </div>
             </div>
@@ -135,11 +135,11 @@
     </div>
 </div>
 
-    <div class="container px-5 mt-3 mb-5">
+    <div class="container px-md-5 mt-3 mb-5">
         <div class="card">
             <div class="card-header">
                 <strong>INV-00{{$invoice->sr_no}}</strong>
-                <span class="float-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
+                <span class="float-md-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
             </div>
             <div class="card-body p-0">
                 <div class="row p-3">
@@ -151,7 +151,7 @@
                         <div>Email: {{auth()->user()->email}}</div>
                     </div> -->
                     <div class="col-sm-8">
-                        <h6 class="mb-3">Bill To:</h6>
+                        <h6 class="mb-md-3">Bill To:</h6>
                         <div>
                             <strong>{{$invoice->visitor->fullname}}</strong>
                         </div>
@@ -159,7 +159,7 @@
                         <div>{{$invoice->visitor->phone}}</div>
                         <div>{{$invoice->visitor->email}}</div>
                     </div>
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 text-md-right">
                         <!-- <h6 class="mb-3">Bill To:</h6> -->
                         <div>
                             <strong>Invoice Number : </strong> INV-00{{$invoice->sr_no}}

@@ -24,7 +24,7 @@
                 </div>
                 <div class="px-4 py-md-2">
                     <div>Customer</div>
-                    <h3 class="custom-primary-text mt-1"><a href="" class="text-primary "> {{$enquiry->customer->fullname}}</a></h3>
+                    <h3 class="custom-primary-text text-primary mt-1">{{$enquiry->customer->fullname}}</h3>
                 </div>
                 <div class="ml-auto p-md-2">
                     <div class="d-flex">
@@ -154,23 +154,23 @@
 
 
 
-    <div class="container px-5 mt-3 mb-5">
+    <div class="container px-md-5 mt-3 mb-5">
         <div class="card">
             <div class="card-header">
                 <strong>ENQ-00{{ $enquiry->sr_no }}</strong>
-                <span class="float-right"> <strong>Status:</strong> {{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span>
+                <span class="float- md-right"> <strong>Status:</strong> {{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span>
             </div>
             <div class="card-body p-0">
                 <div class="row mb-4 p-3">
                     <div class="col-sm-6">
-                        <h6 class="mb-3">From:</h6>
+                        <h6 class="mb-md-3">From:</h6>
                         <div>
                             <strong>{{auth()->user()->company_name}}</strong>
                         </div>
                         <div>Email: {{auth()->user()->email}}</div>
                     </div>
-                    <div class="col-sm-6 text-right">
-                        <h6 class="mb-3">To:</h6>
+                    <div class="col-sm-6 text-md-right">
+                        <h6 class="mb-md-3">To:</h6>
                         <div>
                             <strong>{{$enquiry->customer->fullname}}</strong>
                         </div>

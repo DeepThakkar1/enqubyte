@@ -212,22 +212,22 @@
                     <h5 class="bg-light p-2" style="font-size: 15px;text-transform: uppercase;">Sales</h5>
                 </div>
                 <div class="pt-3 pb-3">
-                    <div class="row text-center">
+                    <div class="row text-center modal-product-popup-section">
                         <div class="col-md-3">
                             <a href="/enquiries">
-                                <img src="/img/icons/hired.png" alt="icons">
+                                <img src="/img/icon/enquiry.png" alt="icons">
                                 <p class="mt-2">Enquiries</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/sales/invoices">
-                                <img src="/img/icons/customer.png" alt="icons">
+                                <img src="/img/icon/sales.png" alt="icons">
                                 <p class="mt-2">Invoices</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/purchases">
-                                <img src="/img/icons/visitor.png" alt="icons">
+                                <img src="/img/features/icons/4.png" alt="icons">
                                 <p class="mt-2">Purchase Orders</p>
                             </a>
                         </div>
@@ -238,28 +238,28 @@
                     <h5 class="bg-light p-2" style="font-size: 15px;text-transform: uppercase;">Entities</h5>
                 </div>
                 <div class="pt-3 pb-3">
-                    <div class="row text-center">
+                    <div class="row text-center modal-product-popup-section">
                         <div class="col-md-3">
                             <a href="/products">
-                                <img src="/img/icons/hired.png" alt="icons">
+                                <img src="/img/main-icon/productsandstocks.png" alt="icons">
                                 <p class="mt-2">Product</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/employees">
-                                <img src="/img/icons/visitor.png" alt="icons">
+                                <img src="/img/main-icon/employee.png" alt="icons">
                                 <p class="mt-2">Employee</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/vendors">
-                                <img src="/img/icons/customer.png" alt="icons">
+                                <img src="/img/main-icon/vendor.png" alt="icons">
                                 <p class="mt-2">Vendor</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/customers">
-                                <img src="/img/icons/reports.png" alt="icons">
+                                <img src="/img/main-icon/customers.png" alt="icons">
                                 <p class="mt-2">Customer</p>
                             </a>
                         </div>
@@ -270,22 +270,22 @@
                     <h5 class="bg-light p-2" style="font-size: 15px;text-transform: uppercase;">Others</h5>
                 </div>
                 <div class="pt-3 pb-3">
-                    <div class="row text-center">
+                    <div class="row text-center modal-product-popup-section">
                         <div class="col-md-3">
                             <a href="/visitors">
-                                <img src="/img/icons/responsive.png" alt="icons">
+                                <img src="/img/main-icon/visitors.png" alt="icons">
                                 <p class="mt-2">Visitor</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/taxes">
-                                <img src="/img/icons/appointment.png" alt="icons">
+                                <img src="/img/features/icons/12.png" alt="icons">
                                 <p class="mt-2">Taxes</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/incentives">
-                                <img src="/img/icons/customer-service.png" alt="icons">
+                                <img src="/img/main-icon/payoutandincentives.png" alt="icons">
                                 <p class="mt-2">Incentive</p>
                             </a>
                         </div>
