@@ -8,6 +8,9 @@
   .user-login-input-custom{
     width: 50% !important;
   }
+  .user-login-image-section{
+    display: none !important;
+  }
   .user-signin-account {
     width: 100%;
     margin-top: 3vh;

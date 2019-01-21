@@ -16,7 +16,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row justify-content-left ml-3">
+    <div class="row justify-content-left ml-md-3">
         <div class="col-md-6 mt-3">
             <div class="auth-container">
                 <div class="">
@@ -24,7 +24,7 @@
                         <img src="{{ url('img/logo.png') }}" height="60px" class="mb-3">
                     </a>
                 </div>
-                <div class="" style="width: 90%; margin-top: 17vh;">
+                <div class="user-signin-account">
                     <form id="wizard" method="POST" class="frmRegistration" action="{{ route('register') }}">
                         @csrf
                         @include('auth.registration.step1')
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 d-flex align-items-center" style="background: #1b6dab9c !important;height: 100vh;">
+        <div class="col-md-6 d-flex align-items-center user-login-image-section">
             <img src="/img/PNG/Reports And Graphs 2-01.png" style="width: 100%">
         </div>    
     </div>

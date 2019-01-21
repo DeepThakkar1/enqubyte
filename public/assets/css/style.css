@@ -13601,7 +13601,8 @@ p.simple-pricing-text{
         height: 80px !important;
     }
     .footer-powered-by-section{
-        width: 41% !important;
+        width: 30% !important;
+        text-align: center;
     }
     .footer-powered-by-section a img{
         width: 120px;

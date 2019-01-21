@@ -342,6 +342,16 @@ table.dataTable thead th{
 .login-btn-section{
   /*margin-bottom: 10px;*/
 }
+.user-login-image-section{
+  background: #1b6dab9c !important;
+  height: 100vh;
+}
+.user-login-input-custom{
+  width: auto !important;
+}
+.input-group-append-button span{
+  height: 53px;
+}
 
 .custom-caurosal .carousel-indicators .active {
     /*background-color: #166ead !important;*/
