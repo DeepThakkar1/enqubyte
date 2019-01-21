@@ -180,7 +180,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle custom-dashboard-nav-link custom-dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                <img src="/assets/images/team/team-1.jpg" class="rounded-circle" alt="user" style="width: 32px;">
+                <img src="{{ Avatar::create(auth()->user()->fullname)->toBase64() }}" class="rounded-circle" alt="user" style="width: 32px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/settings">Edit Profile</a>
