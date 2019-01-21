@@ -137,7 +137,7 @@ class InvoicesController extends Controller
         $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
 
         flash('Invoice added successfully!');
-        return redirect('/sales/invoices');
+        return redirect('/sales/invoices/'.$invoice->sr_no);
     }
 
     /**
