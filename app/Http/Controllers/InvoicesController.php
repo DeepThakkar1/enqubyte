@@ -274,6 +274,17 @@ class InvoicesController extends Controller
         return redirect('/sales/invoices');
     }
 
+    public function cancel(Invoice $invoice)
+    {
+        if (isset($invoice->enquiry)) {
+            $invoice->enquiry->status = 0;
+            $invoice->enquiry->save();
+        }
+        $invoice->update(['status' => -1]);
+        flash('Invoice cancelled successfully!');
+        return redirect('/sales/invoices');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
