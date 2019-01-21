@@ -24,7 +24,7 @@
 
     <form class="form-inline">
         <i class="fa fa-search navbar-search-icon" aria-hidden="true"></i> 
-        <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Search by Enquiries, Invoices, Purchase Orders, Reports " aria-label="Search">
+        <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Search for Customers, Vendors, Employees & Visitors " aria-label="Search">
         <!-- <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" style="height: 46px;">Search</button> -->
     </form>
 
