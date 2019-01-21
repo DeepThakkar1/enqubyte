@@ -215,13 +215,13 @@
                     <div class="row text-center">
                         <div class="col-md-3">
                             <a href="/enquiries">
-                                <img src="/img/icons/hired.png" alt="icons">
+                                <img src="/img/icon/enquiry.png" alt="icons">
                                 <p class="mt-2">Enquiries</p>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="/sales/invoices">
-                                <img src="/img/icons/customer.png" alt="icons">
+                                <img src="/img/icon/sales.png" alt="icons">
                                 <p class="mt-2">Invoices</p>
                             </a>
                         </div>

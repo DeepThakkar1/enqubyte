@@ -13589,10 +13589,13 @@ p.simple-pricing-text{
     margin-top: 17vh;
 }
 .footer-powered-by-section a img{
-        width: 120px;
-        margin: 0 6px;
-        margin-top: -2px;
-    }
+    width: 120px;
+    margin: 0 6px;
+    margin-top: -2px;
+}
+.desktop-enquiries{
+    display: block;
+}
 /*tr.product-list-menu th{
     border-bottom: 1px solid #dee2e6 !important;
 }*/
@@ -13614,6 +13617,9 @@ p.simple-pricing-text{
         margin-top: 10px !important;
         margin-left: 0px !important;
         width: 100% !important;
+    }
+    .desktop-enquiries{
+        display: none !important;
     }
     .agency-banner6.feature-banner-custom{
         min-height: 455px !important;

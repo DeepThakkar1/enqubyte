@@ -98,17 +98,17 @@
     </div>
 </div>
 
-    <div class="container px-5 mt-3 mb-5">
+    <div class="container px-md-5 mt-3 mb-5">
         <div class="card">
             <div class="card-header">
                 P/O
                 <strong>{{$purchaseOrder->sr_no}}</strong>
-                <span class="float-right"> <strong>Status:</strong> <span class="purchaseOrderStatus">{{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}}</span></span>
+                <span class="float-md-right"> <strong>Status:</strong> <span class="purchaseOrderStatus">{{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}}</span></span>
             </div>
             <div class="card-body">
                 <div class="row mb-4">
                     <div class="col-sm-8">
-                        <h6 class="mb-3">Bill To:</h6>
+                        <h6 class="mb-md-3">Bill To:</h6>
                         <div>
                             <strong>{{$purchaseOrder->vendor->name}}</strong>
                         </div>
@@ -116,7 +116,7 @@
                         <div>{{$purchaseOrder->vendor->phone}}</div>
                         <div>{{$purchaseOrder->vendor->email}}</div>
                     </div>
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 text-md-right">
                         <!-- <h6 class="mb-3">Bill To:</h6> -->
                         <div>
                             <strong>P/O Number : </strong> {{$purchaseOrder->sr_no}}
