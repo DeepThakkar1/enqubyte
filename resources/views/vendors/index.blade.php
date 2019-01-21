@@ -30,7 +30,10 @@
                 @foreach($vendors as $key => $vendor)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td>{{$vendor->name}}</td>
+                    <td> 
+                        <img src="{{ Avatar::create($vendor->name)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;"> 
+                        {{$vendor->name}}
+                    </td>
                     <td>{{$vendor->email}}</td>
                     <td>{{$vendor->phone}}</td>
                     <td>

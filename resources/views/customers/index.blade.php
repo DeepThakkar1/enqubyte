@@ -30,7 +30,8 @@
                 @foreach($customers as $key => $customer)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td>{{$customer->fullname}}</td>
+                    <td><img src="{{ Avatar::create($customer->fullname)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;"> 
+                        {{$customer->fullname}}</td>
                     <td>{{$customer->email}}</td>
                     <td>{{$customer->phone}}</td>
                     <td>
