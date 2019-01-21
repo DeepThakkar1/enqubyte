@@ -97,7 +97,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
                     <div class="more-feature-header">
-                        <img src="/img/icon/customers.png" alt="">
+                        <img src="/img/main-icon/visitors.png" alt="">
                     </div>
                     <h3 class="feature-title">Visitors</h3>
                     <p>Keep a record of your daily walk-ins to the store and use those for marketing campaigns.</p>
@@ -106,7 +106,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
                     <div class="more-feature-header">
-                        <img src="/img/icon/products.png" alt="">
+                        <img src="/img/main-icon/productsandstocks.png" alt="">
                     </div>
                     <h3 class="feature-title">Products & Stock</h3>
                     <p>Easily manage &amp; store your vendors, purchase orders, products and stock.</p>
@@ -115,7 +115,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
                     <div class="more-feature-header">
-                        <img src="/img/icon/enquiry.png" alt="">
+                        <img src="/img/main-icon/enquiry.png" alt="">
                     </div>
                     <h3 class="feature-title">Enquiries</h3>
                     <p>Create Estimates & Enquiry sheets to keep a track of each lead or potential sale you can have.</p>
@@ -124,7 +124,7 @@
              <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
                     <div class="more-feature-header">
-                        <img src="/img/icon/enquiry.png" alt="">
+                        <img src="/img/main-icon/followups.png" alt="">
                     </div>
                     <h3 class="feature-title">Follow-ups</h3>
                     <p>Never loose a Enquiry/Lead with our follow-up management system.</p>
@@ -134,7 +134,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
                     <div class="more-feature-header">
-                        <img src="/img/icon/customers.png" alt="">
+                        <img src="/img/main-icon/customers.png" alt="">
                     </div>
                     <h3 class="feature-title">Customers</h3>
                     <p>Maintain a seperate record of each customer that makes a purchase at your business.</p>
@@ -143,7 +143,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture" >
                     <div class="more-feature-header">
-                        <img src="/img/icon/sales.png" alt="">
+                        <img src="/img/main-icon/salesicon.png" alt="">
                     </div>
                     <h3 class="feature-title">Sales & Invoicing</h3>
                     <p>Create invoices with a click and record payments from customer in a systematic manner.</p>
@@ -152,7 +152,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
                     <div class="more-feature-header">
-                        <img src="/img/icon/payout.png" alt="">
+                        <img src="/img/main-icon/payoutandincentives.png" alt="">
                     </div>
                     <h3 class="feature-title">Salesmen & Incentives</h3>
                     <p>Track progress of your employees with Salesmen linked enquiries and manage their incentives.</p>
@@ -161,7 +161,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
                     <div class="more-feature-header">
-                        <img src="/img/icon/campign.png" alt="">
+                        <img src="/img/main-icon/reportsandgraphs.png" alt="">
                     </div>
                     <h3 class="feature-title">Reports & Graphs</h3>
                     <p>Analysis is a key to enhancement in business. Analyse like a pro with our detailed reports.</p>

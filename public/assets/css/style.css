@@ -13596,6 +13596,9 @@ p.simple-pricing-text{
 .desktop-enquiries{
     display: block;
 }
+.business-agenda-img img{
+    width: 50px;
+}
 /*tr.product-list-menu th{
     border-bottom: 1px solid #dee2e6 !important;
 }*/

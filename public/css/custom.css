@@ -691,12 +691,14 @@ a.upgrade-product-nav p{
     color: #fff !important;
 }
 .status-user-amount-desktop{
-  display: block;
+    display: block;
 }
 .status-user-amount-responsive{
-  display: none !important;
+    display: none !important;
 }
-
+.modal-product-popup-section img{
+    width: 35px !important;
+}
 
 @media(max-width: 768px){
   .login-btn-section{
