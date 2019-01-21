@@ -78,6 +78,7 @@
                         <div>
                         <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
                         <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
+                        <div class="text-muted"><small><i class="fa fa-calendar"></i> {{$followup->followup_date}}  {{$followup->followup_time}}</small></div>
                         </div>
                         <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-phone"></i> {{$followup->customer->phone}}</a>
                     </li>

@@ -108,6 +108,8 @@ Route::post('/sales/invoices', 'InvoicesController@store');
 Route::get('/sales/invoices/{invoice}', 'InvoicesController@show');
 Route::get('/sales/invoices/{invoice}/download','InvoicesController@download');
 Route::post('/sales/invoices/{invoice}/delete', 'InvoicesController@destroy');
+Route::get('/sales/invoices/{invoice}/cancel', 'InvoicesController@cancel');
+Route::get('/enquiries/{enquiry}/cancel', 'EnquiriesController@cancel');
 Route::post('/sales/invoices/{invoice}/update', 'InvoicesController@update');
 Route::get('/invoicesexcel', 'InvoicesController@exportToExcel');
 Route::get('/invoicespdf', 'InvoicesController@exportToPDF');

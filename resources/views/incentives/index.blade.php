@@ -48,22 +48,22 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Name<sup class="error">*</sup></label>
-                                                <input name="name" class="form-control" placeholder="Name" value="{{$incentive->name}}">
+                                                <input name="name" class="form-control" placeholder="Name" required value="{{$incentive->name}}">
                                             </div>
                                             <div class="form-group">
                                                 <label>Type<sup class="error">*</sup></label>
-                                                <select name="type" class="form-control">
+                                                <select name="type" class="form-control" required>
                                                     <option value="">-- Choose Type --</option>
                                                     <option value="1" {{$incentive->type == 1 ? 'selected' : ''}}>Fixed</option>
                                                     <option value="2" {{$incentive->type == 2 ? 'selected' : ''}}>Percent</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Rate</label>
-                                                <input name="rate" class="form-control" placeholder="Rate" value="{{$incentive->rate}}">
+                                                <label>Rate<sup class="error">*</sup></label>
+                                                <input name="rate" class="form-control" required placeholder="Rate" value="{{$incentive->rate}}">
                                             </div>
                                             <div class="form-group divMinimumInviceAmt" style="display:{{$incentive->minimum_invoice_amt ? 'block' : 'none'}};">
-                                                <label>Minimum Invoice Amount</label>
+                                                <label>Minimum Invoice Amount<sup class="error">*</sup></label>
                                                 <input name="minimum_invoice_amt" class="form-control" value="{{$incentive->minimum_invoice_amt ? $incentive->minimum_invoice_amt : ''}}" placeholder="Minimum Invoice Amount">
                                             </div>
                                         </div>
@@ -99,22 +99,22 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Name<sup class="error">*</sup></label>
-                        <input name="name" class="form-control" placeholder="Name">
+                        <input name="name" class="form-control" placeholder="Name" required>
                     </div>
                     <div class="form-group">
                         <label>Type<sup class="error">*</sup></label>
-                        <select name="type" class="form-control">
+                        <select name="type" class="form-control" required>
                             <option value="">-- Choose Type --</option>
                             <option value="1">Fixed</option>
                             <option value="2">Percent</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Rate</label>
-                        <input name="rate" class="form-control" placeholder="Rate">
+                        <label>Rate<sup class="error">*</sup></label>
+                        <input name="rate" class="form-control" placeholder="Rate" required>
                     </div>
                     <div class="form-group divMinimumInviceAmt" style="display:none;">
-                        <label>Minimum Invoice Amount</label>
+                        <label>Minimum Invoice Amount<sup class="error">*</sup></label>
                         <input name="minimum_invoice_amt" class="form-control" placeholder="Minimum Invoice Amount">
                     </div>
                 </div>
@@ -133,8 +133,10 @@
             var type = $(this).val();
             if(type == 1){
                 $('.divMinimumInviceAmt').show();
+                $('[name="minimum_invoice_amt"]').attr('required', true);
             }else{
                 $('.divMinimumInviceAmt').hide();
+                $('[name="minimum_invoice_amt"]').attr('required', false);
                 $('[name="minimum_invoice_amt"]').val('');
             }
         });

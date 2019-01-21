@@ -28,6 +28,7 @@
                         <label>Salesman</label>
                         <select class="form-control selectWithSearch selectEmployee" name="employee_id">
                             <option selected disabled>-- Choose Salesman --</option>
+                            <option value="0">None</option>
                             @foreach($salesmans as $salesman)
                             <option value="{{$salesman->id}}">{{$salesman->fullname}} ({{$salesman->phone}})</option>
                             @endforeach
@@ -253,7 +254,7 @@
 
 
 
-    $('[name="discount"]').on('keyup', function(){
+    $('[name="discount"]').on('keyup change', function(){
         var subTotal = parseFloat($('[name="sub_tot_amt"]').val());
         var tempGrandTotal = parseFloat($('[name="temp_grand_total"]').val());
         var discountType = $('[name="discount_type"]').val();
