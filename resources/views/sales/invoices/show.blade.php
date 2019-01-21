@@ -135,11 +135,11 @@
     </div>
 </div>
 
-    <div class="container px-5 mt-3 mb-5">
+    <div class="container px-md-5 mt-3 mb-5">
         <div class="card">
             <div class="card-header">
                 <strong>INV-00{{$invoice->sr_no}}</strong>
-                <span class="float-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
+                <span class="float-md-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
             </div>
             <div class="card-body p-0">
                 <div class="row p-3">
@@ -151,7 +151,7 @@
                         <div>Email: {{auth()->user()->email}}</div>
                     </div> -->
                     <div class="col-sm-8">
-                        <h6 class="mb-3">Bill To:</h6>
+                        <h6 class="mb-md-3">Bill To:</h6>
                         <div>
                             <strong>{{$invoice->visitor->fullname}}</strong>
                         </div>
@@ -159,7 +159,7 @@
                         <div>{{$invoice->visitor->phone}}</div>
                         <div>{{$invoice->visitor->email}}</div>
                     </div>
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-4 text-md-right">
                         <!-- <h6 class="mb-3">Bill To:</h6> -->
                         <div>
                             <strong>Invoice Number : </strong> INV-00{{$invoice->sr_no}}

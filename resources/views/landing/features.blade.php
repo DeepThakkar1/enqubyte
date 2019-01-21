@@ -46,7 +46,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/1.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Create detailed quotations/estimates</h3>
@@ -55,7 +55,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/2.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Manage your daily follow-ups</h3>
@@ -64,7 +64,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/3.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">One-click Invoicing</h3>
@@ -105,7 +105,7 @@
                 <div class="business-agenda-list custom-manage-enquiries">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/1.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Create detailed quotations/estimates</h3>
@@ -114,7 +114,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/2.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Manage your daily follow-ups</h3>
@@ -123,7 +123,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/3.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">One-click Invoicing</h3>
@@ -159,7 +159,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/4.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Maintain your list of products</h3>
@@ -168,7 +168,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/5.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Record your Purchase orders/Bills</h3>
@@ -177,7 +177,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/6.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Manage your vendor payments</h3>
@@ -208,7 +208,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/7.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">List them at a single place.</h3>
@@ -217,7 +217,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/8.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Analyse your customer</h3>
@@ -226,7 +226,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/9.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Ledgers and Statements</h3>
@@ -267,7 +267,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/7.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">List them at a single place.</h3>
@@ -276,7 +276,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/8.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Analyse your customer</h3>
@@ -285,7 +285,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/9.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Ledgers and Statements</h3>
@@ -321,7 +321,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/10.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Share it with your customers at ease</h3>
@@ -330,7 +330,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/11.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Record customer payments</h3>
@@ -339,7 +339,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/12.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Simple Tax Management</h3>
@@ -372,7 +372,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/13.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Track your Message clicks</h3>
@@ -381,7 +381,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/14.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Choose your target audience</h3>
@@ -390,7 +390,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/15.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Advanced WhatsApp Marketing</h3>
@@ -431,7 +431,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/13.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Track your Message clicks</h3>
@@ -440,7 +440,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/14.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Choose your target audience</h3>
@@ -449,7 +449,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/15.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Advanced WhatsApp Marketing</h3>
@@ -486,7 +486,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/16.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Know your Salesmen Performance</h3>
@@ -495,7 +495,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/17.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Record incentives automatically</h3>
@@ -504,7 +504,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/18.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Easy incentive payouts</h3>
@@ -535,7 +535,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/19.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Profit &amp; Loss Account</h3>
@@ -544,7 +544,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/20.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Customer, Vendor and Salesmen statements</h3>
@@ -553,7 +553,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/21.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Monthly reports</h3>
@@ -594,7 +594,7 @@
                 <div class="business-agenda-list">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
+                            <img src="/img/features/icons/19.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Increase your Business Analysis</h3>
@@ -603,7 +603,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-2.png" alt="">
+                            <img src="/img/features/icons/20.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Real Time Invioce</h3>
@@ -612,7 +612,7 @@
                     </div><!-- .single-business-agenda END -->
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
-                            <img src="assets/images/business-agenda/business-agenda-3.png" alt="">
+                            <img src="/img/features/icons/21.png" alt="">
                         </div>
                         <div class="media-body">
                             <h3 class="agenda-title">Perfect Timing</h3>
