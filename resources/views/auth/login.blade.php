@@ -22,8 +22,8 @@
                 <a href="/">
                     <img src="{{ url('img/logo.png') }}" height="60px">
                 </a>
-                <div style="width:90%; margin-top: 17vh;">
-                <h1 class="mb-5 mt-4">{{ __('Sign in to your account') }}</h1>
+                <div class="user-signin-account">
+                <h1 class="mb-5 mt-md-4">{{ __('Sign in to your account') }}</h1>
                 <div class="">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

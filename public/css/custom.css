@@ -335,7 +335,10 @@ table.dataTable thead th{
   font-size: 18px;
   margin-bottom: 0px;
 }
-
+.user-signin-account{
+    width:90%; 
+    margin-top: 17vh;
+}
 .login-btn-section{
   /*margin-bottom: 10px;*/
 }

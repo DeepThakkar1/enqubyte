@@ -13584,6 +13584,10 @@ p.simple-pricing-text{
     padding-left: 55px;
     padding-top: 30px;
 }
+.user-signin-account{
+    width:90%; 
+    margin-top: 17vh;
+}
 /*tr.product-list-menu th{
     border-bottom: 1px solid #dee2e6 !important;
 }*/
@@ -13760,7 +13764,7 @@ p.simple-pricing-text{
         padding-bottom: 40px !important;
     }
     .desktop-enquiries{
-        display: none;
+        display: block;
     }
     .section-padding-medium2{
         padding: 45px 0 !important;
