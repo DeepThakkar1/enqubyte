@@ -274,7 +274,7 @@
                                     <img src="{{asset('img/logo.png')}}" style="height: 50px;">
                                 @endif
                             </td>
-                            <td class="text-right">
+                            <td class="text-md-right">
                                 <h3 class="invoice-print-heading" style="margin: 5px 0px;">Invoice : INV-00{{$invoice->sr_no}}</h3>
                                 {{auth()->user()->company_name}}<br>
                                 {{auth()->user()->company_address ? auth()->user()->company_address : '--'}}<br>
@@ -297,7 +297,7 @@
                                 {{$invoice->customer->phone ? $invoice->customer->phone : '--'}}<br>
                                 {{$invoice->customer->email ? $invoice->customer->email : '--'}}
                             </td>
-                            <td class="text-right">
+                            <td class="text-md-right">
                                 <b>Invoice Number:</b> INV-00{{$invoice->sr_no}}<br>
                                 <b>Created Date:</b> {{$invoice->invoice_date}}<br>
                                 <b>Due Date:</b> {{$invoice->due_date}}<br>

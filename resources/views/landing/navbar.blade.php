@@ -76,7 +76,7 @@
     <div class="container" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);">
         <nav class="xs-menus clearfix">
             <div class="nav-header">
-                <a class="nav-brand" href="index-2.html">
+                <a class="nav-brand" href="/">
                     <img src="/img/logo.png" alt="" style="width: 133px;margin-left: -14px;">
                 </a>
                 <div class="nav-toggle"></div>
@@ -85,16 +85,22 @@
                 <!-- menu list -->
                 <ul class="nav-menu">
                     <li>
-                        <a href="/">HOME</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
                         <a href="/features">Features</a>
                     </li>
-                    <li style="padding: 10px;">
-                        <a href="/login" class="btn btn-outline-primary custom-login-button" style="padding: 10px;">Login</a>
+                    <li>
+                        <a href="/#pricing">Pricing</a>
                     </li>
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                   <!--  <li style="padding: 10px;">
+                        <a href="/login" class="btn btn-outline-primary custom-login-button" style="padding: 10px;">Login</a>
+                    </li> -->
                     <li style="padding: 10px;">
-                        <a href="/register" class="btn-primary custom-register-btn text-white" style="padding: 10px;">Sign Up</a>
+                        <a href="/register" class="btn-primary custom-register-btn text-white" style="padding: 10px;">Get Started</a>
                     </li>
                 </ul>                
             </div>

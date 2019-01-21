@@ -226,7 +226,7 @@
                                     <img src="{{asset('img/logo.png')}}" style="height: 50px;">
                                 @endif
                             </td>
-                            <td class="text-right">
+                            <td class="text-md-right">
                                 <h3 class="invoice-print-heading" style="margin: 5px 0px;">Purchase Order : P/O-00{{$purchaseOrder->sr_no}}</h3>
                                 {{auth()->user()->company_name}}<br>
                                 {{auth()->user()->company_address ? auth()->user()->company_address : '--'}}<br>
@@ -248,7 +248,7 @@
                                 {{$purchaseOrder->vendor->phone ? $purchaseOrder->vendor->phone : '--'}}<br>
                                 {{$purchaseOrder->vendor->email ? $purchaseOrder->vendor->email : '--'}}
                             </td>
-                            <td class="text-right">
+                            <td class="text-md-right">
                                 <b>P/O Number:</b> P/O-00{{$purchaseOrder->sr_no}}<br>
                                 <b>Purchase Date:</b> {{$purchaseOrder->purchase_date}}<br>
                                 <b>Payment Due Date:</b> {{$purchaseOrder->due_date}}<br>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://enqubyte.com/</title>
+  <link>https://enqubyte.com/</link>
+
+<item>
+     <link>https://enqubyte.com/</link>
+     <title>Enqubyte - Your business assistant</title>
+     <description>Enqubyte - Your business assistant</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://enqubyte.com/features</link>
+     <title>Enqubyte - Your business assistant</title>
+     <description>Enqubyte - Your business assistant</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://enqubyte.com/login</link>
+     <title>Enqubyte - Your business assistant</title>
+     <description>Enqubyte - Your business assistant</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://enqubyte.com/register</link>
+     <title>Enqubyte - Your business assistant</title>
+     <description>Enqubyte - Your business assistant</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://enqubyte.com/privacy-policy</link>
+     <title>Enqubyte - Your business assistant</title>
+     <description>Enqubyte - Your business assistant</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://enqubyte.com/terms-and-conditions</link>
+     <title>Enqubyte - Your business assistant</title>
+     <description>Enqubyte - Your business assistant</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://enqubyte.com/password/reset</link>
+     <title>Enqubyte - Your business assistant</title>
+     <description>Enqubyte - Your business assistant</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  

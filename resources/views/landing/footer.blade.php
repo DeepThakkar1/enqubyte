@@ -29,7 +29,7 @@
                         <div class="col-md-8 col-lg-6">
                             <div class="footer-widget">
                                 <div class="footer-logo-wraper">
-                                    <a href="index-2.html" class="footer-logo responsive-footer-logo">
+                                    <a href="/" class="footer-logo responsive-footer-logo">
                                         <img src="/img/logo.png" style="width: 200px;"   alt="">
                                     </a>
                                 </div>
@@ -84,8 +84,8 @@
 
     <div class="copyright py-3">
         <div class="container d-flex align-items-center justify-content-between">
-            <div class="parent font-weight-bold text-dark">
-                Powered by <a target="_blank" href="https://trumpets.co.in"><img style="width: 120px;margin: 0 6px;margin-top: -2px;" src="/img/trumpetslogo.png"/></a>
+            <div class="parent font-weight-bold text-dark footer-powered-by-section">
+                Powered by <a target="_blank" href="https://trumpets.co.in"><img style="" src="/img/trumpetslogo.png"/></a>
             </div>
             <div class="socials" style="font-size: 22px;">
                 <span class="mr-3"><a href="#"><i class="fa fa-facebook-official"></i></a></span>

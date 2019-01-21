@@ -202,13 +202,39 @@
 </nav>
 
 
-<div class="modal fade in addProductModal" id="addMaterialModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in addProductModal pr-md-0" id="addMaterialModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <!-- <div class="modal-header"> <button type="button" aria-label="Close" class="close btn-close-modal"><span aria-hidden="true">×</span></button></div> -->
             <div class="modal-body p-0">
-                <div class="entity-section">
+                 <div class="entity-section">
                     <button type="button" aria-label="Close" class="close btn-close-modal p-1 pr-2"><span aria-hidden="true">×</span></button>
+                    <h5 class="bg-light p-2" style="font-size: 15px;text-transform: uppercase;">Sales</h5>
+                </div>
+                <div class="pt-3 pb-3">
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <a href="/enquiries">
+                                <img src="/img/icons/hired.png" alt="icons">
+                                <p class="mt-2">Enquiries</p>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="/sales/invoices">
+                                <img src="/img/icons/customer.png" alt="icons">
+                                <p class="mt-2">Invoices</p>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="/purchases">
+                                <img src="/img/icons/visitor.png" alt="icons">
+                                <p class="mt-2">Purchase Orders</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="entity-section">
                     <h5 class="bg-light p-2" style="font-size: 15px;text-transform: uppercase;">Entities</h5>
                 </div>
                 <div class="pt-3 pb-3">

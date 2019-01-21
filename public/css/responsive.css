@@ -2,6 +2,21 @@
   .login-btn-section{
     margin-bottom: 10px;
   }
+  .login-logo-section{
+    text-align: center;
+  }
+  .user-login-input-custom{
+    width: 50% !important;
+  }
+  .user-signin-account {
+    width: 100%;
+    margin-top: 3vh;
+    text-align: center;
+  }
+  .user-signin-account h1{
+    font-size: 30px;
+    margin-top: 32px;
+  }
   .responsive-headline-contents h2 {
     margin-bottom: 20px;
   }
@@ -154,10 +169,10 @@
     padding: 0px !important;
   }
   .print-company-logo{
-    text-align: right !important;
+    text-align: center !important;
   }
   .invoice-box table tr.information table td {
-    text-align: right !important;
+    text-align: center !important;
     padding-bottom: 15px !important;
     padding-top: 15px !important;
   }

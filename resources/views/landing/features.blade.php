@@ -5,10 +5,10 @@
 @include('landing.navbar')
 
 <!-- agency banner section -->
-<section class="xs-banner agency-banner6 mt-4" id="homes" data-scrollax-parent="false">
+<section class="xs-banner agency-banner6 mt-4 feature-banner-custom" id="homes" data-scrollax-parent="false">
     <div class="container">
-        <div class="row home-banner-section">
-            <div class="col-lg-5 align-self-center" style="padding-right: 30px;">
+        <div class="row home-banner-section features-banner-section">
+            <div class="col-lg-5 align-self-center features-banner-heading-section">
                 <div class="agency-banner-content banner-style6">
                     <h2 class="banner-title">The centralised hub for all your business needs.</h2>
                     <br>
@@ -17,7 +17,8 @@
                     </div>
                 </div><!-- .agency-banner-content END -->
             </div>
-            <div class="col-lg-7" style="padding-left: 55px;padding-top: 30px;">
+
+            <div class="col-lg-7 features-banner-image-section">
                 <div class="agency-banner-img responsive-agency-banner-img">
                     <img src="/img/devices.png" style="width: 100%;" alt="">
                 </div><!-- .agency-banner-img END -->
@@ -101,7 +102,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="business-agenda-list">
+                <div class="business-agenda-list custom-manage-enquiries">
                     <div class="media single-business-agenda">
                         <div class="business-agenda-img">
                             <img src="assets/images/business-agenda/business-agenda-1.png" alt="">
