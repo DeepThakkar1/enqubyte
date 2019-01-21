@@ -2,6 +2,21 @@
   .login-btn-section{
     margin-bottom: 10px;
   }
+  .login-logo-section{
+    text-align: center;
+  }
+  .user-login-input-custom{
+    width: 50% !important;
+  }
+  .user-signin-account {
+    width: 100%;
+    margin-top: 3vh;
+    text-align: center;
+  }
+  .user-signin-account h1{
+    font-size: 30px;
+    margin-top: 32px;
+  }
   .responsive-headline-contents h2 {
     margin-bottom: 20px;
   }

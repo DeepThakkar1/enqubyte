@@ -13588,10 +13588,27 @@ p.simple-pricing-text{
     width:90%; 
     margin-top: 17vh;
 }
+.footer-powered-by-section a img{
+        width: 120px;
+        margin: 0 6px;
+        margin-top: -2px;
+    }
 /*tr.product-list-menu th{
     border-bottom: 1px solid #dee2e6 !important;
 }*/
 @media(max-width: 768px){
+    .copyright {
+        height: 80px !important;
+    }
+    .footer-powered-by-section{
+        width: 41% !important;
+    }
+    .footer-powered-by-section a img{
+        width: 120px;
+        margin: 0 0px; 
+        margin-top: 0px; 
+        margin-left: 0px !important;
+    }
     .custom-get-started-button{
         margin-top: 10px !important;
         margin-left: 0px !important;
