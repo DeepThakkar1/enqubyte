@@ -160,7 +160,7 @@ class InvoicesController extends Controller
      */
     public function edit(Invoice $invoice)
     {
-        if(count($invoice->payments)){
+        if(count($invoice->payments) || $invoice->status == -1 || $invoice->status == 1){
             flash("You can't edit this invoice!");
             return redirect('/sales/invoices/'.$invoice->sr_no);
         }

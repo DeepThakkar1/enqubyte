@@ -91,7 +91,7 @@
                     <div class=""><b>Created:</b> {{$invoice->created_at->diffForHumans()}}</div>
                 </div>
                 <div class="ml-auto p-2">
-                    @if(count($invoice->payments))
+                    @if(count($invoice->payments) || $invoice->status == -1 || $invoice->status == 1)
                     <a href="javascript:;" class="btn btn-outline-danger disabled">Cancel Invoice</a>
                     <a href="javascript:;" class="btn btn-outline-primary disabled">Edit Invoice</a>
                     @else
@@ -124,10 +124,10 @@
                     <h3 class="pt-2 text-size-heading">Get Paid</h3>
                 </div>
                 <div class="ml-auto p-2">
-                    @if($invoice->remaining_amount)
-                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary btnRecordPayment">Record a Payment</a>
-                    @else
+                    @if(!$invoice->remaining_amount || $invoice->status == -1 || $invoice->status == 1)
                     <a href="#" class="btn btn-outline-primary disabled">Record a Payment</a>
+                    @else
+                    <a href="#recordPaymentModal" data-toggle="modal" class="btn btn-outline-primary btnRecordPayment">Record a Payment</a>
                     @endif
                 </div>
             </div>
