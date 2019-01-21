@@ -13622,7 +13622,7 @@ p.simple-pricing-text{
         width: 100% !important;
     }
     .desktop-enquiries{
-        display: none !important;
+        display: block !important;
     }
     .agency-banner6.feature-banner-custom{
         min-height: 455px !important;
