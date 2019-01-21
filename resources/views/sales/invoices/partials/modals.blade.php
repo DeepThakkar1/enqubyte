@@ -19,7 +19,8 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Amount<sup class="error">*</sup></label>
-                            <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" class="form-control inputInvoiceAmt" autocomplete="off" placeholder="Amount" required>
+                            <input type="text" name="amount" value="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : ''}}" maxPay="{{isset($invoice->remaining_amount) ? $invoice->remaining_amount : '0'}}" class="form-control inputInvoiceAmt" autocomplete="off" placeholder="Amount" required>
+                            <p class="errorMaxPayment error" style="display: none;">Please pay amount less than or equal to invoice amount.</p>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -62,55 +63,66 @@
     $('#recordPayment').on('click', function(){
         var parsley = $('.frmRecordPayment').parsley().isValid();
         var payment = $('.inputInvoiceAmt').val();
+        var maxPayment = $('.inputInvoiceAmt').attr('maxPay');
+        console.log(maxPayment);
+        console.log(payment);
         if(parsley){
-            if (payment != 0 && payment != '') {
-                $('.errorRecordPayment').hide();
-                $(this).addClass('disabled');
-                var data = $('.frmRecordPayment').serialize();
-                axios.post('/sales/invoices/{{isset($invoice) ? $invoice->id : ''}}/recordpayment', data)
-                .then(function(response){
-                    $('.rowAmountDue').hide();
-                // $('.invoiceAmt').html(response.data.)
-                var paymentType;
-                if (response.data.payment.payment_method ==1) {
-                    paymentType= 'Bank Payment';
-                }else if(response.data.payment.payment_method ==2){
-                    paymentType= 'Cash';
-                }else if(response.data.payment.payment_method ==3){
-                    paymentType= 'Cheque';
-                }else if(response.data.payment.payment_method ==4){
-                    paymentType= 'Credit Card';
+            if (parseFloat(maxPayment)  >= parseFloat(payment)) {
+                if (payment != 0 && payment != '') {
+                    $('.errorRecordPayment').hide();
+                    $(this).addClass('disabled');
+                    var data = $('.frmRecordPayment').serialize();
+                    axios.post('/sales/invoices/{{isset($invoice) ? $invoice->id : ''}}/recordpayment', data)
+                    .then(function(response){
+                        $('.rowAmountDue').hide();
+                        // $('.invoiceAmt').html(response.data.)
+                        var paymentType;
+                        if (response.data.payment.payment_method ==1) {
+                            paymentType= 'Bank Payment';
+                        }else if(response.data.payment.payment_method ==2){
+                            paymentType= 'Cash';
+                        }else if(response.data.payment.payment_method ==3){
+                            paymentType= 'Cheque';
+                        }else if(response.data.payment.payment_method ==4){
+                            paymentType= 'Credit Card';
+                        }else{
+                            paymentType= 'Other';
+                        }
+                        var html = '<tr><td class="left">\
+                        Payment on ' + response.data.payment.payment_date + ' using ' + paymentType + ' :</td>\
+                        <td class="right">\
+                        <strong>&#8377; ' + response.data.payment.amount + '</strong>\
+                        </td></tr><tr class="border-top"><td class="left">\
+                        <strong>Amount Due (INR):</strong></td>\
+                        <td class="right">\
+                        <strong>&#8377; ' + response.data.invoice.remaining_amount + '</strong>\
+                        </td></tr>';
+                        $('.table-invoiceTotal tbody').append(html);
+                        $('.frmRecordPayment').trigger('reset');
+                        $('.invoiceAmt').html(response.data.invoice.remaining_amount);
+                        $('.inputInvoiceAmt').val(response.data.invoice.remaining_amount);
+                        $('.inputInvoiceAmt').attr('max', response.data.invoice.remaining_amount);
+
+                        $('.invoiceStatus').html(response.data.invoice.remaining_amount ? 'Pending' : 'Completed');
+                        $('.btnEditInvoice').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
+                        $('.btnRecordPayment').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
+                        $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.invoice.remaining_amount ? 'bg-warning' : 'bg-success');
+
+                        $('.recordPaymentModal').modal('hide');
+                    })
                 }else{
-                    paymentType= 'Other';
+                    $('.errorRecordPayment').html('Please enter valid payable amount.');
+                    $('.errorRecordPayment').show();
                 }
-                var html = '<tr><td class="left">\
-                Payment on ' + response.data.payment.payment_date + ' using ' + paymentType + ' :</td>\
-                <td class="right">\
-                <strong>&#8377; ' + response.data.payment.amount + '</strong>\
-                </td></tr><tr class="border-top"><td class="left">\
-                <strong>Amount Due (INR):</strong></td>\
-                <td class="right">\
-                <strong>&#8377; ' + response.data.invoice.remaining_amount + '</strong>\
-                </td></tr>';
-                $('.table-invoiceTotal tbody').append(html);
-                $('.frmRecordPayment').trigger('reset');
-                $('.invoiceAmt').html(response.data.invoice.remaining_amount);
-                $('.inputInvoiceAmt').val(response.data.invoice.remaining_amount);
-
-                $('.invoiceStatus').html(response.data.invoice.remaining_amount ? 'Pending' : 'Completed');
-                $('.btnEditInvoice').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
-                $('.btnRecordPayment').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
-                $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.invoice.remaining_amount ? 'bg-warning' : 'bg-success');
-
-                $('.recordPaymentModal').modal('hide');
-            })
             }else{
-                $('.errorRecordPayment').html('Please enter valid payable amount.');
-                $('.errorRecordPayment').show();
-            } }else{
-                $('.errorRecordPayment').html('Fill all required fields.');
-                $('.errorRecordPayment').show();
+                $('.errorMaxPayment').html('Please pay amount less than or equal to invoice pending amount.');
+                $('.errorMaxPayment').show();
+                $('.errorRecordPayment').hide();
             }
-        });
-    </script>
-    @endpush
+        }else{
+            $('.errorRecordPayment').html('Fill all required fields.');
+            $('.errorRecordPayment').show();
+        }
+    });
+</script>
+@endpush

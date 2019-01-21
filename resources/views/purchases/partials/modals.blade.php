@@ -62,6 +62,7 @@
 <script>
     $('#addVendor').on('click', function(){
         var parsley = $('.frmVendor').parsley().isValid();
+
         if (parsley) {
             $('.errorVendor').hide();
             var data = $('.frmVendor').serialize();
