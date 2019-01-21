@@ -282,7 +282,12 @@ class InvoicesController extends Controller
      */
     public function destroy(Invoice $invoice)
     {
+        $invoice->enquiry->status = 0;
+        $invoice->enquiry->save();
         $invoice->invoiceitems()->delete();
+        if(isset($invoice->employee) && $invoice->employee->incentive_id != 0){
+            $invoice->incentive->delete();
+        }
         $invoice->delete();
         flash('Invoice deleted successfully!');
         return redirect('/sales/invoices');

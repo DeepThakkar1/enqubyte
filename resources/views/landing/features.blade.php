@@ -17,6 +17,7 @@
                     </div>
                 </div><!-- .agency-banner-content END -->
             </div>
+
             <div class="col-lg-7 features-banner-image-section">
                 <div class="agency-banner-img responsive-agency-banner-img">
                     <img src="/img/devices.png" style="width: 100%;" alt="">

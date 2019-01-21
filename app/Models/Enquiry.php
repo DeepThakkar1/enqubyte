@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class Enquiry extends Model
 {
     protected $fillable = [
-       'sr_no', 'customer_id', 'company_id', 'employee_id', 'store_id', 'followup_date', 'date','enquiry_date', 'sub_tot_amt', 'grand_total', 'status', 'discount_type', 'discount'
+       'sr_no', 'customer_id', 'company_id', 'employee_id', 'store_id', 'followup_date', 'followup_time', 'date','enquiry_date', 'sub_tot_amt', 'grand_total', 'status', 'discount_type', 'discount'
     ];
 
     public function company()

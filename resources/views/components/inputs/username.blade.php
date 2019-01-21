@@ -14,8 +14,11 @@
     <script src="{{ asset('js/jquery.alphanum.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#{{$inputName}}').alphanum();
-            $("#{{$inputName}}").on({
+            $('#{{$inputName}}').alphanum({
+              allowSpace: false, // Allow the space character
+              allowUpper: false  // Allow Upper Case characters
+            });
+            /*$("#{{$inputName}}").on({
               keydown: function(e) {
                 if (e.which === 32)
                   return false;
@@ -23,7 +26,7 @@
               change: function() {
                 this.value = this.value.replace(/\s/g, "");
               }
-            });
+            });*/
         });
     </script>
 

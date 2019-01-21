@@ -81,6 +81,7 @@ class EnquiriesController extends Controller
             // 'store_id' => 0,
             'customer_id' => request('customer_id'),
             'followup_date' => request('followup_date'),
+            'followup_time' => request('followup_time'),
             'enquiry_date' => request('enquiry_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
@@ -167,6 +168,7 @@ class EnquiriesController extends Controller
             // 'store_id' => 0,
             'customer_id' => request('customer_id'),
             'followup_date' => request('followup_date'),
+            'followup_time' => request('followup_time'),
             'enquiry_date' => request('enquiry_date'),
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
@@ -287,7 +289,7 @@ class EnquiriesController extends Controller
 
     public function changefollowupdate(Request $request, Enquiry $enquiry)
     {
-        $enquiry->update(['followup_date' => $request->followup_date]);
+        $enquiry->update(['followup_date' => $request->followup_date, 'followup_time' => $request->followup_time]);
         flash('Enquiry followup date updated successfully!');
         return redirect('/enquiries/'.$enquiry->sr_no);
     }

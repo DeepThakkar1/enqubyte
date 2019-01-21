@@ -10,16 +10,16 @@
     <div class="container-fluid">
         <ul class="nav nav-pills mt-3" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                <a class="nav-link active" id="pills-profile-tab" href="#pills-profile">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " id="pills-company-tab" data-toggle="pill" href="#pills-company" role="tab" aria-controls="pills-company" aria-selected="true">Company</a>
+                <a class="nav-link " id="pills-company-tab"  href="#pills-company">Company</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">Advance</a>
+                <a class="nav-link" id="pills-home-tab" href="#pills-advance">Advance</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-security" role="tab" aria-controls="pills-security" aria-selected="false">Security</a>
+                <a class="nav-link" id="pills-contact-tab" href="#pills-security">Security</a>
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
@@ -31,3 +31,17 @@
     </div>
 </div>
 @endsection
+@push('js')
+<script>
+    $(document).ready(function(){
+            var hash = window.location.hash;
+            console.log(hash);
+            $('ul.nav-pills a[href="' + hash + '"]').tab('show');
+
+            $('.nav-pills .nav-link').on('click', function(){
+                var url = $(this).attr('href');
+                $('ul.nav-pills a[href="' + url + '"]').tab('show');
+            });
+        });
+</script>
+@endpush

@@ -30,7 +30,8 @@
                 @foreach($customers as $key => $customer)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td>{{$customer->fullname}}</td>
+                    <td><img src="{{ Avatar::create($customer->fullname)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;"> 
+                        {{$customer->fullname}}</td>
                     <td>{{$customer->email}}</td>
                     <td>{{$customer->phone}}</td>
                     <td>
@@ -78,12 +79,12 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
-                                                    <label>Email Address</label>
-                                                    <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Customer email" >
-                                                </div>
-                                                <div class="col-sm-6">
                                                     <label>Phone<sup class="error">*</sup></label>
                                                     <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$customer->phone}}" class="form-control" placeholder="Phone" required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label>Email Address</label>
+                                                    <input type="email" name="email" value="{{$customer->email}}" class="form-control" placeholder="Customer email" >
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -146,12 +147,12 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-6">
-                            <label>Email Address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Customer email" data-parsley-remote="{{url('/visitors/email/{value}/available')}}" data-parsley-remote-message="Email already exist!">
-                        </div>
-                        <div class="col-sm-6">
                             <label>Phone<sup class="error">*</sup></label>
                             <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Customer email" data-parsley-remote="{{url('/visitors/email/{value}/available')}}" data-parsley-remote-message="Email already exist!">
                         </div>
                     </div>
                     <div class="form-group">
