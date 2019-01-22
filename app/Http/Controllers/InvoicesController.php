@@ -81,9 +81,9 @@ class InvoicesController extends Controller
                 return back();
             }
         }
-
+        $invoiceSrno = Invoice::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
         $invoice = Invoice::create([
-            'sr_no' => request('sr_no'),
+            'sr_no' => $invoiceSrno,
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,

@@ -37,7 +37,7 @@
             <tbody>
                 @foreach($enquiries as $key => $enquiry)
                 <tr>
-                    <td>{{$enquiry->sr_no}}</td>
+                    <td>ENQ-00{{$enquiry->sr_no}}</td>
                     <td>{{$enquiry->customer->fullname}}</td>
                     <td>{{$enquiry->enquiry_date}}</td>
                     <td>{{$enquiry->followup_date}} {{$enquiry->followup_time}}</td>

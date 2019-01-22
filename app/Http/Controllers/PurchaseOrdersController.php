@@ -68,9 +68,11 @@ class PurchaseOrdersController extends Controller
             );
         }
 
+        $purchaseSrno =PurchaseOrder::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
+
         $purchaseOrder = PurchaseOrder::create([
             'company_id' => auth()->id(),
-            'sr_no' => request('sr_no'),
+            'sr_no' => $purchaseSrno,
             /*'employee_id' => 0,
             'store_id' => 0,*/
             'vendor_id' => request('vendor_id'),
