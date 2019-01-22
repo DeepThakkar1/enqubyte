@@ -74,7 +74,7 @@
                 {{ __('Continue') }} <i class="fas fa-arrow-right" style="font-size: 17px;"></i>
             </a>
 
-             <div class="loginSignUpSeparator"><span class="textInSeparator">or</span></div>
+            <div class="loginSignUpSeparator"><span class="textInSeparator">or</span></div>
             <p class="text-center" style="font-size: 17px;">
                 Already have an account?
                 <a class="btn-link" href="{{ route('login') }}">

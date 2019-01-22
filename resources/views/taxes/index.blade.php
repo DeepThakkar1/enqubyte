@@ -93,7 +93,7 @@
                     </div>
                     <div class="form-group">
                         <label>Abbreviation<sup class="error">*</sup></label>
-                        <input type="text" name="abbreviation" class="form-control" placeholder="Abbreviation" required>
+                        <input type="text" name="abbreviation" class="form-control" data-parsley-remote="{{url('/taxes/abbreviation/{value}/available')}}" data-parsley-remote-message="Abbreviation already exist!" placeholder="Abbreviation" required>
                     </div>
                     <div class="form-group">
                         <label>Tax Rate<sup class="error">*</sup></label>
