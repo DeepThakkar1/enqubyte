@@ -28,12 +28,18 @@
         @endif
     </div>
 
-     
+
 
     <div class="form-group mt-3">
         <a href="#next" class="btn btn-primary mb-4 btn-lg btn-block wizard-control" data-parsley-group="block-1">
             {{ __('Continue') }} <i class="fas fa-arrow-right" style="font-size: 17px;"></i>
         </a>
+        <div class="loginSignUpSeparator"><span class="textInSeparator">or</span></div>
+        <p class="text-center" style="font-size: 17px;">
+            <a class="btn-link wizard-control" href="#previous">
+                {{ __('Back') }}
+            </a>
+        </p>
     </div>
 </section>
 

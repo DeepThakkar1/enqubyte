@@ -6,7 +6,7 @@
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Taxes</h2>
         <a href="#addTaxModal" data-toggle="modal" class="btn btn-primary custom-back-btn float-right">Add Tax</a>
         </div>
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="form-group">
                         <label>Abbreviation<sup class="error">*</sup></label>
-                        <input type="text" name="abbreviation" class="form-control" placeholder="Abbreviation" required>
+                        <input type="text" name="abbreviation" class="form-control" data-parsley-remote="{{url('/taxes/abbreviation/{value}/available')}}" data-parsley-remote-message="Abbreviation already exist!" placeholder="Abbreviation" required>
                     </div>
                     <div class="form-group">
                         <label>Tax Rate<sup class="error">*</sup></label>

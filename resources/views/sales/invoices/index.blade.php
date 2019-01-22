@@ -20,7 +20,7 @@
         </div>
     </div>
     @include('components.filters.datefilter')
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table descDataTable">
             <thead>
                 <tr class="product-list-menu">
@@ -37,7 +37,7 @@
             <tbody>
                 @foreach($invoices as $key => $invoice)
                 <tr>
-                    <td>{{$invoice->sr_no}}</td>
+                    <td>INV-00{{$invoice->sr_no}}</td>
                     <td>{{$invoice->visitor->fullname}}</td>
                     <td>{{$invoice->invoice_date}}</td>
                     <td>{{$invoice->due_date}}</td>

@@ -132,7 +132,7 @@ body{
     max-width: 100% !important;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
-    margin-right: 0px !important;
+    /*margin-right: 0px !important;*/
 }
 
 .modal.welcome-enqubyte-modal  {
@@ -145,10 +145,10 @@ body{
 }
 
 .welcome-enqubyte-modal.show .custom-modal-content {
-     height: unset !important; 
+     height: unset !important;
 }
 .welcome-enqubyte-modal.show .modal-content {
-     height: 80vh !important; 
+     height: 80vh !important;
 }
 /*----------------------[Forms]--------------------------*/
 
@@ -336,7 +336,7 @@ table.dataTable thead th{
   margin-bottom: 0px;
 }
 .user-signin-account{
-    width:90%; 
+    width:90%;
     margin-top: 17vh;
 }
 .login-btn-section{
@@ -834,9 +834,9 @@ a.upgrade-product-nav p{
     padding-top: 8px;
     font-size: 20px;
     padding-right: 35px;
-    padding-left: 35px;   
+    padding-left: 35px;
     font-weight: 500;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     color: #fff !important;
     border: none;
     border-radius: 7px !important;
@@ -858,6 +858,23 @@ a.upgrade-product-nav p{
   border-bottom: 1px solid #ddd;
 }
 
+.chart-overlay {
+      position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.chart-overlay p{
+  color: #000;
+    font-weight: 400;
+}
 
 .bg-light {
   background: #fafafa !important;

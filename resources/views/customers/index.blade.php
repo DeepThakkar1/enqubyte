@@ -15,7 +15,7 @@
             <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary">Add Customer</a>
         </div>
     </div>
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr>
@@ -30,7 +30,7 @@
                 @foreach($customers as $key => $customer)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td><img src="{{ Avatar::create($customer->fullname)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;"> 
+                    <td><img src="{{ Avatar::create($customer->fullname)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;">
                         {{$customer->fullname}}</td>
                     <td>{{$customer->email}}</td>
                     <td>{{$customer->phone}}</td>
@@ -70,11 +70,11 @@
                                             <div class="row form-group">
                                                 <div class="col-sm-6">
                                                     <label>First Name<sup class="error">*</sup></label>
-                                                    <input type="text" name="fname" value="{{$customer->fname}}" class="form-control" placeholder="First name" required>
+                                                    <input type="text" name="fname" maxlength="25" value="{{$customer->fname}}" class="form-control" placeholder="First name" required>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <label>Last Name<sup class="error">*</sup></label>
-                                                    <input type="text" name="lname" value="{{$customer->lname}}" class="form-control" placeholder="Last name" required>
+                                                    <input type="text" name="lname" maxlength="25" value="{{$customer->lname}}" class="form-control" placeholder="Last name" required>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -138,11 +138,11 @@
                     <div class="row form-group">
                         <div class="col-sm-6">
                             <label>First Name<sup class="error">*</sup></label>
-                            <input type="text" name="fname" class="form-control" placeholder="First name" required>
+                            <input type="text" name="fname" maxlength="25" class="form-control" placeholder="First name" required>
                         </div>
                         <div class="col-sm-6">
                             <label>Last Name<sup class="error">*</sup></label>
-                            <input type="text" name="lname" class="form-control" placeholder="Last name" required>
+                            <input type="text" name="lname" maxlength="25" class="form-control" placeholder="Last name" required>
                         </div>
                     </div>
                     <div class="row form-group">

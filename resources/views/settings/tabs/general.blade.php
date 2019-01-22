@@ -29,7 +29,7 @@
         @csrf
         <div class="card mb-3">
             <div class="card-header" style="background-color: #fff;">
-                <h6>Tax Mode</h6> 
+                <h6>Tax Mode</h6>
                 <small style="font-size: 13px;display: block;color: #1b6dab;font-weight: 400;"><i class="fas fa-info-circle"></i> Choose the way tax is added to your receipts. It can either be applied to each product seperately or on subtotal.</small>
             </div>
             <div class="card-body py-4">
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-sm-4 mt-1">
                         <a href="/taxes" class="btn btn-link">Edit Default Taxes</a>
-                    </div>  
+                    </div>
                 </div>
             </div>
             <div class="card-footer">
@@ -66,9 +66,9 @@
 
     <form method="post" action="/settings/general/report">
         @csrf
-        <div class="card">
+        <div class="card mb-3">
             <div class="card-header" style="background-color: #fff;">
-                <h6>Reports Frequency</h6> 
+                <h6>Reports Frequency</h6>
                 <small style="font-size: 13px;display: block;color: #1b6dab;font-weight: 400;"><i class="fas fa-info-circle"></i> At what frequency your business reports should be mailed to you.</small>
             </div>
             <div class="card-body py-4">
@@ -98,6 +98,38 @@
         </div>
     </div>
 </form>
+
+<div class="card mb-3">
+    <div class="card-header" style="background-color: #fff;">
+        <h6>Account resetting request</h6>
+        <small style="font-size: 13px;display: block;color: #1b6dab;font-weight: 400;"><i class="fas fa-info-circle"></i> Click the button below to reset your entire enqubyte account. This means you will not able to access your previous information.</small>
+    </div>
+    <div class="card-body py-4">
+        <a href="#accountResetingModal" data-toggle="modal" class="btn btn-outline-primary">Reset Account</a>
+    </div>
+</div>
+
+</div>
+
+
+<div class="modal fade in accountResetingModal pr-md-0" id="accountResetingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Account resetting request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Click the Reset button below to reset your entire enqubyte account. This means you will not able to access your previous information.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <a href="/reset" class="btn btn-primary">Reset</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 @push('js')

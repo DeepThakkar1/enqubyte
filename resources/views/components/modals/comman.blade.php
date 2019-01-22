@@ -27,11 +27,11 @@
                     <div class="row form-group">
                         <div class="col-sm-6">
                             <label>First Name<sup class="error">*</sup></label>
-                            <input type="text" name="fname" class="form-control" placeholder="First name" required>
+                            <input type="text" name="fname" maxlength="25" class="form-control" placeholder="First name" required>
                         </div>
                         <div class="col-sm-6">
                             <label>Last Name<sup class="error">*</sup></label>
-                            <input type="text" name="lname" class="form-control" placeholder="Last name" required>
+                            <input type="text" name="lname" maxlength="25" class="form-control" placeholder="Last name" required>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -170,11 +170,11 @@
                     <div class="row form-group">
                         <div class="col-sm-6">
                             <label>First Name<sup class="error">*</sup></label>
-                            <input type="text" name="fname" class="form-control" placeholder="First name" required>
+                            <input type="text" name="fname" maxlength="25" class="form-control" placeholder="First name" required>
                         </div>
                         <div class="col-sm-6">
                             <label>Last Name<sup class="error">*</sup></label>
-                            <input type="text" name="lname" class="form-control" placeholder="Last name" required>
+                            <input type="text" name="lname" maxlength="25" class="form-control" placeholder="Last name" required>
                         </div>
                     </div>
                     <div class="row form-group">

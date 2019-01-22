@@ -21,8 +21,9 @@ $(function () {
     }
 
     // Previous button is easy, just go back
-    $('.wizard-control [href="#previous"]').click(function() {
-        navigateTo(curIndex() - 1);
+    $('.wizard-control[href="#previous"]').click(function() {
+        // navigateTo(curIndex() - 1);
+        $("#wizard").steps('previous');
     });
 
     // Next button goes forward iff current block validates

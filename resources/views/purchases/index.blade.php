@@ -20,7 +20,7 @@
         </div>
     </div>
     @include('components.filters.datefilter')
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr class="product-list-menu">
@@ -37,7 +37,7 @@
             <tbody>
                 @foreach($purchases as $key => $purchase)
                 <tr>
-                    <td>{{$purchase->sr_no}}</td>
+                    <td>P/O-00{{$purchase->sr_no}}</td>
                     <td>{{$purchase->order_id}}</td>
                     <td>{{$purchase->vendor->name}}</td>
                     <td>{{$purchase->purchase_date}}</td>

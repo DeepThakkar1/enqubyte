@@ -105,4 +105,14 @@ class TaxesController extends Controller
         flash('Tax deleted successfully!');
         return back();
     }
+
+    public function abbreviationIsAvailable($abbreviation)
+    {
+        $isAvailable = !auth()->user()->taxes()->where('abbreviation', $abbreviation)->exists();
+        if ($isAvailable) {
+            return response(['status'=>true], 200);
+        }else{
+            return response(['status'=>false], 404);
+        }
+    }
 }

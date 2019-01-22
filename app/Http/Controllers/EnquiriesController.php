@@ -74,8 +74,9 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => 'required',
             'grand_total' => 'required'
         ]);
+        $enquirySrno = Enquiry::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
         $enquiry = Enquiry::create([
-            'sr_no' => request('sr_no'),
+            'sr_no' => $enquirySrno,
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,
@@ -102,7 +103,7 @@ class EnquiriesController extends Controller
         $enquiry->customer->notify(new NewEnquiry($enquiry, auth()->user()));
 
         flash('Enquiry added successfully!');
-        return redirect('/enquiries');
+        return redirect('/enquiries/'.$enquiry->sr_no);
     }
 
     /**
@@ -125,10 +126,10 @@ class EnquiriesController extends Controller
      */
     public function edit(Enquiry $enquiry)
     {
-        if($enquiry->status == 1 || $enquiry->status == -1)
+        if($enquiry->status == 1)
         {
             flash("You can't edit this enquiry!");
-            return redirect('/enquiries/'.$enquiry->sr_no);
+            return back();
         }
         else
         {
@@ -279,10 +280,18 @@ class EnquiriesController extends Controller
      */
     public function destroy(Enquiry $enquiry)
     {
-        $enquiry->enquiryitems()->delete();
-        $enquiry->delete();
-        flash('Enquiry deleted successfully!');
-        return redirect('/enquiries');
+        if($enquiry->status == 1 || $enquiry->status == -1)
+        {
+            flash("You can't edit this enquiry!");
+            return redirect('/enquiries');
+        }
+        else
+        {
+            $enquiry->enquiryitems()->delete();
+            $enquiry->delete();
+            flash('Enquiry deleted successfully!');
+            return redirect('/enquiries');
+        }
     }
 
     public function cancel(Enquiry $enquiry)

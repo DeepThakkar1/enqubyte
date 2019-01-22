@@ -6,8 +6,7 @@
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Incentives</h2>
         <a href="#addIncentiveModal" data-toggle="modal" class="btn custom-back-btn btn-primary float-right">Add Incentives</a>
     </div>
-    <!-- <hr> -->
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr>
@@ -48,7 +47,7 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Name<sup class="error">*</sup></label>
-                                                <input name="name" class="form-control" placeholder="Name" required value="{{$incentive->name}}">
+                                                <input type="text" name="name" class="form-control" placeholder="Name" required value="{{$incentive->name}}">
                                             </div>
                                             <div class="form-group">
                                                 <label>Type<sup class="error">*</sup></label>
@@ -60,11 +59,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Rate<sup class="error">*</sup></label>
-                                                <input name="rate" class="form-control" required placeholder="Rate" value="{{$incentive->rate}}">
+                                                <input type="number" name="rate" class="form-control" required placeholder="Rate" value="{{$incentive->rate}}">
                                             </div>
                                             <div class="form-group divMinimumInviceAmt" style="display:{{$incentive->minimum_invoice_amt ? 'block' : 'none'}};">
                                                 <label>Minimum Invoice Amount<sup class="error">*</sup></label>
-                                                <input name="minimum_invoice_amt" class="form-control" value="{{$incentive->minimum_invoice_amt ? $incentive->minimum_invoice_amt : ''}}" placeholder="Minimum Invoice Amount">
+                                                <input type="number" name="minimum_invoice_amt" class="form-control" value="{{$incentive->minimum_invoice_amt ? $incentive->minimum_invoice_amt : ''}}" placeholder="Minimum Invoice Amount">
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -113,9 +112,9 @@
                         <label>Rate<sup class="error">*</sup></label>
                         <input name="rate" class="form-control" placeholder="Rate" required>
                     </div>
-                    <div class="form-group divMinimumInviceAmt" style="display:none;">
+                    <div class="form-group">
                         <label>Minimum Invoice Amount<sup class="error">*</sup></label>
-                        <input name="minimum_invoice_amt" class="form-control" placeholder="Minimum Invoice Amount">
+                        <input name="minimum_invoice_amt" class="form-control" placeholder="Minimum Invoice Amount" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -128,17 +127,10 @@
 </div>
 @endsection
 @push('js')
-    <script>
-        $('[name="type"]').on('change', function(){
-            var type = $(this).val();
-            if(type == 1){
-                $('.divMinimumInviceAmt').show();
-                $('[name="minimum_invoice_amt"]').attr('required', true);
-            }else{
-                $('.divMinimumInviceAmt').hide();
-                $('[name="minimum_invoice_amt"]').attr('required', false);
-                $('[name="minimum_invoice_amt"]').val('');
-            }
-        });
-    </script>
+<script>
+    $('[name="rate"]').on('keyup', function(){
+        var rate = $(this).val();
+        $('[name="minimum_invoice_amt"]').attr('min', rate);
+    });
+</script>
 @endpush

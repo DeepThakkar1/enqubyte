@@ -16,7 +16,7 @@
         </div>
     </div>
     <!-- <hr> -->
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr>
@@ -32,7 +32,7 @@
                 <tr>
                     <td>{{$key + 1}}</td>
                     <td>
-                        <img src="{{ Avatar::create($visitor->fullname)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;"> 
+                        <img src="{{ Avatar::create($visitor->fullname)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;">
                         {{$visitor->fullname}}
                     </td>
                     <td>{{$visitor->email}}</td>
@@ -142,11 +142,11 @@
                     <div class="row form-group">
                         <div class="col-sm-6">
                             <label>First Name<sup class="error">*</sup></label>
-                            <input type="text" name="fname" class="form-control" placeholder="First name" required>
+                            <input type="text" name="fname" class="form-control" maxlength="25" placeholder="First name" required>
                         </div>
                         <div class="col-sm-6">
                             <label>Last Name<sup class="error">*</sup></label>
-                            <input type="text" name="lname" class="form-control" placeholder="Last name" required>
+                            <input type="text" name="lname" class="form-control" maxlength="25" placeholder="Last name" required>
                         </div>
                     </div>
                     <div class="row form-group">

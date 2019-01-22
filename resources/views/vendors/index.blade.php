@@ -15,7 +15,7 @@
             <a href="#addVendorModal" data-toggle="modal" class="btn btn-primary">Add Vendor</a>
         </div>
     </div>
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr>
@@ -145,7 +145,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Contact Person</label>
-                            <input type="text" name="contact_person" class="form-control" placeholder="Contact Person">
+                            <input type="text" name="contact_person" maxlength="50" class="form-control" placeholder="Contact Person">
                         </div>
                     </div>
                     <div class="row form-group">
