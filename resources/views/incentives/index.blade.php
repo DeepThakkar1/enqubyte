@@ -59,11 +59,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Rate<sup class="error">*</sup></label>
-                                                <input type="number" name="rate" class="form-control" required placeholder="Rate" value="{{$incentive->rate}}">
+                                                <input type="number" name="rate" class="form-control" required placeholder="Rate" value="{{$incentive->rate}}" required>
                                             </div>
                                             <div class="form-group divMinimumInviceAmt" style="display:{{$incentive->minimum_invoice_amt ? 'block' : 'none'}};">
                                                 <label>Minimum Invoice Amount<sup class="error">*</sup></label>
-                                                <input type="number" name="minimum_invoice_amt" class="form-control" value="{{$incentive->minimum_invoice_amt ? $incentive->minimum_invoice_amt : ''}}" placeholder="Minimum Invoice Amount">
+                                                <input type="number" name="minimum_invoice_amt" class="form-control" value="{{$incentive->minimum_invoice_amt ? $incentive->minimum_invoice_amt : ''}}" placeholder="Minimum Invoice Amount" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">

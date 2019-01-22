@@ -75,6 +75,14 @@ class EnquiriesController extends Controller
             'grand_total' => 'required'
         ]);
         $enquirySrno = Enquiry::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
+
+        $taxes = [];
+        if (request()->has('tax_amt') && count(request('tax_amt'))) {
+                        foreach (request('tax_amt') as $key => $tax_amt) {
+                $taxes[] = [request('tax_abbrivation')[$key] => $tax_amt];
+            }
+        }
+
         $enquiry = Enquiry::create([
             'sr_no' => $enquirySrno,
             'company_id' => auth()->id(),
@@ -87,8 +95,10 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
+            'taxes' => json_encode($taxes),
             'grand_total' => request('grand_total')
         ]);
+
         for ($i=0; $i < count(request('product_id')); $i++) {
             $enquiry->enquiryitems()->create([
                 'product_id' => request('product_id')[$i],
@@ -100,7 +110,7 @@ class EnquiriesController extends Controller
             ]);
         }
 
-        $enquiry->customer->notify(new NewEnquiry($enquiry, auth()->user()));
+       // $enquiry->customer->notify(new NewEnquiry($enquiry, auth()->user()));
 
         flash('Enquiry added successfully!');
         return redirect('/enquiries/'.$enquiry->sr_no);
@@ -163,6 +173,13 @@ class EnquiriesController extends Controller
             'grand_total' => 'required'
         ]);
 
+        $taxes = [];
+        if (request()->has('tax_amt') && count(request('tax_amt'))) {
+            foreach (request('tax_amt') as $key => $tax_amt) {
+                $taxes[] = [request('tax_abbrivation')[$key] => $tax_amt];
+            }
+        }
+
         $enquiry->update([
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
@@ -174,6 +191,7 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
+            'taxes' => $taxes,
             'grand_total' => request('grand_total')
         ]);
         $enquiry->enquiryitems()->delete();

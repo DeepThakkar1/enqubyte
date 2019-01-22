@@ -117,6 +117,18 @@
                     <div class="p-2 text-right subTotalAmount font-weight-bold">Subtotal :</div>
                 </div>
                 @if(!auth()->user()->taxmode)
+                    @foreach($invoice->taxes as $tax)
+                    <div class="d-flex flex-row-reverse">
+                        <div class="p-2 px-3"></div>
+                        <?php $key = key($tax); ?>
+                        <div class="p-2 taxAmount">
+                            {{ $tax->$key  }}
+                        </div>
+                        <div class="p-2 text-right font-weight-bold">{{ key($tax) }} :</div>
+                    </div>
+                    @endforeach
+                @endif
+                {{--@if(!auth()->user()->taxmode)
                 @foreach($invoicetaxes as $tax)
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
@@ -126,7 +138,7 @@
                     <div class="p-2 text-right font-weight-bold">{{$tax->abbreviation}} :</div>
                 </div>
                 @endforeach
-                @endif
+                @endif --}}
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
                     <div class="p-2">

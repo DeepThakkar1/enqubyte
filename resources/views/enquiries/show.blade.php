@@ -223,14 +223,19 @@
                                     </td>
                                     <td class="right border-top-0">&#8377; {{$enquiry->sub_tot_amt}}</td>
                                 </tr>
-                               {{--  <tr>
-                                    <td class="left grandTotalAmount">
-                                        <strong>Total</strong>
+                                @if(!auth()->user()->taxmode)
+                                @foreach($enquiry->taxes as $tax)
+                                <tr>
+                                    <td class="left">
+                                        <strong>{{ key($tax) }}</strong>
                                     </td>
-                                    <td class="right grandTotalAmount">
-                                        <strong>&#8377; {{$enquiry->grand_total}}</strong>
+                                    <?php $key = key($tax); ?>
+                                    <td class="right">
+                                        &#8377; {{ $tax->$key  }}
                                     </td>
-                                </tr> --}}
+                                </tr>
+                                @endforeach
+                                @endif
                                 <tr>
                                     <td class="left">
                                         <strong>Discount</strong>

@@ -43,7 +43,7 @@
                         <input type="text" class="form-control datepicker" autocomplete="off" name="due_date" placeholder="Due date">
                     </div>
                 </div>
-              <!--   <hr> -->
+
                 <div class="table-responsive m-0" style="position: relative;">
                     <table class="table table-invoiceItems">
                         <thead>
@@ -118,6 +118,8 @@
                     <div class="p-2 taxAmount{{$tax->id}}">
                         0
                     </div>
+                    <input type="hidden" name="tax_amt[]" class="inputTaxAmount{{$tax->id}}" value="0">
+                    <input type="hidden" name="tax_abbrivation[]" value="{{$tax->abbreviation}}" class="inputTaxAbbrivation{{$tax->id}}">
                     <div class="p-2 text-right font-weight-bold">{{$tax->abbreviation}} :</div>
                 </div>
                 @endforeach
@@ -385,6 +387,7 @@
             invoiceTotTaxAmt += invoiceTaxAmt;
 
             $('.taxAmount{{$tax->id}}').html(invoiceTaxAmt);
+            $('.inputTaxAmount{{$tax->id}}').val(invoiceTaxAmt);
             $("input[name='grand_total']").val(subTotal + invoiceTotTaxAmt);
             $("input[name='temp_grand_total']").val(subTotal + invoiceTotTaxAmt);
             $(".grandTotAmount").html(subTotal + invoiceTotTaxAmt);

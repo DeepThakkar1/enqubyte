@@ -209,6 +209,19 @@
                                     </td>
                                     <td class="right border-top-0" width="130">&#8377; {{$invoice->sub_tot_amt}}</td>
                                 </tr>
+                                @if(!auth()->user()->taxmode)
+                                @foreach($invoice->taxes as $tax)
+                                <tr>
+                                    <td class="left">
+                                        <strong>{{ key($tax) }}</strong>
+                                    </td>
+                                    <?php $key = key($tax); ?>
+                                    <td class="right">
+                                        &#8377; {{ $tax->$key  }}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endif
                                 <tr>
                                     <td class="left">
                                         <strong>Discount</strong>

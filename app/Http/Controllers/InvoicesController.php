@@ -82,6 +82,15 @@ class InvoicesController extends Controller
             }
         }
         $invoiceSrno = Invoice::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
+
+        $taxes = [];
+        if (request()->has('tax_amt') && count(request('tax_amt'))) {
+            foreach (request('tax_amt') as $key => $tax_amt) {
+                $taxes[] = [request('tax_abbrivation')[$key] => $tax_amt];
+            }
+        }
+        // dd($taxes);
+
         $invoice = Invoice::create([
             'sr_no' => $invoiceSrno,
             'company_id' => auth()->id(),
@@ -94,6 +103,7 @@ class InvoicesController extends Controller
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
             'grand_total' => request('grand_total'),
+            'taxes' => json_encode($taxes),
             'remaining_amount' => request('grand_total')
         ]);
 

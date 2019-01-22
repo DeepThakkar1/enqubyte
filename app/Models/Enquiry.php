@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class Enquiry extends Model
 {
     protected $fillable = [
-       'sr_no', 'customer_id', 'company_id', 'employee_id', 'store_id', 'followup_date', 'followup_time', 'date','enquiry_date', 'sub_tot_amt', 'grand_total', 'status', 'discount_type', 'discount'
+       'sr_no', 'customer_id', 'company_id', 'employee_id', 'store_id', 'followup_date', 'followup_time', 'date','enquiry_date', 'sub_tot_amt', 'grand_total', 'status', 'discount_type', 'discount', 'taxes'
     ];
 
     public function company()
@@ -50,5 +50,10 @@ class Enquiry extends Model
     public function invoice()
     {
         return $this->hasOne(Invoice::class);
+    }
+
+    public function getTaxesAttribute()
+    {
+        return json_decode($this->attributes['taxes']);
     }
 }
