@@ -79,7 +79,7 @@
                 <div class="card-header bg-light">
                     <h5 class="m-0">Today's Followups</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-0">
                 @if(count($followups))    
                 <ul class="list-group no-rounded-corners" style="max-height: 373px;overflow-y: auto;">
                      @foreach($followups as $followup)
@@ -109,6 +109,17 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-5 col-sm-5 mb-3">
+            <div class="card" style="height: 373px;">
+                <div class="card-header bg-light">
+                    <h5 class="m-0">Due Invoices</h5>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="list-group no-rounded-corners" style="max-height: 373px;overflow-y: auto;">
+                    </ul>    
+                </div>
+            </div>
+        </div>            
     </div>    
 </div>
 {{-- @include('components.demo.demomodal') --}}

@@ -849,8 +849,15 @@ a.upgrade-product-nav p{
 }
 
 .list-group.no-rounded-corners .list-group-item{
-  border-radius: 0;
+    border-radius: 0;
 }
+
+.card-body .list-group.no-rounded-corners .list-group-item
+{
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
 
 .bg-light {
   background: #fafafa !important;
