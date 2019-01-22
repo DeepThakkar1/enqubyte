@@ -70,6 +70,11 @@
         <div class="col-xl-7 col-sm-7 mb-3">
             <div class="card">
                 <div class="card-body">
+                    @if(!$enquiriesCnt)
+                    <div class="chart-overlay">
+                        <p>This is a sample chart.</p>
+                    </div>
+                    @endif
                     <canvas id="enquiriesPieChart" width="100%"></canvas>
                 </div>
             </div>
@@ -94,7 +99,7 @@
                         @endforeach
                 </ul>
                  @else
-                      <h4>No Follow-ups Today!</h4>
+                      <h4 class="p-3">No Follow-ups Today!</h4>
                  @endif
                 </div>
             </div>
@@ -105,6 +110,11 @@
         <div class="col-xl-7 col-sm-7 mb-3">
             <div class="card">
                 <div class="card-body">
+                    @if(!$totalSale)
+                        <div class="chart-overlay">
+                            <p>This is a sample chart.</p>
+                        </div>
+                    @endif
                     <canvas id="dailyLineChart" width="100%"></canvas>
                 </div>
             </div>
@@ -135,9 +145,9 @@ var color = Chart.helpers.color;
             data: {
                 datasets: [{
                     data: [
-                        {{$cancelledEnqCnt}},
-                        {{$convertedEnqCnt}},
-                        {{$pendingEnqCnt}},
+                        {{$enquiriesCnt > 0 ? $cancelledEnqCnt : 8 }},
+                        {{$enquiriesCnt > 0 ? $convertedEnqCnt : 12}},
+                        {{$enquiriesCnt > 0 ? $pendingEnqCnt : 7}},
                     ],
                     backgroundColor: [
                         window.chartColors.red,
@@ -153,7 +163,73 @@ var color = Chart.helpers.color;
                 ]
             },
             options: {
-                responsive: true
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Enquiry Statistics'
+                },
+            }
+        };
+
+        var lineConfig = {
+            type: 'line',
+            data: {
+                @if($totalSale)
+                    labels: {!! json_encode(getDaywiseSales()['dates']) !!},
+                @else
+                    labels: {!! json_encode(getLastNDays(7)) !!},
+                        
+                @endif
+                datasets: [{
+                    label: 'Sales',
+                    fill: false,
+                    backgroundColor: window.chartColors.blue,
+                    borderColor: window.chartColors.blue,
+                    @if($totalSale)
+                         data: {!! json_encode(getDaywiseSales()['sales']) !!},
+                    @else
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                    @endif
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Daily Sales Chart'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Day'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Sale'
+                        }
+                    }]
+                }
             }
         };
 
@@ -161,12 +237,10 @@ var color = Chart.helpers.color;
             var pieChart = document.getElementById('enquiriesPieChart').getContext('2d');
             window.myPie = new Chart(pieChart, config);
 
+            var sampleLineData = [20, 10];
+            var sampleLineLabels = ['12-01-2019', '13-01-2019']
             var lineChart = document.getElementById('dailyLineChart').getContext('2d');
-            window.myLineChart = new Chart(lineChart, {
-                type: 'line',
-                data: data,
-                options: options
-            });
+            window.myLineChart = new Chart(lineChart, lineConfig);
         };
 
 </script>
