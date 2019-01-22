@@ -104,7 +104,7 @@
                  @endif
                 </div>
 
-               
+
 
             </div>
         </div>
@@ -145,7 +145,7 @@
                     @endforeach
                 </ul>
                 @else
-                <h4>No Due Invoices!</h4>
+                <h4 class="p-3">No Due Invoices!</h4>
                 @endif
             </div>
         </div>
@@ -199,7 +199,7 @@
                     labels: {!! json_encode(getDaywiseSales()['dates']) !!},
                 @else
                     labels: {!! json_encode(getLastNDays(7)) !!},
-                        
+
                 @endif
                 datasets: [{
                     label: 'Sales',
@@ -254,14 +254,14 @@
             }
         };
 
-      
+
 
     window.onload = function() {
         var pieChart = document.getElementById('enquiriesPieChart').getContext('2d');
         window.myPie = new Chart(pieChart, config);
 
 
-           
+
         var lineChart = document.getElementById('dailyLineChart').getContext('2d');
         window.myLineChart = new Chart(lineChart, lineConfig);
     };
