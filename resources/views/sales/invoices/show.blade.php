@@ -85,7 +85,7 @@
 
     <div class="card">
         <div class="card-body">
-            <div class="d-flex p-md-3">
+            <div class="d-md-flex p-md-3">
                 <div class="px-4">
                     <h3 class="text-size-heading">INV-00{{$invoice->sr_no}}</h3>
                     <div class=""><b>Created:</b> {{$invoice->created_at->diffForHumans()}}</div>

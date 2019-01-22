@@ -58,7 +58,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-12">
-                                <button style="height: 45px;" type="submit" class="btn btn-primary d-block w-100">
+                                <button style="" type="submit" class="btn btn-primary d-block w-100">
                                     {{ __('Reset Password') }}
                                 </button>
                             </div>

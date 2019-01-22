@@ -79,7 +79,7 @@
                 <div class="card-header bg-light">
                     <h5 class="m-0">Today's Followups</h5>
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body p-md-0">
                 @if(count($followups))    
                 <ul class="list-group no-rounded-corners" style="max-height: 373px;overflow-y: auto;">
                      @foreach($followups as $followup)
