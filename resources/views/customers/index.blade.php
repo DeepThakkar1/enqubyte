@@ -15,7 +15,7 @@
             <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary">Add Customer</a>
         </div>
     </div>
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr>

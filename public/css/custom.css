@@ -132,7 +132,7 @@ body{
     max-width: 100% !important;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
-    margin-right: 0px !important;
+    /*margin-right: 0px !important;*/
 }
 
 .modal.welcome-enqubyte-modal  {
@@ -344,7 +344,7 @@ table.dataTable thead th{
 }
 .user-login-image-section{
   background: #1b6dab9c !important;
-  height: 100vh;
+  /*height: 100vh;*/
 }
 .user-login-input-custom{
   width: auto !important;

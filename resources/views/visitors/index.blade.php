@@ -16,7 +16,7 @@
         </div>
     </div>
     <!-- <hr> -->
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr>

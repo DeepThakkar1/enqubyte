@@ -106,7 +106,7 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td class="title">
+                            <td class="title invoice-verification-section">
                                 <img src="/img/logo.png" style="width:100%; max-width:240px;">
                             </td>
                             

@@ -13501,6 +13501,9 @@ input[type=number] {
     text-align: left !important;
     vertical-align: middle !important;
 }
+.custom-nav-content{
+    margin-top: 4px;
+}
 .features-section {
     padding-left: 48px;
     margin-top: 0px !important;
@@ -13599,10 +13602,74 @@ p.simple-pricing-text{
 .business-agenda-img img{
     width: 50px;
 }
+.privacy-policy-header-section{
+    font-size: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.terms-and-condition-header-section{
+    font-size: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.terms-and-condition-header-section h2{
+    color: #000; 
+    font-size: 34px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+.privacy-policy-header-section h2{
+    color: #000;
+    font-size: 34px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+.simple-pricing-section{
+    display: block !important;
+}
+.custom-request-demo-button{
+    background-color: #fff !important;
+    color: #1b6dab !important;
+    border-color: #000 !important;
+    border: 1px solid #1b6dab !important;
+    width: 220px;
+}
+
 /*tr.product-list-menu th{
     border-bottom: 1px solid #dee2e6 !important;
 }*/
 @media(max-width: 768px){
+    .simple-pricing-section{
+        display: block !important;
+    }
+    .terms-and-condition-header-section h2{
+        font-size: 28px;
+        padding-bottom: 28px;
+    }
+    .terms-and-condition-header-section{
+        font-size: 20px;
+        padding-top: 40px;
+    }
+    .privacy-policy-header-section h2{
+        font-size: 28px;
+        padding-bottom: 26px; 
+    }
+    .privacy-policy-header-section{
+        font-size: 20px;
+        padding-top: 40px;
+    }
+    .custom-terms-services-content .business-wrapper p {
+        font-size: 14px !important;
+    }
+    .custom-terms-services-content .business-wrapper h3{
+        font-size: 19px !important;
+        margin-top: 6px;
+    }
+    .custom-terms-services-content .business-wrapper h4{
+        font-size: 18px !important;
+    }
     .copyright {
         height: 80px !important;
     }
@@ -13619,11 +13686,11 @@ p.simple-pricing-text{
     .custom-get-started-button{
         margin-top: 10px !important;
         margin-left: 0px !important;
-        width: 100% !important;
+        /*width: 100% !important;*/
     }
-    .desktop-enquiries{
+    /*.desktop-enquiries{
         display: block !important;
-    }
+    }*/
     .agency-banner6.feature-banner-custom{
         min-height: 455px !important;
     }
@@ -13632,7 +13699,7 @@ p.simple-pricing-text{
     }
     .features-banner-image-section {
         padding-left: 16px;
-        margin-bottom: 40px !important;
+        margin-bottom: 30px !important;
     }
     .get-started-input{
         width: 100% !important;
@@ -13659,7 +13726,7 @@ p.simple-pricing-text{
         margin-top: 0px;
     }
     .get-started-now-button{
-        margin-top: 20px;
+        margin-top: 30px;
         margin-bottom: 55px;
     }
     p.simple-pricing-text{
@@ -13677,7 +13744,7 @@ p.simple-pricing-text{
         text-align: center;
     }
     .desktop-enquiries{
-        display: none;
+        display: none !important;
     }
     .xs-section-padding-bottom {
         padding-bottom: 50px;
@@ -13790,9 +13857,9 @@ p.simple-pricing-text{
     .custom-manage-enquiries{
         padding-bottom: 40px !important;
     }
-    .desktop-enquiries{
+    /*.desktop-enquiries{
         display: block;
-    }
+    }*/
     .section-padding-medium2{
         padding: 45px 0 !important;
         padding-bottom: 40px !important;
@@ -13916,4 +13983,5 @@ input.get-started:focus {
 .custom-get-started-button{
     margin-top: -2px;
     margin-left: 5px;
+    width: 220px;
 }

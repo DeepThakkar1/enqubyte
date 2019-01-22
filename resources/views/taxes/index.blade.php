@@ -6,7 +6,7 @@
         <h2 class="d-inline-block headline-content"><span><a href="/home"> Home  </a><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i></span> Taxes</h2>
         <a href="#addTaxModal" data-toggle="modal" class="btn btn-primary custom-back-btn float-right">Add Tax</a>
         </div>
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table dataTable">
             <thead>
                 <tr>

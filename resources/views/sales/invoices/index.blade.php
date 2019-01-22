@@ -20,7 +20,7 @@
         </div>
     </div>
     @include('components.filters.datefilter')
-    <div class="">
+    <div class="table-responsive-sm">
         <table class="table descDataTable">
             <thead>
                 <tr class="product-list-menu">

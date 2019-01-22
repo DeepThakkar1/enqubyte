@@ -84,12 +84,13 @@
                 <div class="card-header bg-light">
                     <h5 class="m-0">Today's Followups</h5>
                 </div>
-                <div class="card-body p-0">
-                    @if(count($followups))
-                    <ul class="list-group no-rounded-corners" style="max-height: 373px;overflow-y: auto;">
-                       @foreach($followups as $followup)
-                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
+
+                <div class="card-body p-md-0">
+                @if(count($followups))    
+                <ul class="list-group no-rounded-corners" style="max-height: 373px;overflow-y: auto;">
+                     @foreach($followups as $followup)
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
                             <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
                             <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
                             <div class="text-muted"><small><i class="fa fa-calendar"></i> {{$followup->followup_date}}  {{$followup->followup_time}}</small></div>

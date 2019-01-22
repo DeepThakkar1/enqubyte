@@ -15,7 +15,7 @@
             <a href="#addProductModal" data-toggle="modal" class="btn btn-primary">Add Product</a>
         </div>
     </div>
-    <div class=" product-add-list">
+    <div class="table-responsive-sm product-add-list">
         <table class="table dataTable">
             <thead>
                 <tr class="product-list-menu">

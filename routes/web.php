@@ -219,6 +219,8 @@ Route::post('setup', 'HomeController@setup');
 Route::get('redirecting', 'PaymentsController@redirecting');
 Route::get('subscribed', 'PaymentsController@subscribed');
 
+Route::post('/requestdemo','RequestDemoController@store');
+
 /*Route::domain('{username}.enqubyte.com')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });*/
