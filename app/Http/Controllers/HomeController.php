@@ -35,6 +35,7 @@ class HomeController extends Controller
 
         $totalPurchase = auth()->user()->purchases->sum('grand_total');
         $incentives = auth()->user()->invoices()->sum('incentive_amt');
+        $dueInvoices = auth()->user()->invoices()->where('due_date', '<=', date('d-m-Y'))->where('remaining_amount', '!=', 0)->get();
         $expenses = $totalPurchase + $incentives;
         $profit = $totalSale - $expenses;
 
@@ -42,7 +43,7 @@ class HomeController extends Controller
         $convertedEnqCnt = auth()->user()->enquiries()->where('status', 1)->count();
         $cancelledEnqCnt = auth()->user()->enquiries()->where('status', -1)->count();
 
-        return view('home', compact('followups', 'enquiriesCnt', 'totalSale', 'totalPurchase', 'totalEarned', 'expenses', 'profit', 'pendingEnqCnt', 'convertedEnqCnt', 'cancelledEnqCnt'));
+        return view('home', compact('followups', 'enquiriesCnt', 'totalSale', 'totalPurchase', 'totalEarned', 'expenses', 'profit', 'pendingEnqCnt', 'convertedEnqCnt', 'cancelledEnqCnt','dueInvoices'));
 
     }
 
@@ -53,14 +54,14 @@ class HomeController extends Controller
 
     public function setup()
     {
-       
+
         if(!auth()->user()->account_setup)
         {
             // Add Default Taxes
             auth()->user()->taxes()->delete();
             auth()->user()->taxes()->create(['name' => 'CGST', 'abbreviation' => 'CGST(9%)', 'rate' => 9]);
             auth()->user()->taxes()->create(['name' => 'SGST', 'abbreviation' => 'SGST(9%)', 'rate' => 9]);
-        
+
             auth()->user()->account_setup = 1;
             auth()->user()->taxmode = 0;
             auth()->user()->invoicetaxes = implode(',', auth()->user()->taxes()->pluck('id')->toArray());
@@ -71,7 +72,7 @@ class HomeController extends Controller
             $reportsSettings['yearly'] =  1;
             auth()->user()->reportfrequency()->create($reportsSettings);
        }
-       
+
         return response(['success', 200]);
     }
 
@@ -79,7 +80,7 @@ class HomeController extends Controller
     {
         auth()->user()->account_setup = 0;
         auth()->user()->save();
-        
+
         return redirect('setup');
     }
 }
