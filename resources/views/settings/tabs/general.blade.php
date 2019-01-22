@@ -29,15 +29,16 @@
         @csrf
         <div class="card mb-3">
             <div class="card-header" style="background-color: #fff;">
-                Tax
+                <h6>Tax Mode</h6> 
+                <small style="font-size: 13px;display: block;color: #1b6dab;font-weight: 400;"><i class="fas fa-info-circle"></i> Choose the way tax is added to your receipts. It can either be applied to each product seperately or on subtotal.</small>
             </div>
             <div class="card-body py-4">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="perProductRadio" name="taxmode" value="1" {{auth()->user()->taxmode ? '' : 'checked'}} class="custom-control-input">
+                    <input type="radio" id="perProductRadio" name="taxmode" value="1" {{auth()->user()->taxmode ? 'checked' : ''}} class="custom-control-input">
                     <label class="custom-control-label pt-1 pr-3 pl-1" for="perProductRadio">Tax on Product</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="perInvoiceRadio" name="taxmode" value="0" {{auth()->user()->taxmode ? 'checked' : ''}} class="custom-control-input">
+                    <input type="radio" id="perInvoiceRadio" name="taxmode" value="0" {{auth()->user()->taxmode ? '' : 'checked'}} class="custom-control-input">
                     <label class="custom-control-label pt-1 pr-3 pl-1" for="perInvoiceRadio">Tax on Sub Total</label>
                 </div>
                 <div class="row mt-3" style="display: none;">
@@ -48,10 +49,13 @@
                             <option value="0" {{in_array(0, $invoicetaxes) ? 'selected' : ''}}>None</option>
                             <?php $taxes = getTaxes() ?>
                             @foreach($taxes as $key => $tax)
-                            <option value="{{$tax->rate}}" {{in_array($tax->rate , $invoicetaxes) ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
+                            <option value="{{$tax->id}}" {{in_array($tax->id , $invoicetaxes) ? 'selected' : ''}}>{{$tax->abbreviation}}</option>
                             @endforeach
                         </select>
                     </div>
+                    <div class="col-sm-4 mt-1">
+                        <a href="/taxes" class="btn btn-link">Edit Default Taxes</a>
+                    </div>  
                 </div>
             </div>
             <div class="card-footer">
@@ -64,7 +68,8 @@
         @csrf
         <div class="card">
             <div class="card-header" style="background-color: #fff;">
-                Report Frequency
+                <h6>Reports Frequency</h6> 
+                <small style="font-size: 13px;display: block;color: #1b6dab;font-weight: 400;"><i class="fas fa-info-circle"></i> At what frequency your business reports should be mailed to you.</small>
             </div>
             <div class="card-body py-4">
                 <div class="custom-control custom-checkbox d-inline-block">
@@ -100,7 +105,7 @@
     $('[name="taxmode"]').on('click', function(){
         var taxmode = $(this).val();
         console.log(taxmode);
-        if(taxmode == 1){
+        if(taxmode == 0){
             $('.selectMultipleTax').parents('.row').show();
         }else{
             $('.selectMultipleTax').parents('.row').hide();

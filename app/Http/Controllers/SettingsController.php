@@ -102,7 +102,7 @@ class SettingsController extends Controller
     public function taxmode(Request $request)
     {
         $newData = $request->all();
-        if($newData['taxmode'] == 0){
+        if($newData['taxmode'] == 1){
             $newData['invoicetaxes'] = null;
         }else{
             $newData['invoicetaxes'] = implode(',', $newData['invoicetaxes']);

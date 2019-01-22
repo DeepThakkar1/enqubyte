@@ -188,7 +188,9 @@
                                 <th>Description</th>
                                 <th class="right">Price</th>
                                 <th class="center">Qty</th>
+                                @if(auth()->user()->taxmode)
                                 <th class="center">Tax</th>
+                                @endif
                                 <th class="right">Total</th>
                             </tr>
                         </thead>
@@ -200,7 +202,9 @@
                                 <td class="left">{{$item->product->description}}</td>
                                 <td class="right">&#8377; {{$item->price}}</td>
                                 <td class="center">{{$item->qty}}</td>
-                                <td class="center">{{$item->tax}} %</td>
+                                 @if(auth()->user()->taxmode)
+                                    <td class="center">{{$item->tax}} %</td>
+                                 @endif
                                 <td class="right">&#8377; {{$item->product_tot_amt}}</td>
                             </tr>
                             @endforeach
@@ -219,6 +223,14 @@
                                     </td>
                                     <td class="right border-top-0">&#8377; {{$enquiry->sub_tot_amt}}</td>
                                 </tr>
+                               {{--  <tr>
+                                    <td class="left grandTotalAmount">
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="right grandTotalAmount">
+                                        <strong>&#8377; {{$enquiry->grand_total}}</strong>
+                                    </td>
+                                </tr> --}}
                                 <tr>
                                     <td class="left">
                                         <strong>Discount</strong>

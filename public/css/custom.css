@@ -841,3 +841,17 @@ a.upgrade-product-nav p{
     border: none;
     border-radius: 7px !important;
 }
+
+.modal-product-popup-section p {
+  color: #000;
+  font-weight: 400;
+  font-size: 17px;
+}
+
+.list-group.no-rounded-corners .list-group-item{
+  border-radius: 0;
+}
+
+.bg-light {
+  background: #fafafa !important;
+}

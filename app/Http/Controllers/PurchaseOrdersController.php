@@ -44,7 +44,7 @@ class PurchaseOrdersController extends Controller
 
         if(isset(auth()->user()->invoicetaxes)){
             $taxIds = explode(',', auth()->user()->invoicetaxes);
-            $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+            $invoicetaxes = Tax::whereIn('id', $taxIds)->get();
             return view('purchases.create', compact('vendors', 'products', 'purchaseSrno', 'invoicetaxes'));
         }else{
             return view('purchases.create', compact('vendors', 'products', 'purchaseSrno'));
@@ -129,7 +129,7 @@ class PurchaseOrdersController extends Controller
 
         if(isset(auth()->user()->invoicetaxes)){
             $taxIds = explode(',', auth()->user()->invoicetaxes);
-            $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+            $invoicetaxes = Tax::whereIn('id', $taxIds)->get();
             return view('purchases.edit', compact('purchaseOrder', 'vendors', 'products', 'purchaseitems', 'invoicetaxes'));
         }else{
             return view('purchases.edit', compact('purchaseOrder', 'vendors', 'products', 'purchaseitems'));

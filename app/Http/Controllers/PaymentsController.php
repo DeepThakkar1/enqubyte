@@ -47,6 +47,21 @@ class PaymentsController extends Controller
     	return view('payments.invoice', compact('transaction'));
     }
 
+    public function redirecting()
+    {
+    	$plan = PlanModel::where('name', 'All-in-one monthly')->first();
+            if(env('APP_ENV') != 'local'){
+                $instamojoFormUrl = 
+                    Mojo::giveMeFormUrl(auth()->user(), $plan->price, 'Monthly Subscription', '9922367414');
+            } else {
+                $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+                $instamojoFormUrl = '/subscribed';
+            }
+			
+			return view('payments.redirecting', compact('instamojoFormUrl'));
+    	
+    }
+
     public function subscribed()
     {
     	return view('payments.subscribed');

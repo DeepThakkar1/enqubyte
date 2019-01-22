@@ -67,40 +67,49 @@
     </div>
 
     <div class="row m-3">
-        <div class="col-xl-5 col-sm-5 mb-3">
-            <ul class="list-group">
-                <li class="list-group-item bg-light d-flex justify-content-between align-items-center">
-                    <h5 class="m-0">Today's Followups</h5>
-                </li>
-                @if(count($followups))
-                    @foreach($followups as $followup)
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                        <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
-                        <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
-                        <div class="text-muted"><small><i class="fa fa-calendar"></i> {{$followup->followup_date}}  {{$followup->followup_time}}</small></div>
-                        </div>
-                        <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-phone"></i> {{$followup->customer->phone}}</a>
-                    </li>
-                    @endforeach
-                @else
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <h4>No Follow-ups Today!</h4>
-                </li>
-                @endif
-            </ul>
-        </div>
         <div class="col-xl-7 col-sm-7 mb-3">
             <div class="card">
-                <div class="card-header">
-                    <h5 class="m-0">Statistics</h5>
+                <div class="card-body">
+                    <canvas id="enquiriesPieChart" width="100%"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5 col-sm-5 mb-3">
+            <div class="card" style="height: 373px;">
+                <div class="card-header bg-light">
+                    <h5 class="m-0">Today's Followups</h5>
                 </div>
                 <div class="card-body">
-                    <canvas id="dashboardBarChart" width="100%"></canvas>
+                @if(count($followups))    
+                <ul class="list-group no-rounded-corners" style="max-height: 373px;overflow-y: auto;">
+                     @foreach($followups as $followup)
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                            <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
+                            <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
+                            <div class="text-muted"><small><i class="fa fa-calendar"></i> {{$followup->followup_date}}  {{$followup->followup_time}}</small></div>
+                            </div>
+                            <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-phone"></i> {{$followup->customer->phone}}</a>
+                        </li>
+                        @endforeach
+                </ul>
+                 @else
+                      <h4>No Follow-ups Today!</h4>
+                 @endif
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row m-3">
+        <div class="col-xl-7 col-sm-7 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="dailyLineChart" width="100%"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>    
 </div>
 {{-- @include('components.demo.demomodal') --}}
 @endsection
@@ -138,8 +147,15 @@ var color = Chart.helpers.color;
         };
 
         window.onload = function() {
-            var ctx = document.getElementById('dashboardBarChart').getContext('2d');
-            window.myPie = new Chart(ctx, config);
+            var pieChart = document.getElementById('enquiriesPieChart').getContext('2d');
+            window.myPie = new Chart(pieChart, config);
+
+            var lineChart = document.getElementById('dailyLineChart').getContext('2d');
+            window.myLineChart = new Chart(lineChart, {
+                type: 'line',
+                data: data,
+                options: options
+            });
         };
 
 </script>

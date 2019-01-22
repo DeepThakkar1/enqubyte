@@ -212,6 +212,10 @@ Route::post(
     '\Lubusin\Mojo\Controllers\WebhookController@handleWebhook'
 );
 
+Route::get('reset', 'HomeController@reset');
+Route::get('setup', 'HomeController@showSetup');
+Route::post('setup', 'HomeController@setup');
+Route::get('redirecting', 'PaymentsController@redirecting');
 Route::get('subscribed', 'PaymentsController@subscribed');
 
 /*Route::domain('{username}.enqubyte.com')->group(function () {

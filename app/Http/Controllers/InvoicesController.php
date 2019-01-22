@@ -51,7 +51,7 @@ class InvoicesController extends Controller
 
         if(isset(auth()->user()->invoicetaxes)){
             $taxIds = explode(',', auth()->user()->invoicetaxes);
-            $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+            $invoicetaxes = Tax::whereIn('id', $taxIds)->get();
             return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoiceSrno', 'invoicetaxes'));
         }else{
             return view('sales.invoices.create', compact('salesmans', 'customers', 'products', 'invoiceSrno'));
@@ -172,7 +172,7 @@ class InvoicesController extends Controller
 
             if(isset(auth()->user()->invoicetaxes)){
                 $taxIds = explode(',', auth()->user()->invoicetaxes);
-                $invoicetaxes = Tax::whereIn('rate', $taxIds)->get();
+                $invoicetaxes = Tax::whereIn('id', $taxIds)->get();
                 return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems', 'invoicetaxes'));
             }else{
                 return view('sales.invoices.edit', compact('salesmans', 'invoice', 'customers', 'products', 'invoiceitems'));

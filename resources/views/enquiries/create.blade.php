@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Follow Up Date</label>
-                        <input type="text" class="form-control enddatepicker" name="followup_date" autocomplete="off" placeholder="Enquiry followup date">
+                        <input type="text" class="form-control datepicker" name="followup_date" autocomplete="off" placeholder="Enquiry followup date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Follow Up Time</label>

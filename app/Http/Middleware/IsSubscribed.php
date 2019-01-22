@@ -27,16 +27,8 @@ class IsSubscribed
             {
                 return redirect('billing');
             }
-            
-            $plan = PlanModel::where('name', 'All-in-one monthly')->first();
-            if(env('APP_ENV') != 'local'){
-                $instamojoFormUrl = 
-                    Mojo::giveMeFormUrl($request->user(), $plan->price, 'Monthly Subscription', '9922367414');
-                 return redirect($instamojoFormUrl);
-            } else {
-                $subscription = $request->user()->subscribeTo($plan, 30); // 30 days
-                return redirect('subscribed');
-            }
+
+            return redirect('redirecting');
             
         }
         return $next($request);
