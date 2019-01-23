@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseOrder extends Model
 {
     protected $fillable = [
-        'sr_no', 'company_id', 'store_id', 'order_id', 'vendor_id', 'due_date', 'purchase_date', 'sub_tot_amt', 'grand_total', 'order_scan_copy', 'remaining_amount', 'status', 'discount', 'discount_type'
+        'sr_no', 'company_id', 'store_id', 'order_id', 'vendor_id', 'due_date', 'purchase_date', 'sub_tot_amt', 'grand_total', 'order_scan_copy', 'remaining_amount', 'status', 'discount', 'discount_type', 'taxes'
     ];
 
     public function company()
@@ -38,5 +38,10 @@ class PurchaseOrder extends Model
     public function payments()
     {
         return $this->hasMany(PurchaseOrderRecordPayment::class);
+    }
+
+    public function getTaxesAttribute()
+    {
+        return json_decode($this->attributes['taxes']);
     }
 }
