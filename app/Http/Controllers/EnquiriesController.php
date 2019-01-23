@@ -176,10 +176,14 @@ class EnquiriesController extends Controller
         $taxes = [];
         if (request()->has('tax_amt') && count(request('tax_amt'))) {
             foreach (request('tax_amt') as $key => $tax_amt) {
-                $taxes[] = [request('tax_abbrivation')[$key] => $tax_amt];
+                if (!$tax_amt) {
+                    $taxes[] = [request('old_tax_abbrivation')[$key] => request('old_tax_amt')[$key]];
+                }
+                else{
+                    $taxes[] = [request('tax_abbrivation')[$key] => $tax_amt];
+                }
             }
         }
-
         $enquiry->update([
             'company_id' => auth()->id(),
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
@@ -191,7 +195,7 @@ class EnquiriesController extends Controller
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
-            'taxes' => $taxes,
+            'taxes' => json_encode($taxes),
             'grand_total' => request('grand_total')
         ]);
         $enquiry->enquiryitems()->delete();
@@ -243,6 +247,7 @@ class EnquiriesController extends Controller
                 'discount_type' => $enquiry->discount_type,
                 'discount' => !empty($enquiry->discount) ? $enquiry->discount : 0,
                 'grand_total' => $enquiry->grand_total,
+                'taxes' => json_encode($enquiry->taxes),
                 'remaining_amount' => $enquiry->grand_total
             ]);
 

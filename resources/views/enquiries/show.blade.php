@@ -9,7 +9,7 @@
         <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/enquiries/{{$enquiry->id}}/download" class="btn custom-back-btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/enquiries/{{$enquiry->id}}/download" class="btn custom-back-btn btn-light"><i class="fas fa-file-download"></i> Download</a>
                 </div>
             </div>
         </div>

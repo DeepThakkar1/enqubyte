@@ -157,6 +157,17 @@ class PurchaseOrdersController extends Controller
      */
     public function update(Request $request, PurchaseOrder $purchaseOrder)
     {
+        $taxes = [];
+        if (request()->has('tax_amt') && count(request('tax_amt'))) {
+            foreach (request('tax_amt') as $key => $tax_amt) {
+                if (!$tax_amt) {
+                    $taxes[] = [request('old_tax_abbrivation')[$key] => request('old_tax_amt')[$key]];
+                }
+                else{
+                    $taxes[] = [request('tax_abbrivation')[$key] => $tax_amt];
+                }
+            }
+        }
         $scanCopy = '';
         if(request()->has('order_scan_copy'))
         {
@@ -178,6 +189,7 @@ class PurchaseOrdersController extends Controller
             'discount' => !empty(request('discount')) ? request('discount') : 0,*/
             'grand_total' => request('grand_total'),
             'remaining_amount' => request('grand_total'),
+            'taxes' => json_encode($taxes),
             'order_scan_copy' => $scanCopy
         ]);
 

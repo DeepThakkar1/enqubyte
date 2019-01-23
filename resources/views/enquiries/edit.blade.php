@@ -131,15 +131,30 @@
                 </div>
                 @if(!auth()->user()->taxmode && isset($enquiry->taxes))
                     @foreach($enquiry->taxes as $tax)
-                    <div class="d-flex flex-row-reverse">
+                    <div class="d-flex flex-row-reverse oldTax">
                         <div class="p-2 px-3"></div>
                         <?php $key = key($tax); ?>
                         <div class="p-2 taxAmount">
                             {{ $tax->$key  }}
                         </div>
+                        <input type="hidden" name="old_tax_amt[]" value="{{ $tax->$key }}">
+                        <input type="hidden" name="old_tax_abbrivation[]" value="{{ key($tax)  }}" >
                         <div class="p-2 text-right font-weight-bold">{{ key($tax) }} :</div>
                     </div>
                     @endforeach
+                @endif
+                @if(!auth()->user()->taxmode)
+                @foreach($invoicetaxes as $tax)
+                <div class="d-flex flex-row-reverse newTax" style="display: none !important;">
+                    <div class="p-2 px-3"></div>
+                    <div class="p-2 taxAmount{{$tax->id}}">
+                        0
+                    </div>
+                    <input type="hidden" name="tax_amt[]" class="inputTaxAmount{{$tax->id}}" value="0">
+                    <input type="hidden" name="tax_abbrivation[]" value="{{$tax->abbreviation}}" class="inputTaxAbbrivation{{$tax->id}}">
+                    <div class="p-2 text-right font-weight-bold">{{$tax->abbreviation}} :</div>
+                </div>
+                @endforeach
                 @endif
                 <div class="d-flex flex-row-reverse">
                     <div class="p-2 px-3"></div>
@@ -177,6 +192,8 @@
 @push('js')
 <script type="text/javascript">
     $('.table-enquiryItems').on('change', '.select-product', function(){
+        $('.oldTax').attr("style", "display: none !important");
+        $('.newTax').show();
         var productId = $(this).val();
         var row = $(this).parents('tr');
         row.find('.input-qty').val(1);
@@ -213,6 +230,8 @@
     });
 
     $('.table-enquiryItems').on('keyup', '.input-qty', function(){
+        $('.oldTax').attr("style", "display: none !important");
+        $('.newTax').show();
         var row = $(this).parents('tr');
         var qty = parseFloat($(this).val());
         var price = parseFloat(row.find('.input-price').val());
@@ -229,6 +248,8 @@
     });
 
     $('.table-enquiryItems').on('keyup', '.input-price', function(){
+        $('.oldTax').attr("style", "display: none !important");
+        $('.newTax').show();
         var row = $(this).parents('tr');
         var price = parseFloat($(this).val());
         var qty = parseFloat(row.find('.input-qty').val());
@@ -258,6 +279,8 @@
     var grandTotal = $('[name="grand_total"]').val();
 
     $('[name="discount"]').on('keyup change', function(){
+        $('.oldTax').attr("style", "display: none !important");
+        $('.newTax').show();
         var subTotal = parseFloat($('[name="sub_tot_amt"]').val());
         var tempGrandTotal = parseFloat($('[name="temp_grand_total"]').val());
         var discountType = $('[name="discount_type"]').val();
@@ -279,6 +302,8 @@
     });
 
     $('[name="discount_type"]').on('change', function(){
+        $('.oldTax').attr("style", "display: none !important");
+        $('.newTax').show();
         $('[name="discount"]').val(0);
         var subTotal = parseFloat($('[name="sub_tot_amt"]').val());
         var tempGrandTotal = parseFloat($('[name="temp_grand_total"]').val());
@@ -401,6 +426,7 @@
             invoiceTotTaxAmt += invoiceTaxAmt;
 
             $('.taxAmount{{$tax->id}}').html(invoiceTaxAmt);
+            $('.inputTaxAmount{{$tax->id}}').val(invoiceTaxAmt);
             $("input[name='grand_total']").val(subTotal + invoiceTotTaxAmt);
             $("input[name='temp_grand_total']").val(subTotal + invoiceTotTaxAmt);
             $(".grandTotAmount").html(subTotal + invoiceTotTaxAmt);

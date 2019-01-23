@@ -12,7 +12,7 @@
         <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/sales/invoices/{{$invoice->id}}/download" class="btn btn-light custom-back-btn"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/sales/invoices/{{$invoice->id}}/download" class="btn btn-light custom-back-btn"><i class="fas fa-file-download"></i> Download</a>
                 </div>
             </div>
         </div>
