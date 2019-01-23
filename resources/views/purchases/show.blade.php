@@ -11,7 +11,7 @@
         <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/purchases/{{$purchaseOrder->id}}/download" class="btn btn-light custom-back-btn"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/purchases/{{$purchaseOrder->id}}/download" class="btn btn-light custom-back-btn"><i class="fas fa-file-download"></i> Download</a>
                 </div>
             </div>
         </div>
@@ -167,6 +167,19 @@
                                 </td>
                                 <td class="right" width="130">&#8377; {{$purchaseOrder->sub_tot_amt}}</td>
                             </tr>
+                            @if(!auth()->user()->taxmode && isset($purchaseOrder->taxes))
+                                @foreach($purchaseOrder->taxes as $tax)
+                                <tr>
+                                    <td class="left">
+                                        <strong>{{ key($tax) }}</strong>
+                                    </td>
+                                    <?php $key = key($tax); ?>
+                                    <td class="right">
+                                        &#8377; {{ $tax->$key  }}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endif
                             <tr>
                                 <td class="left">
                                     <strong>Total</strong>

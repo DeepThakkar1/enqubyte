@@ -110,13 +110,29 @@
                     </div>
                     <div class="p-2 text-right font-weight-bold subTotalAmount">Subtotal :</div>
                 </div>
+                @if(!auth()->user()->taxmode && isset($purchaseOrder->taxes))
+                    @foreach($purchaseOrder->taxes as $tax)
+                    <div class="d-flex flex-row-reverse oldTax">
+                        <div class="p-2 px-3"></div>
+                        <?php $key = key($tax); ?>
+                        <div class="p-2 taxAmount">
+                            {{ $tax->$key  }}
+                        </div>
+                        <input type="hidden" name="old_tax_amt[]" value="{{ $tax->$key }}">
+                        <input type="hidden" name="old_tax_abbrivation[]" value="{{ key($tax)  }}" >
+                        <div class="p-2 text-right font-weight-bold">{{ key($tax) }} :</div>
+                    </div>
+                    @endforeach
+                @endif
                 @if(!auth()->user()->taxmode)
                 @foreach($invoicetaxes as $tax)
-                <div class="d-flex flex-row-reverse">
+                <div class="d-flex flex-row-reverse newTax" style="display: none !important;">
                     <div class="p-2 px-3"></div>
                     <div class="p-2 taxAmount{{$tax->id}}">
                         0
                     </div>
+                    <input type="hidden" name="tax_amt[]" class="inputTaxAmount{{$tax->id}}" value="0">
+                    <input type="hidden" name="tax_abbrivation[]" value="{{$tax->abbreviation}}" class="inputTaxAbbrivation{{$tax->id}}">
                     <div class="p-2 text-right font-weight-bold">{{$tax->abbreviation}} :</div>
                 </div>
                 @endforeach
@@ -145,6 +161,8 @@
 @push('js')
 <script type="text/javascript">
     $('.table-purchaseItems').on('change', '.select-product', function(){
+        $('.oldTax').attr("style", "display: none !important");
+        $('.newTax').show();
         var productId = $(this).val();
         var row = $(this).parents('tr');
         axios.get('/products/'+ productId + '/get')
@@ -177,6 +195,8 @@
     });
 
     $('.table-purchaseItems').on('keyup', '.input-qty', function(){
+        $('.oldTax').attr("style", "display: none !important");
+        $('.newTax').show();
         var row = $(this).parents('tr');
         var qty = parseFloat($(this).val());
         var price = parseFloat(row.find('.input-price').val());
@@ -193,6 +213,8 @@
     });
 
     $('.table-purchaseItems').on('keyup', '.input-price', function(){
+        $('.oldTax').attr("style", "display: none !important");
+        $('.newTax').show();
         var row = $(this).parents('tr');
         var price = parseFloat($(this).val());
         var qty = parseFloat(row.find('.input-qty').val());
@@ -287,8 +309,9 @@
         @foreach($invoicetaxes as $tax)
             var invoiceTaxAmt = ((subTotal * {{$tax->rate}}) / 100);
             invoiceTotTaxAmt += invoiceTaxAmt;
-
+            console.log({{$tax->id}});
             $('.taxAmount{{$tax->id}}').html(invoiceTaxAmt);
+            $('.inputTaxAmount{{$tax->id}}').val(invoiceTaxAmt);
             $("input[name='grand_total']").val(subTotal + invoiceTotTaxAmt);
             $("input[name='temp_grand_total']").val(subTotal + invoiceTotTaxAmt);
             $(".grandTotAmount").html(subTotal + invoiceTotTaxAmt);

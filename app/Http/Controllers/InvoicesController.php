@@ -207,6 +207,18 @@ class InvoicesController extends Controller
             'grand_total' => 'required'
         ]);
 
+        $taxes = [];
+        if (request()->has('tax_amt') && count(request('tax_amt'))) {
+            foreach (request('tax_amt') as $key => $tax_amt) {
+                if (!$tax_amt) {
+                    $taxes[] = [request('old_tax_abbrivation')[$key] => request('old_tax_amt')[$key]];
+                }
+                else{
+                    $taxes[] = [request('tax_abbrivation')[$key] => $tax_amt];
+                }
+            }
+        }
+
         for ($i=0; $i < count(request('product_id')); $i++) {
             $product = Product::where('id', request('product_id')[$i])->first();
             if ($product->has_stock && $product->stock < request('qty')[$i]) {
@@ -226,6 +238,7 @@ class InvoicesController extends Controller
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
             'grand_total' => request('grand_total'),
+            'taxes' => json_encode($taxes),
             'remaining_amount' => request('grand_total')
         ]);
 
