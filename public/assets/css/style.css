@@ -13641,6 +13641,9 @@ p.simple-pricing-text{
     border-bottom: 1px solid #dee2e6 !important;
 }*/
 @media(max-width: 768px){
+    .custom-get-started-button {
+        margin-bottom: 10px;
+    }
     .simple-pricing-section{
         display: block !important;
     }

@@ -98,7 +98,7 @@
             @endauth
 
 
-            <div class="pt-0">
+            <div class="pt-0 dashboard-all-content-section">
                 @include('flash::message')
                 @yield('content')
             </div>

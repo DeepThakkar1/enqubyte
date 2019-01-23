@@ -36,6 +36,9 @@
   .register-headline-content{
     font-size: 16px;
   }
+  .dashboard-all-content-section {
+    margin-top: 58px !important;
+  }
   .custom-dashboard-navbar{
     /*padding: 10px 30px !important;*/
     padding: 10px 15px !important;
@@ -58,6 +61,9 @@
   }
   .navbar-nav .custom-dashboard-nav-link i{
     padding-left: 10px;
+  }
+  nav.navbar.fixed-top {
+    left: 0 !important;
   }
   .dashboard-nav-list{
     padding-left: 13px;

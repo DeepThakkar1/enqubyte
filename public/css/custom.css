@@ -425,6 +425,13 @@ textarea.form-control {
     display: none !important;
 }
 
+nav.navbar.fixed-top {
+    left: 250px !important;
+}
+.dashboard-all-content-section{
+  margin-top: 55px !important;
+}
+
 .navbar-search-icon{
   color: #d2cccc;
   padding: 9px;
@@ -587,6 +594,7 @@ textarea.form-control {
     margin: 0;
     font-weight: 600;
     vertical-align: -webkit-baseline-middle;
+    margin-top: -2px !important;
 }
 
 .headline-contents:after {

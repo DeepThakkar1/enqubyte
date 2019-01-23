@@ -10,7 +10,7 @@
         <div class="row home-banner-section">
             <div class="col-lg-7 align-self-center home-banner-headings">
                 <div class="agency-banner-content banner-style6">
-                    <h2 class="banner-title">The perfect business assistant.</h2>
+                    <h1 class="banner-title">The perfect business assistant.</h1>
                     <p>Enqubyte is an all-in-one solution for managing a retail business at an ease providing features to handle enquiries, sales, purchases and employees as well as provide various reports that let's you analyse your business.</p>
                     <br>
                     <div class="get-started-section">
