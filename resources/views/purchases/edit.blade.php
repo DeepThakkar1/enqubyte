@@ -38,10 +38,13 @@
                         <label>Due Date<sup class="error">*</sup></label>
                         <input type="text" class="form-control datepicker" autocomplete="off" required name="due_date" value="{{$purchaseOrder->due_date}}" placeholder="Due date">
                     </div>
-                    <div class="col-sm-4 form-group">
-                        <label>Purchase Order Scan Copy (Optional)</label>
-                        <input type="file" class="form-control" name="order_scan_copy">
-                        <p class="m-0 text-muted"><small>(eg: .png, .jpeg, .jpg, .png, .pdf)</small></p>
+                    <div class="col-sm-4 form-group pl-0">
+                        <div class="uploadButton">
+                            <label for="uploadPurchaseOrder" class="uploadButton-button">Purchase Order Scan Copy</label>
+                            <input type="file" id="uploadPurchaseOrder" class="form-control uploadButton-input" name="order_scan_copy">
+                            <span class="uploadButton-file-name">Click to upload</span>
+                            <p class="m-0 ml-2 text-muted"><small>(eg: .png, .jpeg, .jpg, .png, .pdf)</small></p>
+                        </div>
                     </div>
                 </div>
                 <!-- <hr> -->
