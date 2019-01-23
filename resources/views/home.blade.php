@@ -86,46 +86,48 @@
                 </div>
 
                 <div class="card-body p-md-0">
-                @if(count($followups))    
-                <ul class="list-group no-rounded-corners" style="max-height: 373px;overflow-y: auto;">
-                     @foreach($followups as $followup)
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                    @if(count($followups))
+                    <ul class="list-group no-rounded-corners" style="max-height: 325px;overflow-y: auto;">
+                       @foreach($followups as $followup)
+                       <li class="list-group-item flex-column align-items-start">
+                        <div class="d-flex justify-content-between align-items-center">
                             <div>
-                            <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
-                            <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
-                            <div class="text-muted"><small><i class="fa fa-calendar"></i> {{$followup->followup_date}}  {{$followup->followup_time}}</small></div>
+                                <div class="mb-1 font-weight-bold">{{str_limit($followup->customer->fullname, 30)}}</div>
+                                <a href="/enquiries/{{$followup->sr_no}}" class="text-primary">ENQ-00{{$followup->sr_no}}</a>
+                                <div class="text-muted"><small><i class="fa fa-calendar"></i> {{$followup->followup_date}}  {{$followup->followup_time}}</small></div>
+                            </div>
+                            <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-phone"></i> {{$followup->customer->phone}}</a>
                         </div>
-                        <a href="tel:{{$followup->customer->phone}}" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-phone"></i> {{$followup->customer->phone}}</a>
                     </li>
                     @endforeach
                 </ul>
 
-                 @else
-                      <h4 class="p-3">No Follow-ups Today!</h4>
-                 @endif
-                </div>
-
-
-
+                @else
+                <h4 class="p-3">No Follow-ups Today!</h4>
+                @endif
             </div>
+
+
+
         </div>
     </div>
 </div>
+</div>
 
 
-    <div class="row m-3">
-        <div class="col-xl-7 col-sm-7 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    @if(!$totalSale)
-                        <div class="chart-overlay">
-                            <p>This is a sample chart.</p>
-                        </div>
-                    @endif
-                    <canvas id="dailyLineChart" width="100%"></canvas>
+<div class="row m-3">
+    <div class="col-xl-7 col-sm-7 mb-3">
+        <div class="card">
+            <div class="card-body">
+                @if(!$totalSale)
+                <div class="chart-overlay">
+                    <p>This is a sample chart.</p>
                 </div>
+                @endif
+                <canvas id="dailyLineChart" width="100%"></canvas>
             </div>
         </div>
+    </div>
     <div class="col-xl-5 col-sm-5 mb-3">
         <div class="card" style="height: 373px;">
             <div class="card-header bg-light">
@@ -133,15 +135,17 @@
             </div>
             <div class="card-body p-0">
                 @if(count($dueInvoices))
-                <ul class="list-group no-rounded-corners" style="max-height: 373px;overflow-y: auto;">
+                <ul class="list-group no-rounded-corners" style="max-height: 325px;overflow-y: auto;">
                     @foreach($dueInvoices as $invoice)
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <div class="mb-1 font-weight-bold">{{str_limit($invoice->customer->fullname, 30)}}</div>
-                            <a href="/sales/invoices/{{$invoice->sr_no}}" class="text-primary">INV-00{{$invoice->sr_no}}</a>
-                            <div class="text-muted"><small><i class="fa fa-calendar"></i> {{$invoice->due_date}}</small></div>
+                    <li class="list-group-item flex-column align-items-start">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="mb-1 font-weight-bold">{{str_limit($invoice->customer->fullname, 30)}}</div>
+                                <a href="/sales/invoices/{{$invoice->sr_no}}" class="text-primary">INV-00{{$invoice->sr_no}}</a>
+                                <div class="text-muted"><small><i class="fa fa-calendar"></i> {{$invoice->due_date}}</small></div>
+                            </div>
+                            <a href="tel:{{$invoice->customer->phone}}" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-phone"></i> {{$invoice->customer->phone}}</a>
                         </div>
-                        <a href="tel:{{$invoice->customer->phone}}" class="btn btn-sm btn-outline-primary float-right"><i class="fa fa-phone"></i> {{$invoice->customer->phone}}</a>
                     </li>
                     @endforeach
                 </ul>
@@ -163,97 +167,97 @@
     var color = Chart.helpers.color;
     var config = {
 
-            type: 'pie',
-            data: {
-                datasets: [{
-                    data: [
-                        {{$enquiriesCnt > 0 ? $cancelledEnqCnt : 8 }},
-                        {{$enquiriesCnt > 0 ? $convertedEnqCnt : 12}},
-                        {{$enquiriesCnt > 0 ? $pendingEnqCnt : 7}},
-                    ],
-                    backgroundColor: [
-                        window.chartColors.red,
-                        window.chartColors.green,
-                        window.chartColors.yellow,
-                    ],
-                    label: 'Dataset 1'
-                }],
-                labels: [
-                    'Cancelled Enquiries',
-                    'Converted Enquiries',
-                    'Pending Enquiries'
-                ]
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                {{$enquiriesCnt > 0 ? $cancelledEnqCnt : 8 }},
+                {{$enquiriesCnt > 0 ? $convertedEnqCnt : 12}},
+                {{$enquiriesCnt > 0 ? $pendingEnqCnt : 7}},
+                ],
+                backgroundColor: [
+                window.chartColors.red,
+                window.chartColors.green,
+                window.chartColors.yellow,
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [
+            'Cancelled Enquiries',
+            'Converted Enquiries',
+            'Pending Enquiries'
+            ]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Enquiry Statistics'
             },
-            options: {
-                responsive: true,
-                title: {
-                    display: true,
-                    text: 'Enquiry Statistics'
-                },
-            }
-        };
+        }
+    };
 
-        var lineConfig = {
-            type: 'line',
-            data: {
+    var lineConfig = {
+        type: 'line',
+        data: {
+            @if($totalSale)
+            labels: {!! json_encode(getDaywiseSales()['dates']) !!},
+            @else
+            labels: {!! json_encode(getLastNDays(7)) !!},
+
+            @endif
+            datasets: [{
+                label: 'Sales',
+                fill: false,
+                backgroundColor: window.chartColors.blue,
+                borderColor: window.chartColors.blue,
                 @if($totalSale)
-                    labels: {!! json_encode(getDaywiseSales()['dates']) !!},
+                data: {!! json_encode(getDaywiseSales()['sales']) !!},
                 @else
-                    labels: {!! json_encode(getLastNDays(7)) !!},
-
+                data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor()
+                ],
                 @endif
-                datasets: [{
-                    label: 'Sales',
-                    fill: false,
-                    backgroundColor: window.chartColors.blue,
-                    borderColor: window.chartColors.blue,
-                    @if($totalSale)
-                         data: {!! json_encode(getDaywiseSales()['sales']) !!},
-                    @else
-                    data: [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
-                    ],
-                    @endif
-                }]
+            }]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Daily Sales Chart'
             },
-            options: {
-                responsive: true,
-                title: {
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
                     display: true,
-                    text: 'Daily Sales Chart'
-                },
-                tooltips: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                hover: {
-                    mode: 'nearest',
-                    intersect: true
-                },
-                scales: {
-                    xAxes: [{
+                    scaleLabel: {
                         display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Day'
-                        }
-                    }],
-                    yAxes: [{
+                        labelString: 'Day'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
                         display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Sale'
-                        }
-                    }]
-                }
+                        labelString: 'Sale'
+                    }
+                }]
             }
-        };
+        }
+    };
 
 
 

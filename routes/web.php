@@ -225,3 +225,8 @@ Route::post('/requestdemo','RequestDemoController@store');
     Route::get('/home', 'HomeController@index')->name('home');
 });*/
 
+Route::get('/admin', 'Admin\LoginController@index');
+Route::post('/admin/login', 'Admin\LoginController@login');
+Route::get('/admin/logout', 'Admin\LoginController@logout');
+Route::get('/admin/dashboard', 'Admin\DashboardController@index');
+Route::get('/admin/users', 'Admin\UsersController@index');
