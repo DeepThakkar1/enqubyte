@@ -64,6 +64,7 @@
   }
   nav.navbar.fixed-top {
     left: 0 !important;
+    /*z-index: -1 !important;*/
   }
   .dashboard-nav-list{
     padding-left: 13px;
@@ -107,6 +108,9 @@
   }
   #sidebar{
     display: none;
+  }
+  #sidebars {
+    z-index: 1031 !important;
   }
 
   /****************** Buttons***********************/
