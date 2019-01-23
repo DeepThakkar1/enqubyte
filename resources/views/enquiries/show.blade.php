@@ -223,7 +223,7 @@
                                     </td>
                                     <td class="right border-top-0">&#8377; {{$enquiry->sub_tot_amt}}</td>
                                 </tr>
-                                @if(!auth()->user()->taxmode)
+                                @if(!auth()->user()->taxmode && isset($enquiry->taxes))
                                 @foreach($enquiry->taxes as $tax)
                                 <tr>
                                     <td class="left">

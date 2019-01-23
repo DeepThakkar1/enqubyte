@@ -116,7 +116,7 @@
                     </div>
                     <div class="p-2 text-right subTotalAmount font-weight-bold">Subtotal :</div>
                 </div>
-                @if(!auth()->user()->taxmode)
+                @if(!auth()->user()->taxmode && isset($invoice->taxes))
                     @foreach($invoice->taxes as $tax)
                     <div class="d-flex flex-row-reverse">
                         <div class="p-2 px-3"></div>

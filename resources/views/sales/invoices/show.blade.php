@@ -209,7 +209,7 @@
                                     </td>
                                     <td class="right border-top-0" width="130">&#8377; {{$invoice->sub_tot_amt}}</td>
                                 </tr>
-                                @if(!auth()->user()->taxmode)
+                                @if(!auth()->user()->taxmode && isset($invoice->taxes))
                                 @foreach($invoice->taxes as $tax)
                                 <tr>
                                     <td class="left">
