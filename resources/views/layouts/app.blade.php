@@ -206,6 +206,24 @@
                 $('#sidebars a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
         });
+        var inputs = document.querySelectorAll( '.uploadButton-input ' );
+        Array.prototype.forEach.call( inputs, function( input )
+        {
+              var label = input.nextElementSibling.nextElementSibling,
+              labelVal = label.innerHTML;
+
+            input.addEventListener( 'change', function( e )
+            {
+                var fileName = '';
+
+                fileName = e.target.value.split( '\\' ).pop();
+
+                if( fileName )
+                    label.innerHTML = 'Selected File : <span class="filename">' + fileName + '</span>';
+                else
+                    label.innerHTML = labelVal;
+            });
+        });
     </script>
     @stack('bottom')
 

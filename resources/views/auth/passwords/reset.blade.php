@@ -1,5 +1,12 @@
 @extends('layouts.app')
-
+    
+@push('css')
+<style type="text/css">
+    .dashboard-all-content-section {
+        margin-top: 0px !important; 
+    }
+</style>
+@endpush
 @section('content')
 <div class="container">
     <div class="row justify-content-center text-center mt-3">

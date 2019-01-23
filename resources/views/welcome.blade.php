@@ -176,7 +176,6 @@
         </div>
     </div><!-- .container END -->
 </section><!-- more features area section end -->
-
 <hr>
 <section id="pricing" class="section-padding-medium simple-pricing-section section-padding-medium1">
         <div class="container">

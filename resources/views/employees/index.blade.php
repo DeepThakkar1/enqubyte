@@ -105,18 +105,24 @@
 
                                         <div class="row form-group">
                                             <div class="col-sm-6">
-                                                <label>Photo</label>
-                                                <input type="file" name="photo" class="form-control">
-                                                @if($employee->photo)
-                                                <img src="{{Storage::url($employee->photo)}}" width="100px" class="mt-2">
-                                                @endif
+                                                <div class="uploadButton mt-3">
+                                                    <label for="uploadPhoto" class="uploadButton-button">Photo</label>
+                                                    <input type="file" id="uploadPhoto" name="photo" class="form-control uploadButton-input">
+                                                    <span class="uploadButton-file-name">Click to upload</span>
+                                                </div>
+                                                    @if($employee->photo)
+                                                    <img src="{{Storage::url($employee->photo)}}" width="100px" class="mt-2">
+                                                    @endif
                                             </div>
                                             <div class="col-sm-6">
-                                                <label>ID Proof</label>
-                                                <input type="file" name="verification_doc" class="form-control">
-                                                @if($employee->verification_doc)
-                                                <img src="{{Storage::url($employee->verification_doc)}}" width="100px" class="mt-2">
-                                                @endif
+                                                <div class="uploadButton mt-3">
+                                                    <label for="uploadIdProof" class="uploadButton-button">ID Proof</label>
+                                                    <input type="file" id="uploadIdProof" name="verification_doc" class="form-control uploadButton-input">
+                                                    <span class="uploadButton-file-name">Click to upload</span>
+                                                </div>
+                                                    @if($employee->verification_doc)
+                                                    <img src="{{Storage::url($employee->verification_doc)}}" width="100px" class="mt-2">
+                                                    @endif
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -201,12 +207,18 @@
 
                             <div class="row form-group">
                                 <div class="col-sm-6">
-                                    <label>Photo<sup class="error">*</sup></label>
-                                    <input type="file" name="photo" class="form-control" accept="image/*" required>
+                                    <div class="uploadButton mt-3">
+                                        <input type="file" id="uploadPhotos" name="photo" class="form-control  uploadButton-input" accept="image/*" required>
+                                        <label for="uploadPhotos" class="uploadButton-button">Photo<sup class="error">*</sup></label>
+                                        <span class="uploadButton-file-name">Click to upload</span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label>ID Proof<sup class="error">*</sup></label>
-                                    <input type="file" name="verification_doc" class="form-control" required>
+                                    <div class="uploadButton mt-3">
+                                        <label for="uploadIdProofs" class="uploadButton-button">ID Proof<sup class="error">*</sup></label>
+                                        <input type="file" id="uploadIdProofs" name="verification_doc" class="form-control uploadButton-input" required>
+                                        <span class="uploadButton-file-name">Click to upload</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row form-group">

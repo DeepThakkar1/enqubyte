@@ -25,8 +25,11 @@
                     <input type="text" pattern="\d*" maxlength="10" minlength="10" class="form-control" name="company_phone" value="{{ auth()->user()->company_phone }}" placeholder="Phone Number">
                 </div>
                 <div class="col-sm-4 form-group">
-                    <label>Logo</label>
-                    <input type="file" class="form-control" name="company_logo">
+                    <div class="uploadButton">
+                        <input type="file" id="uploadFile" class="form-control uploadButton-input" name="company_logo">
+                        <label for="uploadFile" class="uploadButton-button">Choose file</label>
+                        <span class="uploadButton-file-name">Click to upload</span>
+                    </div>
                 </div>
                 <div class="col-sm-4">
                     @if(auth()->user()->company_logo)
@@ -36,11 +39,11 @@
                 </div>
                 <div class="col-sm-6 form-group">
                     <label>Address</label>
-                    <textarea class="form-control" name="company_address" placeholder="Company Address">{{ auth()->user()->company_address }}</textarea>
+                    <textarea class="form-control p-3" name="company_address" placeholder="Company Address">{{ auth()->user()->company_address }}</textarea>
                 </div>
                 <div class="col-sm-6 form-group">
                     <label>Footer Line</label>
-                    <textarea class="form-control" name="footer_line" placeholder="Footer line for invoice note" >{{ auth()->user()->footer_line }}</textarea>
+                    <textarea class="form-control pt-3 pb-4 pl-3 pr-3" name="footer_line" placeholder="Footer line for invoice note" >{{ auth()->user()->footer_line }}</textarea>
                 </div>
             </div>
             <div class="card-footer">
