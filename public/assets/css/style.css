@@ -5348,13 +5348,29 @@ button:focus {
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
     padding-top: 60px;
-    padding-bottom: 1px
+    padding-bottom: 60px
 }
 
 .pricing-table:hover .btn {
-    background-color: #1bd1ea;
-    border-color: #1bd1ea;
+    background-color: #1B6DAB;
+    border-color: #1B6DAB;
     color: #FFFFFF
+}
+
+.pricing-popular {
+    position: absolute;
+    top: 4px;
+    /* padding: 0; */
+    left: 36%;
+    background: #1B6DAC;
+    color: #fff;
+    padding: 5px;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 500;
+    padding-top: 3px;
 }
 
 .pricing-header {
