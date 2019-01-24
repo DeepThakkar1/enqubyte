@@ -27,7 +27,7 @@
                             <th>Sr.No</th>
                             <th>Name</th>
                             <th>Total Payments</th>
-                            <th width="160px">Action</th>
+                            <th width="160px">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

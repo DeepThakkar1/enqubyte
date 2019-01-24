@@ -28,7 +28,7 @@
                         <th>Product</th>
                         <th>Qty Sold</th>
                         <th>Total Revenue</th>
-                        <th width="160px">Action</th>
+                        <th width="160px">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

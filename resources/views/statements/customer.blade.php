@@ -20,14 +20,14 @@
     </div>
     {{-- @include('components.tabs.tabularChart') --}}
     <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
+        <div class="tab-pane fade show active table-responsive-sm" id="pills-tabular" role="tabpanel" aria-labelledby="pills-tabular-tab">
             <table class="table dataTable">
                 <thead>
                     <tr>
                         <th>Sr.No</th>
                         <th>Name</th>
                         <th>Total Earnings</th>
-                        <th width="160px">Action</th>
+                        <th width="160px">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
