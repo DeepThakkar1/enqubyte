@@ -24,22 +24,22 @@
                     @else
                     <input type="hidden" name="store_id" value="0">
                     @endif
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>First Name<sup class="error">*</sup></label>
                             <input type="text" name="fname" maxlength="25" class="form-control" placeholder="First name" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Last Name<sup class="error">*</sup></label>
                             <input type="text" name="lname" maxlength="25" class="form-control" placeholder="Last name" required>
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>Phone<sup class="error">*</sup></label>
                             <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Email Address</label>
                             <input type="email" name="email" class="form-control" placeholder="Customer email">
                         </div>
@@ -91,12 +91,12 @@
                         <label>Description<sup class="error">*</sup></label>
                         <textarea type="text" name="description" class="form-control" placeholder="Description" required></textarea>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>Selling Price<sup class="error">*</sup></label>
                             <input type="text" name="selling_price" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Cost Price</label>
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>
@@ -167,38 +167,44 @@
                     @else
                     <input type="hidden" name="store_id" value="0">
                     @endif
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>First Name<sup class="error">*</sup></label>
                             <input type="text" name="fname" maxlength="25" class="form-control" placeholder="First name" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Last Name<sup class="error">*</sup></label>
                             <input type="text" name="lname" maxlength="25" class="form-control" placeholder="Last name" required>
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>Phone<sup class="error">*</sup></label>
                             <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Email Address<sup class="error">*</sup></label>
                             <input type="email" name="email" class="form-control" placeholder="Store email" required>
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
-                            <label>Photo<sup class="error">*</sup></label>
-                            <input type="file" name="photo" class="form-control" required>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <div class="uploadButton customuploadButton">
+                                <label for="uploadPhoto" class="uploadButton-button">Photo<sup class="error">*</sup></label>
+                                <input type="file" id="uploadPhoto" name="photo" class="form-control uploadButton-input" required>
+                                <span class="uploadButton-file-name">Click to upload</span>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label>ID Proof<sup class="error">*</sup></label>
-                            <input type="file" name="verification_doc" class="form-control" required>
+                        <div class="col-sm-6 form-group">
+                            <div class="uploadButton customuploadButton">
+                                <label for="uploadId" class="uploadButton-button">ID Proof<sup class="error">*</sup></label>
+                                <input type="file" id="uploadId" name="verification_doc" class="form-control uploadButton-input" required>
+                                <span class="uploadButton-file-name">Click to upload</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>Payout & Incentives<sup class="error">*</sup></label>
                             <select name="incentive_id" class="form-control" required>
                                 <option disabled selected>-- Select Incentive --</option>
@@ -208,7 +214,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Password<sup class="error">*</sup></label>
                             <input type="password" name="password" class="form-control" placeholder="Password" required>
                         </div>

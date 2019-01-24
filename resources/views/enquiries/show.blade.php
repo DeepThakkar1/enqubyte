@@ -138,7 +138,7 @@
                     </div>
                     <div class="ml-auto p-2">
                         @if(!$enquiry->status == -1)
-                        <a href="#cancelEnquiryModal" data-toggle="modal" class="btn btn-outline-danger responsive-btn-outline-danger" title="Cancel Enquiry">Cancel Enquiry</a>
+                        <a href="#cancelEnquiryModal" data-toggle="modal" class="btn btn-outline-danger responsive-btn-outline-danger custom-cancel-enquiries-show" title="Cancel Enquiry">Cancel Enquiry</a>
                         @endif
                         @if(!$enquiry->status == 1)
                         <a href="/enquiries/{{$enquiry->sr_no}}/invoice" class="btn btn-outline-primary" title="Convert to Invoice">Convert to Sale</a>
