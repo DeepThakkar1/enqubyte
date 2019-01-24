@@ -24,7 +24,7 @@ class PurchaseOrdersController extends Controller
     public function index()
     {
         if (request('start_date') && request('end_date')) {
-            $purchases = auth()->user()->purchases()->whereBetween('purchase_date', [request('start_date'), request('end_date')])->get();
+            $purchases = auth()->user()->purchases()->whereBetween('purchase_date', [date('d-m-Y', strtotime(request('start_date'))), date('d-m-Y', strtotime(request('end_date')))])->get();
         }else{
             $purchases = auth()->user()->purchases;
         }
@@ -85,8 +85,8 @@ class PurchaseOrdersController extends Controller
             'store_id' => 0,*/
             'vendor_id' => request('vendor_id'),
             'order_id' => request('order_id'),
-            'purchase_date' => request('purchase_date'),
-            'due_date' => request('due_date'),
+            'purchase_date' => date('d-m-Y', strtotime(request('purchase_date'))),
+            'due_date' => date('d-m-Y', strtotime(request('due_date'))),
             'sub_tot_amt' => request('sub_tot_amt'),
            /* 'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,*/
@@ -182,8 +182,8 @@ class PurchaseOrdersController extends Controller
             /*'employee_id' => 0,
             'store_id' => 0,*/
             'vendor_id' => request('vendor_id'),
-            'purchase_date' => request('purchase_date'),
-            'due_date' => request('due_date'),
+            'purchase_date' => date('d-m-Y', strtotime(request('purchase_date'))),
+            'due_date' => date('d-m-Y', strtotime(request('due_date'))),
             'sub_tot_amt' => request('sub_tot_amt'),
           /*  'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,*/

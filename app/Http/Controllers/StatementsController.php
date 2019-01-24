@@ -99,9 +99,9 @@ class StatementsController extends Controller
     public function profitandloss()
     {
         if (request('start_date') && request('end_date')) {
-            $totalSale = auth()->user()->invoices()->whereBetween('invoice_date', [request('start_date'), request('end_date')])->sum('grand_total');
-            $totalPurchase = auth()->user()->purchases()->whereBetween('purchase_date', [request('start_date'), request('end_date')])->sum('grand_total');
-            $incentives = auth()->user()->invoices()->whereBetween('invoice_date', [request('start_date'), request('end_date')])->sum('incentive_amt');
+            $totalSale = auth()->user()->invoices()->whereBetween('invoice_date', [date('d-m-Y', strtotime(request('start_date'))), date('d-m-Y', strtotime(request('end_date')))])->sum('grand_total');
+            $totalPurchase = auth()->user()->purchases()->whereBetween('purchase_date', [date('d-m-Y', strtotime(request('start_date'))), date('d-m-Y', strtotime(request('end_date')))])->sum('grand_total');
+            $incentives = auth()->user()->invoices()->whereBetween('invoice_date', [date('d-m-Y', strtotime(request('start_date'))), date('d-m-Y', strtotime(request('end_date')))])->sum('incentive_amt');
             $expenses = $totalPurchase + $incentives;
             $profit = $totalSale - $expenses;
         }else{
@@ -118,13 +118,13 @@ class StatementsController extends Controller
     {
         if (request('start_date') && request('end_date')) {
             $employeeIds =  auth()->user()->employees->pluck('id');
-            $incentives = IncentiveTransaction::whereIn('employee_id', $employeeIds)->whereBetween('created_at', [ Carbon::createFromFormat('d-m-Y', request('start_date')), Carbon::createFromFormat('d-m-Y', request('end_date'))])->sum('amount');
+            $incentives = IncentiveTransaction::whereIn('employee_id', $employeeIds)->whereBetween('created_at', [ Carbon::createFromFormat('d-m-Y', date('d-m-Y', strtotime(request('start_date')))), Carbon::createFromFormat('d-m-Y', date('d-m-Y', strtotime(request('end_date'))))])->sum('amount');
             $purchases = auth()->user()->purchases;
             $purchaseIds =  collect($purchases)->pluck('id');
-            $totalPurchase = PurchaseOrderRecordPayment::whereIn('purchase_order_id', $purchaseIds)->whereBetween('payment_date', [request('start_date'), request('end_date')])->sum('amount');
+            $totalPurchase = PurchaseOrderRecordPayment::whereIn('purchase_order_id', $purchaseIds)->whereBetween('payment_date', [date('d-m-Y', strtotime(request('start_date'))), date('d-m-Y', strtotime(request('end_date')))])->sum('amount');
             $invoices = auth()->user()->invoices;
             $invoiceIds =  collect($invoices)->pluck('id');
-            $totalSale = RecordPayment::whereIn('invoice_id', $invoiceIds)->whereBetween('payment_date', [request('start_date'), request('end_date')])->sum('amount');
+            $totalSale = RecordPayment::whereIn('invoice_id', $invoiceIds)->whereBetween('payment_date', [date('d-m-Y', strtotime(request('start_date'))), date('d-m-Y', strtotime(request('end_date')))])->sum('amount');
         }else{
             $employeeIds =  auth()->user()->employees->pluck('id');
             $incentives = IncentiveTransaction::whereIn('employee_id', $employeeIds)->sum('amount');

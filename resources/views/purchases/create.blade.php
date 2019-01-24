@@ -30,11 +30,11 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Date<sup class="error">*</sup></label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" required name="purchase_date" placeholder="Purchase Order date">
+                        <input type="text" class="form-control startDatepicker" autocomplete="off" required name="purchase_date" placeholder="Purchase Order date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Due Date<sup class="error">*</sup></label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" required name="due_date" placeholder="Due date">
+                        <input type="text" class="form-control endDatepicker" autocomplete="off" required name="due_date" placeholder="Due date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Purchase Order Scan Copy (Optional)</label>

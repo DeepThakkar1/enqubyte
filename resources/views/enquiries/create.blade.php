@@ -36,11 +36,11 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Date<sup class="error">*</sup></label>
-                        <input type="text" class="form-control datepicker" name="enquiry_date" autocomplete="off" placeholder="Enquiry date" required>
+                        <input type="text" class="form-control startDatepicker" name="enquiry_date" autocomplete="off" placeholder="Enquiry date" required>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Follow Up Date</label>
-                        <input type="text" class="form-control datepicker" name="followup_date" autocomplete="off" placeholder="Enquiry followup date">
+                        <input type="text" class="form-control endDatepicker" name="followup_date" autocomplete="off" placeholder="Enquiry followup date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Follow Up Time</label>
@@ -163,6 +163,7 @@
 
 @push('js')
 <script type="text/javascript">
+
     $('.table-enquiryItems').on('change', '.select-product', function(){
         var productId = $(this).val();
         var row = $(this).parents('tr');

@@ -39,11 +39,11 @@
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="invoice_date" value="{{$invoice->invoice_date}}" placeholder="Invoice date">
+                        <input type="text" class="form-control startDatepicker" autocomplete="off" name="invoice_date" value="{{$invoice->invoice_date}}" placeholder="Invoice date">
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Due Date</label>
-                        <input type="text" class="form-control datepicker" autocomplete="off" name="due_date" value="{{$invoice->due_date}}" placeholder="Due date">
+                        <input type="text" class="form-control endDatepicker" autocomplete="off" name="due_date" value="{{$invoice->due_date}}" placeholder="Due date">
                     </div>
                 </div>
                 <!-- <hr> -->
