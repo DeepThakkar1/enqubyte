@@ -98,7 +98,7 @@
             @endauth
 
 
-            <div class="pt-0">
+            <div class="pt-0 dashboard-all-content-section">
                 @include('flash::message')
                 @yield('content')
             </div>
@@ -224,6 +224,24 @@
                 $('#sidebars .overlay').addClass('active');
                 $('#sidebars .collapse.in').toggleClass('in');
                 $('#sidebars a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+        var inputs = document.querySelectorAll( '.uploadButton-input ' );
+        Array.prototype.forEach.call( inputs, function( input )
+        {
+              var label = input.nextElementSibling.nextElementSibling,
+              labelVal = label.innerHTML;
+
+            input.addEventListener( 'change', function( e )
+            {
+                var fileName = '';
+
+                fileName = e.target.value.split( '\\' ).pop();
+
+                if( fileName )
+                    label.innerHTML = 'Selected File : <span class="filename">' + fileName + '</span>';
+                else
+                    label.innerHTML = labelVal;
             });
         });
     </script>

@@ -11,6 +11,9 @@
     .auth-container {
         overflow-y: auto;
     }
+    .dashboard-all-content-section {
+        margin-top: 0px !important; 
+    }   
 </style>
 @endpush
 
