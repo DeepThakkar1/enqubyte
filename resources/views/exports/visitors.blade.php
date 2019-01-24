@@ -12,8 +12,8 @@
         <tr>
             <td>{{$key + 1}}</td>
             <td>{{$visitor->fullname}}</td>
-            <td>{{$visitor->email}}</td>
-            <td>{{$visitor->phone}}</td>
+            <td>{{$visitor->email ? $visitor->email : '--'}}</td>
+            <td>{{$visitor->phone ? $visitor->phone : '--'}}</td>
         </tr>
         @endforeach
     </tbody>

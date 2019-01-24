@@ -58,7 +58,7 @@ class VendorsController extends Controller
         {
             return response($vendor, 200);
         }
-        flash('Vendor added successfully!');
+        flash('Vendor added successfully!')->success();
         return back();
     }
 
@@ -100,7 +100,7 @@ class VendorsController extends Controller
     public function update(Request $request, Vendor $vendor)
     {
         $vendor->update($request->all());
-        flash('Vendor updated successfully!');
+        flash('Vendor updated successfully!')->success();
         return back();
     }
 
@@ -113,7 +113,7 @@ class VendorsController extends Controller
     public function destroy(Vendor $vendor)
     {
         $vendor->delete();
-        flash('Vendor deleted successfully!');
+        flash('Vendor deleted successfully!')->error();
         return back();
     }
 

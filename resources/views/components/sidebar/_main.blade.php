@@ -29,23 +29,22 @@
                         <span>{{ __('Enquiries') }}</span>
                     </a>
                 </li> -->
-                <li class="{{ request()->is('sales*') ? 'active' : ''}}">
-                    <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <li>
+                    <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">
                         <img src="{{ url('img/sidebar/icon/sale-black.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/icon/sale.png') }}" class="active-icon">
                         <span>{{ __('Sales') }}</span>
                     </a>
-                    <ul class="collapse list-unstyled" id="salesSubmenu">
-                        <li>
+                    <ul class="collapse list-unstyled {{ request()->is('enquiries*') || request()->is('sales*') || request()->is('purchases*') ? 'show' : ''}}" id="salesSubmenu">
+                        <li class="{{ request()->is('enquiries*') ? 'active' : ''}}">
                             <a href="/enquiries">{{ __('Enquiries') }}</a>
                         </li>
-                        <li>
+                        <li class="{{ request()->is('sales*') ? 'active' : ''}}">
                             <a href="/sales/invoices">{{ __('Invoices') }}</a>
                         </li>
-                        <li>
+                        <li class="{{ request()->is('purchases*') ? 'active' : ''}}">
                             <a href="/purchases">{{ __('Purchase Orders') }}</a>
                         </li>
-
                     </ul>
                 </li>
 
@@ -58,23 +57,23 @@
                     </a>
                 </li>
                 @endif
-                <li class="{{ request()->is('products*') ? 'active' : ''}}">
+                <li>
                     <a href="#entitiesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <img src="{{ url('img/sidebar/icon/dashboard.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/icon/dashboard-clr.png') }}" class="active-icon">
                         <span>{{ __('Entities') }}</span>
                     </a>
-                    <ul class="collapse list-unstyled" id="entitiesSubmenu">
-                        <li>
+                    <ul class="collapse list-unstyled {{ request()->is('products*') || request()->is('employees*') || request()->is('vendors*') || request()->is('customers*') ? 'show' : ''}}" id="entitiesSubmenu">
+                        <li class="{{ request()->is('products*') ? 'active' : ''}}">
                             <a href="/products">{{ __('Products') }}</a>
                         </li>
-                        <li>
+                        <li class="{{ request()->is('employees*') ? 'active' : ''}}">
                             <a href="/employees">{{ __('Employees') }}</a>
                         </li>
-                         <li>
+                        <li class="{{ request()->is('vendors*') ? 'active' : ''}}">
                             <a href="/vendors">{{ __('Vendors') }}</a>
                         </li>
-                          <li>
+                        <li class="{{ request()->is('customers*') ? 'active' : ''}}">
                             <a href="/customers">{{ __('Customers') }}</a>
                         </li>
                     </ul>
@@ -125,7 +124,7 @@
                         <span>{{ __('Customers') }}</span>
                     </a>
                 </li> -->
-                <li>
+                <li class="{{ request()->is('reports*') || request()->is('statements*') ? 'active' : ''}}">
                     <a href="/reports">
                         <img src="{{ url('img/sidebar/icon/progress-report.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/icon/report.png') }}" class="active-icon">
@@ -139,20 +138,20 @@
                         <span>{{ __('Settings') }}</span>
                     </a>
                 </li> -->
-                <li class="{{ request()->is('settings*') ? 'active' : ''}}">
+                <li>
                     <a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <img src="{{ url('img/sidebar/icon/settings-gears.png') }}" class="inactive-icon">
                         <img src="{{ url('img/sidebar/icon/settings-gears1.png') }}" class="active-icon">
                         <span>{{ __('Settings') }}</span>
                     </a>
-                    <ul class="collapse list-unstyled" id="settingsSubmenu">
-                        <li>
+                    <ul class="collapse list-unstyled {{ request()->is('settings*') || request()->is('taxes*') || request()->is('incentives*') ? 'show' : ''}}" id="settingsSubmenu">
+                        <li class="{{ request()->is('settings*') ? 'active' : ''}}">
                             <a href="/settings">{{ __('App') }}</a>
                         </li>
-                        <li>
+                        <li class="{{ request()->is('taxes*') ? 'active' : ''}}">
                             <a href="/taxes">{{ __('Taxes') }}</a>
                         </li>
-                        <li>
+                        <li class="{{ request()->is('incentives*') ? 'active' : ''}}">
                             <a href="/incentives">{{ __('Incentives') }}</a>
                         </li>
                     </ul>

@@ -13,9 +13,9 @@
         <tr>
             <td>{{$key + 1}}</td>
             <td>{{$vendor->name}}</td>
-            <td>{{$vendor->email}}</td>
-            <td>{{$vendor->phone}}</td>
-            <td>{{$vendor->contact_person}}</td>
+            <td>{{$vendor->email ? $vendor->email : '--'}}</td>
+            <td>{{$vendor->phone ? $vendor->phone : '--'}}</td>
+            <td>{{$vendor->contact_person ? $vendor->contact_person : '--'}}</td>
         </tr>
         @endforeach
     </tbody>

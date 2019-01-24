@@ -47,7 +47,7 @@ class TaxesController extends Controller
         {
             return response([$tax], 200);
         }
-        flash('Tax added successfully!');
+        flash('Tax added successfully!')->success();
         return back();
     }
 
@@ -89,7 +89,7 @@ class TaxesController extends Controller
         {
             return response([$tax], 200);
         }
-        flash('Tax updated successfully!');
+        flash('Tax updated successfully!')->success();
         return back();
     }
 
@@ -102,7 +102,7 @@ class TaxesController extends Controller
     public function destroy(Tax $tax)
     {
         $tax->delete();
-        flash('Tax deleted successfully!');
+        flash('Tax deleted successfully!')->error();
         return back();
     }
 

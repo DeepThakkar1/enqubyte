@@ -36,7 +36,7 @@ class IncentiveTransactions extends Controller
     public function store(Request $request, Employee $employee)
     {
         $employee->incentivetransactions()->create($request->all());
-        flash('Incentive pay successfully!');
+        flash('Incentive pay successfully!')->success();
         return back();
     }
 

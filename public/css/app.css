@@ -10726,8 +10726,9 @@ input.parsley-error {
 
 .alert.alert-flash.alert-dismissable {
   position: absolute;
-  top: 65px;
+  top: 0px;
   right: 0;
+  left: 0;
   background: #fff;
   border-color: #ccc;
   -webkit-box-shadow: #ccc 1px 2px 5px;

@@ -112,7 +112,7 @@ class EnquiriesController extends Controller
 
        // $enquiry->customer->notify(new NewEnquiry($enquiry, auth()->user()));
 
-        flash('Enquiry added successfully!');
+        flash('Enquiry added successfully!')->success();
         return redirect('/enquiries/'.$enquiry->sr_no);
     }
 
@@ -212,9 +212,9 @@ class EnquiriesController extends Controller
             ]);
         }
 
-        $enquiry->customer->notify(new UpdateEnquiry($enquiry, auth()->user()));
+        // $enquiry->customer->notify(new UpdateEnquiry($enquiry, auth()->user()));
 
-        flash('Enquiry updated successfully!');
+        flash('Enquiry updated successfully!')->success();
         return redirect('/enquiries');
     }
 
@@ -228,7 +228,7 @@ class EnquiriesController extends Controller
             foreach ($enquiry->enquiryitems as $key => $item) {
                 $product = Product::where('id', $item->product_id)->first();
                 if ($product->has_stock && $product->stock < $item->qty) {
-                    flash('Only '. $product->stock . ' '.$product->name. ' available!');
+                    flash('Only '. $product->stock . ' '.$product->name. ' available!')->warning();
                     return back();
                 }
             }
@@ -289,9 +289,9 @@ class EnquiriesController extends Controller
                 }
             }
 
-            $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
+            // $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
 
-            flash('Invoice created successfully!');
+            flash('Invoice created successfully!')->success();
             return redirect('/sales/invoices/' . $invoice->sr_no);
         }
     }
@@ -313,7 +313,7 @@ class EnquiriesController extends Controller
         {
             $enquiry->enquiryitems()->delete();
             $enquiry->delete();
-            flash('Enquiry deleted successfully!');
+            flash('Enquiry deleted successfully!')->error();
             return redirect('/enquiries');
         }
     }
@@ -321,14 +321,14 @@ class EnquiriesController extends Controller
     public function cancel(Enquiry $enquiry)
     {
         $enquiry->update(['status' => -1]);
-        flash('Enquiry cancelled successfully!');
+        flash('Enquiry cancelled successfully!')->error();
         return redirect('/enquiries');
     }
 
     public function changefollowupdate(Request $request, Enquiry $enquiry)
     {
         $enquiry->update(['followup_date' => $request->followup_date, 'followup_time' => $request->followup_time]);
-        flash('Enquiry followup date updated successfully!');
+        flash('Enquiry followup date updated successfully!')->success();
         return redirect('/enquiries/'.$enquiry->sr_no);
     }
 

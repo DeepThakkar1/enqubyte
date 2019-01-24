@@ -58,7 +58,7 @@ class VisitorsController extends Controller
         {
             return response($visitor, 200);
         }
-        flash('Visitor added successfully!');
+        flash('Visitor added successfully!')->success();
         return back();
     }
 
@@ -94,7 +94,7 @@ class VisitorsController extends Controller
     public function update(Request $request, Visitor $visitor)
     {
         $visitor->update($request->all());
-        flash('Visitor updated successfully!');
+        flash('Visitor updated successfully!')->success();
         return back();
     }
 
@@ -108,7 +108,7 @@ class VisitorsController extends Controller
     {
         $visitor->status = -1;
         $visitor->save();
-        flash('Visitor deleted successfully!');
+        flash('Visitor deleted successfully!')->error();
         return back();
     }
 

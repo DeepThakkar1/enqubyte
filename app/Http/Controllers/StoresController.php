@@ -48,7 +48,7 @@ class StoresController extends Controller
     public function store(Request $request)
     {
         auth()->user()->stores()->create($request->all());
-        flash('Store added successfully!');
+        flash('Store added successfully!')->success();
         return back();
     }
 
@@ -88,7 +88,7 @@ class StoresController extends Controller
     public function update(Request $request, Store $store)
     {
         $store->update($request->all());
-        flash('Store updated successfully!');
+        flash('Store updated successfully!')->success();
         return back();
     }
 
@@ -101,7 +101,7 @@ class StoresController extends Controller
     public function destroy(Store $store)
     {
         $store->delete();
-        flash('Store deleted successfully!');
+        flash('Store deleted successfully!')->error();
         return redirect('/stores');
     }
 }

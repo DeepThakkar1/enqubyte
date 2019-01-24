@@ -959,3 +959,11 @@ a.upgrade-product-nav p{
 .bg-light {
   background: #fafafa !important;
 }
+
+.text-warning {
+    color: #FFC107 !important;
+}
+
+.bg-warning {
+    background-color: #FFC107 !important;
+}
