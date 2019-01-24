@@ -33,7 +33,7 @@ class EnquiriesController extends Controller
     public function index()
     {
         if (request('start_date') && request('end_date')) {
-            $enquiries = auth()->user()->enquiries()->whereBetween('enquiry_date', [request('start_date'), request('end_date')])->get();
+            $enquiries = auth()->user()->enquiries()->whereBetween('enquiry_date', [date('d-m-Y', strtotime(request('start_date'))), date('d-m-Y', strtotime(request('end_date')))])->get();
         }else{
             $enquiries = auth()->user()->enquiries;
         }
@@ -89,9 +89,9 @@ class EnquiriesController extends Controller
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,
             'customer_id' => request('customer_id'),
-            'followup_date' => request('followup_date'),
+            'followup_date' => date('d-m-Y', strtotime(request('followup_date'))),
             'followup_time' => request('followup_time'),
-            'enquiry_date' => request('enquiry_date'),
+            'enquiry_date' => date('d-m-Y', strtotime(request('enquiry_date'))),
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
@@ -147,6 +147,7 @@ class EnquiriesController extends Controller
             $salesmans = auth()->user()->employees;
             $products = auth()->user()->products;
             $enquiryitems = $enquiry->enquiryitems;
+
             if(isset(auth()->user()->invoicetaxes)){
                 $taxIds = explode(',', auth()->user()->invoicetaxes);
                 $invoicetaxes = Tax::whereIn('id', $taxIds)->get();
@@ -189,9 +190,9 @@ class EnquiriesController extends Controller
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,
             'customer_id' => request('customer_id'),
-            'followup_date' => request('followup_date'),
+            'followup_date' => date('d-m-Y', strtotime(request('followup_date'))),
             'followup_time' => request('followup_time'),
-            'enquiry_date' => request('enquiry_date'),
+            'enquiry_date' => date('d-m-Y', strtotime(request('enquiry_date'))),
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,

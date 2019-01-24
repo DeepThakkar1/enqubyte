@@ -30,7 +30,7 @@ class InvoicesController extends Controller
     public function index()
     {
         if (request('start_date') && request('end_date')) {
-            $invoices = auth()->user()->invoices()->whereBetween('invoice_date', [request('start_date'), request('end_date')])->get();
+            $invoices = auth()->user()->invoices()->whereBetween('invoice_date', [date('d-m-Y', strtotime(request('start_date'))), date('d-m-Y', strtotime(request('end_date')))])->get();
         }else{
             $invoices = auth()->user()->invoices;
         }
@@ -97,8 +97,8 @@ class InvoicesController extends Controller
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,
             'customer_id' => request('customer_id'),
-            'due_date' => request('due_date'),
-            'invoice_date' => request('invoice_date'),
+            'due_date' => date('d-m-Y', strtotime(request('due_date'))),
+            'invoice_date' => date('d-m-Y', strtotime(request('invoice_date'))),
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,
@@ -232,8 +232,8 @@ class InvoicesController extends Controller
             'employee_id' => !empty(request('employee_id')) ? request('employee_id') : 0,
             // 'store_id' => 0,
             'customer_id' => request('customer_id'),
-            'due_date' => request('due_date'),
-            'invoice_date' => request('invoice_date'),
+            'due_date' => date('d-m-Y', strtotime(request('due_date'))),
+            'invoice_date' => date('d-m-Y', strtotime(request('invoice_date'))),
             'sub_tot_amt' => request('sub_tot_amt'),
             'discount_type' => request('discount_type'),
             'discount' => !empty(request('discount')) ? request('discount') : 0,

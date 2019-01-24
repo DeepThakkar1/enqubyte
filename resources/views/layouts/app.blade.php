@@ -162,10 +162,30 @@
 
             jQuery.datetimepicker.setLocale('en');
             jQuery('.datetimepicker').datetimepicker();
-            jQuery('.timepicker').datetimepicker({datepicker:false, format:'h:i A'});
+            jQuery('.timepicker').datetimepicker({datepicker:false, format:'H:i'});
             jQuery('.datepicker').datetimepicker({timepicker:false, format:'d-m-Y'});
             jQuery('.birthdatepicker').datetimepicker({timepicker:false, format:'d-m-Y', maxDate:moment('DD/MM/YYYY')});
 
+            jQuery(function() {
+                jQuery('.startDatepicker').datetimepicker({
+                    format: 'Y/m/d',
+                    onShow: function(ct) {
+                        this.setOptions({
+                            maxDate: jQuery('.endDatepicker').val() ? jQuery('.endDatepicker').val() : false
+                        })
+                    },
+                    timepicker: false
+                });
+                jQuery('.endDatepicker').datetimepicker({
+                    format: 'Y/m/d',
+                    onShow: function(ct) {
+                        this.setOptions({
+                            minDate: jQuery('.startDatepicker').val() ? jQuery('.startDatepicker').val() : false
+                        })
+                    },
+                    timepicker: false
+                });
+            });
         });
     </script>
 

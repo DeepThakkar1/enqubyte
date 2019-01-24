@@ -6,7 +6,6 @@
         <h2 class="d-inline-block headline-content">
             <a href="/home"> Home  </a>
             <a href="/reports"><i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Reports</a>
-            <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Statements
             <i class="fa fa-angle-right ml-2 mr-2" aria-hidden="true"></i> Products
         </h2>
         <div class="float-md-right">
