@@ -9,7 +9,11 @@ body{
   border: 1px solid #d4d4d4;
   height: 34px;
 }
-
+.btn:focus, .btn.focus {
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
 .btn-primary {
     color: #fff !important;
     background-color: #1B6DAB  !important;
@@ -240,6 +244,9 @@ input, select {
     overflow: hidden;
     z-index: -1;
     pointer-events: none;
+}
+.uploadButton .custom-uploadButton-input{
+  width: 50% !important;
 }
 .uploadButton .uploadButton-button {
     display: -webkit-box;

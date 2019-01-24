@@ -83,7 +83,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex p-md-3">
-                    <div class="px-4">
+                    <div class="pl-md-4 pr-md-4">
                         <h3 class="text-size-heading">ENQ-00{{ $enquiry->sr_no }} </h3>
                         <div class=""><b>Created:</b> {{$enquiry->created_at->diffForHumans()}}</div>
                     </div>
@@ -98,7 +98,7 @@
         <div class="card mt-3">
             <div class="card-body">
                 <div class="d-flex p-md-3">
-                    <div class="px-4">
+                    <div class="pl-md-4 pr-md-4">
                         <p class="badge badge-success p-2 mb-2" style="letter-spacing: 1px"> {{$enquiry->followup_date}} {{$enquiry->followup_time}}</p>
                         <div class="font-weight-bold"> Next Follow-up</div>
                     </div>
@@ -158,7 +158,7 @@
         <div class="card">
             <div class="card-header">
                 <strong>ENQ-00{{ $enquiry->sr_no }}</strong>
-                <span class="float- md-right"> <strong>Status:</strong> {{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span>
+                <span class="float-right"> <strong>Status:</strong> {{$enquiry->status == 1 ? 'Converted' : 'Pending'}}</span>
             </div>
             <div class="card-body p-0">
                 <div class="row mb-4 p-3">

@@ -139,7 +139,7 @@
         <div class="card">
             <div class="card-header">
                 <strong>INV-00{{$invoice->sr_no}}</strong>
-                <span class="float-md-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
+                <span class="float-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
             </div>
             <div class="card-body p-0">
                 <div class="row p-3">

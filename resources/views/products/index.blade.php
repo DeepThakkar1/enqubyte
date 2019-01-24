@@ -45,7 +45,7 @@
                             <button type="submit" class="btn btn-sm btn-danger product-delete-btn" onclick="return confirm('Are you sure, You want to delete this product?');"><i class="fa fa-trash"></i></button>
                         </form>
 
-                        <div class="modal fade in editProductModal{{$key}}" id="editProductModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade in editProductModal{{$key}} pr-md-0" id="editProductModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -74,8 +74,8 @@
                                                 <label>Description<sup class="error">*</sup></label>
                                                 <textarea type="text" name="description" class="form-control" placeholder="Description" required>{{$product->description}}</textarea>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="col-sm-6 form-group">
                                                     <label>Selling Price<sup class="error">*</sup></label>
                                                     <input type="text" name="selling_price" value="{{$product->selling_price}}" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                                                 </div>
@@ -83,7 +83,7 @@
                                                     <label>Available Stock</label>
                                                     <input type="text" pattern="\d*" name="stock" value="{{$product->stock}}" class="form-control" placeholder="Available Stock">
                                                 </div> -->
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 form-group">
                                                     <label>Cost Price</label>
                                                     <input type="text" name="cost_price" value="{{$product->cost_price}}" pattern="\d*" class="form-control" placeholder="Cost Price">
                                                 </div>
@@ -135,7 +135,7 @@
     </div>
 </div>
 
-<div class="modal fade in addProductModal" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade in addProductModal pr-md-0" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -164,8 +164,8 @@
                         <label>Description<sup class="error">*</sup></label>
                         <textarea type="text" name="description" class="form-control" placeholder="Description" required></textarea>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>Selling Price<sup class="error">*</sup></label>
                             <input type="text" name="selling_price" pattern="\d*" class="form-control" placeholder="Selling Price" required>
                         </div>
@@ -173,7 +173,7 @@
                             <label>Available Stock</label>
                             <input type="text" pattern="\d*" name="stock" class="form-control" placeholder="Available Stock">
                         </div> -->
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Cost Price</label>
                             <input type="text" name="cost_price" pattern="\d*" class="form-control" placeholder="Cost Price">
                         </div>

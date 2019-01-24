@@ -13634,7 +13634,7 @@ p.simple-pricing-text{
     color: #1b6dab !important;
     border-color: #000 !important;
     border: 1px solid #1b6dab !important;
-    width: 220px;
+    width: 240px;
 }
 
 /*tr.product-list-menu th{
@@ -13708,7 +13708,7 @@ p.simple-pricing-text{
         width: 100% !important;
     }
     .home-banner-headings{
-        padding-right: 11px;
+        /*padding-right: 11px;*/
     }
     /*.features-banner-section{
         margin-top: -50px !important;
@@ -13986,5 +13986,6 @@ input.get-started:focus {
 .custom-get-started-button{
     margin-top: -2px;
     margin-left: 5px;
-    width: 220px;
+    /*margin-right: 10px !important;*/
+    width: 240px;
 }

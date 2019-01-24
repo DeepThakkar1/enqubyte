@@ -260,5 +260,14 @@
   .status-user-amount-responsive{
     display: block !important;
   }
+  .customuploadButton{
+    margin-top: 0px !important;
+  }
+  label.setting-upload-photo{
+    display: none !important;
+  }
+  .responsive-uploadButton-purchase{
+    margin-top: 10px !important;
+  }
 
 }

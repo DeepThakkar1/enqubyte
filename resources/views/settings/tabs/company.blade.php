@@ -25,15 +25,15 @@
                     <input type="text" pattern="\d*" maxlength="10" minlength="10" class="form-control" name="company_phone" value="{{ auth()->user()->company_phone }}" placeholder="Phone Number">
                 </div>
                 <div class="col-sm-4 form-group">
-                    <div class="uploadButton">
+                    <div class="uploadButton customuploadButton">
                         <input type="file" id="uploadFile" class="form-control uploadButton-input" name="company_logo">
                         <label for="uploadFile" class="uploadButton-button">Choose file</label>
                         <span class="uploadButton-file-name">Click to upload</span>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 form-group">
                     @if(auth()->user()->company_logo)
-                    <label class="w-100"></label>
+                    <label class="w-100 setting-upload-photo"></label>
                     <img src="{{Storage::url(auth()->user()->company_logo)}}" height="50px">
                     @endif
                 </div>

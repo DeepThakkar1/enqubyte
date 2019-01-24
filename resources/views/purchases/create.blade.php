@@ -36,10 +36,10 @@
                         <label>Due Date<sup class="error">*</sup></label>
                         <input type="text" class="form-control endDatepicker" autocomplete="off" required name="due_date" placeholder="Due date">
                     </div>
-                    <div class="col-sm-4 form-group pl-0">
-                        <div class="uploadButton">
+                    <div class="col-sm-4 form-group">
+                        <div class="uploadButton responsive-uploadButton-purchase">
                             <label for="uploadPurchaseOrder" class="uploadButton-button">Purchase Order Scan Copy</label>
-                            <input type="file" id="uploadPurchaseOrder" class="form-control uploadButton-input" name="order_scan_copy">
+                            <input type="file" id="uploadPurchaseOrder" class="form-control uploadButton-input custom-uploadButton-input" name="order_scan_copy">
                             <span class="uploadButton-file-name">Click to upload</span>
                             <p class="m-0 text-muted"><small>(eg: .png, .jpeg, .jpg, .png, .pdf)</small></p>
                         </div>
