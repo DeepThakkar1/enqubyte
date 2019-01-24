@@ -77,7 +77,7 @@ class InvoicesController extends Controller
         for ($i=0; $i < count(request('product_id')); $i++) {
             $product = Product::where('id', request('product_id')[$i])->first();
             if ($product->has_stock && $product->stock < request('qty')[$i]) {
-                flash('Stock not available for '. $product->name .'!');
+                flash('Stock not available for '. $product->name .'!')->warning();
                 return back();
             }
         }
@@ -144,9 +144,9 @@ class InvoicesController extends Controller
             }
         }
 
-        $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
+        // $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
 
-        flash('Invoice added successfully!');
+        flash('Invoice added successfully!')->success();
         return redirect('/sales/invoices/'.$invoice->sr_no);
     }
 
@@ -171,7 +171,7 @@ class InvoicesController extends Controller
     public function edit(Invoice $invoice)
     {
         if(count($invoice->payments) || $invoice->status == -1 || $invoice->status == 1){
-            flash("You can't edit this invoice!");
+            flash("You can't edit this invoice!")->warning();
             return redirect('/sales/invoices/'.$invoice->sr_no);
         }
         else{
@@ -222,7 +222,7 @@ class InvoicesController extends Controller
         for ($i=0; $i < count(request('product_id')); $i++) {
             $product = Product::where('id', request('product_id')[$i])->first();
             if ($product->has_stock && $product->stock < request('qty')[$i]) {
-                flash('Stock not available for '. $product->name .'!');
+                flash('Stock not available for '. $product->name .'!')->warning();
                 return back();
             }
         }
@@ -291,9 +291,9 @@ class InvoicesController extends Controller
             $product->save();
         }
 
-        $invoice->customer->notify(new UpdateInvoice($invoice, auth()->user()));
+        // $invoice->customer->notify(new UpdateInvoice($invoice, auth()->user()));
 
-        flash('Invoice updated successfully!');
+        flash('Invoice updated successfully!')->success();
         return redirect('/sales/invoices');
     }
 
@@ -304,7 +304,7 @@ class InvoicesController extends Controller
             $invoice->enquiry->save();
         }
         $invoice->update(['status' => -1]);
-        flash('Invoice cancelled successfully!');
+        flash('Invoice cancelled successfully!')->error();
         return redirect('/sales/invoices');
     }
 
@@ -323,7 +323,7 @@ class InvoicesController extends Controller
             $invoice->incentive->delete();
         }
         $invoice->delete();
-        flash('Invoice deleted successfully!');
+        flash('Invoice deleted successfully!')->error();
         return redirect('/sales/invoices');
     }
 

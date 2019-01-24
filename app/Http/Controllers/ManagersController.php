@@ -54,7 +54,7 @@ class ManagersController extends Controller
         $newData['company_id'] = auth()->id();
         $newData['password'] = Hash::make($newData['password']);
         $store->managers()->create($newData);
-        flash('Manager added successfully!');
+        flash('Manager added successfully!')->success();
         return back();
     }
 
@@ -90,7 +90,7 @@ class ManagersController extends Controller
     public function update(Request $request, Store $store, Manager $manager)
     {
         $manager->update($request->all());
-        flash('Manager updated successfully!');
+        flash('Manager updated successfully!')->success();
         return redirect('/stores/'.$store->id);
     }
 
@@ -103,7 +103,7 @@ class ManagersController extends Controller
     public function destroy(Store $store, Manager $manager)
     {
         $manager->delete();
-        flash('Manager deleted successfully!');
+        flash('Manager deleted successfully!')->error();
         return redirect('/stores/'.$store->id);
     }
 }

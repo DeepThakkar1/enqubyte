@@ -114,6 +114,10 @@ a[aria-expanded="true"] {
     /*color: #166ead;*/
     color: #fff;
 }
+#sidebar ul.collapse li.active>a{
+    background: #166ead;
+    color: #fff;
+}
 #sidebar ul li a img {
     width: 25px;
     margin-right: 10px;

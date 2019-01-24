@@ -24,7 +24,7 @@ class SettingsController extends Controller
     public function changeMode(Request $request)
     {
         auth()->user()->update($request->all());
-        flash('Your have activeated multistore store mode.');
+        flash('Your have activeated multistore store mode.')->success();
         return redirect('/settings#pills-advance');
     }
 

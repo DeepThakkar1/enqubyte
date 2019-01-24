@@ -60,7 +60,7 @@ class IncentivesController extends Controller
         {
             return response([$incentive], 200);
         }
-        flash('Incentive added successfully!');
+        flash('Incentive added successfully!')->success();
         return back();
     }
 
@@ -101,7 +101,7 @@ class IncentivesController extends Controller
         {
             return response([$incentive], 200);
         }
-        flash('Incentive updated successfully!');
+        flash('Incentive updated successfully!')->success();
         return back();
     }
 
@@ -114,7 +114,7 @@ class IncentivesController extends Controller
     public function destroy(Incentive $incentive)
     {
         $incentive->delete();
-        flash('Incentive deleted successfully!');
+        flash('Incentive deleted successfully!')->error();
         return back();
     }
 

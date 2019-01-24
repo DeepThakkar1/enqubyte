@@ -18,8 +18,15 @@
                         aria-hidden="true"
                 >&times;</button>
             @endif
-
-            <i class="fas fa-info-circle"></i> {!! $message['message'] !!}
+            @if($message['level'] == 'success')
+            <i class="fas fa-lg fa-check-circle text-success"></i> {!! $message['message'] !!}
+            @elseif($message['level'] == 'danger')
+            <i class="fas fa-lg fa-times-circle text-danger"></i> {!! $message['message'] !!}
+             @elseif($message['level'] == 'warning')
+            <i class="fas fa-lg fa-exclamation-triangle text-warning"></i> {!! $message['message'] !!}
+            @else
+            <i class="fas fa-lg fa-info-circle text-primary"></i> {!! $message['message'] !!}
+            @endif
         </div>
     @endif
 @endforeach

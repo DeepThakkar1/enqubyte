@@ -110,7 +110,7 @@ class PurchaseOrdersController extends Controller
             $product->save();
         }
 
-        flash('Purchase order added successfully!');
+        flash('Purchase order added successfully!')->success();
         return redirect('/purchases');
     }
 
@@ -217,7 +217,7 @@ class PurchaseOrdersController extends Controller
             $product->save();
         }
 
-        flash('Purchase order updated successfully!');
+        flash('Purchase order updated successfully!')->success();
         return redirect('/purchases');
     }
 
@@ -237,7 +237,7 @@ class PurchaseOrdersController extends Controller
         }
         $purchaseOrder->purchaseitems()->delete();
         $purchaseOrder->delete();
-        flash('Purchase order deleted successfully!');
+        flash('Purchase order deleted successfully!')->error();
         return redirect('/purchases');
     }
 
