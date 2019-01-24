@@ -503,6 +503,12 @@ nav.navbar.fixed-top {
 .dashboard-all-content-section{
   margin-top: 55px !important;
 }
+.custom-today-followups{
+  height: 373px;
+}
+.custome-due-invoice{
+  height: 373px;
+}
 
 .navbar-search-icon{
   color: #d2cccc;

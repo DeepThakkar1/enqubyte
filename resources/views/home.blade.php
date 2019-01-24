@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="col-xl-5 col-sm-5 mb-3">
-            <div class="card" style="height: 373px;">
+            <div class="card custom-today-followups">
                 <div class="card-header bg-light">
                     <h5 class="m-0">Today's Followups</h5>
                 </div>
@@ -129,7 +129,7 @@
         </div>
     </div>
     <div class="col-xl-5 col-sm-5 mb-3">
-        <div class="card" style="height: 373px;">
+        <div class="card custome-due-invoice">
             <div class="card-header bg-light">
                 <h5 class="m-0">Due Invoices</h5>
             </div>
