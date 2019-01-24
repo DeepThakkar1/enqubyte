@@ -59,7 +59,7 @@ class CustomersController extends Controller
         {
             return response([$customer], 200);
         }
-        flash('Customer added successfully!');
+        flash('Customer added successfully!')->success();
         return back();
     }
 
@@ -103,7 +103,7 @@ class CustomersController extends Controller
     public function update(Request $request, Visitor $visitor)
     {
         $visitor->update($request->all());
-        flash('Customer updated successfully!');
+        flash('Customer updated successfully!')->success();
         return back();
     }
 
@@ -117,7 +117,7 @@ class CustomersController extends Controller
     {
         $visitor->status = -1;
         $visitor->save();
-        flash('Customer deleted successfully!');
+        flash('Customer deleted successfully!')->error();
         return back();
     }
 

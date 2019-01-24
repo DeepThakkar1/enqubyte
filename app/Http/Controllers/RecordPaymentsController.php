@@ -42,7 +42,7 @@ class RecordPaymentsController extends Controller
             $invoice->save();
             $payment = $invoice->payments()->create($request->all());
 
-            $invoice->customer->notify(new InvoiceTransaction($invoice, $payment, auth()->user()));
+            // $invoice->customer->notify(new InvoiceTransaction($invoice, $payment, auth()->user()));
 
             return response(['invoice' => $invoice, 'payment' => $payment], 200);
         }

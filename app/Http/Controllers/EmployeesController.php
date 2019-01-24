@@ -80,9 +80,9 @@ class EmployeesController extends Controller
         }
         $employee['password'] = $password;
         // dd(auth()->user());
-        $employee->notify(new NewEmployee($employee, auth()->user()));
+        // $employee->notify(new NewEmployee($employee, auth()->user()));
 
-        flash('Employee added successfully!');
+        flash('Employee added successfully!')->success();
         return back();
     }
 
@@ -139,7 +139,7 @@ class EmployeesController extends Controller
             );
         }
         $employee->update($newData);
-        flash('Employee updated successfully!');
+        flash('Employee updated successfully!')->success();
         return back();
     }
 
@@ -152,7 +152,7 @@ class EmployeesController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        flash('Employee deleted successfully!');
+        flash('Employee deleted successfully!')->error();
         return back();
     }
 
@@ -172,6 +172,9 @@ class EmployeesController extends Controller
     }
 
     public function exportToPDF(){
+        /*return view('exports.employees', [
+            'employees' => auth()->user()->employees
+        ]);*/
          return Excel::download(new EmployeesExport(), 'employees.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
     }
 

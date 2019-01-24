@@ -32,12 +32,12 @@ class PaymentsController extends Controller
     	{
     			$plan = PlanModel::where('name', 'All-in-one monthly')->first();
     			$subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
-		
+
     			return redirect('subscribed');
     	} else {
     		return redirect('billing');
     	}
-    
+
 
     }
 
@@ -51,15 +51,15 @@ class PaymentsController extends Controller
     {
     	$plan = PlanModel::where('name', 'All-in-one monthly')->first();
             if(env('APP_ENV') != 'local'){
-                $instamojoFormUrl = 
+                $instamojoFormUrl =
                     Mojo::giveMeFormUrl(auth()->user(), $plan->price, 'Monthly Subscription', '9922367414');
             } else {
                 $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
                 $instamojoFormUrl = '/subscribed';
             }
-			
+
 			return view('payments.redirecting', compact('instamojoFormUrl'));
-    	
+
     }
 
     public function subscribed()
@@ -78,7 +78,7 @@ class PaymentsController extends Controller
     	if(env('APP_ENV') != 'local') {
 	        $transaction = MojoPaymentDetails::where('user_id', auth()->id())->latest()->first();
     	    Mojo::refund($transaction->payment_id, 'PTH','Subscription terminated');
-    	}    
+    	}
     	flash('Your subscription was terminated and your amount will be refunded to you in 3 working days.')->success();
 
     	return redirect('/billing');
@@ -100,21 +100,21 @@ class PaymentsController extends Controller
     	if($subscription->isPendingCancellation())
     	{
     		$subscription->update(['cancelled_on' => null]);
-    		flash('Your subscription was activated successfully!');
+    		flash('Your subscription was activated successfully!')->success();
     		return redirect('billing');
     	} else {
 			$plan = PlanModel::where('name', 'All-in-one monthly')->first();
-    		
+
     		if(env('APP_ENV') != 'local'){
-                $instamojoFormUrl = 
+                $instamojoFormUrl =
                     Mojo::giveMeFormUrl(auth()->user(), $plan->price, 'Monthly Subscription', '9922367414');
                  return redirect($instamojoFormUrl);
             } else {
                 $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
                 return redirect('subscribed');
             }
-    		
+
     	}
-    	   	 
+
     }
 }

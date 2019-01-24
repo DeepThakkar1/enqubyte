@@ -60,7 +60,7 @@ class ProductsController extends Controller
         {
             return response($product, 200);
         }
-        flash('Product added successfully!');
+        flash('Product added successfully!')->success();
         return back();
     }
 
@@ -139,7 +139,7 @@ class ProductsController extends Controller
             $newData['has_stock'] = 0;
         }
         $product->update($newData);
-        flash('Product updated successfully!');
+        flash('Product updated successfully!')->success();
         return back();
     }
 
@@ -152,7 +152,7 @@ class ProductsController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        flash('Product deleted successfully!');
+        flash('Product deleted successfully!')->error();
         return back();
     }
 

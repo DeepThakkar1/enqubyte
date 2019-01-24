@@ -11,10 +11,10 @@
             <div class="col-lg-7 align-self-center home-banner-headings">
                 <div class="agency-banner-content banner-style6">
                     <h1 class="banner-title">The perfect business assistant.</h1>
-                    <p>Enqubyte is an all-in-one solution for managing a retail business at an ease providing features to handle enquiries, sales, purchases and employees as well as provide various reports that let's you analyse your business.</p>
+                    <p class="mb-0">Enqubyte is an all-in-one solution for managing a retail business at an ease providing features to handle enquiries, sales, purchases and employees as well as provide various reports that let's you analyse your business.</p>
                     <br>
                     <div class="get-started-section">
-                        <button type="submit" class="btn btn-primary custom-get-started-button" style="">Get Started</button>
+                        <button type="submit" class="btn btn-primary custom-get-started-button mr-md-2" style="">Get Started</button>
                         <button type="submit" class="btn custom-request-demo-button" style="" data-toggle="modal" data-target="#myModal">Request a Demo</button>
 
                         <!-- <form method="GET" action="{{ route('register') }}">

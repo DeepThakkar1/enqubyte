@@ -71,22 +71,22 @@
                                             @else
                                             <input type="hidden" name="store_id" value="0">
                                             @endif
-                                            <div class="row form-group">
-                                                <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="col-sm-6 form-group">
                                                     <label>First Name<sup class="error">*</sup></label>
                                                     <input type="text" name="fname" value="{{$visitor->fname}}" class="form-control" placeholder="First name" required>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 form-group">
                                                     <label>Last Name<sup class="error">*</sup></label>
                                                     <input type="text" name="lname" value="{{$visitor->lname}}" class="form-control" placeholder="Last name" required>
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="col-sm-6 form-group">
                                                     <label>Phone<sup class="error">*</sup></label>
                                                     <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$visitor->phone}}" class="form-control" placeholder="Phone" required>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 form-group">
                                                     <label>Email Address</label>
                                                     <input type="email" name="email" value="{{$visitor->email}}" class="form-control" placeholder="Visitor email">
                                                 </div>
@@ -139,22 +139,22 @@
                     @else
                     <input type="hidden" name="store_id" value="0">
                     @endif
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>First Name<sup class="error">*</sup></label>
                             <input type="text" name="fname" class="form-control" maxlength="25" placeholder="First name" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Last Name<sup class="error">*</sup></label>
                             <input type="text" name="lname" class="form-control" maxlength="25" placeholder="Last name" required>
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>Phone<sup class="error">*</sup></label>
                             <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Email Address</label>
                             <input type="email" name="email" class="form-control" placeholder="Visitor email" data-parsley-remote="{{url('/visitors/email/{value}/available')}}" data-parsley-remote-message="Email already exist!">
                         </div>

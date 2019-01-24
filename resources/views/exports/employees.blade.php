@@ -14,7 +14,7 @@
             <td>{{$key + 1}}</td>
             <td>{{$employee->fullname}}</td>
             <td>{{$employee->email}}</td>
-            <td>{{$employee->phone}}</td>
+            <td>{{$employee->phone ? $employee->phone : '--'}}</td>
             <td>{{isset($employee->incentive) && $employee->incentive ? $employee->incentive->name : 'None'}}</td>
         </tr>
         @endforeach

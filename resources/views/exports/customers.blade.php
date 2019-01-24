@@ -13,7 +13,7 @@
             <td>{{$key + 1}}</td>
             <td>{{$customer->fullname}}</td>
             <td>{{$customer->email}}</td>
-            <td>{{$customer->phone}}</td>
+            <td>{{$customer->phone ? $customer->phone : '--'}}</td>
         </tr>
         @endforeach
     </tbody>

@@ -137,6 +137,10 @@
     right: 4px !important;
     bottom: 4px !important;
   }
+  .modal-content {
+    height: unset;
+    /*border-radius: 0px !important;*/
+  }
 
   /****************** Nvbar***********************/
 
@@ -221,7 +225,12 @@
   /*.invoice-box table td {
     font-size: 14px !important;
   }*/
-
+  .custom-today-followups{
+    height: 407px;
+  }
+  .custome-due-invoice{
+    height: 407px;
+  }
   .custom-dashboard-info-icon{
     margin-top: 60px !important;
   }
@@ -250,6 +259,18 @@
   }
   .status-user-amount-responsive{
     display: block !important;
+  }
+  .customuploadButton{
+    margin-top: 0px !important;
+  }
+  label.setting-upload-photo{
+    display: none !important;
+  }
+  .responsive-uploadButton-purchase{
+    margin-top: 10px !important;
+  }
+   .custom-cancel-enquiries-show{
+    margin-right: 10px !important;
   }
 
 }

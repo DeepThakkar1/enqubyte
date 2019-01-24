@@ -24,22 +24,22 @@
                     @else
                     <input type="hidden" name="store_id" value="0">
                     @endif
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>Name<sup class="error">*</sup></label>
                             <input type="text" name="name" class="form-control" placeholder="Name" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Contact Person</label>
                             <input type="text" name="contact_person" class="form-control" placeholder="Contact Person">
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
                             <label>Phone<sup class="error">*</sup></label>
                             <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 form-group">
                             <label>Email Address</label>
                             <input type="email" name="email" class="form-control" placeholder="Vendor email" >
                         </div>

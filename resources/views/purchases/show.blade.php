@@ -82,7 +82,7 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex p-md-3">
-                <div class="px-4">
+                <div class="px-md-4">
                     <h3 class="text-size-heading">P/O-00{{$purchaseOrder->sr_no}}</h3>
                     <p class="purchaes-order-record-payment">Created : {{ $purchaseOrder->created_at->diffForHumans() }}</p>
                 </div>
@@ -103,7 +103,7 @@
             <div class="card-header">
                 P/O
                 <strong>{{$purchaseOrder->sr_no}}</strong>
-                <span class="float-md-right"> <strong>Status:</strong> <span class="purchaseOrderStatus">{{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}}</span></span>
+                <span class="float-right"> <strong>Status:</strong> <span class="purchaseOrderStatus">{{$purchaseOrder->remaining_amount ? 'Pending' : 'Completed'}}</span></span>
             </div>
             <div class="card-body">
                 <div class="row mb-4">
@@ -159,7 +159,7 @@
                 <div class="col-lg-4 col-sm-5">
                 </div>
                 <div class="col-lg-5 col-sm-5 ml-auto">
-                    <table class="table table-clear table-purchaseOrderTotal">
+                    <table class="table table-clear table-purchaseOrderTotal total-tbl">
                         <tbody>
                             <tr>
                                 <td class="left">
