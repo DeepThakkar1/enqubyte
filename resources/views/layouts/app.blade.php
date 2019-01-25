@@ -138,20 +138,22 @@
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
-                // responsive: true,
+                responsive: true,
                 searching: false,
                 paging: false
-            });
+            }).columns.adjust()
+            .responsive.recalc();
 
             $('.descDataTable').DataTable({
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
-                // responsive: true,
+                responsive: true,
                 "order": [[ 0, "desc" ]],
                 searching: false,
                 paging: false
-            });
+            }).columns.adjust()
+            .responsive.recalc();
 
             $('.btn-close-modal').on('click', function(){
                 var modal = $(this).parents('.modal');
