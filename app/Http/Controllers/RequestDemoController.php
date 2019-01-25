@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RequestDemo;
 use Illuminate\Http\Request;
+use App\Notifications\DemoCredential;
 
 class RequestDemoController extends Controller
 {
@@ -35,9 +36,10 @@ class RequestDemoController extends Controller
      */
     public function store(Request $request)
     {
-        RequestDemo::create($request->all());
+        $demo = RequestDemo::create($request->all());
+        $demo->notify(new DemoCredential($demo));
+        flash()->overlay('Your demo request has been successfully send. And for you demo credentials on your email we will send very soon!', 'Request a Demo Send Successfully!');
         return back();
-        // dd($request->all());
     }
 
     /**

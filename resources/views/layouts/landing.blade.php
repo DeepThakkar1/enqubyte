@@ -1,7 +1,7 @@
 <!-- get_header('Page Name','Title')-->
 <!doctype html>
 <html class="no-js" lang="zxx">
-	
+
 <head>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -20,48 +20,48 @@
 
 		<script type="application/ld+json">
 {
-  "@context": "http://schema.org/", 
-  "@type": "BreadcrumbList", 
+  "@context": "http://schema.org/",
+  "@type": "BreadcrumbList",
   "itemListElement": [
-    { 
-      "@type": "ListItem", 
-      "position": "1", 
-      "item": { 
-        "@id": "https://enqubyte.com/", 
-        "name": "Home" 
-      } 
+    {
+      "@type": "ListItem",
+      "position": "1",
+      "item": {
+        "@id": "https://enqubyte.com/",
+        "name": "Home"
+      }
     },
-    { 
-      "@type": "ListItem", 
-      "position": "2", 
-      "item": { 
-        "@id": "https://enqubyte.com/features", 
-        "name": "Features" 
-      } 
+    {
+      "@type": "ListItem",
+      "position": "2",
+      "item": {
+        "@id": "https://enqubyte.com/features",
+        "name": "Features"
+      }
     },
-    { 
-      "@type": "ListItem", 
-      "position": "3", 
-      "item": { 
-        "@id": "https://enqubyte.com/#pricing", 
-        "name": "Pricing" 
-      } 
+    {
+      "@type": "ListItem",
+      "position": "3",
+      "item": {
+        "@id": "https://enqubyte.com/#pricing",
+        "name": "Pricing"
+      }
     },
-    { 
-      "@type": "ListItem", 
-      "position": "4", 
-      "item": { 
-        "@id": "https://enqubyte.com/login", 
-        "name": "Login" 
-      } 
+    {
+      "@type": "ListItem",
+      "position": "4",
+      "item": {
+        "@id": "https://enqubyte.com/login",
+        "name": "Login"
+      }
     },
-    { 
-      "@type": "ListItem", 
-      "position": "5", 
-      "item": { 
-        "@id": "https://enqubyte.com/register", 
-        "name": "Get Started" 
-      } 
+    {
+      "@type": "ListItem",
+      "position": "5",
+      "item": {
+        "@id": "https://enqubyte.com/register",
+        "name": "Get Started"
+      }
     }
   ]
 }
@@ -104,7 +104,7 @@
   "worksFor": {
     "@type": "Organization",
     "name": "Enqubyte"
-  }  
+  }
 }
 </script>
 
@@ -202,9 +202,9 @@
 <!-- End Facebook Pixel Code -->
 
 	</head>
-    
+
 	<body>
-        
+
 
 		<!-- Load Facebook SDK for JavaScript -->
 		<div id="fb-root"></div>
@@ -223,10 +223,11 @@
 		</div>
 
 	   <main id="content">
+            @include('flash::message')
             @yield('content')
         </main>
 
-		<!-- footer section end -->	
+		<!-- footer section end -->
 		<!-- js file start -->
 		<script src="assets/js/jquery-3.2.1.min.js"></script>
         <script src="assets/js/plugins.js"></script>
@@ -258,6 +259,9 @@
         <script src="assets/js/skrollr.min.js"></script>
         <script src="assets/js/shuffle-letters.js"></script>
         <script src="assets/js/main.js"></script>		<!-- End js file -->
+        <script type="text/javascript">
+          $('#flash-overlay-modal').modal();
+        </script>
 	</body>
 
 </html>
