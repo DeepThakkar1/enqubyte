@@ -10,10 +10,10 @@
                     @if(request('start_date'))
                     <a href="/purchasesexcel?start_date={{request('start_date')}}&end_date={{request('end_date')}}" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
                     @else
-                    <a href="/purchasesexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
+                    <a href="/purchasesexcel" class="btn btn-light {{count($purchases) ? '' : 'disabled'}}"><i class="fa fa-file-excel"></i> Excel</a>
                     @endif
-                    <a href="/purchasespdf" class="btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
-                    <a href="/purchasescsv" class="btn btn-light"><i class="fas fa-file-csv"></i> CSV</a>
+                    <a href="/purchasespdf" class="btn btn-light {{count($purchases) ? '' : 'disabled'}}"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/purchasescsv" class="btn btn-light {{count($purchases) ? '' : 'disabled'}}"><i class="fas fa-file-csv"></i> CSV</a>
                 </div>
             </div>
             <a href="/purchases/add" class="btn btn-primary">Add Purchase</a>

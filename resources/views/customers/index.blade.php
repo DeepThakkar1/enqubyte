@@ -7,9 +7,9 @@
         <div class="float-md-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="/customersexcel" class="btn btn-light"><i class="fa fa-file-excel"></i> Excel</a>
-                    <a href="/customerspdf" class="btn btn-light"><i class="fa fa-file-pdf"></i> PDF</a>
-                    <a href="/customerscsv" class="btn btn-light"><i class="fas fa-file-csv"></i> CSV</a>
+                    <a href="/customersexcel" class="btn btn-light {{count($customers) ? '' : 'disabled'}}"><i class="fa fa-file-excel"></i> Excel</a>
+                    <a href="/customerspdf" class="btn btn-light {{count($customers) ? '' : 'disabled'}}"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/customerscsv" class="btn btn-light {{count($customers) ? '' : 'disabled'}}"><i class="fas fa-file-csv"></i> CSV</a>
                 </div>
             </div>
             <a href="#addCustomerModal" data-toggle="modal" class="btn btn-primary">Add Customer</a>
