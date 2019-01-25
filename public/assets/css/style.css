@@ -13673,7 +13673,19 @@ p.simple-pricing-text{
     border-bottom: 1px solid #dee2e6 !important;
 }*/
 @media(max-width: 768px){
-
+    .calltoaction-area-2+.footer-style5 .footer-top-area {
+        padding-top: 35px !important;
+        padding-bottom: 20px !important;
+    }
+    .footer-widget {
+        margin-bottom: 20px !important;
+    }
+    .footer-widget .footer-logo-wraper {
+        margin-bottom: 0px !important;
+    }
+    .agency-banner-content.banner-style6 p {
+        margin-bottom: -10px !important;
+    }
     .custom-get-started-button {
         margin-bottom: 10px;
     }
@@ -13736,6 +13748,7 @@ p.simple-pricing-text{
     .features-banner-image-section {
         padding-left: 16px;
         margin-bottom: 30px !important;
+        padding-top: 15px !important;
     }
     .get-started-input{
         width: 100% !important;
