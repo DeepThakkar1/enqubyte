@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Visitor;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Exports\InvoiceExport;
 use App\Exports\InvoicesExport;
 use App\Models\SalesmanIncentive;
 use App\Notifications\NewInvoice;
@@ -337,7 +338,7 @@ class InvoicesController extends Controller
     }
 
     public function exportToPDF(){
-         return Excel::download(new InvoicesExport(), 'invoices.pdf',  \Maatwebsite\Excel\Excel::DOMPDF);
+        return Excel::download(new InvoicesExport(), 'invoices.pdf',  \Maatwebsite\Excel\Excel::MPDF);
     }
 
     public function exportToCSV(){
@@ -345,9 +346,9 @@ class InvoicesController extends Controller
     }
 
     public function download(Invoice $invoice){
-        $invoicePdf = \PDF::loadView('sales.invoices.print', compact('invoice'));
-
+        // $invoicePdf = \PDF::loadView('sales.invoices.print', compact('invoice'));
         // return $invoicePdf->download('invoice.pdf');
+        // return Excel::download(new InvoiceExport($invoice), 'invoices.pdf',  \Maatwebsite\Excel\Excel::MPDF);
         return view('sales.invoices.print', compact('invoice'));
     }
 }

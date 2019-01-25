@@ -74,55 +74,55 @@
             </tr>
             @endforeach
             <tr class="total">
-                    <td colspan="5"></td>
-                    <td class="right border-top-0"><strong>Subtotal : </strong> &#8377; {{$invoice->sub_tot_amt}}</td>
-                </tr>
+                <td colspan="5"></td>
+                <td class="right border-top-0"><strong>Subtotal : </strong> &#8377; {{$invoice->sub_tot_amt}}</td>
+            </tr>
+            <tr>
+                <td colspan="5"></td>
+                <td class="right"><strong>Discount : </strong> {!! isset($invoice->discount_type) && $invoice->discount_type ==0 ? '&#8377;' : ''!!} {{$invoice->discount}} {{isset($invoice->discount_type) && $invoice->discount_type ==1 ? '%' : ''}}</td>
+            </tr>
+            <tr>
+                <td colspan="5"></td>
+                <td class="right grandTotalAmount">
+                    <strong>Total : &#8377; {{$invoice->grand_total}}</strong>
+                </td>
+            </tr>
+            @if(count($invoice->payments))
+                @foreach($invoice->payments as $payment)
                 <tr>
-                    <td colspan="5"></td>
-                    <td class="right"><strong>Discount : </strong> {!! isset($invoice->discount_type) && $invoice->discount_type ==0 ? '&#8377;' : ''!!} {{$invoice->discount}} {{isset($invoice->discount_type) && $invoice->discount_type ==1 ? '%' : ''}}</td>
-                </tr>
-                <tr>
-                    <td colspan="5"></td>
-                    <td class="right grandTotalAmount">
-                        <strong>Total : &#8377; {{$invoice->grand_total}}</strong>
+                    <td colspan="5" class="left">
+                        Payment on {{ $payment->payment_date}} using
+                        @if($payment->payment_method == 1)
+                        Bank Payment :
+                        @elseif($payment->payment_method == 2)
+                        Cash :
+                        @elseif($payment->payment_method == 3)
+                        Cheque :
+                        @elseif($payment->payment_method == 4)
+                        Credit Card :
+                        @else
+                        Other :
+                        @endif
+                    </td>
+                    <td class="right">
+                        <strong>&#8377; {{$payment->amount}}</strong>
                     </td>
                 </tr>
-                @if(count($invoice->payments))
-                    @foreach($invoice->payments as $payment)
-                    <tr>
-                        <td colspan="5" class="left">
-                            Payment on {{ $payment->payment_date}} using
-                            @if($payment->payment_method == 1)
-                            Bank Payment :
-                            @elseif($payment->payment_method == 2)
-                            Cash :
-                            @elseif($payment->payment_method == 3)
-                            Cheque :
-                            @elseif($payment->payment_method == 4)
-                            Credit Card :
-                            @else
-                            Other :
-                            @endif
-                        </td>
-                        <td class="right">
-                            <strong>&#8377; {{$payment->amount}}</strong>
-                        </td>
-                    </tr>
-                    @endforeach
-                    <tr class="rowAmountDue">
-                        <td colspan="5" class="left">
-                            <strong>Amount Due (INR):</strong>
-                        </td>
-                        <td class="right">
-                            <strong>&#8377; {{$invoice->remaining_amount}}</strong>
-                        </td>
-                    </tr>
-                @endif
-            </tr>
-        </table>
-    </div>
-    <script type="text/javascript">
-        window.print();
-    </script>
+                @endforeach
+                <tr class="rowAmountDue">
+                    <td colspan="5" class="left">
+                        <strong>Amount Due (INR):</strong>
+                    </td>
+                    <td class="right">
+                        <strong>&#8377; {{$invoice->remaining_amount}}</strong>
+                    </td>
+                </tr>
+            @endif
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    window.print();
+</script>
 </body>
 </html>

@@ -23,7 +23,7 @@
             <div class="d-flex align-self-center">
                 <div class="py-2">
                     <div>Status</div>
-                    <div class="bg-{{$invoice->status == -1 ? 'danger' : ($invoice->remaining_amount ? 'warning' : 'success')}} text-white px-2 rounded mt-2"> <span class="invoiceStatus"> {{$invoice->status == -1 ? 'Cancelled' : ($invoice->remaining_amount ? 'Pending' : 'Completed')}}</span></div>
+                    <div class="bg-{{$invoice->status == -1 ? 'danger' : ($invoice->status ? 'success' : 'warning')}} text-white px-2 rounded mt-2"> <span class="invoiceStatus"> {{$invoice->status == -1 ? 'Cancelled' : ($invoice->status ? 'Completed' : 'Pending')}}</span></div>
                 </div>
                 <div class="px-4 py-2">
                     <div>Customer</div>
@@ -56,7 +56,7 @@
             <div class="d-flex justify-content-between">
                 <div class="py-2 text-left">
                     <div>Status</div>
-                    <div class="bg-{{$invoice->remaining_amount ? 'warning' : 'success'}} text-white px-2 rounded mt-2"><span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></div>
+                    <div class="bg-{{$invoice->status == 1 ? 'success' : ($invoice->status == -1 ? 'danger' : 'warning')}} text-white px-2 rounded mt-2"><span class="invoiceStatus"> {{$invoice->status == 1 ? 'Completed' : ($invoice->status == -1 ? 'Cancelled' : 'Pending')}} </span></div>
                 </div>
                 <div class="py-2 text-right">
                     <div>Customer</div>
@@ -139,7 +139,7 @@
         <div class="card">
             <div class="card-header">
                 <strong>INV-00{{$invoice->sr_no}}</strong>
-                <span class="float-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->remaining_amount ? 'Pending' : 'Completed'}} </span></span>
+                <span class="float-md-right"> <strong>Status:</strong> <span class="invoiceStatus"> {{$invoice->status == 1 ? 'Completed' : ($invoice->status == -1 ? 'Cancelled' : 'Pending')}} </span></span>
             </div>
             <div class="card-body p-0">
                 <div class="row p-3">

@@ -5,8 +5,9 @@ namespace App\Exports;
 use App\Models\Invoice;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
-
-class InvoicesExport implements FromView
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\FromCollection;
+class InvoicesExport implements FromView, ShouldAutoSize
 {
     public $start_date;
     public $end_date;

@@ -42,6 +42,11 @@ class RecordPaymentsController extends Controller
             $invoice->save();
             $payment = $invoice->payments()->create($request->all());
 
+            if(!$invoice->remaining_amount){
+                $invoice->status = 1;
+                $invoice->save();
+            }
+
             // $invoice->customer->notify(new InvoiceTransaction($invoice, $payment, auth()->user()));
 
             return response(['invoice' => $invoice, 'payment' => $payment], 200);

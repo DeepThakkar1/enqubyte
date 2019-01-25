@@ -105,9 +105,11 @@
 
                         $('.invoiceStatus').html(response.data.invoice.remaining_amount ? 'Pending' : 'Completed');
                         $('.btnEditInvoice').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
+                        $('.btnCancelInvoice').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
                         $('.btnRecordPayment').addClass(response.data.invoice.remaining_amount ? '' : 'disabled');
                         $('.bg-warning.text-white.px-2.rounded').removeClass('bg-warning').addClass(response.data.invoice.remaining_amount ? 'bg-warning' : 'bg-success');
 
+                        $(this).removeClass('disabled');
                         $('.recordPaymentModal').modal('hide');
                     })
                 }else{

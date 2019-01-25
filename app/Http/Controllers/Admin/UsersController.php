@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Rennokki\Plans\Models\PlanModel;
 
 class UsersController extends Controller
 {
@@ -25,7 +26,8 @@ class UsersController extends Controller
      */
     public function index()
     {
+        $plans = PlanModel::all();
         $users = User::orderBy('created_at', 'desc')->paginate(10);
-        return view('admin.users.index', compact('users'));
+        return view('admin.users.index', compact('users', 'plans'));
     }
 }
