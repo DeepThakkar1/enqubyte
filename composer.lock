@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "9ea9e72013b89b8dd432a31ce3f4b642",
+=======
+    "content-hash": "a061a024e8a98c01b125010ce6aa8625",
+>>>>>>> 0ec9d7493754f083b65a450a8c341441b7fb18d3
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1586,6 +1590,60 @@
                 "storage"
             ],
             "time": "2018-11-23T23:41:29+00:00"
+        },
+        {
+            "name": "lubusin/laravel-mojo",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lubusIN/laravel-mojo.git",
+                "reference": "59491dff0fa6914f37a87c6d3c8c28146b2288a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lubusIN/laravel-mojo/zipball/59491dff0fa6914f37a87c6d3c8c28146b2288a9",
+                "reference": "59491dff0fa6914f37a87c6d3c8c28146b2288a9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.3",
+                "illuminate/support": "~5.3",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "illuminate/http": "~5.3",
+                "illuminate/routing": "~5.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lubusin\\Mojo\\MojoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lubusin\\Mojo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Harish Toshniwal",
+                    "email": "harish@lubus.in"
+                }
+            ],
+            "description": "Laravel Mojo provides an expressive, fluent interface to Instamojo's payment and refund services.",
+            "keywords": [
+                "instamojo",
+                "laravel",
+                "package"
+            ],
+            "time": "2018-02-13T12:41:05+00:00"
         },
         {
             "name": "maatwebsite/excel",
@@ -4310,60 +4368,6 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
-        },
-        {
-            "name": "lubusin/laravel-mojo",
-            "version": "v2.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lubusIN/laravel-mojo.git",
-                "reference": "59491dff0fa6914f37a87c6d3c8c28146b2288a9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lubusIN/laravel-mojo/zipball/59491dff0fa6914f37a87c6d3c8c28146b2288a9",
-                "reference": "59491dff0fa6914f37a87c6d3c8c28146b2288a9",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "~5.3",
-                "illuminate/support": "~5.3",
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "illuminate/http": "~5.3",
-                "illuminate/routing": "~5.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Lubusin\\Mojo\\MojoServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Lubusin\\Mojo\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Harish Toshniwal",
-                    "email": "harish@lubus.in"
-                }
-            ],
-            "description": "Laravel Mojo provides an expressive, fluent interface to Instamojo's payment and refund services.",
-            "keywords": [
-                "instamojo",
-                "laravel",
-                "package"
-            ],
-            "time": "2018-02-13T12:41:05+00:00"
         },
         {
             "name": "mockery/mockery",

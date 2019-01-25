@@ -82,30 +82,30 @@
                                         @else
                                         <input type="hidden" name="store_id" value="0">
                                         @endif
-                                        <div class="row form-group">
-                                            <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
                                                 <label>First Name<sup class="error">*</sup></label>
                                                 <input type="text" name="fname" maxlength="25" value="{{$employee->fname}}" class="form-control" placeholder="First name" required>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 form-group">
                                                 <label>Last Name<sup class="error">*</sup></label>
                                                 <input type="text" name="lname" maxlength="25" value="{{$employee->lname}}" class="form-control" placeholder="Last name" required>
                                             </div>
                                         </div>
-                                        <div class="row form-group">
-                                            <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
                                                 <label>Phone<sup class="error">*</sup></label>
                                                 <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" value="{{$employee->phone}}" class="form-control" placeholder="Phone" required>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 form-group">
                                                 <label>Email Address<sup class="error">*</sup></label>
                                                 <input type="email" name="email" value="{{$employee->email}}" class="form-control" placeholder="Store email" required>
                                             </div>
                                         </div>
 
-                                        <div class="row form-group">
-                                            <div class="col-sm-6">
-                                                <div class="uploadButton mt-3">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <div class="uploadButton mt-md-3 customuploadButton">
                                                     <label for="uploadPhoto" class="uploadButton-button">Photo</label>
                                                     <input type="file" id="uploadPhoto" name="photo" class="form-control uploadButton-input">
                                                     <span class="uploadButton-file-name">Click to upload</span>
@@ -114,8 +114,8 @@
                                                     <img src="{{Storage::url($employee->photo)}}" width="100px" class="mt-2">
                                                     @endif
                                             </div>
-                                            <div class="col-sm-6">
-                                                <div class="uploadButton mt-3">
+                                            <div class="col-sm-6 form-group">
+                                                <div class="uploadButton mt-md-3 customuploadButton">
                                                     <label for="uploadIdProof" class="uploadButton-button">ID Proof</label>
                                                     <input type="file" id="uploadIdProof" name="verification_doc" class="form-control uploadButton-input">
                                                     <span class="uploadButton-file-name">Click to upload</span>
@@ -125,8 +125,8 @@
                                                     @endif
                                             </div>
                                         </div>
-                                        <div class="row form-group">
-                                            <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
                                                 <label>Payout & Incentives<sup class="error">*</sup></label>
                                                 <select name="incentive_id" class="form-control" required>
                                                     <option disabled selected>-- Select Incentive --</option>
@@ -184,45 +184,45 @@
                             @else
                             <input type="hidden" name="store_id" value="0">
                             @endif
-                            <div class="row form-group">
-                                <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
                                     <label>First Name<sup class="error">*</sup></label>
                                     <input type="text" name="fname" maxlength="25" class="form-control" placeholder="First name" required>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6 form-group">
                                     <label>Last Name<sup class="error">*</sup></label>
                                     <input type="text" name="lname" maxlength="25" class="form-control" placeholder="Last name" required>
                                 </div>
                             </div>
-                            <div class="row form-group">
-                                <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
                                     <label>Phone<sup class="error">*</sup></label>
                                     <input type="text" maxlength="10" minlength="10" pattern="\d*" name="phone" class="form-control" placeholder="Phone" required>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6 form-group">
                                     <label>Email Address<sup class="error">*</sup></label>
                                     <input type="email" name="email" class="form-control" placeholder="Employee email" data-parsley-remote="{{url('/employees/email/{value}/available')}}" data-parsley-remote-message="Email already exist!" required>
                                 </div>
                             </div>
 
-                            <div class="row form-group">
-                                <div class="col-sm-6">
-                                    <div class="uploadButton mt-3">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <div class="uploadButton customuploadButton mt-md-3">
                                         <input type="file" id="uploadPhotos" name="photo" class="form-control  uploadButton-input" accept="image/*" required>
                                         <label for="uploadPhotos" class="uploadButton-button">Photo<sup class="error">*</sup></label>
                                         <span class="uploadButton-file-name">Click to upload</span>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="uploadButton mt-3">
+                                <div class="col-sm-6 form-group">
+                                    <div class="uploadButton customuploadButton mt-md-3">
                                         <label for="uploadIdProofs" class="uploadButton-button">ID Proof<sup class="error">*</sup></label>
                                         <input type="file" id="uploadIdProofs" name="verification_doc" class="form-control uploadButton-input" required>
                                         <span class="uploadButton-file-name">Click to upload</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row form-group">
-                                <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
                                     <label>Payout & Incentives<sup class="error">*</sup></label>
                                     <select name="incentive_id" class="form-control" required>
                                         <option disabled selected>-- Select Incentive --</option>
@@ -232,7 +232,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6 form-group">
                                     <label>Password<sup class="error">*</sup></label>
                                     <input type="password" name="password" class="form-control" placeholder="Password" required>
                                 </div>
