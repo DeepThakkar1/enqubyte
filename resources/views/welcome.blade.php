@@ -212,7 +212,7 @@
 </section>     --}}
 
 <!-- agency pricing section -->
-<section class="xs-section-padding gray-bg waypoint-tigger">
+<section class="xs-section-padding custome-xs-section-padding gray-bg waypoint-tigger">
     <div class="container">
         <div class="row section-title-style3">
             <div class="col-lg-8 mx-auto">

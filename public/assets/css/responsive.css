@@ -220,6 +220,9 @@ Author URI: http://themeforest.net/user/XpeedStudio/portfolio
     .xs-section-padding {
         padding: 60px 0;
     }
+    .custome-xs-section-padding{
+        padding-bottom: 30px !important;
+    }
     .xs-section-padding-top {
         padding-top: 60px;
     }
