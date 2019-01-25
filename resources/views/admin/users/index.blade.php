@@ -13,6 +13,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Created at</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,15 +22,48 @@
                     <td>{{$key + 1}}</td>
                     <td><img src="{{ Avatar::create($user->fullname)->toBase64() }}" style="width: 32px; height: 32px; margin-right: 7px;">
                         {{$user->fullname}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>{{$user->created_at->diffForHumans()}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {{ $users->links() }}
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->created_at->diffForHumans()}}</td>
+                        <td>
+                            <a href="#changePlanModal{{$key}}" data-toggle="modal" class="btn btn-outline-primary">Change Plan</a>
+
+                            <div class="modal fade in changePlanModal{{$key}} pr-md-0" id="changePlanModal{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Change Plan</h5>
+                                            <button type="button" class="close btn-close-modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="" method="post">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>Plan<sup class="error">*</sup></label>
+                                                    <select name="plan" class="form-control" required>
+                                                        <option disabled selected>-- Select Plan --</option>
+                                                        @foreach($plans as $plan)
+                                                        <option value="{{$plan->id}}" {{$plan->id == $user->plan ? 'selected' : ''}}>{{$plan->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary btn-close-modal">Cancel</button>
+                                                <button type="submit" class="btn btn-primary"> Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{ $users->links() }}
+        </div>
     </div>
-</div>
 
-
-@endsection
+    @endsection
