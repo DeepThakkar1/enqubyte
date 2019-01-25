@@ -360,8 +360,8 @@ table.dataTable thead th{
 .dataTables_info{
   padding: 21px !important;
   padding-top: 19px !important;
-  border-bottom: 1px solid #f0f0f0 !important;
-  width: 100%;
+  /*border-bottom: 1px solid #f0f0f0 !important;*/
+  width: auto;
   font-size: 12px;
 }
 
@@ -980,3 +980,11 @@ a.upgrade-product-nav p{
 .bg-warning {
     background-color: #FFC107 !important;
 }
+.dataTables_length{
+  display: none;
+}
+
+table.dataTable>tbody>tr.child ul.dtr-details {
+    display: block !important;
+}
+

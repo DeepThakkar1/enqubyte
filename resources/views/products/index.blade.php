@@ -32,7 +32,7 @@
                 @foreach($products as $key => $product)
                 <tr>
                     <td>{{$key + 1}}</td>
-                    <td>{{$product->name}}</td>
+                    <td>{{str_limit($product->name, 30)}}</td>
                     <td>{{$product->product_code}}</td>
                     <td>&#8377; {{number_format($product->cost_price)}}</td>
                     <td>&#8377; {{number_format($product->selling_price)}}</td>
@@ -133,6 +133,30 @@
             </tbody>
         </table>
     </div>
+<!--
+    <div id="accordion">
+        @foreach($products as $key => $product)
+        <div class="card">
+            <div class="card-header" id="heading{{$key}}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{$key}}" aria-expanded="true" aria-controls="collapse{{$key}}">
+                        {{str_limit($product->name, 50)}}
+                    </button>
+                </h5>
+            </div>
+            <div id="collapse{{$key}}" class="collapse" aria-labelledby="heading{{$key}}" data-parent="#accordion">
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">{{$product->product_code}}</li>
+                        <li class="list-group-item">&#8377; {{number_format($product->cost_price)}}</li>
+                        <li class="list-group-item">&#8377; {{number_format($product->selling_price)}}</li>
+                        <li class="list-group-item">{{$product->has_stock ? $product->stock : '--'}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div> -->
 </div>
 
 <div class="modal fade in addProductModal pr-md-0" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

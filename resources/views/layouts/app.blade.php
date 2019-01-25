@@ -135,23 +135,17 @@
             });
 
             var table = $('.dataTable').DataTable( {
-                rowReorder: {
-                    selector: 'td:nth-child(2)'
-                },
                 responsive: true,
                 searching: false,
-                paging: false
+                paging: true
             }).columns.adjust()
             .responsive.recalc();
 
             $('.descDataTable').DataTable({
-                rowReorder: {
-                    selector: 'td:nth-child(2)'
-                },
                 responsive: true,
                 "order": [[ 0, "desc" ]],
                 searching: false,
-                paging: false
+                paging: true
             }).columns.adjust()
             .responsive.recalc();
 
