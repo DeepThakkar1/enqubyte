@@ -31,7 +31,7 @@
                     <div class="d-flex">
                         <div class="px-4">
                             <div>Amount Due</div>
-                            <h3 class="mt-2 Due">&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></h3>
+                            <h3 class="mt-2 Due">&#8377; <span class="purchaseOrderAmt">{{number_format($purchaseOrder->remaining_amount)}}</span></h3>
                         </div>
                         <div>
                             <div>Due Date</div>
@@ -56,7 +56,7 @@
             <div class="d-flex justify-content-between">
                 <div class="py-2 text-left">
                     <div>Amount Due</div>
-                    <h3 class="mt-2 Due">&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></h3>
+                    <h3 class="mt-2 Due">&#8377; <span class="purchaseOrderAmt">{{number_format($purchaseOrder->remaining_amount)}}</span></h3>
                 </div>
                 <div class="py-2 text-right">
                     <div>Due Date</div>
@@ -123,7 +123,7 @@
                         </div>
                         <div><strong>Invoice Date : </strong> {{$purchaseOrder->purchase_date}}</div>
                         <div><strong>Payment Due : </strong> {{$purchaseOrder->due_date}}</div>
-                        <div><strong>Amount Due (INR) : </strong> &#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}} </span></div>
+                        <div><strong>Amount Due (INR) : </strong> &#8377; <span class="purchaseOrderAmt">{{number_format($purchaseOrder->remaining_amount)}} </span></div>
                     </div>
                 </div>
             </div>
@@ -146,10 +146,10 @@
                             <td class="center">{{$key + 1}}</td>
                             <td class="left strong">{{$item->product->name}}</td>
                             <td class="left">{{$item->product->description}}</td>
-                            <td class="right">&#8377; {{$item->price}}</td>
+                            <td class="right">&#8377; {{number_format($item->price)}}</td>
                             <td class="center">{{$item->qty}}</td>
                             <td class="center">{{$item->tax}} %</td>
-                            <td class="right">&#8377; {{$item->product_tot_amt}}</td>
+                            <td class="right">&#8377; {{number_format($item->product_tot_amt)}}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -165,7 +165,7 @@
                                 <td class="left">
                                     <strong>Subtotal</strong>
                                 </td>
-                                <td class="right" width="130">&#8377; {{$purchaseOrder->sub_tot_amt}}</td>
+                                <td class="right" width="130">&#8377; {{number_format($purchaseOrder->sub_tot_amt)}}</td>
                             </tr>
                             @if(!auth()->user()->taxmode && isset($purchaseOrder->taxes))
                                 @foreach($purchaseOrder->taxes as $tax)
@@ -175,7 +175,7 @@
                                     </td>
                                     <?php $key = key($tax); ?>
                                     <td class="right">
-                                        &#8377; {{ $tax->$key  }}
+                                        &#8377; {{ number_format($tax->$key) }}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -185,7 +185,7 @@
                                     <strong>Total</strong>
                                 </td>
                                 <td class="right">
-                                    <strong>&#8377; {{$purchaseOrder->grand_total}}</strong>
+                                    <strong>&#8377; {{number_format($purchaseOrder->grand_total)}}</strong>
                                 </td>
                             </tr>
                             @if(count($purchaseOrder->payments))
@@ -206,7 +206,7 @@
                                     @endif
                                 </td>
                                 <td class="right">
-                                    <strong>&#8377; {{$payment->amount}}</strong>
+                                    <strong>&#8377; {{number_format($payment->amount)}}</strong>
                                 </td>
                             </tr>
                             @endforeach
@@ -215,7 +215,7 @@
                                     <strong>Amount Due (INR):</strong>
                                 </td>
                                 <td class="right">
-                                    <strong>&#8377; {{$purchaseOrder->remaining_amount}}</strong>
+                                    <strong>&#8377; {{number_format($purchaseOrder->remaining_amount)}}</strong>
                                 </td>
                             </tr>
 
@@ -266,7 +266,7 @@
                             <b>P/O Number:</b> P/O-00{{$purchaseOrder->sr_no}}<br>
                             <b>Purchase Date:</b> {{$purchaseOrder->purchase_date}}<br>
                             <b>Payment Due Date:</b> {{$purchaseOrder->due_date}}<br>
-                            <h5 class="dueAmount"><b>Amount Due (INR) : </b> &#8377; {{$purchaseOrder->remaining_amount}}</h5>
+                            <h5 class="dueAmount"><b>Amount Due (INR) : </b> &#8377; {{number_format($purchaseOrder->remaining_amount)}}</h5>
                         </td>
                     </tr>
                 </table>
@@ -285,24 +285,24 @@
         <tr class="item {{$key == count($purchaseOrder->purchaseitems) - 1 ? 'last' : ''}}">
             <td class="center">{{$key + 1}}</td>
             <td class="">{{$item->product->name}} <br> <small>{{$item->product->description}}</small></td>
-            <td class="right">&#8377; {{$item->price}}</td>
+            <td class="right">&#8377; {{number_format($item->price)}}</td>
             <td class="center">{{$item->qty}}</td>
             <td class="center">{{$item->tax}} %</td>
-            <td class="right text-right">&#8377; {{$item->product_tot_amt}}</td>
+            <td class="right text-right">&#8377; {{number_format($item->product_tot_amt)}}</td>
         </tr>
         @endforeach
         <tr class="total">
             <td colspan="5"></td>
-            <td class="right text-md-right border-top-0"><strong>Subtotal : </strong> &#8377; {{$purchaseOrder->sub_tot_amt}}</td>
+            <td class="right text-md-right border-top-0"><strong>Subtotal : </strong> &#8377; {{number_format($purchaseOrder->sub_tot_amt)}}</td>
         </tr>
         <tr>
             <td colspan="5"></td>
-            <td class="right text-md-right"><strong>Discount : </strong> {!! isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==0 ? '&#8377;' : ''!!} {{$purchaseOrder->discount}} {{isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==1 ? '%' : ''}}</td>
+            <td class="right text-md-right"><strong>Discount : </strong> {!! isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==0 ? '&#8377;' : ''!!} {{number_format($purchaseOrder->discount)}} {{isset($purchaseOrder->discount_type) && $purchaseOrder->discount_type ==1 ? '%' : ''}}</td>
         </tr>
         <tr>
             <td colspan="5"></td>
             <td class="right text-md-right grandTotalAmount">
-                <strong>Total : &#8377; {{$purchaseOrder->grand_total}}</strong>
+                <strong>Total : &#8377; {{number_format($purchaseOrder->grand_total)}}</strong>
             </td>
         </tr>
         @if(count($purchaseOrder->payments))
@@ -323,7 +323,7 @@
                 @endif
             </td>
             <td class="right text-md-right">
-                <strong>&#8377; {{$payment->amount}}</strong>
+                <strong>&#8377; {{number_format($payment->amount)}}</strong>
             </td>
         </tr>
         @endforeach
@@ -332,7 +332,7 @@
                 <strong>Amount Due (INR):</strong>
             </td>
             <td class="right text-md-right">
-                <strong>&#8377; <span class="purchaseOrderAmt">{{$purchaseOrder->remaining_amount}}</span></strong>
+                <strong>&#8377; <span class="purchaseOrderAmt">{{number_format($purchaseOrder->remaining_amount)}}</span></strong>
             </td>
         </tr>
         @endif

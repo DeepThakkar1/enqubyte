@@ -42,7 +42,7 @@
                     <td>{{$purchase->vendor->name}}</td>
                     <td>{{$purchase->purchase_date}}</td>
                     <td>{{$purchase->due_date}}</td>
-                    <td class="text-right">&#8377; {{$purchase->grand_total}}</td>
+                    <td class="text-right">&#8377; {{number_format($purchase->grand_total)}}</td>
                     <td><span class="badge badge-{{$purchase->remaining_amount ? 'warning' : 'success'}}">{{$purchase->remaining_amount ? 'Pending' : 'Completed'}}</span> </td>
                     <td>
                         @if(!$purchase->remaining_amount)

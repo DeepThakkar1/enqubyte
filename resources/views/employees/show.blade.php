@@ -30,15 +30,15 @@
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Sale</div>
-                                <h3 class="mt-2 Due">&#8377; {{$totalSale}}</h3>
+                                <h3 class="mt-2 Due">&#8377; {{number_format($totalSale)}}</h3>
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Earn</div>
-                                <h3 class="mt-2 Due">&#8377; {{$totalSale - $remaining}}</h3>
+                                <h3 class="mt-2 Due">&#8377; {{number_format($totalSale - $remaining)}}</h3>
                             </div>
                             <div class="pl-4 text-center">
                                 <div>Total Remaining</div>
-                                <h3 class="mt-2 Due">&#8377; {{$remaining}}</h3>
+                                <h3 class="mt-2 Due">&#8377; {{number_format($remaining)}}</h3>
                             </div>
                         </div>
                     </div>
@@ -63,17 +63,17 @@
                     </div>
                     <div class="py-2 text-right">
                         <div>Total Sale</div>
-                        <h3 class="mt-2 Due">&#8377; {{$totalSale}}</h3>
+                        <h3 class="mt-2 Due">&#8377; {{number_format($totalSale)}}</h3>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="py-2 text-left">
                         <div>Total Earn</div>
-                            <h3 class="mt-2 Due">&#8377; {{$totalSale - $remaining}}</h3>
+                            <h3 class="mt-2 Due">&#8377; {{number_format($totalSale - $remaining)}}</h3>
                     </div>
                     <div class="py-2 text-right">
                         <div>Total Remaining</div>
-                        <h3 class="mt-2 Due">&#8377; {{$remaining}}</h3>
+                        <h3 class="mt-2 Due">&#8377; {{number_format($remaining)}}</h3>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                                         </td>
                                         <td>{{$enquiry->enquiry_date}}</td>
                                         <td>{{$enquiry->followup_date}}</td>
-                                        <td>&#8377; {{$enquiry->grand_total}}</td>
+                                        <td>&#8377; {{number_format($enquiry->grand_total)}}</td>
                                         <td><span class="badge badge-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}}">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</span></td>
                                     </tr>
                                     @endforeach
@@ -150,9 +150,9 @@
                                         </td>
                                         <td>{{$invoice->invoice_date}}</td>
                                         <td>{{$invoice->due_date}}</td>
-                                        <td>&#8377; {{$invoice->grand_total}}</td>
-                                        <td>&#8377; {{$invoice->remaining_amount}}</td>
-                                        <td>&#8377; {{$invoice->incentive_amt}}</td>
+                                        <td>&#8377; {{number_format($invoice->grand_total)}}</td>
+                                        <td>&#8377; {{number_format($invoice->remaining_amount)}}</td>
+                                        <td>&#8377; {{number_format($invoice->incentive_amt)}}</td>
                                         <td><span class="badge badge-{{$invoice->remaining_amount > 0 ? 'warning' : 'success'}}">{{$invoice->remaining_amount > 0 ? 'Pending' : 'Completed'}}</span></td>
                                     </tr>
                                     @endforeach

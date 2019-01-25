@@ -25,7 +25,7 @@
                     <td>{{$incentive->name}}</td>
                     <td>{{$incentive->type == 1 ? 'Fixed' : 'Percentage'}}</td>
                     <td>{!!$incentive->type == 1 ? '&#8377;' : ''!!} {{$incentive->rate}} {{$incentive->type == 2 ? '%' : ''}}</td>
-                    <td>{{$incentive->minimum_invoice_amt ? $incentive->minimum_invoice_amt : '-'}}</td>
+                    <td>{{$incentive->minimum_invoice_amt ? number_format($incentive->minimum_invoice_amt) : '-'}}</td>
                     <td>
                         <a href="#editIncentiveModal{{$key}}" data-toggle="modal" class="btn btn-sm incentive-edit-btn"><i class="fas fa-pencil-alt"></i>  </a>
                         <form method="post" action="/incentives/{{$incentive->id}}/delete" class="d-inline">

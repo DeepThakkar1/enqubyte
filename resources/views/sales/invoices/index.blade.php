@@ -41,8 +41,8 @@
                     <td>{{$invoice->visitor->fullname}}</td>
                     <td>{{$invoice->invoice_date}}</td>
                     <td>{{$invoice->due_date}}</td>
-                    <td class="text-right">&#8377; {{$invoice->grand_total}}</td>
-                    <td class="text-right">&#8377; {{$invoice->remaining_amount}}</td>
+                    <td class="text-right">&#8377; {{number_format($invoice->grand_total)}}</td>
+                    <td class="text-right">&#8377; {{number_format($invoice->remaining_amount)}}</td>
                     <td><span class="badge badge-{{$invoice->status == -1 ? 'danger' : ($invoice->status ? 'success' : 'warning')}}">{{$invoice->status == -1 ? 'Cancelled' : ($invoice->status ? 'Completed' : 'Pending')}}</span> </td>
                     <td>
                         <a href="/sales/invoices/{{$invoice->sr_no}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>

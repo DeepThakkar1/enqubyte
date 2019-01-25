@@ -38,7 +38,7 @@
                         @endif
                         <div class="px-4">
                             <div>Amount Due</div>
-                            <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
+                            <h3 class="mt-2 Due">&#8377; {{number_format($enquiry->grand_total)}}</h3>
                         </div>
                         <div class="">
                             <div>Followup Date</div>
@@ -71,7 +71,7 @@
                 @endif
                 <div class="py-2 text-left">
                     <div>Amount Due</div>
-                    <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
+                    <h3 class="mt-2 Due">&#8377; {{number_format($enquiry->grand_total)}}</h3>
                 </div>
                 <div class="py-2 text-right">
                     <div>Followup Date</div>
@@ -200,12 +200,12 @@
                                 <td class="center">{{$key + 1}}</td>
                                 <td class="left strong">{{$item->product->name}}</td>
                                 <td class="left">{{$item->product->description}}</td>
-                                <td class="right">&#8377; {{$item->price}}</td>
+                                <td class="right">&#8377; {{number_format($item->price)}}</td>
                                 <td class="center">{{$item->qty}}</td>
                                  @if(auth()->user()->taxmode)
                                     <td class="center">{{$item->tax}} %</td>
                                  @endif
-                                <td class="right">&#8377; {{$item->product_tot_amt}}</td>
+                                <td class="right">&#8377; {{number_format($item->product_tot_amt)}}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -221,7 +221,7 @@
                                     <td class="left border-top-0">
                                         <strong>Subtotal</strong>
                                     </td>
-                                    <td class="right border-top-0">&#8377; {{$enquiry->sub_tot_amt}}</td>
+                                    <td class="right border-top-0">&#8377; {{number_format($enquiry->sub_tot_amt)}}</td>
                                 </tr>
                                 @if(!auth()->user()->taxmode && isset($enquiry->taxes))
                                 @foreach($enquiry->taxes as $tax)
@@ -231,7 +231,7 @@
                                     </td>
                                     <?php $key = key($tax); ?>
                                     <td class="right">
-                                        &#8377; {{ $tax->$key  }}
+                                        &#8377; {{ number_format($tax->$key)  }}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -240,14 +240,14 @@
                                     <td class="left">
                                         <strong>Discount</strong>
                                     </td>
-                                    <td class="right">{!! isset($enquiry->discount_type) && $enquiry->discount_type ==0 ? '&#8377;' : ''!!} {{$enquiry->discount}} {{isset($enquiry->discount_type) && $enquiry->discount_type ==1 ? '%' : ''}}</td>
+                                    <td class="right">{!! isset($enquiry->discount_type) && $enquiry->discount_type ==0 ? '&#8377;' : ''!!} {{number_format($enquiry->discount)}} {{isset($enquiry->discount_type) && $enquiry->discount_type ==1 ? '%' : ''}}</td>
                                 </tr>
                                 <tr>
                                     <td class="left grandTotalAmount">
                                         <strong>Total</strong>
                                     </td>
                                     <td class="right grandTotalAmount">
-                                        <strong>&#8377; {{$enquiry->grand_total}}</strong>
+                                        <strong>&#8377; {{number_format($enquiry->grand_total)}}</strong>
                                     </td>
                                 </tr>
                             </tbody>
@@ -318,24 +318,24 @@
             <tr class="item {{$key == count($enquiry->enquiryitems) - 1 ? 'last' : ''}}">
                 <td class="center">{{$key + 1}}</td>
                 <td class="">{{$item->product->name}} <br> <small>{{$item->product->description}}</small></td>
-                <td class="right">&#8377; {{$item->price}}</td>
+                <td class="right">&#8377; {{number_format($item->price)}}</td>
                 <td class="center">{{$item->qty}}</td>
                 <td class="center">{{$item->tax}} %</td>
-                <td class="right text-right">&#8377; {{$item->product_tot_amt}}</td>
+                <td class="right text-right">&#8377; {{number_format($item->product_tot_amt)}}</td>
             </tr>
             @endforeach
             <tr class="total">
                     <td colspan="5"></td>
-                    <td class="right text-md-right border-top-0"><strong>Subtotal : </strong> &#8377; {{$enquiry->sub_tot_amt}}</td>
+                    <td class="right text-md-right border-top-0"><strong>Subtotal : </strong> &#8377; {{number_format($enquiry->sub_tot_amt)}}</td>
                 </tr>
                 <tr>
                     <td colspan="5"></td>
-                    <td class="right text-md-right"><strong>Discount : </strong> {!! isset($enquiry->discount_type) && $enquiry->discount_type ==0 ? '&#8377;' : ''!!} {{$enquiry->discount}} {{isset($enquiry->discount_type) && $enquiry->discount_type ==1 ? '%' : ''}}</td>
+                    <td class="right text-md-right"><strong>Discount : </strong> {!! isset($enquiry->discount_type) && $enquiry->discount_type ==0 ? '&#8377;' : ''!!} {{number_format($enquiry->discount)}} {{isset($enquiry->discount_type) && $enquiry->discount_type ==1 ? '%' : ''}}</td>
                 </tr>
                 <tr>
                     <td colspan="5"></td>
                     <td class="right text-md-right grandTotalAmount">
-                        <strong>Total : &#8377; {{$enquiry->grand_total}}</strong>
+                        <strong>Total : &#8377; {{number_format($enquiry->grand_total)}}</strong>
                     </td>
                 </tr>
             </tr>

@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{$key + 1}}</td>
                             <td>{{$vendor->name}} ({{$vendor->phone}})</td>
-                            <td>&#8377; {{$vendor->total_payments}}</td>
+                            <td>&#8377; {{number_format($vendor->total_payments)}}</td>
                             <td>
                                 <a href="/vendors/{{$vendor->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                             </td>

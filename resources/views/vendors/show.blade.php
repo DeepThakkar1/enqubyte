@@ -26,11 +26,11 @@
                             </div>
                             <div class="px-4 text-center">
                                 <div>Total Purchases</div>
-                                <h3 class="mt-2 Due">&#8377; {{ $totalPurchase }}</h3>
+                                <h3 class="mt-2 Due">&#8377; {{ number_format($totalPurchase) }}</h3>
                             </div>
                             <div class="pl-md-4 text-center">
                                 <div>Total Remaining</div>
-                                <h3 class="mt-2 Due">&#8377; {{ $remaining }}</h3>
+                                <h3 class="mt-2 Due">&#8377; {{ number_format($remaining) }}</h3>
                             </div>
                         </div>
                     </div>
@@ -51,11 +51,11 @@
                <div class="d-flex justify-content-between">
                     <div class="py-2 text-left">
                         <div>Total Purchases</div>
-                        <h3 class="mt-2 Due">&#8377; {{ $totalPurchase }}</h3>
+                        <h3 class="mt-2 Due">&#8377; {{ number_format($totalPurchase) }}</h3>
                     </div>
                     <div class="py-2 text-right">
                         <div>Total Remaining</div>
-                        <h3 class="mt-2 Due">&#8377; {{ $remaining }}</h3>
+                        <h3 class="mt-2 Due">&#8377; {{ number_format($remaining) }}</h3>
                     </div>
                </div>
            </div>
@@ -88,8 +88,8 @@
                                         <td>{{$purchase->order_id}}</td>
                                         <td>{{$purchase->purchase_date}}</td>
                                         <td>{{$purchase->due_date}}</td>
-                                        <td>&#8377; {{$purchase->grand_total}}</td>
-                                        <td>&#8377; {{$purchase->remaining_amount}}</td>
+                                        <td>&#8377; {{number_format($purchase->grand_total)}}</td>
+                                        <td>&#8377; {{number_format($purchase->remaining_amount)}}</td>
                                         <td><span class="badge badge-{{$purchase->remaining_amount ? 'warning' : 'success'}}"> {{$purchase->remaining_amount ? 'Pending' : 'Completed'}}</span></td>
                                     </tr>
                                     @endforeach

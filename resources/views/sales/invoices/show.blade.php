@@ -41,7 +41,7 @@
                         @endif
                         <div class="pr-4">
                             <div>Amount Due</div>
-                            <h3 class="mt-2 Due">&#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}}</span></h3>
+                            <h3 class="mt-2 Due">&#8377; <span class="invoiceAmt">{{number_format($invoice->remaining_amount)}}</span></h3>
                         </div>
                         <div>
                             <div>Due</div>
@@ -74,7 +74,7 @@
                 @endif
                 <div class="py-2 text-left">
                     <div>Amount Due</div>
-                    <h3 class="mt-2 Due">&#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}}</span></h3>
+                    <h3 class="mt-2 Due">&#8377; <span class="invoiceAmt">{{number_format($invoice->remaining_amount)}}</span></h3>
                 </div>
                 <div class="py-2 text-right">
                     <div>Due</div>
@@ -166,7 +166,7 @@
                         </div>
                         <div><strong>Invoice Date : </strong> {{$invoice->invoice_date}}</div>
                         <div><strong>Payment Due : </strong> {{$invoice->due_date}}</div>
-                        <div><strong>Amount Due (INR) : </strong> &#8377; <span class="invoiceAmt">{{$invoice->remaining_amount}} </span></div>
+                        <div><strong>Amount Due (INR) : </strong> &#8377; <span class="invoiceAmt">{{number_format($invoice->remaining_amount)}} </span></div>
                     </div>
                 </div>
                 <div class="table-responsive-sm">
@@ -188,10 +188,10 @@
                                 <td class="center">{{$key + 1}}</td>
                                 <td class="left strong">{{$item->product->name}}</td>
                                 <td class="left">{{$item->product->description}}</td>
-                                <td class="right">&#8377; {{$item->price}}</td>
+                                <td class="right">&#8377; {{number_format($item->price)}}</td>
                                 <td class="center">{{$item->qty}}</td>
                                 <td class="center">{{$item->tax}} %</td>
-                                <td class="right">{{$item->product_tot_amt}}</td>
+                                <td class="right">{{number_format($item->product_tot_amt)}}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -207,7 +207,7 @@
                                     <td class="left border-top-0">
                                         <strong>Subtotal</strong>
                                     </td>
-                                    <td class="right border-top-0" width="130">&#8377; {{$invoice->sub_tot_amt}}</td>
+                                    <td class="right border-top-0" width="130">&#8377; {{number_format($invoice->sub_tot_amt)}}</td>
                                 </tr>
                                 @if(!auth()->user()->taxmode && isset($invoice->taxes))
                                 @foreach($invoice->taxes as $tax)
@@ -217,7 +217,7 @@
                                     </td>
                                     <?php $key = key($tax); ?>
                                     <td class="right">
-                                        &#8377; {{ $tax->$key  }}
+                                        &#8377; {{ number_format($tax->$key) }}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -226,14 +226,14 @@
                                     <td class="left">
                                         <strong>Discount</strong>
                                     </td>
-                                    <td class="right">{!!isset($invoice->discount_type) && $invoice->discount_type ==0 ? '&#8377;' : ''!!} {{$invoice->discount}} {{isset($invoice->discount_type) && $invoice->discount_type ==1 ? '%' : ''}}</td>
+                                    <td class="right">{!!isset($invoice->discount_type) && $invoice->discount_type ==0 ? '&#8377;' : ''!!} {{number_format($invoice->discount)}} {{isset($invoice->discount_type) && $invoice->discount_type ==1 ? '%' : ''}}</td>
                                 </tr>
                                 <tr>
                                     <td class="left grandTotalAmount">
                                         <strong>Total</strong>
                                     </td>
                                     <td class="right grandTotalAmount">
-                                        <strong>&#8377; {{$invoice->grand_total}}</strong>
+                                        <strong>&#8377; {{number_format($invoice->grand_total)}}</strong>
                                     </td>
                                 </tr>
                                 @if(count($invoice->payments))
@@ -254,7 +254,7 @@
                                             @endif
                                         </td>
                                         <td class="right">
-                                            <strong>&#8377; {{$payment->amount}}</strong>
+                                            <strong>&#8377; {{number_format($payment->amount)}}</strong>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -263,7 +263,7 @@
                                             <strong>Amount Due (INR):</strong>
                                         </td>
                                         <td class="right">
-                                            <strong>&#8377; {{$invoice->remaining_amount}}</strong>
+                                            <strong>&#8377; {{number_format($invoice->remaining_amount)}}</strong>
                                         </td>
                                     </tr>
 

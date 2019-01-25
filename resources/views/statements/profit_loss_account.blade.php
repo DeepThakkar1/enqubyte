@@ -24,21 +24,21 @@
             <div class="d-flex justify-content-between align-items-center py-3">
                 <div class="px-4 expenses-txt">
                     <h3 class="">Net Profit </h3>
-                    <h4 class="">&#8377; {{$profit}}</h4>
+                    <h4 class="">&#8377; {{number_format($profit)}}</h4>
                 </div>
                 <div class="px-md-4 expenses-txt">
                     <h4 class="">=</h4>
                 </div>
                 <div class="px-4 expenses-txt">
                     <h3 class="">Total sale</h3>
-                    <h4 class="">&#8377; {{$totalSale}}</h4>
+                    <h4 class="">&#8377; {{number_format($totalSale)}}</h4>
                 </div>
                 <div class="px-md-4 expenses-txt">
                     <h4 class="">-</h4>
                 </div>
                 <div class="px-4 expenses-txt">
                     <h3 class="">Expenses</h3>
-                    <h4 class="">&#8377; {{$expenses}}</h4>
+                    <h4 class="">&#8377; {{number_format($expenses)}}</h4>
                 </div>
             </div>
         </div>
@@ -53,22 +53,22 @@
                     </tr>
                     <tr>
                         <td>Total Purchase Made</td>
-                        <td style="text-align: right;">&#8377; {{$totalPurchase}}</td>
+                        <td style="text-align: right;">&#8377; {{number_format($totalPurchase)}}</td>
                     </tr>
                     <tr>
                         <td class="border-top-0">Incentives Paid</td>
-                        <td class="border-top-0" style="text-align: right;">&#8377; {{$incentives}}</td>
+                        <td class="border-top-0" style="text-align: right;">&#8377; {{number_format($incentives)}}</td>
                     </tr>
                     <tr class="bg-light">
                         <th colspan="2">Income</th>
                     </tr>
                     <tr>
                         <td>Total Sale</td>
-                        <td style="text-align: right;">&#8377; {{$totalSale}}</td>
+                        <td style="text-align: right;">&#8377; {{number_format($totalSale)}}</td>
                     </tr>
                     <tr class="bg-light">
                         <th class="border-top-0" style="font-size: 15px;">Net Profit</th>
-                        <th class="border-top-0" style="text-align: right;font-size: 15px;">&#8377; {{$profit}}</th>
+                        <th class="border-top-0" style="text-align: right;font-size: 15px;">&#8377; {{number_format($profit)}}</th>
                     </tr>
                 </tbody>
             </table>

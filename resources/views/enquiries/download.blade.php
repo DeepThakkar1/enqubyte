@@ -35,7 +35,7 @@
                     @endif
                     <div class="pr-4">
                         <div>Amount Due</div>
-                        <h3 class="mt-2 Due">&#8377; {{$enquiry->grand_total}}</h3>
+                        <h3 class="mt-2 Due">&#8377; {{number_format($enquiry->grand_total)}}</h3>
                     </div>
                     <div>
                         <div>Followup Date</div>
@@ -160,10 +160,10 @@
                                 <td class="center">{{$key + 1}}</td>
                                 <td class="left strong">{{$item->product->name}}</td>
                                 <td class="left">{{$item->product->description}}</td>
-                                <td class="right">&#8377; {{$item->price}}</td>
+                                <td class="right">&#8377; {{number_format($item->price)}}</td>
                                 <td class="center">{{$item->qty}}</td>
                                 <td class="center">{{$item->tax}} %</td>
-                                <td class="right">&#8377; {{$item->product_tot_amt}}</td>
+                                <td class="right">&#8377; {{number_format($item->product_tot_amt)}}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -179,7 +179,7 @@
                                     <td class="left border-top-0">
                                         <strong>Subtotal</strong>
                                     </td>
-                                    <td class="right border-top-0">&#8377; {{$enquiry->sub_tot_amt}}</td>
+                                    <td class="right border-top-0">&#8377; {{number_format($enquiry->sub_tot_amt)}}</td>
                                 </tr>
                                 <tr>
                                     <td class="left">
@@ -192,7 +192,7 @@
                                         <strong>Total</strong>
                                     </td>
                                     <td class="right grandTotalAmount">
-                                        <strong>&#8377; {{$enquiry->grand_total}}</strong>
+                                        <strong>&#8377; {{number_format($enquiry->grand_total)}}</strong>
                                     </td>
                                 </tr>
                             </tbody>

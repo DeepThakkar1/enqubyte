@@ -47,7 +47,7 @@
                                 <b>P/O Number:</b> P/O-00{{$purchaseOrder->sr_no}}<br>
                                 <b>Purchase Date:</b> {{$purchaseOrder->purchase_date}}<br>
                                 <b>Payment Due Date:</b> {{$purchaseOrder->due_date}}<br>
-                                <h5 class="dueAmount"><b>Amount Due (INR) : </b> &#8377; {{$purchaseOrder->remaining_amount}}</h5>
+                                <h5 class="dueAmount"><b>Amount Due (INR) : </b> &#8377; {{number_format($purchaseOrder->remaining_amount)}}</h5>
                             </td>
                         </tr>
                     </table>

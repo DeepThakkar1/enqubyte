@@ -67,24 +67,24 @@
             <tr class="item {{$key == count($enquiry->enquiryitems) - 1 ? 'last' : ''}}">
                 <td class="center">{{$key + 1}}</td>
                 <td class="">{{$item->product->name}} <br> <small>{{$item->product->description}}</small></td>
-                <td class="right">&#8377; {{$item->price}}</td>
+                <td class="right">&#8377; {{number_format($item->price)}}</td>
                 <td class="center">{{$item->qty}}</td>
                 <td class="center">{{$item->tax}} %</td>
-                <td class="right">&#8377; {{$item->product_tot_amt}}</td>
+                <td class="right">&#8377; {{number_format($item->product_tot_amt)}}</td>
             </tr>
             @endforeach
             <tr class="total">
                     <td colspan="5"></td>
-                    <td class="right border-top-0"><strong>Subtotal : </strong> &#8377; {{$enquiry->sub_tot_amt}}</td>
+                    <td class="right border-top-0"><strong>Subtotal : </strong> &#8377; {{number_format($enquiry->sub_tot_amt)}}</td>
                 </tr>
                 <tr>
                     <td colspan="5"></td>
-                    <td class="right"><strong>Discount : </strong> {!! isset($enquiry->discount_type) && $enquiry->discount_type ==0 ? '&#8377;' : ''!!} {{$enquiry->discount}} {{isset($enquiry->discount_type) && $enquiry->discount_type ==1 ? '%' : ''}}</td>
+                    <td class="right"><strong>Discount : </strong> {!! isset($enquiry->discount_type) && $enquiry->discount_type ==0 ? '&#8377;' : ''!!} {{number_format($enquiry->discount)}} {{isset($enquiry->discount_type) && $enquiry->discount_type ==1 ? '%' : ''}}</td>
                 </tr>
                 <tr>
                     <td colspan="5"></td>
                     <td class="right grandTotalAmount">
-                        <strong>Total : &#8377; {{$enquiry->grand_total}}</strong>
+                        <strong>Total : &#8377; {{number_format($enquiry->grand_total)}}</strong>
                     </td>
                 </tr>
             </tr>

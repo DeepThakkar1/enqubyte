@@ -37,7 +37,7 @@
                         <td>{{$key + 1}}</td>
                         <td>{{$entry->product->name}}</td>
                         <td>{{$entry->qty_sold}}</td>
-                        <td>&#8377; {{$entry->revenue}}</td>
+                        <td>&#8377; {{number_format($entry->revenue)}}</td>
                         <td>
                             <a href="/products/{{$entry->product_id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                         </td>

@@ -26,7 +26,7 @@
             <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
                     <h5 class="mr-5 my-2">Total Sales</h5>
-                    <h5 class="mr-5">&#8377; {{$totalSale}}</h5>
+                    <h5 class="mr-5">&#8377; {{number_format($totalSale)}}</h5>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="/sales/invoices">
                     <span class="float-left">View Details</span>
@@ -40,7 +40,7 @@
             <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
                     <h5 class="mr-5 my-2">Total Expenses</h5>
-                    <h5 class="mr-5">&#8377; {{$expenses}}</h5>
+                    <h5 class="mr-5">&#8377; {{number_format($expenses)}}</h5>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="/purchases">
                     <span class="float-left">View Details</span>
@@ -54,7 +54,7 @@
             <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
                     <h5 class="mr-5 my-2">Profit Earned</h5>
-                    <h5 class="mr-5">&#8377; {{$profit}}</h5>
+                    <h5 class="mr-5">&#8377; {{number_format($profit)}}</h5>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="/statements/profitandloss">
                     <span class="float-left">View Details</span>

@@ -35,7 +35,7 @@
                     <tr>
                         <td>{{$key + 1}}</td>
                         <td>{{$customer->fullname}} ({{$customer->phone}})</td>
-                        <td>&#8377; {{$customer->total_earnings}}</td>
+                        <td>&#8377; {{number_format($customer->total_earnings)}}</td>
                         <td>
                             <a href="/customers/{{$customer->id}}" class="btn btn-sm"><i class="fa fa-eye"></i></a>
                         </td>

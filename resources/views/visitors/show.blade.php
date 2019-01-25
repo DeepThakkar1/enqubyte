@@ -40,7 +40,7 @@
                 <h3 class="mt-2 Due">{{ count($visitor->enquiries)}}</h3>
             </div>
         </div>
-    </div>   
+    </div>
 
     <div class="container-fluid px-md-5 mt-3">
         <div class="card">
@@ -67,7 +67,7 @@
                                 <td>{{$enquiry->enquiry_date}}</td>
                                 <td>{{$enquiry->followup_date}}</td>
                                 <td><a href="/enquiries/{{$enquiry->id}}" target="_blank"># Enquiry {{$enquiry->id}}</a></td>
-                                <td>&#8377; {{$enquiry->grand_total}}</td>
+                                <td>&#8377; {{number_format($enquiry->grand_total)}}</td>
                                 <td><span class="badge badge-{{$enquiry->status == -1 ? 'danger' : ($enquiry->status == 1 ? 'success' : 'warning')}}">{{$enquiry->status == -1 ? 'Cancelled' : ($enquiry->status == 1 ? 'Converted' : 'Pending')}}</span></td>
                             </tr>
                             @endforeach
