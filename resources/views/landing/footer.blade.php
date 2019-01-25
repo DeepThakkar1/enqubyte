@@ -69,6 +69,8 @@
                                     <li><a href="https://twitter.com/?lang=en">Twitter</a></li>
                                     <li><a href="https://plus.google.com/114335970567634050032">Google Plus</a></li>
                                     <li><a href="https://www.linkedin.com/company/14527862/admin/">Linkedin</a></li>
+                                    <li><a href="https://instagram.com/enqubyte/">Instagram</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCNflBXWI9r6huLrmWIwT6mQ?view_as=subscriber">Youtube</i></a></li>
                                 </ul><!-- .xs-list END -->
                             </div><!-- .footer-widget END -->
                         </div>
@@ -85,7 +87,11 @@
     <div class="copyright py-3">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="parent font-weight-bold text-dark footer-powered-by-section">
-                Powered by <a target="_blank" href="https://trumpets.co.in"><img style="" src="/img/trumpetslogo.png"/></a>
+                Powered by 
+                <a target="_blank" href="https://trumpets.co.in">
+                    <img style="" src="/img/trumpetslogo.png" class="inactive-icon" />
+                    <img style="" src="/img/trumpets-logo.png" class="active-icon" />
+                </a>
             </div>
             <div class="socials" style="font-size: 22px;">
                 <span class="mr-3"><a href="https://www.facebook.com/Enqubyte-359699814831143/"><i class="fa fa-facebook-official"></i></a></span>

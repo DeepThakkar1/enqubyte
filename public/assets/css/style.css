@@ -13652,11 +13652,28 @@ p.simple-pricing-text{
     border: 1px solid #1b6dab !important;
     width: 240px;
 }
+.inactive-icon {
+    display: inline-block;
+}
+.footer-powered-by-section a:hover .inactive-icon {
+    display: none;
+}
+.footer-powered-by-section a .inactive-icon {
+    display: inline-block;
+}
+.footer-powered-by-section a:hover .active-icon {
+    display: inline-block;
+}
+.footer-powered-by-section a .active-icon {
+    display: none;
+}
+
 
 /*tr.product-list-menu th{
     border-bottom: 1px solid #dee2e6 !important;
 }*/
 @media(max-width: 768px){
+
     .custom-get-started-button {
         margin-bottom: 10px;
     }

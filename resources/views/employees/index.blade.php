@@ -111,7 +111,7 @@
                                                     <span class="uploadButton-file-name">Click to upload</span>
                                                 </div>
                                                     @if($employee->photo)
-                                                    <img src="{{Storage::url($employee->photo)}}" width="100px" class="mt-2">
+                                                    <img src="{{Storage::url($employee->photo)}}" width="100px" class="mt-2 custom-employee-udate-img">
                                                     @endif
                                             </div>
                                             <div class="col-sm-6 form-group">
@@ -121,7 +121,7 @@
                                                     <span class="uploadButton-file-name">Click to upload</span>
                                                 </div>
                                                     @if($employee->verification_doc)
-                                                    <img src="{{Storage::url($employee->verification_doc)}}" width="100px" class="mt-2">
+                                                    <img src="{{Storage::url($employee->verification_doc)}}" width="100px" class="mt-2 custom-employee-udate-img">
                                                     @endif
                                             </div>
                                         </div>

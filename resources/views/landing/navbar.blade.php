@@ -76,13 +76,16 @@
     <div class="container" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);">
         <nav class="xs-menus clearfix">
             <div class="nav-header">
-                <a class="nav-brand" href="/">
-                    <img src="/img/logo.png" alt="" style="width: 133px;margin-left: -14px;">
-                </a>
+                <!-- <a class="nav-brand" href="/">
+                    <img src="/img/smallogo - Copy.png" alt="" style="width: 133px;margin-left: -14px;">
+                </a> -->
                 <div class="nav-toggle"></div>
             </div>
             <div class="nav-menus-wrapper align-to-right">
                 <!-- menu list -->
+                <a class="nav-brand" href="/">
+                    <img src="/img/smallogo - Copy.png" alt="" style="width: 35px;margin-left: 9px;">
+                </a>
                 <ul class="nav-menu">
                     <li>
                         <a href="/">Home</a>

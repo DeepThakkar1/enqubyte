@@ -22,7 +22,7 @@
     <div class="row justify-content-left ml-md-3">
         <div class="col-md-6 mt-3">
             <div class="auth-container">
-                <div class="">
+                <div class="login-logo-section">
                     <a href="/">
                         <img src="{{ url('img/logo.png') }}" height="60px" class="mb-3">
                     </a>
