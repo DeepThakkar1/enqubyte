@@ -45,7 +45,7 @@
                     <div class="card my-5">
                         <div class="card-body ">
                             <div class="mb-3 mt-1 text-center">
-                                <a href="/admin/login"><img src="{{asset('img\logo.png')}}" height="50px" style="margin-left: -5px;"></a>
+                                <a href="/admin"><img src="{{asset('img\logo.png')}}" height="50px" style="margin-left: -5px;"></a>
                                 <h3 class="d-none d-sm-block m-sm-bottom mt-3">{{ __('Admin Login') }}</h3>
                             </div>
                             <form method="POST" action="/admin/login" aria-label="{{ __('Login') }}">

@@ -15,12 +15,12 @@
                     <br>
                     <div class="get-started-section">
                         <button type="submit" class="btn btn-primary custom-get-started-button mr-md-2" style="">Get Started</button>
-                        <button type="submit" class="btn custom-request-demo-button" style="" data-toggle="modal" data-target="#myModal">Request a Demo</button>
+                        <button type="submit" class="btn custom-request-demo-button" style="" data-toggle="modal" data-target="#requestDemoModal">Request a Demo</button>
 
                         <!-- <form method="GET" action="{{ route('register') }}">
                             <input type="text" class="get-started get-started-input" name="email" placeholder="E-mail Address">
                             <button type="submit" class="btn btn-primary custom-get-started-button" style="">Get Started</button>
-                        </form>  -->   
+                        </form>  -->
                     </div>
                 </div><!-- .agency-banner-content END -->
             </div>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div><!-- .container END -->
-   
+
 </section><!-- end agency banner section -->
 
 <!-- deserve it section -->
@@ -46,7 +46,7 @@
             </div>
         </div><!-- .row END -->
     </div><!-- .container END -->
- 
+
 </section><!-- end deserve it section -->
 
 <!-- we offer section -->
@@ -83,19 +83,19 @@
             </div><!-- .row END -->
         </div><!-- ."we-offer-wraper END -->
     </div><!-- .container END -->
-</section><!-- end we offer section --> 
+</section><!-- end we offer section -->
 
 <!-- more features area section -->
 <section class="xs-section-padding-bottom more-features-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Central hub for your business</h2>
                     <p style="color:#000;font-size: 19px;">Forget the heck of maintaining your business records into multiple softwares for different purposes, Enqubyte covers everything your business needs all in one platform.</p>
                 </div>
             </div>
-        </div><!-- .row end -->        
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
@@ -133,7 +133,7 @@
                     <p>Never loose a Enquiry/Lead with our follow-up management system.</p>
                 </div><!-- .single-more-feauture END -->
             </div>
-           
+
             <div class="col-md-6 col-lg-3">
                 <div class="single-more-feauture">
                     <div class="more-feature-header">
@@ -181,19 +181,19 @@
         <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
-                <div class="agency-section-title section-title-style2">                    
+                <div class="agency-section-title section-title-style2">
                     <h2 class="main-title">Single &amp; Simple Pricing</h2>
                     <p class="simple-pricing-text">Enqubyte offers all its services and modules all in one single pricing. No plans, packages and upgrades. A semantic pricing is our key.</p>
                     <p class="simple-pricing-text">This plan allows you to create unlimited enquiries, invoices and orders. We provide <b>100 free SMS and 1000 free Email notifications / month</b> for customers. You can buy credits for extra SMS & Emails from dashboard.</p>
 
-                    <div class=" get-started-now-button">    
+                    <div class=" get-started-now-button">
                         <a href="/register" class="btn btn-primary">Get Started Now </a>
                     </div>
                 </div>
             </div>
                     <div class="col-lg-4 col-md-6">
                 <div class="pricing-table text-center" style="border-radius: 20px;padding-top: 0;" id="svg-icon-2">
-                    <div class="pricing-header"> 
+                    <div class="pricing-header">
                         <div class="xs-svg" data-svg="assets/images/pricing/pricing-2.svg" data-hover="#svg-icon-2"></div>
                         <div style="border-top-left-radius: 20px;border-top-right-radius: 20px;background: #1B6DAB; padding-top: 10px;padding-bottom: 10px;margin-bottom: 40px;">
                         <h3 style="font-size: 34px; color: #fff;font-weight: 500;margin-bottom: 0;">All-in-one</h3>
@@ -205,10 +205,10 @@
                             <span style="margin-top: 20px;width: 80%;font-size: 16px;display: inline-block;">Pay only <span style="font-size: 20px;color: #000;"><b>&#8377; 850 / month</b></span></span>
                         </div>
                     </div><!-- .pricing-header END -->
-                </div><!-- .pricing-table END #svg-icon-1 end -->    
+                </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
-                </div>    
-        </div>    
+                </div>
+        </div>
 </section>     --}}
 
 <!-- agency pricing section -->
@@ -221,7 +221,7 @@
                     <p style="font-size: 19px;color: #000;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
                 </div>
             </div>
-        </div>        
+        </div>
         <div class="row">
             <div class="col-lg-3 col-md-6">
                 <div class="pricing-table text-center" id="svg-icon-1">
@@ -245,7 +245,7 @@
                     <div class="pricing-footer">
                         <a href="/register" class="btn btn-primary">Get Started</a>
                     </div><!-- .pricing-footer END -->
-                </div><!-- .pricing-table END #svg-icon-1 end -->    
+                </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="pricing-table text-center" id="svg-icon-1">
@@ -269,7 +269,7 @@
                     <div class="pricing-footer">
                         <a href="/register" class="btn btn-primary">Get Started</a>
                     </div><!-- .pricing-footer END -->
-                </div><!-- .pricing-table END #svg-icon-1 end -->    
+                </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="pricing-table text-center" id="svg-icon-2" style="border: 4px solid #1B6DAB;">
@@ -294,7 +294,7 @@
                     <div class="pricing-footer">
                         <a href="/register" class="btn btn-primary">Get Started </a>
                     </div><!-- .pricing-footer END -->
-                </div><!-- .pricing-table END #svg-icon-1 end -->    
+                </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="pricing-table text-center" id="svg-icon-3">
@@ -318,7 +318,7 @@
                     <div class="pricing-footer">
                         <a href="#" class="btn btn-primary">Get Started</a>
                     </div><!-- .pricing-footer END -->
-                </div><!-- .pricing-table END #svg-icon-1 end -->    
+                </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
         </div><!-- .row END -->
     </div><!-- .container END -->
@@ -326,7 +326,7 @@
 
 
 <!-- The Modal -->
-<div class="modal" id="myModal">
+<div class="modal" id="requestDemoModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -345,15 +345,15 @@
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" placeholder="First Name *" name="fname"  class="form-control">
+                                <input type="text" placeholder="First Name *" name="fname"  class="form-control" required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Last Name *" name="lname" class="form-control">
+                                <input type="text" placeholder="Last Name *" name="lname" class="form-control" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <input type="email" placeholder="Email *" name="email" class="form-control">
+                                <input type="email" placeholder="Email *" name="email" class="form-control" required>
                             </div>
                         </div>
                         <div class="btn-wraper">
