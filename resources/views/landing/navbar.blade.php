@@ -1,4 +1,4 @@
-    
+
    {{-- <header class="xs-header header-transparent header-style3">
         <div class="container">
             <nav class="xs-menus clearfix">
@@ -60,11 +60,11 @@
                         <li>
                             <a href="/login" class="nav-link">Login</a>
                         </li>
-                      
+
                         <li>
-                            <a href="/register" class="nav-link btn btn-primary custom-register-btn text-white px-4 ml-2">Get Started</a>
+                            <a href="/#pricing" class="nav-link btn btn-primary custom-register-btn text-white px-4 ml-2">Get Started</a>
                         </li>
-                    </ul>                
+                    </ul>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
                     <li style="padding: 10px;">
                         <a href="/register" class="btn-primary custom-register-btn text-white" style="padding: 10px;">Get Started</a>
                     </li>
-                </ul>                
+                </ul>
             </div>
         </nav>
     </div><!-- .container END -->

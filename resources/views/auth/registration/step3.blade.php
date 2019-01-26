@@ -20,13 +20,15 @@
             <input id="password-confirm" type="password" data-parsley-equalto="#password" class="form-control" name="password_confirmation" placeholder="Confirm password" required>
         </div>
 
-        <div class="plan">
-            <div class="monthly">
-                <h6>Your Plan</h6>
-                <h2 style="color: #1B6DAB !important;"><s style="color: red;">&#8377; 1750</s> &nbsp; &#8377; 850 / month</h2>
-                <p>You can cancel and get full refund anytime in 30-days</p>
+        @if(request()->has('plan') && request('plan') != 'Free')
+            <div class="plan">
+                <div class="monthly">
+                    <h6>Your Plan</h6>
+                    <h2 style="color: #1B6DAB !important;"><s style="color: red;">&#8377; 1750</s> &nbsp; &#8377; 850 / month</h2>
+                    <p>You can cancel and get full refund anytime in 30-days</p>
+                </div>
             </div>
-        </div>
+        @endif
 
         <div class="form-group mb-0">
             <button type="submit" class="btn btn-primary btn-lg btn-block">

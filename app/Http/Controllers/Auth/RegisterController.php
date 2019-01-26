@@ -86,6 +86,12 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
+        if(request('plan') == 'Free')
+        {
+            $plan = PlanModel::where('name', 'Free')->first();
+            $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+            flash('You are subscribed to Free plan and your subscription expires in ' . $subscription->remainingDays() . ' days', 'Account subscription activated')->success();
+        }
          /*if(env('APP_ENV') != 'local'){
             $instamojoFormUrl = Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');
             return redirect($instamojoFormUrl);

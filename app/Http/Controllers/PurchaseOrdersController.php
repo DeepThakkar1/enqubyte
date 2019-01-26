@@ -38,6 +38,12 @@ class PurchaseOrdersController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->activeSubscription()->getRemainingOf('purchases.count'))
+        {
+            flash('You need to upgrade to add more purchase orders.')->warning();
+            return redirect('billing');
+        }
+
         $vendors = auth()->user()->vendors;
         $products = auth()->user()->products()->where('has_stock', 1)->get();
         $purchaseSrno =PurchaseOrder::orderBy('created_at', 'desc')->where('company_id', auth()->id())->count() + 1;
@@ -109,6 +115,8 @@ class PurchaseOrdersController extends Controller
             $product->stock += request('qty')[$i];
             $product->save();
         }
+
+        auth()->user()->activeSubscription()->consumeFeature('purchases.count', 1);
 
         flash('Purchase order added successfully!')->success();
         return redirect('/purchases');

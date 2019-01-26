@@ -23,7 +23,7 @@
     </div> -->
 
     <form class="form-inline">
-        <i class="fa fa-search navbar-search-icon" aria-hidden="true"></i> 
+        <i class="fa fa-search navbar-search-icon" aria-hidden="true"></i>
         <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Search for Customers, Vendors, Employees & Visitors " aria-label="Search">
         <!-- <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" style="height: 46px;">Search</button> -->
     </form>
@@ -32,13 +32,17 @@
         <li class="nav-item">
             <a class="nav-link text-center">
                 <p class="mb-0" style="margin-top: 2px;color: #000;font-weight: 400;">
-                    <span style="font-size: 12px;">{{ auth()->user()->hasActiveSubscription() ? auth()->user()->activeSubscription()->remainingDays() : (auth()->user()->lastSubscription() != null ? auth()->user()->lastSubscription()->remainingDays() : '0') }} days remaining</span>
+                    @if(auth()->user()->hasActiveSubscription() && auth()->user()->activeSubscription()->plan->price != 0)
+                        <span style="font-size: 12px;">{{ auth()->user()->hasActiveSubscription() ? auth()->user()->activeSubscription()->remainingDays() : (auth()->user()->lastSubscription() != null ? auth()->user()->lastSubscription()->remainingDays() : '0') }} days remaining</span>
+                    @else
+                        <span style="font-size: 12px;">Freemium Plan</span>
+                    @endif
                 </p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-center upgrade-product-nav">
-               <p class="mb-0" style="font-weight: 500 !important;">View Demo</p>
+            <a href="/subscription/upgrade" class="nav-link text-center upgrade-product-nav">
+               <p class="mb-0" style="font-weight: 500 !important;">Upgrade</p>
             </a>
         </li>
         <li class="nav-item dropdown">

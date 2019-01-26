@@ -226,18 +226,18 @@ input.parsley-error {
 .radio:focus{
   outline:none;
 }
+
 .alert.alert-flash.alert-dismissable {
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 0;
     left: 0;
-    background: #fff;
-    border-color: #ccc;
-    box-shadow: #ccc 1px 2px 5px;
     font-weight: 500;
     font-size: 16px;
-    color: #222629;
-    z-index:9999;
+    box-shadow: #ccc 1px 1px 5px;
+    z-index: 9999;
+    border-radius: 0;
+    text-align: center;
 }
 
 a.btn-addMoreItems {

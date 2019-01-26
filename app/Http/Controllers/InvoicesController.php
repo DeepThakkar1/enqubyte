@@ -45,6 +45,12 @@ class InvoicesController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->activeSubscription()->getRemainingOf('invoices.count'))
+        {
+            flash('You need to upgrade to add more invoices.')->warning();
+            return redirect('billing');
+        }
+
         $salesmans = auth()->user()->employees;
         $customers = auth()->user()->visitors()->where('status', '!=', -1)->get();
         $products = auth()->user()->products;
@@ -146,6 +152,7 @@ class InvoicesController extends Controller
         }
 
         // $invoice->customer->notify(new NewInvoice($invoice, auth()->user()));
+        auth()->user()->activeSubscription()->consumeFeature('invoices.count', 1);
 
         flash('Invoice added successfully!')->success();
         return redirect('/sales/invoices/'.$invoice->sr_no);

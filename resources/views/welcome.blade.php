@@ -14,7 +14,7 @@
                     <p class="mb-0">Enqubyte is an all-in-one solution for managing a retail business at an ease providing features to handle enquiries, sales, purchases and employees as well as provide various reports that let's you analyse your business.</p>
                     <br>
                     <div class="get-started-section">
-                        <button type="submit" class="btn btn-primary custom-get-started-button mr-md-2" style="">Get Started</button>
+                        <a href="#pricing" class="btn btn-primary custom-get-started-button mr-md-2" style="">Get Started</a>
                         <button type="submit" class="btn custom-request-demo-button" style="" data-toggle="modal" data-target="#requestDemoModal">Request a Demo</button>
 
                         <!-- <form method="GET" action="{{ route('register') }}">
@@ -212,12 +212,12 @@
 </section>     --}}
 
 <!-- agency pricing section -->
-<section class="xs-section-padding custome-xs-section-padding gray-bg waypoint-tigger">
+<section id="pricing" class="xs-section-padding custome-xs-section-padding gray-bg waypoint-tigger">
     <div class="container">
         <div class="row section-title-style3">
             <div class="col-lg-8 mx-auto">
                 <div class="agency-section-title text-center">
-                    <h3 class="main-title">Our Flexible <em>Pricing Plans</em></h3>
+                    <h3 class="main-title">Choose from flexible <em>Pricing Plans</em></h3>
                     <p style="font-size: 19px;color: #000;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
                 </div>
             </div>
@@ -230,20 +230,20 @@
                         <h3>Free</h3>
                         <div class="pricing-price">
                             <h2>&#8377; 0</h2>
-                            <span>/ MONTHS</span>
+                            <span>/ MONTH</span>
                         </div>
                     </div><!-- .pricing-header END -->
                     <div class="pricing-body">
                         <ul class="pricing-list">
                             <li>10 Invoices & Enquiries</li>
                             <li>10 Purchase Orders</li>
-                            <li>15 Products</li>
-                            <li>10 Customers</li>
+                            <li>Unlimited Products</li>
+                            <li>Unlimited Customers</li>
                             <li>Unlimited Visitors</li>
                         </ul>
                     </div><!-- .pricing-body END -->
                     <div class="pricing-footer">
-                        <a href="/register" class="btn btn-primary">Get Started</a>
+                        <a href="/register?plan=Free" class="btn btn-primary">Choose Plan</a>
                     </div><!-- .pricing-footer END -->
                 </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
@@ -261,13 +261,13 @@
                         <ul class="pricing-list">
                             <li>70 Invoices & Enquiries</li>
                             <li>50 Purchase Orders</li>
-                            <li>65 Products</li>
-                            <li>50 Customers</li>
+                            <li>Unlimited Products</li>
+                            <li>Unlimited Customers</li>
                             <li>Unlimited Visitors</li>
                         </ul>
                     </div><!-- .pricing-body END -->
                     <div class="pricing-footer">
-                        <a href="/register" class="btn btn-primary">Get Started</a>
+                        <a href="/register?plan=Adaptive" class="btn btn-primary">Choose Plan</a>
                     </div><!-- .pricing-footer END -->
                 </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
@@ -286,13 +286,13 @@
                         <ul class="pricing-list">
                             <li>200 Invoices & Enquiries</li>
                             <li>200 Purchase Orders</li>
-                            <li>150 Products</li>
-                            <li>200 Customers</li>
+                            <li>Unlimited Products</li>
+                            <li>Unlimited Customers</li>
                             <li>Unlimited Visitors</li>
                         </ul>
                     </div><!-- .pricing-body END -->
                     <div class="pricing-footer">
-                        <a href="/register" class="btn btn-primary">Get Started </a>
+                        <a href="/register?plan=Growth" class="btn btn-primary">Choose Plan</a>
                     </div><!-- .pricing-footer END -->
                 </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
@@ -316,7 +316,7 @@
                         </ul>
                     </div><!-- .pricing-body END -->
                     <div class="pricing-footer">
-                        <a href="#" class="btn btn-primary">Get Started</a>
+                        <a href="/register?plan=Enterprise" class="btn btn-primary">Choose Plan</a>
                     </div><!-- .pricing-footer END -->
                 </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>

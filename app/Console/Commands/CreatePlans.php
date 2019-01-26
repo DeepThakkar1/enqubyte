@@ -42,6 +42,7 @@ class CreatePlans extends Command
         $this->info('Deleting all plans data!');
 
         PlanModel::truncate();
+        PlanFeatureModel::truncate();
 
         $this->info('Plans database truncated!');
 
@@ -50,7 +51,7 @@ class CreatePlans extends Command
             'description' => 'Includes all services and modules for a month',
             'price' => 0,
             'currency' => 'INR',
-            'duration' => 30, // in days
+            'duration' => 10000, // in days
         ]);
 
         $free->features()->saveMany([
@@ -68,20 +69,13 @@ class CreatePlans extends Command
                     'type' => 'limit',
                     'limit' => 10,
                 ]),
-                 new PlanFeatureModel([
-                    'name' => 'Products Count',
-                    'code' => 'products.count',
-                    'description' => 'Number of products user can create',
-                    'type' => 'limit',
-                    'limit' => 15,
-                ]),
                 new PlanFeatureModel([
-                    'name' => 'Customers Count',
-                    'code' => 'customers.count',
-                    'description' => 'Number of customers user can create',
+                    'name' => 'Purchases Count',
+                    'code' => 'purchases.count',
+                    'description' => 'Number of purchase orders user can create',
                     'type' => 'limit',
                     'limit' => 10,
-                ]),
+                ])
             ]);
 
         $this->info('Free Plan added to database.');
@@ -109,20 +103,13 @@ class CreatePlans extends Command
                     'type' => 'limit',
                     'limit' => 50,
                 ]),
-                 new PlanFeatureModel([
-                    'name' => 'Products Count',
-                    'code' => 'products.count',
-                    'description' => 'Number of products user can create',
-                    'type' => 'limit',
-                    'limit' => 65,
-                ]),
                 new PlanFeatureModel([
-                    'name' => 'Customers Count',
-                    'code' => 'customers.count',
-                    'description' => 'Number of customers user can create',
+                    'name' => 'Purchases Count',
+                    'code' => 'purchases.count',
+                    'description' => 'Number of purchase orders user can create',
                     'type' => 'limit',
                     'limit' => 50,
-                ]),
+                ])
             ]);
 
         $this->info('Adaptive Plan added to database.');
@@ -151,20 +138,13 @@ class CreatePlans extends Command
                     'type' => 'limit',
                     'limit' => 200,
                 ]),
-                 new PlanFeatureModel([
-                    'name' => 'Products Count',
-                    'code' => 'products.count',
-                    'description' => 'Number of products user can create',
-                    'type' => 'limit',
-                    'limit' => 150,
-                ]),
                 new PlanFeatureModel([
-                    'name' => 'Customers Count',
-                    'code' => 'customers.count',
-                    'description' => 'Number of customers user can create',
+                    'name' => 'Purchases Count',
+                    'code' => 'purchases.count',
+                    'description' => 'Number of purchase orders user can create',
                     'type' => 'limit',
                     'limit' => 200,
-                ]),
+                ])
             ]);
 
         $this->info('Growth Plan added to database.');
@@ -192,26 +172,19 @@ class CreatePlans extends Command
                     'type' => 'limit',
                     'limit' => 10000,
                 ]),
-                 new PlanFeatureModel([
-                    'name' => 'Products Count',
-                    'code' => 'products.count',
-                    'description' => 'Number of products user can create',
-                    'type' => 'limit',
-                    'limit' => 10000,
-                ]),
                 new PlanFeatureModel([
-                    'name' => 'Customers Count',
-                    'code' => 'customers.count',
-                    'description' => 'Number of customers user can create',
+                    'name' => 'Purchases Count',
+                    'code' => 'purchases.count',
+                    'description' => 'Number of purchase orders user can create',
                     'type' => 'limit',
                     'limit' => 10000,
-                ]),
+                ])
             ]);
 
         $this->info('Enterprise Plan added to database.');
 
 
         $this->info('Plans database created.');
-       
+
     }
 }

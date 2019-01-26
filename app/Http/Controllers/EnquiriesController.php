@@ -47,6 +47,11 @@ class EnquiriesController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->activeSubscription()->getRemainingOf('enquiries.count'))
+        {
+            flash('You need to upgrade to add more enquiries.')->warning();
+            return redirect('billing');
+        }
         $customers = auth()->user()->visitors()->where('status', '!=', -1)->get();
         $salesmans = auth()->user()->employees;
         $products = auth()->user()->products;
@@ -111,6 +116,8 @@ class EnquiriesController extends Controller
         }
 
        // $enquiry->customer->notify(new NewEnquiry($enquiry, auth()->user()));
+
+        auth()->user()->activeSubscription()->consumeFeature('enquiries.count', 1);
 
         flash('Enquiry added successfully!')->success();
         return redirect('/enquiries/'.$enquiry->sr_no);

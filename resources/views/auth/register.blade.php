@@ -12,7 +12,7 @@
         overflow-y: auto;
     }
     .dashboard-all-content-section {
-        margin-top: 0px !important; 
+        margin-top: 0px !important;
     }
 </style>
 @endpush
@@ -30,6 +30,7 @@
                 <div class="user-signin-account">
                     <form id="wizard" method="POST" class="frmRegistration" action="{{ route('register') }}">
                         @csrf
+                        <input type="hidden" name="plan" value="{{ request()->has('plan') ? request('plan') : 'Free' }}">
                         @include('auth.registration.step1')
                         @include('auth.registration.step2')
                         @include('auth.registration.step3')
@@ -39,7 +40,7 @@
         </div>
         <div class="col-md-6 d-flex align-items-center user-login-image-section">
             <img src="/img/PNG/Reports And Graphs 2-01.png" style="width: 100%">
-        </div>    
+        </div>
     </div>
 </div>
 @endsection
