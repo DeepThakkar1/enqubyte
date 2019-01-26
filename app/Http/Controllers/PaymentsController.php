@@ -30,8 +30,8 @@ class PaymentsController extends Controller
     	$details = Mojo::giveMePaymentDetails();
     	if($details->payment->status == 'Credit')
     	{
-    			$plan = PlanModel::where('name', 'All-in-one monthly')->first();
-    			$subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+    			$plan = PlanModel::where('name', $details->payment->purpose)->first();
+    			$subscription = auth()->user()->subscribeTo($plan, $plan->duration); // 30 days
 
     			return redirect('subscribed');
     	} else {
@@ -49,17 +49,37 @@ class PaymentsController extends Controller
 
     public function redirecting()
     {
-    	$plan = PlanModel::where('name', 'All-in-one monthly')->first();
+    	$plan = PlanModel::where('name', auth()->user()->plan)->first();
             if(env('APP_ENV') != 'local'){
                 $instamojoFormUrl =
-                    Mojo::giveMeFormUrl(auth()->user(), $plan->price, 'Monthly Subscription', '9922367414');
+                    Mojo::giveMeFormUrl(auth()->user(), $plan->price, $plan->name, '9922367414');
             } else {
-                $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+                $subscription = auth()->user()->subscribeTo($plan, $plan->duration); // 30 days
                 $instamojoFormUrl = '/subscribed';
             }
 
 			return view('payments.redirecting', compact('instamojoFormUrl'));
 
+    }
+
+    public function upgrade()
+    {
+        return view('payments.upgrade');
+    }
+
+     public function changePlan()
+    {
+        $plan = PlanModel::where('name', request('plan'))->first();
+            if(env('APP_ENV') != 'local'){
+                $instamojoFormUrl =
+                    Mojo::giveMeFormUrl(auth()->user(), $plan->price, $plan->name, '9922367414');
+            } else {
+                auth()->user()->subscriptions()->delete();
+                $subscription = auth()->user()->subscribeTo($plan, $plan->duration); // 30 days
+                $instamojoFormUrl = '/subscribed';
+            }
+
+            return view('payments.redirecting', compact('instamojoFormUrl'));
     }
 
     public function subscribed()
@@ -103,14 +123,14 @@ class PaymentsController extends Controller
     		flash('Your subscription was activated successfully!')->success();
     		return redirect('billing');
     	} else {
-			$plan = PlanModel::where('name', 'All-in-one monthly')->first();
+			$plan = $subscription->plan;
 
     		if(env('APP_ENV') != 'local'){
                 $instamojoFormUrl =
-                    Mojo::giveMeFormUrl(auth()->user(), $plan->price, 'Monthly Subscription', '9922367414');
+                    Mojo::giveMeFormUrl(auth()->user(), $plan->price, $plan->name, '9922367414');
                  return redirect($instamojoFormUrl);
             } else {
-                $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
+                $subscription = auth()->user()->subscribeTo($plan,  $plan->duration);
                 return redirect('subscribed');
             }
 

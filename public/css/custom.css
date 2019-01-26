@@ -988,3 +988,75 @@ table.dataTable>tbody>tr.child ul.dtr-details {
     display: block !important;
 }
 
+.pricing-table {
+    border-radius: 5px;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+
+
+.pricing-popular {
+    position: absolute;
+    top: 4px;
+    /* padding: 0; */
+    left: 36%;
+    background: #1B6DAC;
+    color: #fff;
+    padding: 5px;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 500;
+    padding-top: 3px;
+}
+
+.pricing-header {
+    margin-bottom: 50px
+}
+
+.pricing-header .xs-svg svg {
+    width: 133px;
+    height: 100px
+}
+
+.pricing-header h3 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-bottom: 50px
+}
+
+.pricing-header .pricing-price h2 {
+    color: #000000;
+    font-size: 32px;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 2px
+}
+
+.pricing-header .pricing-price span {
+    font-size: 0.8125rem;
+    letter-spacing: 3px
+}
+
+.pricing-body {
+    margin-bottom: 50px
+}
+
+
+
+.pricing-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pricing-list li {
+    font-size: 0.9375rem
+}
+
+.pricing-list li:not(:last-child) {
+    margin-bottom: 10px
+}

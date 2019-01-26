@@ -217,6 +217,8 @@ Route::get('reset', 'HomeController@reset');
 Route::get('setup', 'HomeController@showSetup');
 Route::post('setup', 'HomeController@setup');
 Route::get('redirecting', 'PaymentsController@redirecting');
+Route::get('/subscription/upgrade', 'PaymentsController@upgrade');
+Route::get('/subscription/changeplan', 'PaymentsController@changePlan');
 Route::get('subscribed', 'PaymentsController@subscribed');
 
 Route::post('/requestdemo','RequestDemoController@store');

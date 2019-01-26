@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('css')
-    
+
     <style type="text/css">
         #sidebar, .custom-dashboard-navbar {
             display: none;
@@ -30,8 +30,8 @@
                         </div>
                     @endif
 
-                    {!! __('Your account was verified successfully! We will redirect you to the payment in ') !!} <span id="seconds">5</span> {!! __('seconds ') !!}
-                    {{ __('If you do not redirect automatically') }}, <a style="color: blue;" 
+                    {!! __('We will redirect you to the payment in ') !!} <span id="seconds">5</span> {!! __('seconds ') !!}
+                    {{ __('If you do not redirect automatically') }}, <a style="color: blue;"
                     href="{{ $instamojoFormUrl }}">{{ __('click here to go to payment page') }}</a>.
                 </div>
             </div>

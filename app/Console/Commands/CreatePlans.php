@@ -157,7 +157,7 @@ class CreatePlans extends Command
             'duration' => 30, // in days
         ]);
 
-        $growth->features()->saveMany([
+        $enterprise->features()->saveMany([
                 new PlanFeatureModel([
                     'name' => 'Invoices Count',
                     'code' => 'invoices.count',
