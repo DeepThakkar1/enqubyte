@@ -232,3 +232,6 @@ Route::post('/admin/login', 'Admin\LoginController@login');
 Route::get('/admin/logout', 'Admin\LoginController@logout');
 Route::get('/admin/dashboard', 'Admin\DashboardController@index');
 Route::get('/admin/users', 'Admin\UsersController@index');
+
+
+Route::get('search', 'SearchController@index');

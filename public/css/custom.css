@@ -1062,3 +1062,10 @@ table.dataTable>tbody>tr.child ul.dtr-details {
 .pricing-list li:not(:last-child) {
     margin-bottom: 10px
 }
+
+.twitter-typeahead,
+    .tt-hint,
+    .tt-menu{
+         width: 445px ! important;
+         font-weight: normal;
+     }

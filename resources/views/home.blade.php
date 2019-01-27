@@ -67,18 +67,6 @@
     </div>
 
     <div class="row m-3">
-        <div class="col-xl-7 col-sm-7 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    @if(!$enquiriesCnt)
-                    <div class="chart-overlay">
-                        <p>This is a sample chart.</p>
-                    </div>
-                    @endif
-                    <canvas id="enquiriesPieChart" width="100%"></canvas>
-                </div>
-            </div>
-        </div>
         <div class="col-xl-5 col-sm-5 mb-3">
             <div class="card custom-today-followups">
                 <div class="card-header bg-light">
@@ -111,23 +99,23 @@
 
         </div>
     </div>
+    <div class="col-xl-7 col-sm-7 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    @if(!$enquiriesCnt)
+                    <div class="chart-overlay">
+                        <p>This is a sample chart.</p>
+                    </div>
+                    @endif
+                    <canvas id="enquiriesPieChart" width="100%"></canvas>
+                </div>
+            </div>
+        </div>
 </div>
 </div>
 
 
 <div class="row m-3">
-    <div class="col-xl-7 col-sm-7 mb-3">
-        <div class="card">
-            <div class="card-body">
-                @if(!$totalSale)
-                <div class="chart-overlay">
-                    <p>This is a sample chart.</p>
-                </div>
-                @endif
-                <canvas id="dailyLineChart" width="100%"></canvas>
-            </div>
-        </div>
-    </div>
     <div class="col-xl-5 col-sm-5 mb-3">
         <div class="card custome-due-invoice">
             <div class="card-header bg-light">
@@ -152,6 +140,19 @@
                 @else
                 <h4 class="p-3">No Due Invoices!</h4>
                 @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-7 col-sm-7 mb-3">
+        <div class="card">
+            <div class="card-body">
+                @if(!$totalSale)
+                <div class="chart-overlay">
+                    <p>This is a sample chart.</p>
+                </div>
+                @endif
+                <canvas id="dailyLineChart" width="100%"></canvas>
             </div>
         </div>
     </div>
