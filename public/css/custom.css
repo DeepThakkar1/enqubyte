@@ -1069,3 +1069,10 @@ table.dataTable>tbody>tr.child ul.dtr-details {
          width: 445px ! important;
          font-weight: normal;
      }
+
+
+ .twitter-typeahead .list-group-item:hover {
+    background: #fafafa !important;
+  }
+
+

@@ -16,6 +16,8 @@ class Vendor extends Model
         'company_id', 'store_id', 'name', 'phone', 'email', 'contact_person', 'address'
     ];
 
+    protected $appends = ['data_type', 'fullname', 'show_url', 'avatar'];
+
     public function company()
     {
         return $this->belongsTo(User::class, 'company_id');
@@ -34,5 +36,25 @@ class Vendor extends Model
     public function getTotalPaymentsAttribute()
     {
         return $this->purchases()->sum('grand_total');
+    }
+
+    public function getDataTypeAttribute()
+    {
+        return 'Vendors';
+    }
+
+    public function getFullnameAttribute()
+    {
+        return $this->name;
+    }
+
+    public function getShowUrlAttribute()
+    {
+        return '/vendors/' . $this->id;
+    }
+
+    public function  getAvatarAttribute()
+    {
+            return \Avatar::create($this->fullname)->setDimension(45, 45)->setFontSize(18)->toSvg();
     }
 }

@@ -298,7 +298,7 @@
                 name: 'results',
                 source: bloodhound,
                 display: function(data) {
-                    return data.name  //Input value to be set when you select a suggestion.
+                    return data.fullname  //Input value to be set when you select a suggestion.
                 },
                 templates: {
                     empty: [
@@ -308,7 +308,13 @@
                         '<div class="list-group search-results-dropdown mt-2">'
                     ],
                     suggestion: function(data) {
-                    return '<div style="font-weight:normal; margin-top:-10px ! important;" class="list-group-item"><a href="/visitors/' + data.id  + '">' + data.fname + ' '  + data.lname + '</a></div></div>'
+                    return '<div style="font-weight:normal;" class="list-group-item">\
+                    <a class="search-item d-flex align-items-center" href="' + data.show_url  + '">\
+                   '+ data.avatar +'\
+                    <div class="ml-3">\
+                        <div>' + data.fullname + '</div>\
+                        <div>In '+ data.data_type +'</div>\
+                    </div></a></div></div>'
                     }
                 }
             });

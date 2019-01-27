@@ -22,6 +22,8 @@ class Employee extends Model
         'password', 'remember_token',
     ];
 
+    protected $appends = ['data_type', 'fullname', 'show_url', 'avatar'];
+
     public function company()
     {
         return $this->belongsTo(User::class, 'company_id');
@@ -80,5 +82,20 @@ class Employee extends Model
     public function getTotalRemainingAttribute()
     {
         return $this->invoices()->sum('remaining_amount');
+    }
+
+    public function getDataTypeAttribute()
+    {
+        return 'Employees';
+    }
+
+    public function getShowUrlAttribute()
+    {
+        return '/employees/' . $this->id;
+    }
+
+    public function  getAvatarAttribute()
+    {
+            return \Avatar::create($this->fullname)->setDimension(45, 45)->setFontSize(18)->toSvg();
     }
 }

@@ -15,6 +15,8 @@ class Visitor extends Model
         'company_id', 'store_id', 'fname', 'lname', 'phone', 'email', 'address', 'is_customer'
     ];
 
+    protected $appends = ['data_type', 'fullname', 'show_url', 'avatar'];
+
     public function company()
     {
         return $this->belongsTo(User::class, 'company_id');
@@ -48,5 +50,27 @@ class Visitor extends Model
     public function getFullnameAttribute()
     {
         return $this->fname . ' ' . $this->lname;
+    }
+
+    public function getDataTypeAttribute()
+    {
+        if($this->is_customer)
+            return 'Customers';
+        else
+            return 'Visitors';
+    }
+
+    public function getShowUrlAttribute()
+    {
+        if($this->is_customer)
+            return '/customers/' . $this->id;
+        else
+            return '/visitors/' . $this->id;
+
+    }
+
+    public function  getAvatarAttribute()
+    {
+            return \Avatar::create($this->fullname)->setDimension(45, 45)->setFontSize(18)->toSvg();;
     }
 }
