@@ -34,7 +34,7 @@
                         </ul>
                     </div><!-- .pricing-body END -->
                     <div class="pricing-footer">
-                         @if(auth()->user()->activeSubscription()->plan->id == 1)
+                        @if(auth()->user()->activeSubscription()->plan->id == 1)
                             <a class="btn btn-outline-primary">Current Plan</a>
                         @else
                             <a href="/subscription/changeplan?plan=Free" class="btn btn-primary">Choose Plan</a>

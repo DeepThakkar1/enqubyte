@@ -7,7 +7,7 @@
                 <div class="col-lg-7 mx-auto">
                     <div class="call-to-action text-center action-style2">
                         <h2 class="content-title">Enhance your business with Enqubyte now</h2>
-                        <a href="/#pricing" class="btn cta-btn">Get Started</a>
+                        <a href="/register" class="btn cta-btn" style="font-size: 17px;font-weight: 500;">Get Started Free</a>
 
                     </div>
                 </div>

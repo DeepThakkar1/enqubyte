@@ -177,6 +177,9 @@
 		<!--For Plugins external css-->
 		<link rel="stylesheet" href="/assets/css/plugins.css" />
 
+    <!--Lightbox Plugin-->
+    <link rel="stylesheet" href="/assets/css/lity.min.css">
+
 		<!--Theme custom css -->
 		<link rel="stylesheet" href="/assets/css/style.css">
 
@@ -200,6 +203,9 @@
   src="https://www.facebook.com/tr?id=337171860463753&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Facebook Pixel Code -->
+
+ <script src="https://wchat.freshchat.com/js/widget.js"></script>
+
 
 	</head>
 
@@ -258,10 +264,19 @@
         <script src="assets/js/extensions/revolution.extension.video.min.js"></script>
         <script src="assets/js/skrollr.min.js"></script>
         <script src="assets/js/shuffle-letters.js"></script>
+        <script src="assets/js/zepto.js"></script>
+        <script src="assets/js/lity.min.js"></script>
         <script src="assets/js/main.js"></script>		<!-- End js file -->
         <script type="text/javascript">
           $('#flash-overlay-modal').modal();
         </script>
+
+        <script>
+        window.fcWidget.init({
+          token: "0907162f-f84e-4f91-ac13-828e8ef02122",
+          host: "https://wchat.freshchat.com"
+        });
+      </script>
 	</body>
 
 </html>

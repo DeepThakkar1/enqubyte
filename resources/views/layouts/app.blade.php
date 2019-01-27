@@ -28,6 +28,7 @@
     <link href="https://cdn.datatables.net/rowreorder/1.2.5/css/rowReorder.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 
+    <script src="https://wchat.freshchat.com/js/widget.js"></script>
 </head>
 <body>
     <div id="app" class="wrapper">
@@ -244,6 +245,35 @@
     @stack('bottom')
 
     @yield('scripts')
+
+
+    <script>
+        window.fcWidget.init({
+          token: "0907162f-f84e-4f91-ac13-828e8ef02122",
+          host: "https://wchat.freshchat.com"
+        });
+      </script>
+
+        @auth
+      <script>
+          // Make sure fcWidget.init is included before setting these values
+
+          // To set unique user id in your system when it is available
+          window.fcWidget.setExternalId("{{auth()->user()->username}}");
+
+          // To set user name
+          window.fcWidget.user.setFirstName("{{auth()->user()->fname}}");
+
+          // To set user email
+          window.fcWidget.user.setEmail("{{auth()->user()->email}}");
+
+          // To set user properties
+          window.fcWidget.user.setProperties({
+            plan: "{{ strtolower(auth()->user()->plan_name) }}",                 // meta property 1
+            status: "Active"                // meta property 2
+          });
+        </script>
+        @endauth
 
 </body>
 </html>

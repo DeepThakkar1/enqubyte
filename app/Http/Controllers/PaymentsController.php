@@ -49,7 +49,7 @@ class PaymentsController extends Controller
 
     public function redirecting()
     {
-    	$plan = PlanModel::where('name', auth()->user()->plan)->first();
+    	$plan = PlanModel::where('name', auth()->user()->plan_name)->first();
             if(env('APP_ENV') != 'local'){
                 $instamojoFormUrl =
                     Mojo::giveMeFormUrl(auth()->user(), $plan->price, $plan->name, '9922367414');

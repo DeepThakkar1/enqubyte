@@ -30,7 +30,7 @@
                 <div class="user-signin-account">
                     <form id="wizard" method="POST" class="frmRegistration" action="{{ route('register') }}">
                         @csrf
-                        <input type="hidden" name="plan" value="{{ request()->has('plan') ? request('plan') : 'Free' }}">
+                        <input type="hidden" name="plan_name" value="{{ request()->has('plan') ? request('plan') : 'Free' }}">
                         @include('auth.registration.step1')
                         @include('auth.registration.step2')
                         @include('auth.registration.step3')

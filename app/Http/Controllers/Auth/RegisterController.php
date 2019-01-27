@@ -45,6 +45,17 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+         $plan = PlanModel::where('name', request('plan'))->first();
+        return view('auth.register', compact('plan'));
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -57,6 +68,7 @@ class RegisterController extends Controller
             'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'company_name' => ['required', 'string'],
+            'plan_name' => ['required', 'string'],
             'company_username' => ['required', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'strong_password', 'confirmed'],
         ]);
@@ -86,11 +98,11 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        if(request('plan') == 'Free')
+        if($user->plan_name == 'Free')
         {
             $plan = PlanModel::where('name', 'Free')->first();
-            $subscription = auth()->user()->subscribeTo($plan, 30); // 30 days
-            flash('You are subscribed to Free plan and your subscription expires in ' . $subscription->remainingDays() . ' days', 'Account subscription activated')->success();
+            $subscription = auth()->user()->subscribeTo($plan, $plan->duration); // 30 days
+            flash("You are subscribed to Freemium account.")->success();
         }
          /*if(env('APP_ENV') != 'local'){
             $instamojoFormUrl = Mojo::giveMeFormUrl(auth()->user(), 1750, 'Monthly Subscription', '9922367414');

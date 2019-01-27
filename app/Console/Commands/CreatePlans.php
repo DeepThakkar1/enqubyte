@@ -51,7 +51,7 @@ class CreatePlans extends Command
             'description' => 'Includes all services and modules for a month',
             'price' => 0,
             'currency' => 'INR',
-            'duration' => 10000, // in days
+            'duration' => 365, // in days
         ]);
 
         $free->features()->saveMany([

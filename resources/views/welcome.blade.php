@@ -14,8 +14,8 @@
                     <p class="mb-0">Enqubyte is an all-in-one solution for managing a retail business at an ease providing features to handle enquiries, sales, purchases and employees as well as provide various reports that let's you analyse your business.</p>
                     <br>
                     <div class="get-started-section">
-                        <a href="#pricing" class="btn btn-primary custom-get-started-button mr-md-2" style="">Get Started</a>
-                        <button type="submit" class="btn custom-request-demo-button" style="" data-toggle="modal" data-target="#requestDemoModal">Request a Demo</button>
+                        <a href="/register" class="btn btn-primary custom-get-started-button mr-md-2" style="font-weight: normal;font-size: 17px;">Get Started Free</a>
+                        <a href="//www.youtube.com/watch?v=XSGBVzeBUbk" data-lity  class="btn custom-request-demo-button" style="font-weight: 500;font-size: 17px;">Watch Video</a>
 
                         <!-- <form method="GET" action="{{ route('register') }}">
                             <input type="text" class="get-started get-started-input" name="email" placeholder="E-mail Address">
@@ -243,7 +243,7 @@
                         </ul>
                     </div><!-- .pricing-body END -->
                     <div class="pricing-footer">
-                        <a href="/register?plan=Free" class="btn btn-primary">Choose Plan</a>
+                        <a href="/register?plan=Free" class="btn btn-primary">Get Started Free</a>
                     </div><!-- .pricing-footer END -->
                 </div><!-- .pricing-table END #svg-icon-1 end -->
             </div>
@@ -325,54 +325,7 @@
 </section><!-- agency pricing section end -->
 
 
-<!-- The Modal -->
-<div class="modal" id="requestDemoModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header border-bottom-0">
-        <h4 class="modal-title">Request a Demo</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <div class="row">
-            <div class="col-md-12 mx-auto">
-                <div class="from-wraper">
-                    <form action="/requestdemo" method="post" class="contact-form style2">
-                        @csrf
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="First Name *" name="fname"  class="form-control" required>
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Last Name *" name="lname" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <input type="email" placeholder="Email *" name="email" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="btn-wraper">
-                            <button type="submit" class="btn btn-primary w-100">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- Modal footer -->
-    <!--   <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div> -->
-
-    </div>
-  </div>
-</div>
 
 @include('landing.footer')
 

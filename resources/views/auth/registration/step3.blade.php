@@ -23,9 +23,9 @@
         @if(request()->has('plan') && request('plan') != 'Free')
             <div class="plan">
                 <div class="monthly">
-                    <h6>Your Plan</h6>
-                    <h2 style="color: #1B6DAB !important;"><s style="color: red;">&#8377; 1750</s> &nbsp; &#8377; 850 / month</h2>
-                    <p>You can cancel and get full refund anytime in 30-days</p>
+                    <h6>{{ $plan->name }} Plan</h6>
+                    <h2>&#8377; {{ $plan->price }} / month</h2>
+                    <a target="_blank" href="/#pricing">View Pricing Plans</a>
                 </div>
             </div>
         @endif

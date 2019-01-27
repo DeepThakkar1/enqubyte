@@ -13,7 +13,7 @@
                     <h2 class="banner-title">The centralised hub for all your business needs.</h2>
                     <br>
                     <div class="get-started-section">
-                        <a href="/register" class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;">Get Started</a>    
+                        <a href="/register" class="btn btn-primary" style="margin-top: -2px;margin-left: 5px;font-weight: 400;font-size: 17px;">Get Started Free</a>
                     </div>
                 </div><!-- .agency-banner-content END -->
             </div>
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div><!-- .container END -->
-   
+
 </section><!-- end agency banner section -->
 
 <hr>
@@ -35,12 +35,12 @@
         <div id="enquiries">
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Manage Enquiries</h2>
                     <p style="color: #000; font-size: 19px;">Enquiries and leads are the roots of retail or a service based business. Keeping a systematic track of all the enquiries is a key to high conversions.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-agenda-list">
@@ -89,12 +89,12 @@
         <div id="enquiries">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Manage Enquiries</h2>
                     <p style="color: #000; font-size: 19px;">Enquiries and leads are the roots of retail or a service based business. Keeping a systematic track of all the enquiries is a key to high conversions.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-care-img">
@@ -143,12 +143,12 @@
         <div id="stocks">
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Products and Stock</h2>
                     <p style="color: #000; font-size: 19px;">Inventory management is necessary to know when to sell what. Our product wise statistics and stock management system lets you manage your inventory with a breeze.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-care-img">
@@ -197,12 +197,12 @@
         <div id="customers">
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Customers</h2>
                     <p style="font-size: 19px; color: #000;">Customers are the core of business. The more you know about your customers, the more you are capable to making a better business.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-agenda-list">
@@ -251,12 +251,12 @@
         <div id="customers">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Customers</h2>
                     <p style="font-size: 19px; color: #000;">Customers are the core of business. The more you know about your customers, the more you are capable to making a better business.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-care-img">
@@ -305,12 +305,12 @@
         <div id="sales">
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Sales & Invoicing</h2>
                     <p style="font-size: 19px; color: #000;">Billing is always a mess when it comes to choose a proper digital method to create invoices. Enqubyte provides everything that invoicing needs.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-care-img">
@@ -361,12 +361,12 @@
         <div id="campaigns">
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Campaigns</h2>
                     <p style="color: #000; font-size: 19px;">SMS, WhatsApp and E-mail Marketing is always a trend. Reaching out to all your customers at once is easy with our Campaigns manager.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-agenda-list">
@@ -415,12 +415,12 @@
         <div id="campaigns">
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Campaigns</h2>
                     <p style="color: #000; font-size: 19px;">SMS, WhatsApp and E-mail Marketing is always a trend. Reaching out to all your customers at once is easy with our Campaigns manager.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-care-img">
@@ -458,7 +458,7 @@
                     </div><!-- .single-business-agenda END -->
                 </div><!-- .business-agenda-list END -->
             </div>
-            
+
         </div><!-- .row END -->
     </div>
     </div><!-- .container END -->
@@ -470,12 +470,12 @@
         <div id="payouts">
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Salesmen, Payouts & Incentives</h2>
                     <p style="color: #000; font-size: 19px;">As we said we have covered it all, we let you manage your salesmen their sale incentives as well as their payouts.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-care-img">
@@ -524,12 +524,12 @@
         <div id="reports">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Reports & Graphs</h2>
                     <p style="color: #000; font-size: 19px;">Analyse your business like a professional with various auto generated reports on our platform and make better business decisions.</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
             <div class="col-md-6">
                 <div class="business-agenda-list">
@@ -578,12 +578,12 @@
         <div id="reports & Graphs">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <div class="agency-section-title text-center section-title-style2">                    
+                <div class="agency-section-title text-center section-title-style2">
                     <h2 class="main-title">Reports & Graphs</h2>
                     <p>We work systematically to integrate corporate responsibility in our core business We work systematically to integrate corporate responsibility in our core business</p>
                 </div>
             </div>
-        </div><!-- .row end --> 
+        </div><!-- .row end -->
         <div class="row">
              <div class="col-md-6">
                 <div class="business-care-img">
@@ -621,7 +621,7 @@
                     </div><!-- .single-business-agenda END -->
                 </div><!-- .business-agenda-list END -->
             </div>
-           
+
         </div><!-- .row END -->
     </div>
     </div><!-- .container END -->

@@ -53,6 +53,7 @@
 	        </div>
 	    </div>
 
+	    @if(auth()->user()->hasActiveSubscription())
 	    <h3 style="margin-top: 40px;">Usage</h3>
 	    <hr>
 	    <div class="card mt-4">
@@ -63,7 +64,7 @@
 	                	<p class="pb-0 mb-0 text-dark" style="font-weight: 400;">Number of enquiries you have created.</p>
 	                </div>
 	                <div class="ml-auto p-2">
-	                	<h4>{{ auth()->user()->activeSubscription()->getUsageOf('enquiries.count') }}/ {{ auth()->user()->activeSubscription()->features()->code('enquiries.count')->first()->limit }}</h4>
+	                	<h4>{{ auth()->user()->activeSubscription()->getUsageOf('enquiries.count') }}/{{ auth()->user()->activeSubscription()->features()->code('enquiries.count')->first()->limit }}</h4>
 	                </div>
 	            </div>
 	        </div>
@@ -96,7 +97,7 @@
 	            </div>
 	        </div>
 	    </div>
-
+	    @endif
 	    @if(count($transactions))
 	    <h3 style="margin-top: 40px;">Invoices from Enqubyte</h3>
 

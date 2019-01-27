@@ -62,7 +62,7 @@
                         </li>
 
                         <li>
-                            <a href="/#pricing" class="nav-link btn btn-primary custom-register-btn text-white px-4 ml-2">Get Started</a>
+                            <a href="/register" class="nav-link btn btn-primary custom-register-btn text-white px-4 ml-2">Get Started Free</a>
                         </li>
                     </ul>
                 </div>
