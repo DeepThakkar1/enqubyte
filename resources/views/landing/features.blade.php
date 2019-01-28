@@ -1,5 +1,25 @@
 @extends('layouts.landing')
 
+@section('title', 'Enqubyte - Enquiries | Stocks | Customers | Sales | Invoicing')
+
+@section('meta-description', 'The centralised hub for all your business needs. Manage your Enquiries ,
+Products, Stock, Customers, Sales , Invoicing, Campaigns, Salesmen, Payouts & Incentives
+and generate daily Reports & Graphs.')
+
+@section('meta-keywords', 'Manage Enquiries , Invoicing, Customers, stock, sales, centralised hub for all
+your business needs, service based business, systematic track, Create detailed quotations,
+Create detailed estimates, Manage your daily follow-ups, One-click Invoicing, Products and
+Stock, Inventory management, stock management system, Maintain your list of products,
+Record your Purchase orders, Record your Purchase Bills, Manage your vendor payments,
+better business, estimate, Analyse customer, Ledgers, Statements, Record customer
+payments, Simple Tax Management, Tax Management, Campaigns, SMS, WhatsApp and
+Email Marketing, Track your Message clicks, target customers, Choose your target
+audience, Advanced WhatsApp Marketing, WhatsApp Marketing, Salesmen, Payouts,
+Incentives, Record incentives automatically, Easy incentive payouts, Reports, Graphs,
+Reports & Graphs, Profit & Loss Account, Customer, Vendor and Salesmen statements,
+Monthly reports, Enhance business, Enqubyte for business, software, erp software, crm,
+inventory management.')
+
 @section('content')
 
 @include('landing.navbar')
