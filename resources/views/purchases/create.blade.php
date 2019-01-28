@@ -16,7 +16,7 @@
                         <input type="text" name="sr_no" class="form-control" value="{{$purchaseSrno}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
-                        <label>Purchase Order Number</label>
+                        <label>Purchase Bill Number</label>
                         <input type="text" class="form-control" name="order_id" placeholder="Purchase Order Number">
                     </div>
                     <div class="col-sm-4 form-group">

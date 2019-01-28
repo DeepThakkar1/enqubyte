@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Purchase Order P/O-00{{$purchaseOrder->sr_no}}</title>
+    <title>Purchase Order P/B-00{{$purchaseOrder->sr_no}}</title>
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/print.css')}}">
 </head>
@@ -37,14 +37,14 @@
                     <table>
                         <tr>
                             <td>
-                                <h5 style="margin: 0">Purchase Order to</h5>
+                                <h5 style="margin: 0">Purchase Bill From</h5>
                                 {{$purchaseOrder->vendor->name}}<br>
                                 {{$purchaseOrder->vendor->address ? $purchaseOrder->vendor->address : '--'}}<br>
                                 {{$purchaseOrder->vendor->phone ? $purchaseOrder->vendor->phone : '--'}}<br>
                                 {{$purchaseOrder->vendor->email ? $purchaseOrder->vendor->email : '--'}}
                             </td>
                             <td class="text-right">
-                                <b>P/O Number:</b> P/O-00{{$purchaseOrder->sr_no}}<br>
+                                <b>P/B Number:</b> P/B-00{{$purchaseOrder->sr_no}}<br>
                                 <b>Purchase Date:</b> {{$purchaseOrder->purchase_date}}<br>
                                 <b>Payment Due Date:</b> {{$purchaseOrder->due_date}}<br>
                                 <h5 class="dueAmount"><b>Amount Due (INR) : </b> &#8377; {{number_format($purchaseOrder->remaining_amount)}}</h5>

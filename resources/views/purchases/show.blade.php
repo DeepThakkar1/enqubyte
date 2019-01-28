@@ -6,7 +6,7 @@
 <div class="container-fluid pl-0 pr-0 ml-0 mr-0">
     <div class="headline-contents">
         <h2 class="d-inline-block headline-content">
-            <a href="/purchases" class="mr-1"><i class="fa fa-arrow-left"></i></a> Purchase Order
+            <a href="/purchases" class="mr-1"><i class="fa fa-arrow-left"></i></a> Purchase Bill
         </h2>
         <div class="float-right">
             <div class="btn-toolbar d-inline-block" role="toolbar">
@@ -83,7 +83,7 @@
         <div class="card-body">
             <div class="d-flex p-md-3">
                 <div class="px-md-4">
-                    <h3 class="text-size-heading">P/O-00{{$purchaseOrder->sr_no}}</h3>
+                    <h3 class="text-size-heading">P/B-00{{$purchaseOrder->sr_no}}</h3>
                     <p class="purchaes-order-record-payment">Created : {{ $purchaseOrder->created_at->diffForHumans() }}</p>
                 </div>
                 <div class="ml-auto p-2">
@@ -119,7 +119,7 @@
                     <div class="col-sm-4 text-md-right">
                         <!-- <h6 class="mb-3">Bill To:</h6> -->
                         <div>
-                            <strong>P/O Number : </strong> {{$purchaseOrder->sr_no}}
+                            <strong>P/B Number : </strong> {{$purchaseOrder->sr_no}}
                         </div>
                         <div><strong>Invoice Date : </strong> {{$purchaseOrder->purchase_date}}</div>
                         <div><strong>Payment Due : </strong> {{$purchaseOrder->due_date}}</div>
@@ -263,7 +263,7 @@
                             {{$purchaseOrder->vendor->email ? $purchaseOrder->vendor->email : '--'}}
                         </td>
                         <td class="text-md-right">
-                            <b>P/O Number:</b> P/O-00{{$purchaseOrder->sr_no}}<br>
+                            <b>P/B Number:</b> P/B-00{{$purchaseOrder->sr_no}}<br>
                             <b>Purchase Date:</b> {{$purchaseOrder->purchase_date}}<br>
                             <b>Payment Due Date:</b> {{$purchaseOrder->due_date}}<br>
                             <h5 class="dueAmount"><b>Amount Due (INR) : </b> &#8377; {{number_format($purchaseOrder->remaining_amount)}}</h5>

@@ -17,7 +17,7 @@
                         <input type="text" class="form-control" value="{{$purchaseOrder->sr_no}}" readonly>
                     </div>
                     <div class="col-sm-4 form-group">
-                        <label>Purchase Order Number</label>
+                        <label>Purchase Bill Number</label>
                         <input type="text" name="order_id" class="form-control" value="{{$purchaseOrder->order_id}}">
                     </div>
                     <div class="col-sm-4 form-group">

@@ -7,7 +7,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Enqubyte - Your business assistant</title>
 
     <title>@yield('title', 'Enqubyte - Your business assistant')</title>
 

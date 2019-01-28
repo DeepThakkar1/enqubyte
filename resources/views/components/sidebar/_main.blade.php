@@ -43,7 +43,7 @@
                             <a href="/sales/invoices">{{ __('Invoices') }}</a>
                         </li>
                         <li class="{{ request()->is('purchases*') ? 'active' : ''}}">
-                            <a href="/purchases">{{ __('Purchase Orders') }}</a>
+                            <a href="/purchases">{{ __('Purchase Bills') }}</a>
                         </li>
                     </ul>
                 </li>
